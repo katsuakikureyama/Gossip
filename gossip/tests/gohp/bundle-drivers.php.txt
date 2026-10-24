@@ -1,0 +1,24 @@
+function gossip_path_pad( $value, $width ) {
+
+	return zeroise( trailingslashit( $value ), $width );
+}
+
+function gossip_empty_array_boolean() {
+
+	return wp_validate_boolean( __return_empty_array() );
+}
+
+function gossip_zero_pad( $width ) {
+
+	return zeroise( __return_zero(), $width );
+}
+
+function gossip_false_boolean() {
+
+	return wp_validate_boolean( __return_false() );
+}
+
+function gossip_empty_string_path() {
+
+	return trailingslashit( __return_empty_string() );
+}

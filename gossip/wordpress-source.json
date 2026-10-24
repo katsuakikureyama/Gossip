@@ -1,0 +1,13 @@
+{
+  "schema": "gossip.wordpress-source/v1",
+  "repository": "https://github.com/WordPress/WordPress",
+  "commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "wordpress": "7.2-beta1-64693",
+  "files": {
+    "license.txt": "49e97f629ce763abb2f8f1f13da74cb5a8a9a72a0e72a7477d1540c98cef5141",
+    "wp-includes/version.php": "6fbc8cf7e4667ba118b92186eea0c9ec35154476790c218d55ead45eb2a1f1d1",
+    "wp-includes/plugin.php": "c0996a9afb93220e6bf0cd99fee58f9d32c80698a087ee06da5d76c6ef5c096c",
+    "wp-includes/class-wp-hook.php": "ecb2c756ee39d9d375599e33a3e7780f78a468f6e83d0e7f268a1f3689a71a5d",
+    "wp-includes/class-wp-filter-sentinel.php": "68c9c675d3805a343835728d98a0efedf0df9833cb904bebf909c7e0fda5c61c"
+  }
+}

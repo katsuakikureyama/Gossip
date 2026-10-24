@@ -34,8 +34,9 @@ the same change set.
 ## Scope and evidence
 
 The shared `internal/phporacle` helper applies this admission process to all
-Gossip Docker PHP oracles: the hook comparison and the four original-source
-GoHP units (constant/array returns, slash helpers, Boolean validation and zeroise). Each
+Gossip Docker PHP oracles: the hook comparison, five standalone original-source
+GoHP units (constant/array returns, slash helpers, Boolean validation, zeroise and
+newline preservation), and the combined-helper experiment. Each
 unit retains its own WordPress excerpt, fixture and behavior contract. The
 current unified compiler pin is `4e1b5abfe019ec121e13d85e99e51c206e765533`,
 with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`; using one
@@ -50,6 +51,9 @@ it has its own [execution record](evidence/zeroise-helper-2026-10-25.md).
 The later [combined helper unit](helper-bundle-unit.md) reuses the same image,
 admission guard and compiler as zeroise, with a separate 22-case integration
 configuration. This does not alter the standalone unit pins or policy.
+The later [newline-preservation unit](newline-helper-unit.md) also uses this
+same admission policy and approved image. Its new compiler pin and 16-case
+corpus have separate evidence; the earlier units are not repinned.
 
 Historical records executed with PHP 8.3.13 remain retained as historical
 evidence. They are useful provenance, but are below the current native floor

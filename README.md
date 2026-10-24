@@ -39,6 +39,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   into one executable. Its new 22-case integration corpus and
   [execution record](docs/evidence/helper-bundle-2026-10-25.md) are separate
   from the standalone results; this still does not start WordPress core.
+  A subsequent [newline-preservation unit](docs/newline-helper-unit.md)
+  targets the original callback helper used by `wpautop` through bounded
+  three-string replacement. Its separate
+  [execution record](docs/evidence/newline-helper-2026-10-25.md) does not claim
+  support for `wpautop`, regex callbacks or paragraph rendering as a whole.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -80,6 +85,9 @@ PHP 8.3.13 records remain historical evidence, not a substitute for this run.
 The fourth, zeroise unit requires its own newer compiler pin from
 [`zeroise-helper.json`](gossip/tests/gohp/zeroise-helper.json); it does not
 repin or rerun the three unchanged units.
+The newline-preservation unit additionally needs the pin in
+[`newline-helper.json`](gossip/tests/gohp/newline-helper.json). Earlier standalone
+and combined-unit pins remain separate and unchanged.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

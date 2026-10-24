@@ -2,7 +2,32 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: one combined helper executable
+## Latest: newline-preservation helper
+
+- Branch `codex/gohp-newline-helper`, stacked on Draft #10; test commit
+  `ff02bbd05a0dd5b75940724cda2352622c543030` translates unchanged
+  `_autop_newline_preservation_helper()` from formatting.php lines 811–813.
+- Compiler/runtime `dcb72c64d029c7a08a0e94256723ff4076209758`
+  ([GoHP Draft #21](https://github.com/katsuakikureyama/GoHP/pull/21), stacked on #18)
+  adds three-actual-string `str_replace`, with empty-search handling and static/
+  runtime type guards. No array forms, count references, coercion or regex.
+  Catalog: 33 entries / 83 checks. Other GoHP stacks/normal checkout unchanged.
+- All 16 string-list inputs matched actual string return type/value against
+  PHP 8.3.36 and expectations: 7.61s (package 7.789s), empty stderr/exit 0.
+  The first command selected no test due to a wrong name and is not PASS evidence;
+  the correct selector ran once. Vet PASS. No code changes or reruns after PASS.
+- Compiler local runtime/codegen/catalog tests and vet PASS; fixed native
+  [CI 40119695048](https://github.com/katsuakikureyama/GoHP/actions/runs/40119695048)
+  PASSed all 83 checks on Go 1.23.12 / actual PHP 8.3.36, clean checkout tree
+  identical to the compiler pin. Exact commands/revisions and hashes are in the
+  [execution record](evidence/newline-helper-2026-10-25.md), with the
+  [bounded contract](newline-helper-unit.md).
+- This is an additional independent helper, not the full `wpautop` paragraph
+  renderer, regex/callback execution, an eleven-function bundle or core startup.
+  Earlier standalone/bundle pins and evidence remain untouched. Draft only,
+  no merge/deploy/release/license decision; local capability WebMCP-excluded.
+
+## Previous: one combined helper executable
 
 - Branch `codex/gohp-helper-bundle`, stacked on Draft #9. Test commit
   `577791ff93543d8b5abdc1efbc47af99f4bf407c` bundles the ten unchanged originals
@@ -50,7 +75,7 @@ New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 `gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
-admitted. This applies to hooks, all four standalone GoHP units and the combined
+admitted. This applies to hooks, all five standalone GoHP units and the combined
 helper experiment.
 See [policy](php-oracle-policy.md) and the
 [current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).

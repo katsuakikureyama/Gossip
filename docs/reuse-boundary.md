@@ -16,7 +16,7 @@ specific source, platform and behavioral evidence exists.
 
 ## Docker PHP oracle admission — 2026-10-25 JST
 
-New Gossip Docker-oracle runs for the hook comparison and all four GoHP units
+New Gossip Docker-oracle runs for hooks, standalone units and the combined unit
 use only the official PHP 8.3 image pinned at
 `php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd`.
 The shared oracle helper verifies that exact image allowlist before a container
@@ -41,6 +41,12 @@ four units and two compiler pins are not a combined WordPress program or general
 formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
+
+The newer [newline-preservation unit](newline-helper-unit.md) adds an independent
+original callback-helper observation using a three-string `str_replace` subset.
+Its [separate result](evidence/newline-helper-2026-10-25.md) does not translate
+the enclosing `wpautop` renderer, regex/callback execution or full HTML behavior.
+The earlier ten-function bundle and standalone evidence retain their old pins.
 
 The subsequent [combined helper experiment](helper-bundle-unit.md) translates
 the ten selected originals together, adding five owned composition drivers and

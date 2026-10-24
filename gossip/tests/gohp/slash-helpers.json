@@ -1,0 +1,14 @@
+{
+  "schema": "gossip.wordpress-slash-unit/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "gohp_commit": "ceee0fc71e1e7947f1c78f1dd18875236b9a180b",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a",
+  "php_target": "8.3",
+  "fragments": [
+    {"name": "trailingslashit", "first_line": 2883, "last_line": 2885},
+    {"name": "untrailingslashit", "first_line": 2898, "last_line": 2900}
+  ]
+}

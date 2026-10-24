@@ -1,0 +1,15 @@
+[
+  {"name":"empty","input":"","untrailing":"","trailing":"/"},
+  {"name":"slash_only","input":"/","untrailing":"","trailing":"/"},
+  {"name":"backslash_only","input":"\\","untrailing":"","trailing":"/"},
+  {"name":"mixed_only","input":"/\\/\\","untrailing":"","trailing":"/"},
+  {"name":"no_suffix","input":"plain","untrailing":"plain","trailing":"plain/"},
+  {"name":"leading_and_repeated_suffix","input":"/leading///\\/","untrailing":"/leading","trailing":"/leading/"},
+  {"name":"windows_path","input":"C:\\path\\to\\folder\\","untrailing":"C:\\path\\to\\folder","trailing":"C:\\path\\to\\folder/"},
+  {"name":"internal_slashes","input":"a/b\\c/d\\e","untrailing":"a/b\\c/d\\e","trailing":"a/b\\c/d\\e/"},
+  {"name":"trailing_space_and_tab","input":"keep/\\ \t","untrailing":"keep/\\ \t","trailing":"keep/\\ \t/"},
+  {"name":"japanese_suffix","input":"こんにちは/\\","untrailing":"こんにちは","trailing":"こんにちは/"},
+  {"name":"url_looking_suffix","input":"https://example.test/a/b/?q=x/\\","untrailing":"https://example.test/a/b/?q=x","trailing":"https://example.test/a/b/?q=x/"},
+  {"name":"embedded_nul_suffix","input":"nul\u0000value/\\","untrailing":"nul\u0000value","trailing":"nul\u0000value/"},
+  {"name":"embedded_lf_suffix","input":"line1\nline2/\\","untrailing":"line1\nline2","trailing":"line1\nline2/"}
+]

@@ -1,0 +1,13 @@
+{
+  "schema": "gossip.autop-newline-observation/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "gohp_commit": "dcb72c64d029c7a08a0e94256723ff4076209758",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "fragments": [
+    {"name": "_autop_newline_preservation_helper", "first_line": 811, "last_line": 813}
+  ]
+}

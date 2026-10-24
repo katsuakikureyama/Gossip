@@ -1,0 +1,44 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+)
+
+type typedObservation struct {
+	Name  string `json:"name"`
+	Type  string `json:"type"`
+	Value any    `json:"value"`
+}
+
+func normalizeTypedObservation(name string, value any) typedObservation {
+	switch value := value.(type) {
+	case bool:
+		return typedObservation{Name: name, Type: "bool", Value: value}
+	case int64:
+		return typedObservation{Name: name, Type: "int", Value: value}
+	case string:
+		return typedObservation{Name: name, Type: "string", Value: value}
+	case nil:
+		return typedObservation{Name: name, Type: "null", Value: nil}
+	default:
+		panic("unsupported generated return type")
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It observes the exact
+// generated functions without replacing their implementation.
+func init() {
+	observations := []typedObservation{
+		normalizeTypedObservation("true", F___return_true()),
+		normalizeTypedObservation("false", F___return_false()),
+		normalizeTypedObservation("zero", F___return_zero()),
+		normalizeTypedObservation("null", F___return_null()),
+		normalizeTypedObservation("empty_string", F___return_empty_string()),
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	// The echo-based generated main is exercised separately by the harness.
+	os.Exit(0)
+}

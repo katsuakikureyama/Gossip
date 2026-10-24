@@ -13,6 +13,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"reflect"
 	"regexp"
 	"strings"
 	"testing"
@@ -35,6 +36,7 @@ type unitPin struct {
 	PHPImage        string     `json:"php_image"`
 	PHPTarget       string     `json:"php_target"`
 	Fragments       []fragment `json:"fragments"`
+	Rejected        fragment   `json:"rejected_fragment"`
 	Expected        string     `json:"expected_stdout"`
 }
 
@@ -60,6 +62,27 @@ func write(t *testing.T, path string, data []byte) {
 	if err := os.WriteFile(path, data, 0644); err != nil {
 		t.Fatal(err)
 	}
+}
+
+func extract(t *testing.T, lines [][]byte, part fragment) []byte {
+	t.Helper()
+	if part.First < 1 || part.Last < part.First || part.Last > len(lines) {
+		t.Fatal("invalid fragment range")
+	}
+	excerpt := bytes.Join(lines[part.First-1:part.Last], nil)
+	if !bytes.HasPrefix(excerpt, []byte("function "+part.Name+"() {")) || !bytes.HasSuffix(excerpt, []byte("}\n")) {
+		t.Fatal("fragment does not contain the expected complete original function")
+	}
+	return excerpt
+}
+
+func jsonObservation(t *testing.T, data []byte) any {
+	t.Helper()
+	var observation any
+	if err := json.Unmarshal(data, &observation); err != nil {
+		t.Fatalf("invalid observation: %v: %s", err, data)
+	}
+	return observation
 }
 
 // Only immutable committed GoHP files are exported. The caller's working tree,
@@ -179,19 +202,19 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	bundle.WriteString("<?php\n")
 	var selections []map[string]any
 	for _, part := range pin.Fragments {
-		if part.First < 1 || part.Last < part.First || part.Last > len(lines) {
-			t.Fatal("invalid fragment range")
-		}
-		excerpt := bytes.Join(lines[part.First-1:part.Last], nil)
-		if !bytes.HasPrefix(excerpt, []byte("function "+part.Name+"() {")) || !bytes.HasSuffix(excerpt, []byte("}\n")) {
-			t.Fatal("fragment does not contain the expected complete original function")
-		}
+		excerpt := extract(t, lines, part)
 		selections = append(selections, map[string]any{"name": part.Name, "original_first_line": part.First,
 			"original_last_line": part.Last, "bundle_first_line": bytes.Count(bundle.Bytes(), []byte("\n")) + 1, "sha256": digest(excerpt)})
 		bundle.Write(excerpt) // No rewriting of whitespace, comments or function body.
 		bundle.WriteByte('\n')
 	}
+	definitions := append([]byte(nil), bundle.Bytes()...)
 	bundle.Write(read(t, "calls.php")) // Owned observation calls, not WordPress implementation.
+	if pin.Rejected.Name != "__return_empty_array" {
+		t.Fatal("unexpected rejection fixture")
+	}
+	rejectedExcerpt := extract(t, lines, pin.Rejected)
+	rejectedSource := append([]byte("<?php\n"), rejectedExcerpt...)
 
 	workspace := t.TempDir()
 	source := filepath.Join(workspace, "gohp")
@@ -204,6 +227,12 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	}
 	archiveHash := exportGoHP(t, repository, pin.GoHPCommit, source)
 	write(t, filepath.Join(input, "unit.php"), bundle.Bytes())
+	write(t, filepath.Join(input, "helpers.php"), definitions)
+	write(t, filepath.Join(input, "empty-array.php"), rejectedSource)
+	phpObserver := read(t, "typed-observer.php")
+	goObserver := read(t, "typed-observer.go.txt")
+	write(t, filepath.Join(input, "typed-observer.php"), phpObserver)
+	write(t, filepath.Join(candidate, "typed_observer.go"), goObserver)
 	write(t, filepath.Join(input, "wordpress-license.txt"), read(t, "../../../license.txt"))
 	buildArgs := []string{"--mount", "type=bind,source=" + source + ",target=/gohp,readonly",
 		"--mount", "type=bind,source=" + input + ",target=/input,readonly",
@@ -249,8 +278,44 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	if len(actualErr) != 0 || len(expectedErr) != 0 || !bytes.Equal(actual, expected) || string(expected) != pin.Expected {
 		t.Fatalf("status=differential_failed: candidate=%q stderr=%q PHP=%q stderr=%q fixture=%q", actual, actualErr, expected, expectedErr, pin.Expected)
 	}
+	// Compile a separate probe beside the unchanged generated source. The probe
+	// observes actual generated return values, not the echo-coerced output of main.
+	_, typedCompileErr := container(t, "typed_build", append(buildArgs, "--entrypoint=go", pin.GoImage,
+		"build", "-trimpath", "-o", "/candidate/typed-program", "/candidate/main.go", "/candidate/typed_observer.go")...)
+	if len(typedCompileErr) != 0 {
+		t.Fatalf("unexpected typed build stderr: %s", typedCompileErr)
+	}
+	typedGo, typedGoErr := container(t, "typed_candidate", "--mount", "type=bind,source="+filepath.Join(candidate, "typed-program")+",target=/program,readonly",
+		"--entrypoint=/program", pin.GoImage)
+	typedPHP, typedPHPErr := container(t, "typed_php", "--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=php", pin.PHPImage,
+		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "/input/typed-observer.php")
+	observed := jsonObservation(t, typedGo)
+	if len(typedGoErr) != 0 || len(typedPHPErr) != 0 || !reflect.DeepEqual(observed, jsonObservation(t, typedPHP)) ||
+		!reflect.DeepEqual(observed, jsonObservation(t, read(t, "typed-expected.json"))) {
+		t.Fatalf("status=differential_failed: typed Go=%s stderr=%s PHP=%s stderr=%s", typedGo, typedGoErr, typedPHP, typedPHPErr)
+	}
+	// Exercise one unsupported ORIGINAL neighbor; never rewrite array() to []
+	// merely to satisfy the compiler. First prove the extracted PHP unit is valid.
+	arrayPHP, arrayErr := container(t, "empty_array_php", "--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=php", pin.PHPImage,
+		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "-r",
+		`require '/input/empty-array.php'; $value = __return_empty_array(); echo json_encode(['type' => get_debug_type($value), 'value' => $value], JSON_THROW_ON_ERROR), "\n";`)
+	if len(arrayErr) != 0 || !reflect.DeepEqual(jsonObservation(t, arrayPHP), jsonObservation(t, []byte(`{"type":"array","value":[]}`))) {
+		t.Fatalf("original empty-array PHP observation failed: %s %s", arrayPHP, arrayErr)
+	}
+	diagnostic, rejectErr := container(t, "rejection_check", append(buildArgs, "--entrypoint=sh", pin.GoImage, "-eu", "-c", `
+status=0
+/candidate/gohp -in /input/empty-array.php -out /candidate/rejected.go -php-version 8.3 -report /candidate/rejected.json > /candidate/rejected.stdout 2> /candidate/rejected.stderr || status=$?
+test "$status" -eq 1
+test ! -e /candidate/rejected.go
+test ! -e /candidate/rejected.json
+test ! -s /candidate/rejected.stdout
+cat /candidate/rejected.stderr
+`)...)
+	if len(rejectErr) != 0 || string(diagnostic) != "PHP004 line 3: unsupported function array\n" {
+		t.Fatalf("unexpected rejection diagnostic: %q stderr=%q", diagnostic, rejectErr)
+	}
 	evidence := map[string]any{
-		"schema": "gossip.translation-observation/v1", "status": "differential_pass",
+		"schema": "gossip.translation-observation/v2", "status": "differential_pass",
 		"wordpress_commit": pin.WordPressCommit, "source_path": pin.SourcePath, "source_sha256": pin.SourceHash,
 		"fragments": selections, "bundle_sha256": digest(bundle.Bytes()), "gohp_commit": pin.GoHPCommit,
 		"gohp_archive_sha256": archiveHash, "go_image": pin.GoImage, "php_image": pin.PHPImage,
@@ -259,7 +324,14 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 		"generated_sha256": digest(generated), "report_sha256": digest(reportBytes),
 		"binary_sha256": digest(read(t, filepath.Join(candidate, "program"))), "php_target": pin.PHPTarget,
 		"stdout": string(actual), "stderr": "", "exit_code": 0,
-		"scope": "five extracted, unchanged constant-return helpers; stdout/empty stderr/exit only; not whole-file translation or return-type equivalence",
+		"typed_observations": observed, "typed_stderr": "", "typed_exit_code": 0,
+		"definitions_sha256": digest(definitions), "php_observer_sha256": digest(phpObserver), "go_observer_sha256": digest(goObserver),
+		"typed_binary_sha256": digest(read(t, filepath.Join(candidate, "typed-program"))),
+		"rejected_unit": map[string]any{"name": pin.Rejected.Name, "status": "rejected", "original_first_line": pin.Rejected.First,
+			"original_last_line": pin.Rejected.Last, "excerpt_sha256": digest(rejectedExcerpt), "bundle_sha256": digest(rejectedSource),
+			"php_observation": jsonObservation(t, arrayPHP), "php_exit_code": 0, "php_stderr": "", "compiler_exit_code": 1,
+			"compiler_diagnostic": string(diagnostic), "generated_artifacts": false},
+		"scope": "five unchanged constant-return helpers: observed scalar types/values, stdout and successful exit; original empty-array helper explicitly rejected; not whole-file/core compatibility",
 	}
 	encoded, err := json.Marshal(evidence)
 	if err != nil {

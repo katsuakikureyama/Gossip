@@ -9,10 +9,10 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
-	"regexp"
 	"testing"
 	"time"
 
+	"github.com/katsuakikureyama/Gossip/gossip/internal/phporacle"
 	"github.com/katsuakikureyama/Gossip/gossip/pkg/pluginsdk"
 )
 
@@ -65,8 +65,8 @@ func TestWordPressHookDifferential(t *testing.T) {
 	if image == "" {
 		t.Skip("set GOSSIP_PHP_RUNNER_IMAGE to the documented, already pulled PHP runner image digest")
 	}
-	if !regexp.MustCompile(`^wordpress@sha256:[0-9a-f]{64}$`).MatchString(image) {
-		t.Fatal("PHP runner must use an immutable official WordPress image digest; its bundled WordPress is not used")
+	if err := phporacle.ValidateImage(image); err != nil {
+		t.Fatalf("PHP runner image rejected: %v", err)
 	}
 	pin, sourceFiles := readPinnedSource(t)
 	stagedSource := stagePinnedSource(t, sourceFiles)
@@ -91,12 +91,14 @@ func TestWordPressHookDifferential(t *testing.T) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 45*time.Second)
 	defer cancel()
-	command := exec.CommandContext(ctx, "docker", "run", "--rm", "--pull=never",
+	args := []string{"run", "--rm", "--pull=never",
 		"--network=none", "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges",
 		"--user=65532:65532", "--memory=128m", "--pids-limit=32", "--cpus=1",
-		"--mount", "type=bind,source="+dir+",target=/fixtures,readonly",
-		"--mount", "type=bind,source="+stagedSource+",target=/wordpress,readonly",
-		"--entrypoint=php", image, "/fixtures/hooks-oracle.php")
+		"--mount", "type=bind,source=" + dir + ",target=/fixtures,readonly",
+		"--mount", "type=bind,source=" + stagedSource + ",target=/wordpress,readonly",
+		"--entrypoint=php", image}
+	args = append(args, phporacle.ScriptArgs("/fixtures/hooks-oracle.php")...)
+	command := exec.CommandContext(ctx, "docker", args...)
 	output, err := command.CombinedOutput()
 	if err != nil {
 		t.Fatalf("WordPress oracle: %v\n%s", err, output)
@@ -113,6 +115,9 @@ func TestWordPressHookDifferential(t *testing.T) {
 	}
 	if oracle.Schema != "gossip.hook-observation/v1" || oracle.WordPress != pin.WordPress {
 		t.Fatalf("unexpected oracle schema/version: %s / %s", oracle.Schema, oracle.WordPress)
+	}
+	if err := phporacle.ValidateVersion(oracle.PHP); err != nil {
+		t.Fatalf("PHP runner version rejected: %v", err)
 	}
 	if !reflect.DeepEqual(oracle.SourceFiles, pin.Files) {
 		t.Fatal("PHP did not observe the pinned fork source files")

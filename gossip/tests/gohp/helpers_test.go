@@ -18,6 +18,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/katsuakikureyama/Gossip/gossip/internal/phporacle"
 )
 
 type fragment struct {
@@ -179,9 +181,10 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	if pin.Schema != "gossip.wordpress-unit/v1" || pin.SourcePath != "wp-includes/functions.php" || len(pin.Fragments) != 6 || pin.PHPTarget != "8.3" ||
 		!regexp.MustCompile(`^[0-9a-f]{40}$`).MatchString(pin.GoHPCommit) ||
 		!regexp.MustCompile(`^golang@sha256:[0-9a-f]{64}$`).MatchString(pin.GoImage) ||
-		!regexp.MustCompile(`^wordpress@sha256:[0-9a-f]{64}$`).MatchString(pin.PHPImage) {
+		phporacle.ValidateImage(pin.PHPImage) != nil {
 		t.Fatal("invalid unit pin")
 	}
+	phpVersion := requirePHPOracle(t, pin.PHPImage)
 	// Tie this unit to the fork baseline as well as to the whole original file.
 	var baseline struct {
 		Commit string `json:"commit"`
@@ -268,8 +271,7 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	t.Log("status=compiled; same pinned GoHP runtime; not yet a compatibility result")
 	actual, actualErr := container(t, "candidate_runtime", "--mount", "type=bind,source="+filepath.Join(candidate, "program")+",target=/program,readonly",
 		"--entrypoint=/program", pin.GoImage)
-	expected, expectedErr := container(t, "php_oracle", "--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=php", pin.PHPImage,
-		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "/input/unit.php")
+	expected, expectedErr := runPHPOracle(t, "php_oracle", pin.PHPImage, input, "/input/unit.php")
 	if len(actualErr) != 0 || len(expectedErr) != 0 || !bytes.Equal(actual, expected) || string(expected) != pin.Expected {
 		t.Fatalf("status=differential_failed: candidate=%q stderr=%q PHP=%q stderr=%q fixture=%q", actual, actualErr, expected, expectedErr, pin.Expected)
 	}
@@ -282,8 +284,7 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 	}
 	typedGo, typedGoErr := container(t, "typed_candidate", "--mount", "type=bind,source="+filepath.Join(candidate, "typed-program")+",target=/program,readonly",
 		"--entrypoint=/program", pin.GoImage)
-	typedPHP, typedPHPErr := container(t, "typed_php", "--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=php", pin.PHPImage,
-		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "/input/typed-observer.php")
+	typedPHP, typedPHPErr := runPHPOracle(t, "typed_php", pin.PHPImage, input, "/input/typed-observer.php")
 	observed := jsonObservation(t, typedGo)
 	if len(typedGoErr) != 0 || len(typedPHPErr) != 0 || !reflect.DeepEqual(observed, jsonObservation(t, typedPHP)) ||
 		!reflect.DeepEqual(observed, jsonObservation(t, read(t, "typed-expected.json"))) {
@@ -294,6 +295,7 @@ func TestOriginalWordPressReturnHelpers(t *testing.T) {
 		"wordpress_commit": pin.WordPressCommit, "source_path": pin.SourcePath, "source_sha256": pin.SourceHash,
 		"fragments": selections, "bundle_sha256": digest(bundle.Bytes()), "gohp_commit": pin.GoHPCommit,
 		"gohp_archive_sha256": archiveHash, "go_image": pin.GoImage, "php_image": pin.PHPImage,
+		"php_version": phpVersion, "php_minimum": phporacle.Minimum,
 		"go_version": strings.TrimSpace(string(buildStdout)), "compiler_version": report.CompilerVersion,
 		"compiler_sha256":  digest(read(t, filepath.Join(candidate, "gohp"))),
 		"generated_sha256": digest(generated), "report_sha256": digest(reportBytes),

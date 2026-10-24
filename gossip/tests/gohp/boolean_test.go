@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strings"
 	"testing"
+
+	"github.com/katsuakikureyama/Gossip/gossip/internal/phporacle"
 )
 
 // This unit keeps the mixed-input Boolean helper separate from earlier
@@ -28,9 +30,10 @@ func TestOriginalWordPressBooleanHelper(t *testing.T) {
 	if pin.Schema != "gossip.boolean-observation/v1" || pin.SourcePath != "wp-includes/functions.php" || len(pin.Fragments) != 1 || pin.PHPTarget != "8.3" ||
 		!regexp.MustCompile(`^[0-9a-f]{40}$`).MatchString(pin.GoHPCommit) ||
 		!regexp.MustCompile(`^golang@sha256:[0-9a-f]{64}$`).MatchString(pin.GoImage) ||
-		!regexp.MustCompile(`^wordpress@sha256:[0-9a-f]{64}$`).MatchString(pin.PHPImage) {
+		phporacle.ValidateImage(pin.PHPImage) != nil {
 		t.Fatal("invalid Boolean unit pin")
 	}
+	phpVersion := requirePHPOracle(t, pin.PHPImage)
 	var baseline struct {
 		Commit string `json:"commit"`
 	}
@@ -135,8 +138,7 @@ func TestOriginalWordPressBooleanHelper(t *testing.T) {
 	t.Log("status=compiled; same pinned runtime; not yet compatibility evidence")
 	actual, actualErr := container(t, "boolean_candidate", "--mount", "type=bind,source="+filepath.Join(candidate, "program")+",target=/program,readonly",
 		"--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=/program", pin.GoImage)
-	oracle, oracleErr := container(t, "boolean_php", "--mount", "type=bind,source="+input+",target=/input,readonly", "--env=LC_ALL=C", "--entrypoint=php", pin.PHPImage,
-		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "/input/observer.php")
+	oracle, oracleErr := runPHPOracle(t, "boolean_php", pin.PHPImage, input, "/input/observer.php")
 	observed := jsonObservation(t, actual)
 	if len(actualErr) != 0 || len(oracleErr) != 0 || !reflect.DeepEqual(observed, jsonObservation(t, oracle)) || !reflect.DeepEqual(observed, jsonObservation(t, expectedBytes)) {
 		t.Fatalf("status=differential_failed: Go=%s stderr=%s PHP=%s stderr=%s expected=%s", actual, actualErr, oracle, oracleErr, expectedBytes)
@@ -149,6 +151,7 @@ func TestOriginalWordPressBooleanHelper(t *testing.T) {
 		"gohp_commit": pin.GoHPCommit, "gohp_archive_sha256": archiveHash, "compiler_version": report.CompilerVersion,
 		"compiler_sha256": digest(read(t, filepath.Join(candidate, "gohp"))), "generated_sha256": digest(generated), "report_sha256": digest(reportBytes),
 		"go_image": pin.GoImage, "php_image": pin.PHPImage, "php_target": pin.PHPTarget, "go_version": strings.TrimSpace(string(buildOut)),
+		"php_version": phpVersion, "php_minimum": phporacle.Minimum,
 		"go_observer_sha256": digest(goObserver), "php_observer_sha256": digest(phpObserver), "binary_sha256": digest(read(t, filepath.Join(candidate, "program"))),
 		"typed_observations": observed, "stderr": "", "exit_code": 0, "php_lc_ctype": "C",
 		"scope": "one unchanged WordPress Boolean helper, twenty-three JSON-transported inputs limited to null, bool, signed integer, string and array values; PHP executes with LC_ALL=C and asserts LC_CTYPE=C; no floats, objects/maps, whole-file/core, HTTP or filesystem behavior",

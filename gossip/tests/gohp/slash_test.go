@@ -9,6 +9,8 @@ import (
 	"regexp"
 	"strings"
 	"testing"
+
+	"github.com/katsuakikureyama/Gossip/gossip/internal/phporacle"
 )
 
 // This unit has its own compiler pin and evidence. Adding it does not relabel
@@ -28,9 +30,10 @@ func TestOriginalWordPressSlashHelpers(t *testing.T) {
 	if pin.Schema != "gossip.wordpress-slash-unit/v1" || pin.SourcePath != "wp-includes/formatting.php" || len(pin.Fragments) != 2 || pin.PHPTarget != "8.3" ||
 		!regexp.MustCompile(`^[0-9a-f]{40}$`).MatchString(pin.GoHPCommit) ||
 		!regexp.MustCompile(`^golang@sha256:[0-9a-f]{64}$`).MatchString(pin.GoImage) ||
-		!regexp.MustCompile(`^wordpress@sha256:[0-9a-f]{64}$`).MatchString(pin.PHPImage) {
+		phporacle.ValidateImage(pin.PHPImage) != nil {
 		t.Fatal("invalid slash unit pin")
 	}
+	phpVersion := requirePHPOracle(t, pin.PHPImage)
 	var baseline struct {
 		Commit string `json:"commit"`
 	}
@@ -141,8 +144,7 @@ func TestOriginalWordPressSlashHelpers(t *testing.T) {
 	t.Log("status=compiled; same pinned runtime; not yet compatibility evidence")
 	actual, actualErr := container(t, "slash_candidate", "--mount", "type=bind,source="+filepath.Join(candidate, "program")+",target=/program,readonly",
 		"--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=/program", pin.GoImage)
-	oracle, oracleErr := container(t, "slash_php", "--mount", "type=bind,source="+input+",target=/input,readonly", "--entrypoint=php", pin.PHPImage,
-		"-d", "display_errors=stderr", "-d", "log_errors=0", "-d", "error_reporting=-1", "/input/observer.php")
+	oracle, oracleErr := runPHPOracle(t, "slash_php", pin.PHPImage, input, "/input/observer.php")
 	observed := jsonObservation(t, actual)
 	if len(actualErr) != 0 || len(oracleErr) != 0 || !reflect.DeepEqual(observed, jsonObservation(t, oracle)) || !reflect.DeepEqual(observed, jsonObservation(t, expectedBytes)) {
 		t.Fatalf("status=differential_failed: Go=%s stderr=%s PHP=%s stderr=%s expected=%s", actual, actualErr, oracle, oracleErr, expectedBytes)
@@ -154,6 +156,7 @@ func TestOriginalWordPressSlashHelpers(t *testing.T) {
 		"gohp_commit": pin.GoHPCommit, "gohp_archive_sha256": archiveHash, "compiler_version": report.CompilerVersion,
 		"compiler_sha256": digest(read(t, filepath.Join(candidate, "gohp"))), "generated_sha256": digest(generated), "report_sha256": digest(reportBytes),
 		"go_image": pin.GoImage, "php_image": pin.PHPImage, "php_target": pin.PHPTarget, "go_version": strings.TrimSpace(string(buildOut)),
+		"php_version": phpVersion, "php_minimum": phporacle.Minimum,
 		"go_observer_sha256": digest(goObserver), "php_observer_sha256": digest(phpObserver), "binary_sha256": digest(read(t, filepath.Join(candidate, "program"))),
 		"typed_observations": observed, "stderr": "", "exit_code": 0,
 		"scope": "two unchanged dependent WordPress helpers, thirteen string inputs, twenty-six typed returns; no nonstring coercion, full-file/core, HTTP or filesystem behavior",

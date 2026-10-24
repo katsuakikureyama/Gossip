@@ -6,6 +6,7 @@ $names = [
     'true' => '__return_true',
     'false' => '__return_false',
     'zero' => '__return_zero',
+    'empty_array' => '__return_empty_array',
     'null' => '__return_null',
     'empty_string' => '__return_empty_string',
 ];

@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
 )
 
 type typedObservation struct {
@@ -21,6 +23,11 @@ func normalizeTypedObservation(name string, value any) typedObservation {
 		return typedObservation{Name: name, Type: "string", Value: value}
 	case nil:
 		return typedObservation{Name: name, Type: "null", Value: nil}
+	case rt.Array:
+		if len(value.Entries) != 0 {
+			panic("nonempty generated array return")
+		}
+		return typedObservation{Name: name, Type: "array", Value: []any{}}
 	default:
 		panic("unsupported generated return type")
 	}
@@ -33,6 +40,7 @@ func init() {
 		normalizeTypedObservation("true", F___return_true()),
 		normalizeTypedObservation("false", F___return_false()),
 		normalizeTypedObservation("zero", F___return_zero()),
+		normalizeTypedObservation("empty_array", F___return_empty_array()),
 		normalizeTypedObservation("null", F___return_null()),
 		normalizeTypedObservation("empty_string", F___return_empty_string()),
 	}

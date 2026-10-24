@@ -1,1 +1,1 @@
-[{"name":"true","type":"bool","value":true},{"name":"false","type":"bool","value":false},{"name":"zero","type":"int","value":0},{"name":"null","type":"null","value":null},{"name":"empty_string","type":"string","value":""}]
+[{"name":"true","type":"bool","value":true},{"name":"false","type":"bool","value":false},{"name":"zero","type":"int","value":0},{"name":"empty_array","type":"array","value":[]},{"name":"null","type":"null","value":null},{"name":"empty_string","type":"string","value":""}]

@@ -2,6 +2,29 @@
 
 Last updated: 2026-10-25 (JST).
 
+## Current native-oracle policy (supersedes historical runner pins)
+
+New local oracle runs admit only the reviewed official PHP 8.3.36 image in
+`gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
+is required in the same PHP process. Other digests are refused before Docker
+starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
+admitted. This applies to hooks and all three GoHP translation units.
+See [policy](php-oracle-policy.md) and the separate
+[current execution record](evidence/php-83-floor-2026-10-25.md).
+
+The earlier PHP 8.3.13 Gossip results and PHP 7.4/8.3.30 compiler CI below are
+historical evidence only, not current-policy passes. Their files are retained
+without rewriting observations. GoHP compiler/runtime pins remain distinct and
+unchanged for each unit; integrating the separate GoHP PR #14 policy stack is
+not part of this runner migration. No compiler-project CI is rerun here.
+
+At `2cac2bf34ce66ef788975e0f2e6644cb815d33b5`, current-policy local execution
+PASSed with actual PHP 8.3.36: hook comparison (5 cases, twice each), six
+constant-return types/values, slash helpers (13 inputs/26 typed returns), and
+Boolean helper (23 inputs). Policy unit tests and affected-package vet also
+PASS. Each unit keeps its own compiler pin, and no general compatibility claim
+is inferred. Exact commands/hashes/timings are in the current execution record.
+
 ## Repository identity
 
 - `katsuakikureyama/Gossip` is a GitHub fork of `WordPress/WordPress`, repository
@@ -22,10 +45,13 @@ Last updated: 2026-10-25 (JST).
 - Local fork checkout: `/Users/kureyamayuri/Desktop/Gossip-wordpress`.
 - `codex/gohp-boolean-helper` is stacked on `codex/gohp-slash-helpers`.
   [Draft PR #6](https://github.com/katsuakikureyama/Gossip/pull/6) targets #5.
+- `codex/php-83-oracle-floor` is stacked on `codex/gohp-boolean-helper`;
+  [Draft PR #7](https://github.com/katsuakikureyama/Gossip/pull/7) targets #6,
+  not the default branch or WordPress upstream.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 
-## Implemented and verified
+## Historical implementation and verification (prior oracle policy)
 
 - Boolean-helper translation PASS at `8901d634e4d52e9be06c4c2d7f91714652974b28`:
   GoHP `14bb01053947f1bf2fb32edaff8085feb7227f48` (Draft #13, based on #10)

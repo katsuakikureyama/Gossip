@@ -14,6 +14,25 @@ specific source, platform and behavioral evidence exists.
 | PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers have their own isolated evidence, and two original slash helpers separately match 13 string inputs/26 typed results. A third, separately pinned Boolean-helper contract is tracked independently. None of these is general array, `rtrim`, scalar-coercion or full-core support; the hook engine remains unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
+## Docker PHP oracle admission — 2026-10-25 JST
+
+New Gossip Docker-oracle runs for the hook comparison and all three GoHP units
+use only the official PHP 8.3 image pinned at
+`php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd`.
+The shared oracle helper verifies that exact image allowlist before a container
+starts, checks the actual interpreter version in the same PHP process before
+requiring any original source, and records the observed version. The admission
+floor is native PHP 8.3.36: PHP 7.4, older 8.3 patches, 8.4 or later,
+pre-releases and malformed versions are rejected. This is runner admission, not
+evidence that an admitted interpreter is compatible with a broader WordPress or
+PHP surface; see the [PHP oracle policy](php-oracle-policy.md) and the separate
+[PHP 8.3 floor execution record](evidence/php-83-floor-2026-10-25.md).
+
+The earlier Gossip evidence files retain their PHP 8.3.13 observations as
+historical records. They are not relabelled as current-policy PASS, and a new
+8.3.36 run is recorded independently. This policy does not alter the three
+existing GoHP source pins or integrate the separate GoHP PR #14 stack.
+
 ## GoHP readiness check — 2026-10-25 JST
 
 The slash-helper unit inspects
@@ -94,4 +113,5 @@ operations. No HTTP/MCP operation, automatic submit, browser cookie forwarding,
 permission model or audit service is introduced. The SDK event names are not
 executable user-facing capabilities. The Boolean-helper fixture remains within
 the same explicit local-test exclusion; it introduces no capability, route or
-WebMCP publication. WebMCP support is not claimed.
+WebMCP publication. PHP oracle admission is also local test infrastructure, not
+a user-facing operation or WebMCP capability. WebMCP support is not claimed.

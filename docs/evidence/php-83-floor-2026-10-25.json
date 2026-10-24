@@ -1,0 +1,513 @@
+{
+  "schema": "gossip.php-oracle-migration/v1",
+  "gossip_commit": "2cac2bf34ce66ef788975e0f2e6644cb815d33b5",
+  "gossip_tree": "de8e293715deba532ea89a2d30b52ffa4437fa0d",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_version": "8.3.36",
+  "php_minimum": "8.3.36",
+  "policy_sha256": "9b5ba817e25f5ed0344d0e9e324632e433ba5733478822a06ba390576174f6ed",
+  "unit_launcher_sha256": "dddf6f6a1ab9cf057ec5845466e5c55762e971407982c79b66bc0cc25094df1c",
+  "hooks_launcher_sha256": "45ef13ed763b6959810cb86a07147b898f639e8f09ede571e5d86b6b673fc327",
+  "hooks_observer_sha256": "dfe0e90df44b1a5bf3d3b8c29d09a94932d4e7febecfa9bd50424f84392c217d",
+  "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP GOSSIP_PHP_RUNNER_IMAGE=php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd go test -count=1 -v ./internal/phporacle ./tests/compat ./tests/gohp",
+  "status": "pass",
+  "host_go": "go1.22.1 darwin/arm64",
+  "checks": {
+    "version_admission": "pass",
+    "image_admission": "pass",
+    "hooks_5_cases_2_runs_each": "pass",
+    "source_baseline": "pass",
+    "vet_affected_packages": "pass"
+  },
+  "hooks_test_log": "=== RUN   TestWordPressHookDifferential\n    hooks_test.go:128: image=php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd upstream_commit=54106f6c545fc8b881f6b39b7963002bece6c28c wordpress=7.2-beta1-64693 php=8.3.36 fixture_sha256=b77b22bb03eb7639387e8ad0e70701db707affad19ba0ff43b647ecefa44ebed\n=== RUN   TestWordPressHookDifferential/empty\n    hooks_test.go:151: run=0 trace=[] value=\"seed\"\n    hooks_test.go:151: run=1 trace=[] value=\"seed\"\n=== RUN   TestWordPressHookDifferential/priority\n    hooks_test.go:151: run=0 trace=[1 2 0] value=\"C(B(A(seed)))\"\n    hooks_test.go:151: run=1 trace=[1 2 0] value=\"C(B(A(seed)))\"\n=== RUN   TestWordPressHookDifferential/equal-priority\n    hooks_test.go:151: run=0 trace=[0 1 2] value=\"third(second(first(seed)))\"\n    hooks_test.go:151: run=1 trace=[0 1 2] value=\"third(second(first(seed)))\"\n=== RUN   TestWordPressHookDifferential/boundaries-and-ties\n    hooks_test.go:151: run=0 trace=[1 2 0] value=\"last(zero-second(zero-first()))\"\n    hooks_test.go:151: run=1 trace=[1 2 0] value=\"last(zero-second(zero-first()))\"\n=== RUN   TestWordPressHookDifferential/unicode\n    hooks_test.go:151: run=0 trace=[1 0] value=\"「前こんにちは & <content>後」\"\n    hooks_test.go:151: run=1 trace=[1 0] value=\"「前こんにちは & <content>後」\"\n--- PASS: TestWordPressHookDifferential (0.49s)\n    --- PASS: TestWordPressHookDifferential/empty (0.00s)\n    --- PASS: TestWordPressHookDifferential/priority (0.00s)\n    --- PASS: TestWordPressHookDifferential/equal-priority (0.00s)\n    --- PASS: TestWordPressHookDifferential/boundaries-and-ties (0.00s)\n    --- PASS: TestWordPressHookDifferential/unicode (0.00s)\n=== RUN   TestWordPressSourceBaseline\n    source_test.go:55: upstream_commit=54106f6c545fc8b881f6b39b7963002bece6c28c wordpress=7.2-beta1-64693 verified_files=5\n--- PASS: TestWordPressSourceBaseline (0.00s)\nPASS\nok  \tgithub.com/katsuakikureyama/Gossip/gossip/tests/compat\t1.091s\n",
+  "units": [
+    {
+      "binary_sha256": "a23e4431225a27aed9c391d229b78026190b521706350c198523bdaaea14c9b6",
+      "bundle_sha256": "feafd030eb2f9981c1abddd7513721293f78234e646f166b788668877c2255ce",
+      "case_count": 23,
+      "cases_sha256": "301bd265763b4b480d52d3b434cf2eec69d2cd88807b8b7bfc91f0888862e87a",
+      "compiler_sha256": "60b3502b6b45fe7aa3dde321757908f1647bc4471dbd28054c1501b32f4e72e1",
+      "compiler_version": "0.1.0-dev",
+      "exit_code": 0,
+      "fragment": {
+        "bundle_first_line": 2,
+        "name": "wp_validate_boolean",
+        "original_first_line": 7932,
+        "original_last_line": 7942,
+        "sha256": "5dbcedd52adf3a516887a312cee7d9c620a8173c60b98852f23ba994ad557e87"
+      },
+      "generated_sha256": "18d88c4904703fd1eafa9a14de1237219d5cfce20e99b3521b216675213226cb",
+      "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+      "go_observer_sha256": "c4fdfd3703a1dac0385cfd8bcff3f5608e1bf8a529523f702d336a6af07da7f5",
+      "go_version": "go version go1.25.14 linux/arm64",
+      "gohp_archive_sha256": "33c0efcf3baba0af3ed3248582bbb6f178eedab9205a324b5bb40f54e64bfe03",
+      "gohp_commit": "14bb01053947f1bf2fb32edaff8085feb7227f48",
+      "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "php_lc_ctype": "C",
+      "php_minimum": "8.3.36",
+      "php_observer_sha256": "c77142c3b4aee1d159471d753c13d1d15ca6850a4923599997a43fa4cbd49b01",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "report_sha256": "786147bc61592eb2564ee5698dbb49395e0c6bbe225f71233c8e5de756a333f8",
+      "schema": "gossip.boolean-observation/v1",
+      "scope": "one unchanged WordPress Boolean helper, twenty-three JSON-transported inputs limited to null, bool, signed integer, string and array values; PHP executes with LC_ALL=C and asserts LC_CTYPE=C; no floats, objects/maps, whole-file/core, HTTP or filesystem behavior",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+      "status": "differential_pass",
+      "stderr": "",
+      "typed_call_count": 23,
+      "typed_observations": [
+        {
+          "input_type": "bool",
+          "name": "bool_true",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "bool",
+          "name": "bool_false",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "null",
+          "name": "null",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "int",
+          "name": "int_zero",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "int",
+          "name": "int_one",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "int",
+          "name": "int_negative_one",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "empty_string",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "string",
+          "name": "string_zero",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "string",
+          "name": "string_double_zero",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_false",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "string",
+          "name": "string_false_upper",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "string",
+          "name": "string_false_mixed",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "string",
+          "name": "string_false_leading_space",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_false_trailing_space",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_true",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_off",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_no",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_japanese",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "string",
+          "name": "string_nul",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "array",
+          "name": "empty_array",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "input_type": "array",
+          "name": "array_false",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "array",
+          "name": "array_zero",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "input_type": "array",
+          "name": "nested_empty_array",
+          "type": "bool",
+          "value": true
+        }
+      ],
+      "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+    },
+    {
+      "binary_sha256": "709e821e145795ee9f385592529e3dce61459f0d0d5c11cd2c734764d554fb18",
+      "bundle_sha256": "a8995c8d8f938ec141a5cf7e0f4064ebb17a2c5b79672672f760ddd8add119b8",
+      "compiler_sha256": "a69f9a424cd5ad7ac4ffd616b0648a91994b6347aa912e50fc4ed4c5a4fbb51e",
+      "compiler_version": "0.1.0-dev",
+      "definitions_sha256": "9ab0e1cb6a79afea3a193d5a5f23114d6fc28bd444e3b87c2f26a9c91d2eac50",
+      "exit_code": 0,
+      "fragments": [
+        {
+          "bundle_first_line": 2,
+          "name": "__return_true",
+          "original_first_line": 7181,
+          "original_last_line": 7183,
+          "sha256": "194a7abeca0f4b3a1ca2c40ca6854667d79b6c3c382edb74e7d8046a1c6cf5a6"
+        },
+        {
+          "bundle_first_line": 6,
+          "name": "__return_false",
+          "original_first_line": 7196,
+          "original_last_line": 7198,
+          "sha256": "6c1b2e3db3527da63160245f8bc855ebe3940fac88dc50e2b8d95a3b83db570e"
+        },
+        {
+          "bundle_first_line": 10,
+          "name": "__return_zero",
+          "original_first_line": 7209,
+          "original_last_line": 7211,
+          "sha256": "44acf0951778dfe08acaee9486c64daf70dfb0e8664491c2a6845c5ede9253b2"
+        },
+        {
+          "bundle_first_line": 14,
+          "name": "__return_empty_array",
+          "original_first_line": 7222,
+          "original_last_line": 7224,
+          "sha256": "46948aca39c4963ec0d513b7da9478f10d411ece115316ec5b7493d0cdc41530"
+        },
+        {
+          "bundle_first_line": 18,
+          "name": "__return_null",
+          "original_first_line": 7235,
+          "original_last_line": 7237,
+          "sha256": "f437398fa84f0e44313c35c6efe791cd0831628a8f89e8f992ff7cab38f8ae65"
+        },
+        {
+          "bundle_first_line": 22,
+          "name": "__return_empty_string",
+          "original_first_line": 7250,
+          "original_last_line": 7252,
+          "sha256": "1b417b245771afe887b8dba13c5725981291dadfc6e4a79558b02f8bf9ad2371"
+        }
+      ],
+      "generated_sha256": "789bce0473dcbe3cea378ab1a9a3c4f3ead20a3de92a79ba5af85e27d987751f",
+      "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+      "go_observer_sha256": "8174fdfa98cb1ede628dd66b5b6ef00952aeddda4ae1be2acc0bccc76ceab96f",
+      "go_version": "go version go1.25.14 linux/arm64",
+      "gohp_archive_sha256": "234a3b8a78f30e5aed7a0bd12c20cfffd7c97a75469c35789edaf5eb04d9f662",
+      "gohp_commit": "c67fbefe34b1b098c0a9f475504d06bd014de23c",
+      "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "php_minimum": "8.3.36",
+      "php_observer_sha256": "52d5f4358b78adfdae500079e42c51255ae4f15b2e810a680d1b59a5965ae90c",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "report_sha256": "d12dc97e8e494032c6c23107665e94c96f756a9d01cba09abfc7ecc307a19041",
+      "schema": "gossip.translation-observation/v3",
+      "scope": "six unchanged constant-return helpers: typed values/types and successful exit; echo stdout covers five scalar helpers only because PHP array coercion is not type-preserving; not whole-file/core compatibility",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+      "status": "differential_pass",
+      "stderr": "",
+      "stdout": "true=1\nfalse=\nzero=0\nnull=\nempty-string=\n",
+      "typed_binary_sha256": "e86abebfe5280b774e5eed8f766e9c60cddba7e8662fc09b24e16229edf22fde",
+      "typed_exit_code": 0,
+      "typed_observations": [
+        {
+          "name": "true",
+          "type": "bool",
+          "value": true
+        },
+        {
+          "name": "false",
+          "type": "bool",
+          "value": false
+        },
+        {
+          "name": "zero",
+          "type": "int",
+          "value": 0
+        },
+        {
+          "name": "empty_array",
+          "type": "array",
+          "value": []
+        },
+        {
+          "name": "null",
+          "type": "null",
+          "value": null
+        },
+        {
+          "name": "empty_string",
+          "type": "string",
+          "value": ""
+        }
+      ],
+      "typed_stderr": "",
+      "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+    },
+    {
+      "binary_sha256": "c1b8060dfc8198dfcdb4604d219b0401994a438681b02e56f5d9c2d3e8d94de1",
+      "bundle_sha256": "df8b2b192844f3c7d285cb7f14cdc9189437dce6fc4a7670d49e4e4305fe7ad7",
+      "case_count": 13,
+      "cases_sha256": "d8676891ac023e36ce45351d317eca5f03c09b0d136c75fc04ff4ba69bae06ba",
+      "compiler_sha256": "5d6b900a17083aa97d49f6264f500378524a5fb3c8a854874d71f9fac5836bda",
+      "compiler_version": "0.1.0-dev",
+      "exit_code": 0,
+      "fragments": [
+        {
+          "bundle_first_line": 2,
+          "name": "trailingslashit",
+          "original_first_line": 2883,
+          "original_last_line": 2885,
+          "sha256": "3242c532f0668f82ada2b0bafb1aefa17a522b860498a8de47ed47d3d694d938"
+        },
+        {
+          "bundle_first_line": 6,
+          "name": "untrailingslashit",
+          "original_first_line": 2898,
+          "original_last_line": 2900,
+          "sha256": "9e10b72e9db3d08ba4eabafb88e3682c6ac61d13a89c5ac8da9e24494d2ee596"
+        }
+      ],
+      "generated_sha256": "191f62f64364061603cf85450e5eba57218b1707f63ab1555624952d30e09c19",
+      "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+      "go_observer_sha256": "95f6885121e74b668282d73cd596e49e1ed1d1558f018e9a3b5635c7fed4c5a8",
+      "go_version": "go version go1.25.14 linux/arm64",
+      "gohp_archive_sha256": "fe51c94e4d701f1ed1f1660574c24beb4d6025c4d677ec27b5d12a2afb58f86a",
+      "gohp_commit": "ceee0fc71e1e7947f1c78f1dd18875236b9a180b",
+      "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "php_minimum": "8.3.36",
+      "php_observer_sha256": "8d1c833dd0de10ac23fde8feb3c14e333ec97e03abceee89b5492d23bf22dc25",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "report_sha256": "6ba77379c8eba418cf4f02f178ecec0a2068b07fd3ffc0cf3d0b6b338658f5b0",
+      "schema": "gossip.slash-observation/v1",
+      "scope": "two unchanged dependent WordPress helpers, thirteen string inputs, twenty-six typed returns; no nonstring coercion, full-file/core, HTTP or filesystem behavior",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+      "status": "differential_pass",
+      "stderr": "",
+      "typed_call_count": 26,
+      "typed_observations": [
+        {
+          "input": "",
+          "name": "empty",
+          "trailing": {
+            "type": "string",
+            "value": "/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "input": "/",
+          "name": "slash_only",
+          "trailing": {
+            "type": "string",
+            "value": "/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "input": "\\",
+          "name": "backslash_only",
+          "trailing": {
+            "type": "string",
+            "value": "/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "input": "/\\/\\",
+          "name": "mixed_only",
+          "trailing": {
+            "type": "string",
+            "value": "/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "input": "plain",
+          "name": "no_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "plain/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "plain"
+          }
+        },
+        {
+          "input": "/leading///\\/",
+          "name": "leading_and_repeated_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "/leading/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "/leading"
+          }
+        },
+        {
+          "input": "C:\\path\\to\\folder\\",
+          "name": "windows_path",
+          "trailing": {
+            "type": "string",
+            "value": "C:\\path\\to\\folder/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "C:\\path\\to\\folder"
+          }
+        },
+        {
+          "input": "a/b\\c/d\\e",
+          "name": "internal_slashes",
+          "trailing": {
+            "type": "string",
+            "value": "a/b\\c/d\\e/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "a/b\\c/d\\e"
+          }
+        },
+        {
+          "input": "keep/\\ \t",
+          "name": "trailing_space_and_tab",
+          "trailing": {
+            "type": "string",
+            "value": "keep/\\ \t/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "keep/\\ \t"
+          }
+        },
+        {
+          "input": "こんにちは/\\",
+          "name": "japanese_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "こんにちは/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "こんにちは"
+          }
+        },
+        {
+          "input": "https://example.test/a/b/?q=x/\\",
+          "name": "url_looking_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "https://example.test/a/b/?q=x/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "https://example.test/a/b/?q=x"
+          }
+        },
+        {
+          "input": "nul\u0000value/\\",
+          "name": "embedded_nul_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "nul\u0000value/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "nul\u0000value"
+          }
+        },
+        {
+          "input": "line1\nline2/\\",
+          "name": "embedded_lf_suffix",
+          "trailing": {
+            "type": "string",
+            "value": "line1\nline2/"
+          },
+          "untrailing": {
+            "type": "string",
+            "value": "line1\nline2"
+          }
+        }
+      ],
+      "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+    }
+  ],
+  "scope": "One local migration run with separate compiler pins and unit contracts. Historical PHP 8.3.13/7.4 evidence is not upgraded. No core/runtime integration, production deployment, vulnerability-free or arbitrary PHP compatibility claim."
+}

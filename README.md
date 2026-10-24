@@ -51,17 +51,29 @@ go test ./...
 ```
 
 This verifies the source pin and SDK tests; the Docker differential explicitly
-skips unless enabled. To run it using the already pulled, immutable PHP runner:
+skips unless enabled. New Docker-oracle runs require the admitted, immutable
+official PHP 8.3 runner, pulled explicitly before the network-isolated tests:
 
 ```sh
-GOSSIP_PHP_RUNNER_IMAGE=wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a \
+docker pull php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd
+GOSSIP_PHP_RUNNER_IMAGE=php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd \
   go test -race -count=1 -v ./...
 ```
 
-The container's bundled WordPress is **not** the oracle. Only verified source
-bytes from this checkout are staged into it. The container has no network, no
-database, a read-only filesystem, non-root UID, resource limits and automatic
-removal. Nothing pulls or executes third-party plugin ZIPs or Composer scripts.
+This enables hooks; GoHP units additionally require `GOSSIP_GOHP_SOURCE` to
+point at a clone containing their distinct pinned commits. See the
+[PHP 8.3.36 execution record](docs/evidence/php-83-floor-2026-10-25.md) for the
+exact command used to run all four bounded comparison units under the new
+policy. Earlier linked PHP 8.3.13 records are historical, not current admission
+evidence.
+
+The official PHP image provides the interpreter, not a bundled WordPress
+checkout. Only verified source bytes from this checkout are staged into it. The
+container has no network, no database, a read-only filesystem, non-root UID,
+resource limits and automatic removal. Nothing pulls or executes third-party
+plugin ZIPs or Composer scripts. See the [PHP oracle policy](docs/php-oracle-policy.md)
+for image admission, the native-version guard and the distinction between a
+runner being allowed and a compatibility result.
 
 ## Direction and limits
 

@@ -1,0 +1,55 @@
+# Docker PHP oracle policy
+
+This policy defines which native PHP interpreters may execute new Gossip Docker
+oracle runs. It is an admission control for test infrastructure, not a PHP or
+WordPress compatibility result.
+
+## Current admission floor
+
+New hook-comparison and GoHP-unit oracle runs use the official PHP image pinned
+to:
+
+```text
+php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd
+```
+
+The admitted language series is PHP 8.3 and the native minimum is 8.3.36. The
+image digest is checked against the exact allowlist before the container starts.
+Inside the same PHP process that will require the original source, the oracle
+checks `PHP_VERSION` before that require. Hooks record the version from their
+oracle response; the GoHP units record a guarded version probe using the same
+immutable image and repeat the guard in every comparison process. A separate
+probe alone never authorizes the interpreter that executes the comparison.
+
+The guard rejects PHP 7.4, every 8.3 patch below 8.3.36, 8.4 and later,
+pre-release versions, malformed versions and any image digest outside the
+allowlist. An allowed image still does not prove the requested code translates,
+compiles, behaves identically, or is secure for production.
+
+The selected floor follows the [official PHP 8.3.36 release](https://www.php.net/releases/8_3_36.php).
+Moving the floor or admitting a new major/minor series requires a new explicit
+policy, image pin, native guard, execution evidence and documentation update in
+the same change set.
+
+## Scope and evidence
+
+The shared `internal/phporacle` helper applies this admission process to all
+Gossip Docker PHP oracles: the hook comparison and the three original-source
+GoHP units (constant/array returns, slash helpers and Boolean validation). Each
+unit retains its own WordPress excerpt, GoHP source pin and behavior contract.
+This policy does not merge the units, change their compiler pins, or incorporate
+the separate GoHP PR #14 stack.
+
+Historical records executed with PHP 8.3.13 remain retained as historical
+evidence. They are useful provenance, but are below the current native floor
+and must not be reported as a current-policy run. The new PHP 8.3.36 record is
+separate in [PHP 8.3 floor evidence](evidence/php-83-floor-2026-10-25.md).
+Until that record contains a successful run for its stated scope, this policy
+does not establish an outcome for the affected comparisons.
+
+## Capability exclusion
+
+PHP-oracle admission and its Docker execution are opt-in local developer test
+infrastructure. They are explicitly excluded from WebMCP publication: they add
+no user-facing operation, route, browser session, cookie forwarding, automatic
+submit, deployment, publication, permission model or audit API.

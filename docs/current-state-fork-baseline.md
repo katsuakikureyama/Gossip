@@ -17,12 +17,34 @@ Last updated: 2026-10-25 (JST).
 - `codex/gohp-empty-array` is stacked on `codex/gohp-typed-observations` and
   must target that branch, not `master`, WordPress upstream or the independent
   prototype.
+- `codex/gohp-slash-helpers` is stacked on `codex/gohp-empty-array` and must
+  target that branch. Its Draft PR is not a default-branch merge.
 - Local fork checkout: `/Users/kureyamayuri/Desktop/Gossip-wordpress`.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 
 ## Implemented and verified
 
+- Slash-helper translation PASS at `a97f14f42e6f59049062d59695c74da9d56ee0d2`:
+  pinned GoHP `ceee0fc71e1e7947f1c78f1dd18875236b9a180b` (Draft GoHP PR #10,
+  based on `feat/legacy-array-syntax`) translates the unchanged original
+  `trailingslashit()` and `untrailingslashit()` snippets from
+  `wp-includes/formatting.php` lines 2883–2885 and 2898–2900. The single
+  affected opt-in test PASS took 18.82 seconds (package 19.018 seconds): PHP
+  8.3.13 and generated Go matched all 13 explicit string inputs and their 26
+  typed return values, with empty stderr and exit 0. The inputs include empty,
+  slash/backslash-only, repeated suffixes, Windows-looking paths, whitespace,
+  Japanese text, URL-looking text, and embedded NUL/LF bytes. This is a
+  bounded `rtrim` contract only: two arguments and a literal byte mask `/\\`,
+  not ranges, non-string coercion, dynamic masks, general path handling, or
+  full WordPress formatting compatibility. See
+  [slash-unit evidence](evidence/slash-helpers-2026-10-25.md).
+- GoHP PR #10 CI also PASSed for fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12:
+  [run 40112678059](https://github.com/katsuakikureyama/GoHP/actions/runs/40112678059)
+  records `diff.rtrim`, nine negative checks, and two runtime checks as PASS
+  for each target, with artifacts saved. This is compiler-project evidence for
+  the bounded `rtrim` implementation, not full WordPress compatibility; this
+  fork did not rerun its own test in that CI job.
 - Empty-array translation PASS at `1596c5ac35846db59612098fe13d4f5736f23655`:
   pinned GoHP `c67fbefe34b1b098c0a9f475504d06bd014de23c` (Draft GoHP PR #8,
   based on `feat/compatibility-views`) translates six unchanged original
@@ -69,10 +91,11 @@ Last updated: 2026-10-25 (JST).
 
 ## Unimplemented / unverified
 
-- Full-file/core GoHP translation or execution, themes or plugins. Six tiny
-  extracted constant-return helpers are the sole translated exception. The
-  inspected GoHP candidate is now `c67fbefe34b1b098c0a9f475504d06bd014de23c`,
-  not the earlier prototype report's PR #2 ref. Its supported subset does not
+- Full-file/core GoHP translation or execution, themes or plugins. The only
+  translated exceptions are six tiny constant-return helpers at their
+  separately pinned `c67fbefe34b1b098c0a9f475504d06bd014de23c` evidence and
+  the two slash helpers at `ceee0fc71e1e7947f1c78f1dd18875236b9a180b`; they
+  were not tested together as a larger unit. The inspected GoHP subsets do not
   cover the original hook engine; see [reuse boundary](reuse-boundary.md).
 - General WordPress hook parity: dynamic registration/removal, references,
   recursion, multiple arguments, negative priorities and core filter stacks.
@@ -85,15 +108,15 @@ Last updated: 2026-10-25 (JST).
 
 ## Next steps / migration gates
 
-Use the original WordPress source as the behavioral reference. The first tiny
-source unit now has six typed observations, including one exact empty-array
-return. Select the next dependency-bearing unit as a separate, bounded contract
-before attempting it; do not extrapolate this result to general arrays or core
-translation. The nearby `send_nosniff_header()` needs `header()` and an HTTP
-side-effect contract; it was inspected only, not runtime-tested or supported.
-Keep source pins, isolated generation and per-unit differential results. Do not
-grow the independent CMS or replace WordPress database semantics with the
-prototype JSON store.
+Use the original WordPress source as the behavioral reference. The slash unit
+is a separate bounded contract from the six constant-return helpers; do not
+combine their evidence or extrapolate it to general arrays, general `rtrim`,
+paths, or core translation. Select the next dependency-bearing unit only with
+its own explicit contract. The nearby `send_nosniff_header()` needs `header()`
+and an HTTP side-effect contract; it was inspected only, not runtime-tested or
+supported. Keep source pins, isolated generation and per-unit differential
+results. Do not grow the independent CMS or replace WordPress database
+semantics with the prototype JSON store.
 
 Production work remains gated on owner approval, source/version inventory,
 restorable data copy, dry run, compatibility validation and rollback evidence.
@@ -103,6 +126,6 @@ is explicitly excluded from WebMCP publication.
 Track the baseline in Draft PR #1 in **this fork**, based on `master`; stack the
 helper-unit Draft PR #2 on `codex/fork-baseline` until that PR is merged; stack
 typed observations on that helper branch, then stack the empty-array change on
-typed observations. No devboard
-card is linked in this repository; none is marked Done by this report. Neither
-the fork's default branch nor WordPress upstream is modified by the work branch.
+typed observations and the slash-helper change on empty-array. No devboard card
+is linked in this repository; none is marked Done by this report. Neither the
+fork's default branch nor WordPress upstream is modified by the work branch.

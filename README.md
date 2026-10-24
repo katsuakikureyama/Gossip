@@ -17,13 +17,13 @@ project, and it is **not yet a Go replacement for WordPress**.
 - [`gossip/`](gossip/) is a separate experimental Go module. Initially it contains
   the native Plugin SDK and a differential harness that executes **this fork's
   original PHP hook files** and compares five owned cases with the Go registry.
-  A separate [original-source translation test](docs/translation-units.md)
-  converts six unchanged WordPress constant-return helpers through pinned
-  GoHP, builds them, and compares five scalar echo observations plus all six
-  actual return types/values with PHP. That narrow path has
-  [passed](docs/evidence/empty-array-2026-10-25.md), including the original
-  empty-array helper without rewriting its `array()` expression. This is not
-  full-core conversion or general array compatibility.
+  Separate original-source translation units convert six unchanged
+  constant-return helpers and two unchanged slash helpers through pinned GoHP,
+  build them, and compare narrowly defined behavior with PHP. The slash unit
+  has [passed](docs/evidence/slash-helpers-2026-10-25.md) for 13 explicit
+  string inputs (26 typed results); it verifies only `rtrim` with a literal
+  two-byte slash/backslash mask. These are not full-core conversion, general
+  `rtrim` compatibility, or WordPress path compatibility claims.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

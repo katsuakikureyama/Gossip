@@ -11,18 +11,20 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers pass isolated comparison: five scalar echo observations and all six typed returns, including one empty array. This is not general array support; full WordPress core and the hook engine remain unsupported |
+| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers have their own isolated evidence, and two original slash helpers separately match 13 string inputs/26 typed results. This is not general array or `rtrim` support; full WordPress core and the hook engine remain unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## GoHP readiness check — 2026-10-25 JST
 
-The inspected candidate is
-[`c67fbefe34b1b098c0a9f475504d06bd014de23c`](https://github.com/katsuakikureyama/GoHP/tree/c67fbefe34b1b098c0a9f475504d06bd014de23c),
-the unmerged Draft GoHP PR #8 stack based on `feat/compatibility-views`. Its
-documented closed subset includes basic scalar operations, named functions,
-literal-array reads/foreach and limited classes. PR #8 adds the original
-legacy `array()` expression needed by `__return_empty_array()` through GoHP's
-shared parser; it makes no Go runtime change. This is not a stable WordPress
+The slash-helper unit inspects
+[`ceee0fc71e1e7947f1c78f1dd18875236b9a180b`](https://github.com/katsuakikureyama/GoHP/tree/ceee0fc71e1e7947f1c78f1dd18875236b9a180b),
+the unmerged Draft GoHP PR #10 stack based on `feat/legacy-array-syntax`. It
+adds only the bounded `rtrim` form needed by that unit: two arguments and a
+literal byte mask. It does not establish ranges, non-string coercion, dynamic
+masks, or general PHP builtin compatibility. The separately pinned
+[`c67fbefe34b1b098c0a9f475504d06bd014de23c`](https://github.com/katsuakikureyama/GoHP/tree/c67fbefe34b1b098c0a9f475504d06bd014de23c)
+remains the evidence pin for the six constant-return helpers and Draft GoHP PR
+#8's legacy `array()` expression. Neither candidate is a stable WordPress
 translator interface or a claim of general array compatibility.
 
 The original hook engine requires features outside that subset: include/require,
@@ -31,12 +33,19 @@ interfaces and other PHP builtins/object behavior. See the pinned GoHP
 [compatibility report](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/compatibility.md)
 and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/integration.md).
 No full-file translation attempt or deployable WordPress artifact is claimed.
-The later [helper-unit experiment](translation-units.md) converts only six
-unchanged literal-return functions and records its own narrow evidence. GoHP
-PR #8's [CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
+The [helper-unit experiment](translation-units.md) converts only six unchanged
+literal-return functions under its own pin; the separate
+[slash-helper unit](slash-helper-unit.md) records a different pin and contract.
+GoHP PR #8's [CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
 PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, recording
 `diff.legacy_arrays` and seven negative checks per target. It remains compiler
 evidence, not a broad WordPress compatibility result.
+
+GoHP PR #10's [CI run 40112678059](https://github.com/katsuakikureyama/GoHP/actions/runs/40112678059)
+PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, recording `diff.rtrim`,
+nine negative checks, and two runtime checks per target. It is scoped compiler
+evidence for the bounded `rtrim` addition, not a broad PHP or WordPress
+compatibility result.
 
 Do not replace the PHP originals to accommodate the translator. A later adapter
 must pin its inputs, run in isolation, record generated/build/differential
@@ -45,12 +54,13 @@ that compiles is not evidence of WordPress compatibility.
 
 ## Next bounded steps
 
-1. Six literal-return helpers now pass isolated comparison, including the
-   unchanged original empty-array helper. That result is limited to an empty
-   `rt.Array` return observed by the fixture, not arbitrary arrays, writes or
-   mutations. Select the next dependency-bearing unit with its own explicit
-   contract; the neighboring HTTP header helper still requires a separate
-   side-effect contract and remains unverified.
+1. Six literal-return helpers pass under their own pin, including the unchanged
+   original empty-array helper. Separately, two slash helpers pass the 13-case
+   string contract under the newer pin. Neither result is a combined eight-
+   function test or evidence for arbitrary arrays, writes, mutations, paths,
+   or general `rtrim`. Select the next dependency-bearing unit with its own
+   explicit contract; the neighboring HTTP header helper still requires a
+   separate side-effect contract and remains unverified.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.

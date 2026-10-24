@@ -2,7 +2,7 @@
 
 require '/input/helpers.php';
 
-if (setlocale(LC_CTYPE, '0') !== 'C') {
+if (setlocale(LC_CTYPE, 'C') !== 'C' || setlocale(LC_CTYPE, 0) !== 'C') {
     throw new RuntimeException('LC_CTYPE must be C for this bounded observation');
 }
 

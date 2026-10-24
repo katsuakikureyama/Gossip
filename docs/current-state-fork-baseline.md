@@ -20,11 +20,29 @@ Last updated: 2026-10-25 (JST).
 - `codex/gohp-slash-helpers` is stacked on `codex/gohp-empty-array` and must
   target that branch. Its Draft PR is not a default-branch merge.
 - Local fork checkout: `/Users/kureyamayuri/Desktop/Gossip-wordpress`.
+- `codex/gohp-boolean-helper` is stacked on `codex/gohp-slash-helpers`.
+  [Draft PR #6](https://github.com/katsuakikureyama/Gossip/pull/6) targets #5.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 
 ## Implemented and verified
 
+- Boolean-helper translation PASS at `8901d634e4d52e9be06c4c2d7f91714652974b28`:
+  GoHP `14bb01053947f1bf2fb32edaff8085feb7227f48` (Draft #13, based on #10)
+  translates unchanged `wp_validate_boolean()` from functions.php 7932–7942.
+  All 23 mixed inputs match PHP 8.3.13 in actual bool return type/value and
+  authored expectations; empty stderr/exit 0. PASS 8.38s (package 8.557s).
+  The initial attempt failed its PHP locale guard after generation/build;
+  the observer and compiler native harness now select and verify `LC_CTYPE=C`
+  in the oracle process. WordPress code was never changed. This is a bounded
+  one-arm conditional/short-circuit/scalar validation contract, not full PHP.
+  See [Boolean evidence](evidence/boolean-helper-2026-10-25.md) for exact pins,
+  failed attempt, corrected execution, compiler checks and limitations.
+- GoHP #13 final head `4fabe11d2063b03fced8d0aabd62bbd20a10fb88` passes
+  [fixed PHP 7.4.33/8.3.30 CI 40113520430](https://github.com/katsuakikureyama/GoHP/actions/runs/40113520430).
+  It differs from the Gossip pin only in native-test evidence logging, fixing
+  strict summary parsing without changing compiler/runtime implementation.
+  Prior CI failures remain recorded; they are not presented as overall PASS.
 - Slash-helper translation PASS at `a97f14f42e6f59049062d59695c74da9d56ee0d2`:
   pinned GoHP `ceee0fc71e1e7947f1c78f1dd18875236b9a180b` (Draft GoHP PR #10,
   based on `feat/legacy-array-syntax`) translates the unchanged original
@@ -108,8 +126,8 @@ Last updated: 2026-10-25 (JST).
 
 ## Next steps / migration gates
 
-Use the original WordPress source as the behavioral reference. The slash unit
-is a separate bounded contract from the six constant-return helpers; do not
+Use the original WordPress source as the behavioral reference. The Boolean and
+slash units are separate bounded contracts from the six constant-return helpers; do not
 combine their evidence or extrapolate it to general arrays, general `rtrim`,
 paths, or core translation. Select the next dependency-bearing unit only with
 its own explicit contract. The nearby `send_nosniff_header()` needs `header()`
@@ -126,6 +144,7 @@ is explicitly excluded from WebMCP publication.
 Track the baseline in Draft PR #1 in **this fork**, based on `master`; stack the
 helper-unit Draft PR #2 on `codex/fork-baseline` until that PR is merged; stack
 typed observations on that helper branch, then stack the empty-array change on
-typed observations and the slash-helper change on empty-array. No devboard card
+typed observations, the slash-helper change on empty-array, and Boolean on slash.
+No devboard card
 is linked in this repository; none is marked Done by this report. Neither the
 fork's default branch nor WordPress upstream is modified by the work branch.

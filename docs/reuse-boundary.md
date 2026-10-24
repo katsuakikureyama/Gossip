@@ -11,7 +11,7 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers have their own isolated evidence, and two original slash helpers separately match 13 string inputs/26 typed results. This is not general array or `rtrim` support; full WordPress core and the hook engine remain unsupported |
+| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers have their own isolated evidence, and two original slash helpers separately match 13 string inputs/26 typed results. A third, separately pinned Boolean-helper contract is tracked independently. None of these is general array, `rtrim`, scalar-coercion or full-core support; the hook engine remains unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## GoHP readiness check — 2026-10-25 JST
@@ -47,6 +47,20 @@ nine negative checks, and two runtime checks per target. It is scoped compiler
 evidence for the bounded `rtrim` addition, not a broad PHP or WordPress
 compatibility result.
 
+The separate Boolean-helper contract pins GoHP
+[`14bb01053947f1bf2fb32edaff8085feb7227f48`](https://github.com/katsuakikureyama/GoHP/tree/14bb01053947f1bf2fb32edaff8085feb7227f48)
+and Gossip test commit `8901d634e4d52e9be06c4c2d7f91714652974b28`. It extracts
+only `wp_validate_boolean()` from `wp-includes/functions.php` lines 7932–7942
+and records a 23-case mixed-input contract. Its generated/build/differential
+outcome belongs only in the
+[Boolean execution record](evidence/boolean-helper-2026-10-25.md); it does not
+rerun, revise or combine the older return-helper and slash-helper evidence.
+The bounded compiler work covers the helper's one-arm early return, `&&`
+short-circuiting, scalar `===`, Boolean cast, `is_bool`, `is_string`, and
+string-only ASCII `strtolower` under an explicitly selected and verified
+`LC_CTYPE=C`. Float and object behavior, and whole-file/core translation,
+remain unsupported.
+
 Do not replace the PHP originals to accommodate the translator. A later adapter
 must pin its inputs, run in isolation, record generated/build/differential
 outcomes separately, and keep a failed candidate inactive. A translated file
@@ -58,9 +72,11 @@ that compiles is not evidence of WordPress compatibility.
    original empty-array helper. Separately, two slash helpers pass the 13-case
    string contract under the newer pin. Neither result is a combined eight-
    function test or evidence for arbitrary arrays, writes, mutations, paths,
-   or general `rtrim`. Select the next dependency-bearing unit with its own
-   explicit contract; the neighboring HTTP header helper still requires a
-   separate side-effect contract and remains unverified.
+   or general `rtrim`. The Boolean helper has its own 23-case contract and
+   execution record, rather than being folded into either earlier result.
+   Select the next dependency-bearing unit with its own explicit contract; the
+   neighboring HTTP header helper still requires a separate side-effect contract
+   and remains unverified.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.
@@ -76,4 +92,6 @@ merge or license finalization is authorized by this baseline work.
 from WebMCP publication: they are local developer tests, not user-facing site
 operations. No HTTP/MCP operation, automatic submit, browser cookie forwarding,
 permission model or audit service is introduced. The SDK event names are not
-executable user-facing capabilities. WebMCP support is not claimed.
+executable user-facing capabilities. The Boolean-helper fixture remains within
+the same explicit local-test exclusion; it introduces no capability, route or
+WebMCP publication. WebMCP support is not claimed.

@@ -24,6 +24,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   string inputs (26 typed results); it verifies only `rtrim` with a literal
   two-byte slash/backslash mask. These are not full-core conversion, general
   `rtrim` compatibility, or WordPress path compatibility claims.
+  A further, independently pinned contract targets the unchanged
+  `wp_validate_boolean()` helper across 23 typed inputs. Its
+  [contract](docs/boolean-helper-unit.md) and
+  [execution record](docs/evidence/boolean-helper-2026-10-25.md) are separate
+  from the earlier helper pins and do not extend them into a general PHP or
+  WordPress compatibility claim.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

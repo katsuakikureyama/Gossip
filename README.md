@@ -44,6 +44,9 @@ project, and it is **not yet a Go replacement for WordPress**.
   three-string replacement. Its separate
   [execution record](docs/evidence/newline-helper-2026-10-25.md) does not claim
   support for `wpautop`, regex callbacks or paragraph rendering as a whole.
+  The [string-only stripslashes unit](docs/stripslashes-helper-unit.md) adds
+  an original ternary helper, with non-string values returned unchanged.
+  This is not recursive `stripslashes_deep` / `wp_unslash` support.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -88,6 +91,8 @@ repin or rerun the three unchanged units.
 The newline-preservation unit additionally needs the pin in
 [`newline-helper.json`](gossip/tests/gohp/newline-helper.json). Earlier standalone
 and combined-unit pins remain separate and unchanged.
+The string-only stripslashes unit uses its additional pin in
+[`stripslashes-helper.json`](gossip/tests/gohp/stripslashes-helper.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

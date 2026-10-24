@@ -1,0 +1,23 @@
+[
+  {"name":"null_passthrough","input_type":"null","input":null,"expected_type":"null","expected":null},
+  {"name":"bool_true_passthrough","input_type":"bool","input":true,"expected_type":"bool","expected":true},
+  {"name":"bool_false_passthrough","input_type":"bool","input":false,"expected_type":"bool","expected":false},
+  {"name":"int_zero_passthrough","input_type":"int","input":0,"expected_type":"int","expected":0},
+  {"name":"int_negative_passthrough","input_type":"int","input":-17,"expected_type":"int","expected":-17},
+  {"name":"empty_string","input_type":"string","input":"","expected_type":"string","expected":""},
+  {"name":"plain_string","input_type":"string","input":"plain text","expected_type":"string","expected":"plain text"},
+  {"name":"escaped_single_quote","input_type":"string","input":"It\\'s here","expected_type":"string","expected":"It's here"},
+  {"name":"escaped_double_quote","input_type":"string","input":"say \\\"hello\\\"","expected_type":"string","expected":"say \"hello\""},
+  {"name":"escaped_backslash_pair","input_type":"string","input":"left\\\\right","expected_type":"string","expected":"left\\right"},
+  {"name":"trailing_backslash_removed","input_type":"string","input":"ends\\","expected_type":"string","expected":"ends"},
+  {"name":"unknown_escape_removes_slash","input_type":"string","input":"left\\qright","expected_type":"string","expected":"leftqright"},
+  {"name":"escaped_ascii_zero_to_nul","input_type":"string","input":"left\\0right","expected_type":"string","expected":"left\u0000right"},
+  {"name":"actual_nul_preserved","input_type":"string","input":"left\u0000right","expected_type":"string","expected":"left\u0000right"},
+  {"name":"japanese_quote","input_type":"string","input":"猫\\'犬","expected_type":"string","expected":"猫'犬"},
+  {"name":"emoji_quote","input_type":"string","input":"🦊\\\"🐱","expected_type":"string","expected":"🦊\"🐱"},
+  {"name":"mixed_escapes","input_type":"string","input":"\\'\\\"\\\\\\0\\q","expected_type":"string","expected":"'\"\\\u0000q"},
+  {"name":"empty_array_passthrough","input_type":"array","input":[],"expected_type":"array","expected":[]},
+  {"name":"string_array_not_recursive","input_type":"array","input":["a\\'b","c\\0d"],"expected_type":"array","expected":["a\\'b","c\\0d"]},
+  {"name":"nested_array_not_recursive","input_type":"array","input":[["a\\'b","c\\0d"],false,3],"expected_type":"array","expected":[["a\\'b","c\\0d"],false,3]},
+  {"name":"array_with_actual_nul_passthrough","input_type":"array","input":["a\u0000b","c\\\\d"],"expected_type":"array","expected":["a\u0000b","c\\\\d"]}
+]

@@ -42,6 +42,12 @@ formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 
+The [string-only stripslashes unit](stripslashes-helper-unit.md) adds full
+three-operand conditional expressions and a guarded string-only builtin.
+The original returns non-strings unchanged, including escaped strings inside
+lists; it does not execute recursive `stripslashes_deep`, `map_deep` or
+`wp_unslash`. Earlier pins/evidence remain independent and unchanged.
+
 The newer [newline-preservation unit](newline-helper-unit.md) adds an independent
 original callback-helper observation using a three-string `str_replace` subset.
 Its [separate result](evidence/newline-helper-2026-10-25.md) does not translate

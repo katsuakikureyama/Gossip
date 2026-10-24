@@ -1,0 +1,127 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type stripslashesCase struct {
+	Name         string `json:"name"`
+	InputType    string `json:"input_type"`
+	Input        any    `json:"input"`
+	ExpectedType string `json:"expected_type"`
+	Expected     any    `json:"expected"`
+}
+
+type stripslashesObservation struct {
+	Name      string `json:"name"`
+	InputType string `json:"input_type"`
+	Type      string `json:"type"`
+	Value     any    `json:"value"`
+}
+
+func stripslashesFixtureValue(value any) any {
+	switch typed := value.(type) {
+	case nil, bool, string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil {
+			panic(fmt.Sprintf("stripslashes fixture only transports signed integer JSON numbers: %v", err))
+		}
+		return integer
+	case []any:
+		entries := make([]rt.Entry, 0, len(typed))
+		for _, item := range typed {
+			entries = append(entries, rt.Entry{Value: stripslashesFixtureValue(item)})
+		}
+		return rt.NewArray(entries...)
+	case map[string]any:
+		panic("stripslashes fixture does not transport PHP objects/maps")
+	default:
+		panic(fmt.Sprintf("stripslashes fixture unsupported JSON value type %T", value))
+	}
+}
+
+func stripslashesFixtureType(value any) string {
+	switch value.(type) {
+	case nil:
+		return "null"
+	case bool:
+		return "bool"
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	case rt.Array:
+		return "array"
+	default:
+		panic(fmt.Sprintf("stripslashes fixture unexpected translated value type %T", value))
+	}
+}
+
+func normalizeStripslashesFixtureValue(value any) any {
+	switch typed := value.(type) {
+	case nil, bool, int64, string:
+		return typed
+	case rt.Array:
+		out := make([]any, len(typed.Entries))
+		for index, entry := range typed.Entries {
+			key, ok := entry.Key.(int64)
+			if !ok || key != int64(index) {
+				panic("stripslashes fixture output array must retain sequential integer keys")
+			}
+			out[index] = normalizeStripslashesFixtureValue(entry.Value)
+		}
+		return out
+	default:
+		panic(fmt.Sprintf("stripslashes fixture cannot normalize translated output type %T", value))
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It dispatches only to the
+// generated WordPress helper and normalizes its typed runtime values for JSON.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []stripslashesCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("stripslashes fixture has trailing JSON values")
+	}
+
+	observations := make([]stripslashesObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" {
+			panic("stripslashes fixture case name is required")
+		}
+		input := stripslashesFixtureValue(testCase.Input)
+		if actualType := stripslashesFixtureType(input); actualType != testCase.InputType {
+			panic(fmt.Sprintf("case input type did not survive JSON transport: %s: got %s want %s", testCase.Name, actualType, testCase.InputType))
+		}
+		expected := stripslashesFixtureValue(testCase.Expected)
+		if actualType := stripslashesFixtureType(expected); actualType != testCase.ExpectedType {
+			panic(fmt.Sprintf("case expected type is outside the fixture contract: %s: got %s want %s", testCase.Name, actualType, testCase.ExpectedType))
+		}
+		value := F_stripslashes_from_strings_only(input)
+		observations = append(observations, stripslashesObservation{
+			Name: testCase.Name, InputType: testCase.InputType, Type: stripslashesFixtureType(value), Value: normalizeStripslashesFixtureValue(value),
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

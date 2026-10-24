@@ -10,12 +10,21 @@ Last updated: 2026-10-25 (JST).
   repository ID `1432085879`; its Draft PR #2 and historical commits remain there.
 - Fork work uses branch `codex/fork-baseline`, based on upstream commit
   `54106f6c545fc8b881f6b39b7963002bece6c28c` (`7.2-beta1-64693`).
+- The follow-up `codex/gohp-return-helpers` branch is stacked on that unmerged
+  baseline branch; its Draft PR must target `codex/fork-baseline`, not upstream.
 - Local fork checkout: `/Users/kureyamayuri/Desktop/Gossip-wordpress`.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 
 ## Implemented and verified
 
+- First original-source GoHP unit PASS at
+  `1c84d0c736b682b81f3a267f4c5b2c6269461308`: five unchanged WordPress
+  constant-return helpers were extracted, generated, hash-verified, compiled
+  and compared against PHP. Stdout, empty stderr and exit 0 matched. The first
+  attempt failed before translation due to a 16 MiB builder tmpfs; the corrected
+  256 MiB configuration passed. See [evidence](evidence/return-helpers-2026-10-25.md).
+  This does not prove return-type equivalence or full-file/core translation.
 - Original WordPress files/history retained. Changes only add the nested
   `gossip/` Go experiment and documentation; no inherited runtime, asset or
   license file is modified.
@@ -31,7 +40,8 @@ Last updated: 2026-10-25 (JST).
 
 ## Unimplemented / unverified
 
-- GoHP translation or execution of WordPress core, themes or plugins. The
+- Full-file/core GoHP translation or execution, themes or plugins. Five tiny
+  extracted constant-return helpers are the sole translated exception. The
   inspected GoHP candidate is now `9c7389d35032d623a429198a69cdfa5c11571e8e`,
   not the earlier prototype report's PR #2 ref. Its supported subset does not
   cover the original hook engine; see [reuse boundary](reuse-boundary.md).
@@ -46,9 +56,10 @@ Last updated: 2026-10-25 (JST).
 
 ## Next steps / migration gates
 
-Use the original WordPress source as the behavioral reference. Select a narrow
-source unit whose PHP semantics GoHP can support before attempting a pinned,
-isolated translation and differential test. Do not grow the independent CMS or
+Use the original WordPress source as the behavioral reference. The first tiny
+source unit is verified; next choose a bounded dependency-bearing unit or strengthen
+the return-value observation before expanding the compatibility claim. Keep source
+pins, isolated generation and per-unit differential results. Do not grow the independent CMS or
 replace WordPress database semantics with the prototype JSON store.
 
 Production work remains gated on owner approval, source/version inventory,
@@ -56,6 +67,7 @@ restorable data copy, dry run, compatibility validation and rollback evidence.
 This baseline creates no new browser or agent operations; local test tooling
 is explicitly excluded from WebMCP publication.
 
-Track this change in a Draft PR in **this fork**, based on `master`. No devboard
+Track the baseline in Draft PR #1 in **this fork**, based on `master`; stack the
+helper-unit follow-up on `codex/fork-baseline` until that PR is merged. No devboard
 card is linked in this repository; none is marked Done by this report. Neither
 the fork's default branch nor WordPress upstream is modified by the work branch.

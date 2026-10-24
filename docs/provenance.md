@@ -38,3 +38,17 @@ copied into the WordPress runtime.
 
 The native fixture uses `NOASSERTION` as test manifest metadata; this is not
 a licensing decision for WordPress or a distributable plugin.
+
+## Original helper-unit extraction
+
+`gossip/tests/gohp/return-helpers.json` pins the entire original
+`wp-includes/functions.php`, five complete function line ranges, GoHP commit and
+runner image digests. The test copies those original excerpts unchanged into a
+temporary PHP bundle, adding only the opening tag, separator newlines and owned
+observation calls. The original license is staged alongside it. It does not
+commit rewritten or generated replacements into the WordPress tree.
+
+The GoHP compiler and runtime come from a `git archive` of the same pinned
+commit, excluding the checkout's working edits and `.git` credentials/config.
+Exact excerpt, bundle, archive, compiler, generated source/report and executable
+hashes are in [the unit observation](evidence/return-helpers-2026-10-25.json).

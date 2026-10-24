@@ -11,7 +11,7 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Current candidate cannot run WordPress core; no translator invocation in this change |
+| PHP-to-Go translation | Separate GoHP project | Five original constant-return helpers have an isolated translation/output comparison PASS; full WordPress core and the hook engine remain unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## GoHP readiness check — 2026-10-25 JST
@@ -27,7 +27,9 @@ global state, references, array mutation, dynamic callbacks, variadic arguments,
 interfaces and other PHP builtins/object behavior. See the pinned GoHP
 [compatibility report](https://github.com/katsuakikureyama/GoHP/blob/9c7389d35032d623a429198a69cdfa5c11571e8e/docs/compatibility.md)
 and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/9c7389d35032d623a429198a69cdfa5c11571e8e/docs/integration.md).
-No full-file translation attempt or generated WordPress artifact is claimed.
+No full-file translation attempt or deployable WordPress artifact is claimed.
+The later [helper-unit experiment](translation-units.md) converts only five
+unchanged literal-return functions and records its own narrow evidence.
 
 Do not replace the PHP originals to accommodate the translator. A later adapter
 must pin its inputs, run in isolation, record generated/build/differential
@@ -36,9 +38,10 @@ that compiles is not evidence of WordPress compatibility.
 
 ## Next bounded steps
 
-1. Select one original WordPress behavior whose PHP dependency closure GoHP can
-   actually support; record the exact source and unsupported constructs before
-   attempting translation. Keep the original as an oracle.
+1. The first five literal-return helpers now pass their isolated translation
+   comparison. Next select a bounded original behavior with dependencies, or
+   strengthen the observation beyond string output. Record unsupported constructs
+   before translating, and keep the original as an oracle.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.

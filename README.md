@@ -17,6 +17,10 @@ project, and it is **not yet a Go replacement for WordPress**.
 - [`gossip/`](gossip/) is a separate experimental Go module. Initially it contains
   the native Plugin SDK and a differential harness that executes **this fork's
   original PHP hook files** and compares five owned cases with the Go registry.
+  A separate [original-source translation test](docs/translation-units.md)
+  converts five unchanged WordPress constant-return helpers through pinned
+  GoHP, builds them, and compares their output with PHP. That narrow path has
+  [passed](docs/evidence/return-helpers-2026-10-25.md); it is not full-core conversion.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -55,7 +59,8 @@ removal. Nothing pulls or executes third-party plugin ZIPs or Composer scripts.
 Reuse original WordPress behavior and assets where validated, preserve its
 provenance, and grow the Go boundary only behind explicit differential evidence.
 GoHP is a separate compiler project; its current candidate cannot translate or
-run the original WordPress hook engine. No production deployment, migration,
+run the original WordPress hook engine, despite the narrow helper-unit PASS.
+No production deployment, migration,
 marketplace, full-theme rendering or general plugin compatibility is claimed.
 
 Development changes go through a Draft PR **in this fork**, not an upstream

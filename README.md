@@ -34,6 +34,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   `sprintf` subset. Its [contract](docs/zeroise-helper-unit.md) and
   [execution record](docs/evidence/zeroise-helper-2026-10-25.md) remain separate;
   this does not provide general PHP formatting or a combined ten-function test.
+  The subsequent [combined-helper experiment](docs/helper-bundle-unit.md)
+  translates these ten originals and five owned composition drivers together
+  into one executable. Its new 22-case integration corpus and
+  [execution record](docs/evidence/helper-bundle-2026-10-25.md) are separate
+  from the standalone results; this still does not start WordPress core.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

@@ -47,6 +47,9 @@ and `array_values` work are not included. These details describe the first three
 units. The fourth [zeroise unit](zeroise-helper-unit.md) pins a newer descendant
 compiler with bounded `sprintf` support and reuses the same admission policy;
 it has its own [execution record](evidence/zeroise-helper-2026-10-25.md).
+The later [combined helper unit](helper-bundle-unit.md) reuses the same image,
+admission guard and compiler as zeroise, with a separate 22-case integration
+configuration. This does not alter the standalone unit pins or policy.
 
 Historical records executed with PHP 8.3.13 remain retained as historical
 evidence. They are useful provenance, but are below the current native floor

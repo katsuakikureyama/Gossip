@@ -42,6 +42,12 @@ formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 
+The subsequent [combined helper experiment](helper-bundle-unit.md) translates
+the ten selected originals together, adding five owned composition drivers and
+22 new direct/composed probes. Its [separate result](evidence/helper-bundle-2026-10-25.md)
+applies to one generated binary, not to the complete previous input corpora or
+WordPress startup. The standalone pins and historical results below remain intact.
+
 The current unified compiler candidate is
 [`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533),
 with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. It selects

@@ -2,7 +2,26 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest addition: original zeroise unit
+## Latest: one combined helper executable
+
+- Branch `codex/gohp-helper-bundle`, stacked on Draft #9. Test commit
+  `577791ff93543d8b5abdc1efbc47af99f4bf407c` bundles the ten unchanged originals
+  from two source files plus five owned composition drivers, translating and
+  building them together into one native Go executable.
+- New 22-case integration corpus: ten direct probes and twelve composed probes.
+  Actual return types/values matched PHP 8.3.36 and authored expectations, empty
+  stderr/exit 0. Initial run PASS 8.89s (package 9.096s); affected-package vet PASS.
+- Same GoHP compiler/runtime `e3db685dfb2a3602f94bbfa9df105db3db96cc89` as
+  zeroise; no compiler change/CI rerun. Its prior fixed-PHP CI PASS is reused.
+  Existing four unit pins/corpora/evidence are untouched and not rerun; their
+  73 observations are not claimed as a combined run.
+- See [contract](helper-bundle-unit.md) and
+  [execution evidence](evidence/helper-bundle-2026-10-25.md). This establishes
+  only the new combined helper cases, not full files, core startup, HTTP/DB or
+  theme/plugin support. Draft only, no merge/deploy/release/license decision.
+  Local developer capability remains WebMCP-excluded; devboard unlinked.
+
+## Previous addition: original zeroise unit
 
 - `codex/gohp-zeroise-helper` is stacked on Draft #8. Test commit
   `ba30252d7509a23f2f8b97de8f0b4ac748947c2b` pins a fourth independent unit,
@@ -31,7 +50,8 @@ New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 `gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
-admitted. This applies to hooks and all four GoHP translation units.
+admitted. This applies to hooks, all four standalone GoHP units and the combined
+helper experiment.
 See [policy](php-oracle-policy.md) and the
 [current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).
 

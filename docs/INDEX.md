@@ -7,6 +7,8 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Combined helper unit](helper-bundle-unit.md) | Ten unchanged originals plus five owned composition drivers in one generated binary; 22-case integration contract |
+| [Combined helper evidence](evidence/helper-bundle-2026-10-25.md) | Separate integration result; does not replace the four standalone unit records |
 | [Zeroise-helper translation unit](zeroise-helper-unit.md) | Separate unchanged `zeroise()` contract with bounded string/integer zero-padding |
 | [Zeroise-helper translation evidence](evidence/zeroise-helper-2026-10-25.md) | New unit execution record; earlier three-unit compiler pins remain unchanged |
 | [Reuse boundary](reuse-boundary.md) | Original source versus Go experiment and GoHP blockers |

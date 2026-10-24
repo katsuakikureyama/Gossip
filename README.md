@@ -30,6 +30,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   [execution record](docs/evidence/boolean-helper-2026-10-25.md) are separate
   from the earlier helper pins and do not extend them into a general PHP or
   WordPress compatibility claim.
+  A fourth unit targets unchanged `zeroise()` with a bounded zero-padding
+  `sprintf` subset. Its [contract](docs/zeroise-helper-unit.md) and
+  [execution record](docs/evidence/zeroise-helper-2026-10-25.md) remain separate;
+  this does not provide general PHP formatting or a combined ten-function test.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -61,13 +65,16 @@ GOSSIP_PHP_RUNNER_IMAGE=php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b
 ```
 
 This enables hooks; GoHP units additionally require `GOSSIP_GOHP_SOURCE` to
-point at a clone containing the unified compiler pin
+point at a clone containing the existing three-unit compiler pin
 `4e1b5abfe019ec121e13d85e99e51c206e765533`. The three GoHP units retain
 separate fixtures and comparison boundaries even though they now select that
 same compiler. See the [unified-compiler execution record](docs/evidence/unified-compiler-2026-10-25.md)
 and [current state](docs/current-state-fork-baseline.md) for the current run;
 the earlier [PHP 8.3.36 record](docs/evidence/php-83-floor-2026-10-25.md) and
 PHP 8.3.13 records remain historical evidence, not a substitute for this run.
+The fourth, zeroise unit requires its own newer compiler pin from
+[`zeroise-helper.json`](gossip/tests/gohp/zeroise-helper.json); it does not
+repin or rerun the three unchanged units.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

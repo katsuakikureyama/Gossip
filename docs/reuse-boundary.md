@@ -16,7 +16,7 @@ specific source, platform and behavioral evidence exists.
 
 ## Docker PHP oracle admission — 2026-10-25 JST
 
-New Gossip Docker-oracle runs for the hook comparison and all three GoHP units
+New Gossip Docker-oracle runs for the hook comparison and all four GoHP units
 use only the official PHP 8.3 image pinned at
 `php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd`.
 The shared oracle helper verifies that exact image allowlist before a container
@@ -32,6 +32,13 @@ The earlier Gossip evidence files retain their PHP 8.3.13 observations as
 historical records. The prior PHP 8.3.36 record also remains intact with its
 then-distinct compiler pins. Neither is relabelled as the current unified run,
 which is recorded independently.
+
+The fourth [zeroise unit](zeroise-helper-unit.md) extends a descendant compiler
+with bounded `sprintf('%0Ns', value)` for strings/integers only. Its new pin and
+[execution evidence](evidence/zeroise-helper-2026-10-25.md) do not change the
+earlier nine-function results below. Ten selected original functions across
+four units and two compiler pins are not a combined WordPress program or general
+formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 

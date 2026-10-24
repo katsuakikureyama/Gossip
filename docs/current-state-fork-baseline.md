@@ -2,13 +2,36 @@
 
 Last updated: 2026-10-25 (JST).
 
+## Latest addition: original zeroise unit
+
+- `codex/gohp-zeroise-helper` is stacked on Draft #8. Test commit
+  `ba30252d7509a23f2f8b97de8f0b4ac748947c2b` pins a fourth independent unit,
+  extracting original `zeroise()` without changing WordPress source.
+- Its compiler/runtime pin is `e3db685dfb2a3602f94bbfa9df105db3db96cc89`
+  ([GoHP Draft #18](https://github.com/katsuakikureyama/GoHP/pull/18), on #16).
+  Bounded `sprintf('%0Ns', string|int64)` only, canonical width 0–4096;
+  invalid static/dynamic inputs fail explicitly. Catalog: 32 entries/78 checks.
+- PHP 8.3.36 final-pin comparison PASS: 18 typed string outputs, 10.67s
+  (package 10.886s), empty stderr/exit 0. Affected-package vet PASS.
+  Compiler runtime/codegen/catalog local tests and vet PASS. Native compiler
+  CI initially failed on an unsupported negative literal in the owned fixture;
+  fixture/doc-only correction keeps parser scope unchanged. Corrected
+  [CI 40118450143](https://github.com/katsuakikureyama/GoHP/actions/runs/40118450143)
+  PASSed all 78 checks on fixed Go 1.23.12 / PHP 8.3.36; checkout tree matches pin.
+- Prior three manifests retain their previous pin/results, not rerun. This is
+  ten selected functions across four units and two pins, not a combined program.
+  Separate GoHP #17 work and the normal checkout remain untouched.
+- See [unit contract](zeroise-helper-unit.md) and
+  [execution evidence](evidence/zeroise-helper-2026-10-25.md). Draft only;
+  no merge/deploy/release/license decision or linked devboard Done.
+
 ## Current native-oracle policy (supersedes historical runner pins)
 
 New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 `gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
-admitted. This applies to hooks and all three GoHP translation units.
+admitted. This applies to hooks and all four GoHP translation units.
 See [policy](php-oracle-policy.md) and the
 [current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).
 
@@ -29,7 +52,7 @@ is inferred. Exact commands/hashes/timings for that migration are in the
 
 ## Current unified compiler
 
-- All three manifests now pin `4e1b5abfe019ec121e13d85e99e51c206e765533`:
+- The three pre-zeroise manifests pin `4e1b5abfe019ec121e13d85e99e51c206e765533`:
   GoHP Draft #16 stacked on #13, policy backport from `948647c` only. Active
   compiler target is 8.3 and native floor 8.3.36. Legacy-array/rtrim/Boolean
   features are retained; Composer inventory/strlen/array_keys/array_values are

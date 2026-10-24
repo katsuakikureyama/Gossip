@@ -1,0 +1,110 @@
+{
+  "binary_sha256": "17f7d4054f7be67af09e9382294616c43325c61accc899af6ac4cd4360279397",
+  "bundle_sha256": "2dfb761e6f3d316716df63127496da0553298f1a9c27e0abcaca76b4801ef230",
+  "compiler_sha256": "ecbccc91735c27991eccf8912a4e6fae502846423affaeeba1223e45217ab8e8",
+  "compiler_version": "0.1.0-dev",
+  "definitions_sha256": "d906a07a68529609ec98b0547c0dc278fe3ce7f9f2182a4536b650bdada4e7ee",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "bundle_first_line": 2,
+      "name": "__return_true",
+      "original_first_line": 7181,
+      "original_last_line": 7183,
+      "sha256": "194a7abeca0f4b3a1ca2c40ca6854667d79b6c3c382edb74e7d8046a1c6cf5a6"
+    },
+    {
+      "bundle_first_line": 6,
+      "name": "__return_false",
+      "original_first_line": 7196,
+      "original_last_line": 7198,
+      "sha256": "6c1b2e3db3527da63160245f8bc855ebe3940fac88dc50e2b8d95a3b83db570e"
+    },
+    {
+      "bundle_first_line": 10,
+      "name": "__return_zero",
+      "original_first_line": 7209,
+      "original_last_line": 7211,
+      "sha256": "44acf0951778dfe08acaee9486c64daf70dfb0e8664491c2a6845c5ede9253b2"
+    },
+    {
+      "bundle_first_line": 14,
+      "name": "__return_null",
+      "original_first_line": 7235,
+      "original_last_line": 7237,
+      "sha256": "f437398fa84f0e44313c35c6efe791cd0831628a8f89e8f992ff7cab38f8ae65"
+    },
+    {
+      "bundle_first_line": 18,
+      "name": "__return_empty_string",
+      "original_first_line": 7250,
+      "original_last_line": 7252,
+      "sha256": "1b417b245771afe887b8dba13c5725981291dadfc6e4a79558b02f8bf9ad2371"
+    }
+  ],
+  "generated_sha256": "77ac6a6950867dcb17112f35dbfcce7bcb485251bb278fac57c873d342933946",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "536410bff59899a9c52ac5ab4ee043fdceb88268072a32fd2009d8e3b2356689",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "82d0936bd4d08f34620a30a70ff9faec93417def2d2ab439b7579c292dc4cc80",
+  "gohp_commit": "9c7389d35032d623a429198a69cdfa5c11571e8e",
+  "php_image": "wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a",
+  "php_observer_sha256": "afbb91dde01b9f3133b6b7b3ff3252be633f56f6897d7fcf60a90a219ed2e359",
+  "php_target": "8.3",
+  "rejected_unit": {
+    "bundle_sha256": "dbffb0ae31e88d45e4daeb3b71649084deff8d1fea06105cfab5976649f8a5ad",
+    "compiler_diagnostic": "PHP004 line 3: unsupported function array\n",
+    "compiler_exit_code": 1,
+    "excerpt_sha256": "46948aca39c4963ec0d513b7da9478f10d411ece115316ec5b7493d0cdc41530",
+    "generated_artifacts": false,
+    "name": "__return_empty_array",
+    "original_first_line": 7222,
+    "original_last_line": 7224,
+    "php_exit_code": 0,
+    "php_observation": {
+      "type": "array",
+      "value": []
+    },
+    "php_stderr": "",
+    "status": "rejected"
+  },
+  "report_sha256": "b2043a21faf6f4e90e99ab897ce05f80d419acf7044408fe71d3f538e3d65231",
+  "schema": "gossip.translation-observation/v2",
+  "scope": "five unchanged constant-return helpers: observed scalar types/values, stdout and successful exit; original empty-array helper explicitly rejected; not whole-file/core compatibility",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "differential_pass",
+  "stderr": "",
+  "stdout": "true=1\nfalse=\nzero=0\nnull=\nempty-string=\n",
+  "typed_binary_sha256": "252c280dd1ce3af3d85129cccaed9ea0dd9d400266e9ceca8600e50cb1f3dd29",
+  "typed_exit_code": 0,
+  "typed_observations": [
+    {
+      "name": "true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "name": "null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "name": "empty_string",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "typed_stderr": "",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

@@ -11,7 +11,7 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Five original constant-return helpers have an isolated translation/output comparison PASS; full WordPress core and the hook engine remain unsupported |
+| PHP-to-Go translation | Separate GoHP project | Five original constant-return helpers pass output and typed-return comparison; original empty-array helper is explicitly rejected; full WordPress core and the hook engine remain unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## GoHP readiness check — 2026-10-25 JST
@@ -38,10 +38,12 @@ that compiles is not evidence of WordPress compatibility.
 
 ## Next bounded steps
 
-1. The first five literal-return helpers now pass their isolated translation
-   comparison. Next select a bounded original behavior with dependencies, or
-   strengthen the observation beyond string output. Record unsupported constructs
-   before translating, and keep the original as an oracle.
+1. The first five literal-return helpers now pass isolated output and typed-return
+   comparison. The original empty-array helper is the next measured boundary:
+   its `array()` call is rejected. Any support belongs in a separately reviewed
+   GoHP change, followed by a pin update and differential test, never a rewrite
+   of the WordPress original. The neighboring HTTP header helper requires a
+   separate side-effect contract and remains unverified.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.

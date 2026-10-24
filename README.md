@@ -18,11 +18,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   the native Plugin SDK and a differential harness that executes **this fork's
   original PHP hook files** and compares five owned cases with the Go registry.
   A separate [original-source translation test](docs/translation-units.md)
-  converts five unchanged WordPress constant-return helpers through pinned
-  GoHP, builds them, and compares their output and return types/values with PHP.
-  That narrow path has [passed](docs/evidence/typed-helpers-2026-10-25.md).
-  The original empty-array helper is explicitly rejected by pinned GoHP;
-  this is not full-core conversion.
+  converts six unchanged WordPress constant-return helpers through pinned
+  GoHP, builds them, and compares five scalar echo observations plus all six
+  actual return types/values with PHP. That narrow path has
+  [passed](docs/evidence/empty-array-2026-10-25.md), including the original
+  empty-array helper without rewriting its `array()` expression. This is not
+  full-core conversion or general array compatibility.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

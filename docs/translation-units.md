@@ -16,6 +16,7 @@ SHA-256 before selecting these complete functions:
 | `__return_true` | 7181–7183 | `true=1` / bool `true` |
 | `__return_false` | 7196–7198 | `false=` / bool `false` |
 | `__return_zero` | 7209–7211 | `zero=0` / int `0` |
+| `__return_empty_array` | 7222–7224 | not in scalar echo oracle / array `[]` |
 | `__return_null` | 7235–7237 | `null=` / null |
 | `__return_empty_string` | 7250–7252 | `empty-string=` / string `""` |
 
@@ -25,14 +26,17 @@ tag, separator newlines and the owned call suffix `calls.php`. No WordPress
 function is changed to satisfy GoHP. Each excerpt hash and its original/bundle
 line location are recorded in the result. Upstream files remain untouched.
 
-`__return_empty_array` (7222–7224) is a separate rejection fixture, not a
-successfully translated function. PHP must return an empty array; pinned GoHP
-must exit 1 with `PHP004 line 3: unsupported function array`, produce no stdout,
-and leave neither a generated Go file nor a report. Its original `array()` is
-never rewritten to `[]`. Dynamic callbacks, plugin APIs,
-global state, references, includes, side effects and full WordPress startup
-are also outside it. Successful conversion of these literal-return helpers does
-not remove the original hook engine's GoHP blockers.
+`__return_empty_array` (7222–7224) is now part of the positive unit. Its
+original `array()` expression is copied byte-for-byte and is not rewritten to
+`[]`. The scalar echo oracle intentionally omits it because PHP array coercion
+is not a type-preserving observation; the typed probe compares its PHP `array`
+value `[]` against the generated Go return instead. The Go probe accepts only
+an `rt.Array` with zero entries and emits `[]`, failing for a nonempty array.
+This does not establish general array equivalence, array writes or mutation.
+Dynamic callbacks, plugin APIs, global state, references, includes, side
+effects and full WordPress startup are also outside it. Successful conversion
+of these literal-return helpers does not remove the original hook engine's
+GoHP blockers.
 
 ## Execution boundary
 
@@ -57,11 +61,18 @@ not remove the original hook engine's GoHP blockers.
    values as JSON, then exits before the echo-based main. Independently observe
    the unchanged PHP definitions. Require both parsed records to match each other
    and `typed-expected.json`, with empty stderr and exit 0.
-8. Require the original empty-array fixture's PHP success and explicit compiler
-   rejection described above. Only then report `differential_pass` for the five
-   scalar helpers, while recording the sixth function separately as `rejected`.
+8. Require the typed probe to match the original empty-array PHP observation
+   alongside the five scalar helpers. Only then report `differential_pass` for
+   this six-function unit; the scalar echo output remains a five-function,
+   deliberately non-array observation.
 
-GoHP commit: `9c7389d35032d623a429198a69cdfa5c11571e8e` (draft candidate).
+GoHP commit: `c67fbefe34b1b098c0a9f475504d06bd014de23c` (Draft PR #8, based on
+`feat/compatibility-views`). The source is exported from that exact commit;
+the currently checked-out branch does not select it. GoHP PR #8's
+[CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
+PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, including
+`diff.legacy_arrays` and seven negative checks per target. That CI evidence is
+about the compiler change, not a broad WordPress compatibility result.
 Go and PHP runner images are immutable digests in the unit manifest. GoHP needs
 Go 1.23+, so the existing cached Go 1.25 image is used inside the builder; the
 host can continue running the Gossip test driver with Go 1.22.
@@ -93,17 +104,20 @@ compiler report, candidate binary, runner images, toolchain and compared output.
 The compiler's own report remains `generated`; the independent observation is
 the narrow differential result. Neither status activates a plugin or release.
 
-The v2 observation additionally records typed observations, observer/definitions/
-typed-binary hashes and the rejected unit. The observers are test instrumentation:
+The v3 observation records typed observations and observer/definitions/
+typed-binary hashes for all six functions. The historical v2 rejection result
+is retained as prior evidence and is not overwritten. The observers are test instrumentation:
 PHP `get_debug_type`/`json_encode` and dynamic calls are executed only by PHP, not
 translated. Go's `F___return_*` symbols are a private convention of the pinned
 compiler, not a stable integration API. The adapter accepts only bool, int64,
-string and nil, mapping them to PHP type labels; unexpected Go types fail.
+string and nil plus an `rt.Array` with exactly zero entries, mapping them to PHP
+type labels; unexpected types and nonempty arrays fail.
 
-The typed probe distinguishes false, null and empty string for these five actual
-returns. It does not prove general return-type equivalence, PHP warnings/exception
-behavior, arbitrary inputs, mutation or complete language semantics. It is a
-narrow original-source translation path, not production compatibility.
+The typed probe distinguishes false, null and empty string and observes one
+exact empty-array return for these six actual returns. It does not prove general
+return-type equivalence, PHP warnings/exception behavior, arbitrary inputs,
+array mutation or complete language semantics. It is a narrow original-source
+translation path, not production compatibility.
 
 ## Capability exclusion
 

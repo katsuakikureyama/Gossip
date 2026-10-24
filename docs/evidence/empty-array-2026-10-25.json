@@ -1,0 +1,105 @@
+{
+  "binary_sha256": "709e821e145795ee9f385592529e3dce61459f0d0d5c11cd2c734764d554fb18",
+  "bundle_sha256": "a8995c8d8f938ec141a5cf7e0f4064ebb17a2c5b79672672f760ddd8add119b8",
+  "compiler_sha256": "a69f9a424cd5ad7ac4ffd616b0648a91994b6347aa912e50fc4ed4c5a4fbb51e",
+  "compiler_version": "0.1.0-dev",
+  "definitions_sha256": "9ab0e1cb6a79afea3a193d5a5f23114d6fc28bd444e3b87c2f26a9c91d2eac50",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "bundle_first_line": 2,
+      "name": "__return_true",
+      "original_first_line": 7181,
+      "original_last_line": 7183,
+      "sha256": "194a7abeca0f4b3a1ca2c40ca6854667d79b6c3c382edb74e7d8046a1c6cf5a6"
+    },
+    {
+      "bundle_first_line": 6,
+      "name": "__return_false",
+      "original_first_line": 7196,
+      "original_last_line": 7198,
+      "sha256": "6c1b2e3db3527da63160245f8bc855ebe3940fac88dc50e2b8d95a3b83db570e"
+    },
+    {
+      "bundle_first_line": 10,
+      "name": "__return_zero",
+      "original_first_line": 7209,
+      "original_last_line": 7211,
+      "sha256": "44acf0951778dfe08acaee9486c64daf70dfb0e8664491c2a6845c5ede9253b2"
+    },
+    {
+      "bundle_first_line": 14,
+      "name": "__return_empty_array",
+      "original_first_line": 7222,
+      "original_last_line": 7224,
+      "sha256": "46948aca39c4963ec0d513b7da9478f10d411ece115316ec5b7493d0cdc41530"
+    },
+    {
+      "bundle_first_line": 18,
+      "name": "__return_null",
+      "original_first_line": 7235,
+      "original_last_line": 7237,
+      "sha256": "f437398fa84f0e44313c35c6efe791cd0831628a8f89e8f992ff7cab38f8ae65"
+    },
+    {
+      "bundle_first_line": 22,
+      "name": "__return_empty_string",
+      "original_first_line": 7250,
+      "original_last_line": 7252,
+      "sha256": "1b417b245771afe887b8dba13c5725981291dadfc6e4a79558b02f8bf9ad2371"
+    }
+  ],
+  "generated_sha256": "789bce0473dcbe3cea378ab1a9a3c4f3ead20a3de92a79ba5af85e27d987751f",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "8174fdfa98cb1ede628dd66b5b6ef00952aeddda4ae1be2acc0bccc76ceab96f",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "234a3b8a78f30e5aed7a0bd12c20cfffd7c97a75469c35789edaf5eb04d9f662",
+  "gohp_commit": "c67fbefe34b1b098c0a9f475504d06bd014de23c",
+  "php_image": "wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a",
+  "php_observer_sha256": "52d5f4358b78adfdae500079e42c51255ae4f15b2e810a680d1b59a5965ae90c",
+  "php_target": "8.3",
+  "report_sha256": "d12dc97e8e494032c6c23107665e94c96f756a9d01cba09abfc7ecc307a19041",
+  "schema": "gossip.translation-observation/v3",
+  "scope": "six unchanged constant-return helpers: typed values/types and successful exit; echo stdout covers five scalar helpers only because PHP array coercion is not type-preserving; not whole-file/core compatibility",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "differential_pass",
+  "stderr": "",
+  "stdout": "true=1\nfalse=\nzero=0\nnull=\nempty-string=\n",
+  "typed_binary_sha256": "e86abebfe5280b774e5eed8f766e9c60cddba7e8662fc09b24e16229edf22fde",
+  "typed_exit_code": 0,
+  "typed_observations": [
+    {
+      "name": "true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "name": "empty_array",
+      "type": "array",
+      "value": []
+    },
+    {
+      "name": "null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "name": "empty_string",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "typed_stderr": "",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

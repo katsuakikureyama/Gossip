@@ -12,7 +12,8 @@ support or compatibility promise.
 | [Hook comparison evidence](evidence/fork-hooks-2026-10-25.md) | Executed commit, runner, source/fixture hashes and exclusions |
 | [Original-source translation units](translation-units.md) | Extraction, isolation, GoHP report verification and comparison contract |
 | [Return-helper translation evidence](evidence/return-helpers-2026-10-25.md) | Five original helpers generated/built/compared; exact hashes and limitations |
-| [Typed-return and rejection evidence](evidence/typed-helpers-2026-10-25.md) | Five actual return types/values matched; original empty-array helper explicitly rejected |
+| [Typed-return and rejection evidence](evidence/typed-helpers-2026-10-25.md) | Historical v2 result: five actual return types/values matched; original empty-array helper was explicitly rejected |
+| [Empty-array translation evidence](evidence/empty-array-2026-10-25.md) | Current v3 result: six actual return types/values matched, including the unchanged original empty-array helper |
 
 Start each work session with current state and this index. Keep new work in an
 explicit branch/PR in `katsuakikureyama/Gossip`. Do not replace the root tree with

@@ -14,18 +14,38 @@ Last updated: 2026-10-25 (JST).
   baseline branch; its Draft PR must target `codex/fork-baseline`, not upstream.
 - `codex/gohp-typed-observations` is the next stacked change, targeting
   `codex/gohp-return-helpers`. No default-branch merge is included.
+- `codex/gohp-empty-array` is stacked on `codex/gohp-typed-observations` and
+  must target that branch, not `master`, WordPress upstream or the independent
+  prototype.
 - Local fork checkout: `/Users/kureyamayuri/Desktop/Gossip-wordpress`.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 
 ## Implemented and verified
 
-- Typed-return comparison PASS at `b0f0ce82d0532e1ff0258478b95a158c29b84efc`:
+- Empty-array translation PASS at `1596c5ac35846db59612098fe13d4f5736f23655`:
+  pinned GoHP `c67fbefe34b1b098c0a9f475504d06bd014de23c` (Draft GoHP PR #8,
+  based on `feat/compatibility-views`) translates six unchanged original
+  helpers, including `__return_empty_array()` with its original `array()`
+  expression. The single opt-in test PASS took 13.14 seconds (package 13.328
+  seconds): PHP and generated Go matched five scalar echo observations and all
+  six typed values/types, with empty stderr and exit 0. The echo oracle remains
+  deliberately limited to the five scalar functions because PHP array coercion
+  is not type-preserving. The Go observer accepts only an empty `rt.Array` and
+  does not claim general array equivalence. See
+  [current v3 evidence](evidence/empty-array-2026-10-25.md).
+- GoHP PR #8 CI also PASSed for fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12:
+  [run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
+  records `diff.legacy_arrays` and seven negative checks as PASS for each
+  target, with artifacts saved. This is compiler-project evidence, not a
+  full WordPress compatibility result; this fork did not rerun its own test.
+- Historical typed-return comparison PASS at `b0f0ce82d0532e1ff0258478b95a158c29b84efc`:
   five original helpers match PHP in actual scalar type/value, stdout, empty
   stderr and exit 0. A separate unchanged `__return_empty_array()` returns an
-  empty array in PHP but is explicitly rejected by pinned GoHP (`array()` is
-  unsupported); no generated source/report is left. This is a verified boundary,
-  not sixth-function support. See [new evidence](evidence/typed-helpers-2026-10-25.md).
+  empty array in PHP but was rejected by the old GoHP pin `9c7389d` (`array()`
+  was unsupported); no generated source/report was left. This historical boundary
+  is superseded only for the new pin above; the old run is not relabeled. See
+  [v2 evidence](evidence/typed-helpers-2026-10-25.md).
 - First original-source GoHP unit PASS at
   `1c84d0c736b682b81f3a267f4c5b2c6269461308`: five unchanged WordPress
   constant-return helpers were extracted, generated, hash-verified, compiled
@@ -49,9 +69,9 @@ Last updated: 2026-10-25 (JST).
 
 ## Unimplemented / unverified
 
-- Full-file/core GoHP translation or execution, themes or plugins. Five tiny
+- Full-file/core GoHP translation or execution, themes or plugins. Six tiny
   extracted constant-return helpers are the sole translated exception. The
-  inspected GoHP candidate is now `9c7389d35032d623a429198a69cdfa5c11571e8e`,
+  inspected GoHP candidate is now `c67fbefe34b1b098c0a9f475504d06bd014de23c`,
   not the earlier prototype report's PR #2 ref. Its supported subset does not
   cover the original hook engine; see [reuse boundary](reuse-boundary.md).
 - General WordPress hook parity: dynamic registration/removal, references,
@@ -66,13 +86,14 @@ Last updated: 2026-10-25 (JST).
 ## Next steps / migration gates
 
 Use the original WordPress source as the behavioral reference. The first tiny
-source unit now has typed observations. The next concrete compiler boundary is
-the unchanged empty-array helper: resolve `array()` support in a separately
-reviewed GoHP change before updating the pin and attempting a positive comparison.
-The nearby `send_nosniff_header()` needs `header()` and an HTTP side-effect
-contract; it was inspected only, not runtime-tested or supported. Keep source
-pins, isolated generation and per-unit differential results. Do not grow the independent CMS or
-replace WordPress database semantics with the prototype JSON store.
+source unit now has six typed observations, including one exact empty-array
+return. Select the next dependency-bearing unit as a separate, bounded contract
+before attempting it; do not extrapolate this result to general arrays or core
+translation. The nearby `send_nosniff_header()` needs `header()` and an HTTP
+side-effect contract; it was inspected only, not runtime-tested or supported.
+Keep source pins, isolated generation and per-unit differential results. Do not
+grow the independent CMS or replace WordPress database semantics with the
+prototype JSON store.
 
 Production work remains gated on owner approval, source/version inventory,
 restorable data copy, dry run, compatibility validation and rollback evidence.
@@ -81,6 +102,7 @@ is explicitly excluded from WebMCP publication.
 
 Track the baseline in Draft PR #1 in **this fork**, based on `master`; stack the
 helper-unit Draft PR #2 on `codex/fork-baseline` until that PR is merged; stack
-typed observations on that helper branch. No devboard
+typed observations on that helper branch, then stack the empty-array change on
+typed observations. No devboard
 card is linked in this repository; none is marked Done by this report. Neither
 the fork's default branch nor WordPress upstream is modified by the work branch.

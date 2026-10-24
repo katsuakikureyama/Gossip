@@ -11,25 +11,32 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Five original constant-return helpers pass output and typed-return comparison; original empty-array helper is explicitly rejected; full WordPress core and the hook engine remain unsupported |
+| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers pass isolated comparison: five scalar echo observations and all six typed returns, including one empty array. This is not general array support; full WordPress core and the hook engine remain unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## GoHP readiness check — 2026-10-25 JST
 
 The inspected candidate is
-[`feat/source-maps` at `9c7389d35032d623a429198a69cdfa5c11571e8e`](https://github.com/katsuakikureyama/GoHP/tree/9c7389d35032d623a429198a69cdfa5c11571e8e),
-an unmerged draft stack ending in PR #5. Its documented closed subset includes
-basic scalar operations, named functions, literal-array reads/foreach and
-limited classes. This is not a stable WordPress translator interface.
+[`c67fbefe34b1b098c0a9f475504d06bd014de23c`](https://github.com/katsuakikureyama/GoHP/tree/c67fbefe34b1b098c0a9f475504d06bd014de23c),
+the unmerged Draft GoHP PR #8 stack based on `feat/compatibility-views`. Its
+documented closed subset includes basic scalar operations, named functions,
+literal-array reads/foreach and limited classes. PR #8 adds the original
+legacy `array()` expression needed by `__return_empty_array()` through GoHP's
+shared parser; it makes no Go runtime change. This is not a stable WordPress
+translator interface or a claim of general array compatibility.
 
 The original hook engine requires features outside that subset: include/require,
 global state, references, array mutation, dynamic callbacks, variadic arguments,
 interfaces and other PHP builtins/object behavior. See the pinned GoHP
-[compatibility report](https://github.com/katsuakikureyama/GoHP/blob/9c7389d35032d623a429198a69cdfa5c11571e8e/docs/compatibility.md)
-and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/9c7389d35032d623a429198a69cdfa5c11571e8e/docs/integration.md).
+[compatibility report](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/compatibility.md)
+and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/integration.md).
 No full-file translation attempt or deployable WordPress artifact is claimed.
-The later [helper-unit experiment](translation-units.md) converts only five
-unchanged literal-return functions and records its own narrow evidence.
+The later [helper-unit experiment](translation-units.md) converts only six
+unchanged literal-return functions and records its own narrow evidence. GoHP
+PR #8's [CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
+PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, recording
+`diff.legacy_arrays` and seven negative checks per target. It remains compiler
+evidence, not a broad WordPress compatibility result.
 
 Do not replace the PHP originals to accommodate the translator. A later adapter
 must pin its inputs, run in isolation, record generated/build/differential
@@ -38,12 +45,12 @@ that compiles is not evidence of WordPress compatibility.
 
 ## Next bounded steps
 
-1. The first five literal-return helpers now pass isolated output and typed-return
-   comparison. The original empty-array helper is the next measured boundary:
-   its `array()` call is rejected. Any support belongs in a separately reviewed
-   GoHP change, followed by a pin update and differential test, never a rewrite
-   of the WordPress original. The neighboring HTTP header helper requires a
-   separate side-effect contract and remains unverified.
+1. Six literal-return helpers now pass isolated comparison, including the
+   unchanged original empty-array helper. That result is limited to an empty
+   `rt.Array` return observed by the fixture, not arbitrary arrays, writes or
+   mutations. Select the next dependency-bearing unit with its own explicit
+   contract; the neighboring HTTP header helper still requires a separate
+   side-effect contract and remains unverified.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.

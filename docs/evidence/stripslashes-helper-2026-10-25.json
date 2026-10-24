@@ -1,0 +1,285 @@
+{
+  "binary_sha256": "88ffb8922c10baaacd4f4c1fbf45c8f87e8608f81d66e7bf55833809af10d2b9",
+  "bundle_sha256": "5d3b6fae6e640172c9d91c423b5ea39f135c98e5c5ac1e52a3d022d768b262a7",
+  "case_count": 21,
+  "cases_sha256": "87887d5694022368d9fedbb0a639f533f6f4b9edd1aca0076c012dc0f8daa2ad",
+  "compiler_sha256": "322ac75f4b64eb5a44cbd9950230d7bb0d826a6807f4e4cae754b37e3ccfb848",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "stripslashes_from_strings_only",
+    "original_first_line": 2934,
+    "original_last_line": 2936,
+    "sha256": "6dc050e27054431f775bef8a177355863b888973463af3e7814d170306b357b3"
+  },
+  "generated_sha256": "d65046c2a664c57828cba76bbeda958204c2e14ca9f5e33a9daf534bc273302d",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "7b4da3c74b2f06b622ff18a0a74dd2e66a78229eba029c5770263e057a289576",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "c0a6e2f51275fd262501e1446082b106a7df348017941de1e824bef6a3954da3",
+  "gohp_commit": "0e49cc995913dfede0332566dd4dc11c5df16ff8",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "fbd0cc6ae5ca7c9fd86dac2c272eef5ab239b8cec50cec48a982b6be2d100f90",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "deaceff30f8a4470256fee629b480e3004d9489ccc8695c283c9bd77a8db69e1",
+  "schema": "gossip.stripslashes-from-strings-only-observation/v1",
+  "scope": "one unchanged WordPress conditional helper; twenty-one JSON-transported inputs limited to null, bool, modest signed integer, string and sequential list arrays, including nested lists, NUL and UTF-8 bytes; non-string roots pass through without recursive unescaping; no floats, objects/maps, non-list keys, whole-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 21,
+  "typed_observations": [
+    {
+      "input_type": "null",
+      "name": "null_passthrough",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_type": "bool",
+      "name": "bool_true_passthrough",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "bool",
+      "name": "bool_false_passthrough",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "int",
+      "name": "int_zero_passthrough",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "input_type": "int",
+      "name": "int_negative_passthrough",
+      "type": "int",
+      "value": -17
+    },
+    {
+      "input_type": "string",
+      "name": "empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "input_type": "string",
+      "name": "plain_string",
+      "type": "string",
+      "value": "plain text"
+    },
+    {
+      "input_type": "string",
+      "name": "escaped_single_quote",
+      "type": "string",
+      "value": "It's here"
+    },
+    {
+      "input_type": "string",
+      "name": "escaped_double_quote",
+      "type": "string",
+      "value": "say \"hello\""
+    },
+    {
+      "input_type": "string",
+      "name": "escaped_backslash_pair",
+      "type": "string",
+      "value": "left\\right"
+    },
+    {
+      "input_type": "string",
+      "name": "trailing_backslash_removed",
+      "type": "string",
+      "value": "ends"
+    },
+    {
+      "input_type": "string",
+      "name": "unknown_escape_removes_slash",
+      "type": "string",
+      "value": "leftqright"
+    },
+    {
+      "input_type": "string",
+      "name": "escaped_ascii_zero_to_nul",
+      "type": "string",
+      "value": "left\u0000right"
+    },
+    {
+      "input_type": "string",
+      "name": "actual_nul_preserved",
+      "type": "string",
+      "value": "left\u0000right"
+    },
+    {
+      "input_type": "string",
+      "name": "japanese_quote",
+      "type": "string",
+      "value": "猫'犬"
+    },
+    {
+      "input_type": "string",
+      "name": "emoji_quote",
+      "type": "string",
+      "value": "🦊\"🐱"
+    },
+    {
+      "input_type": "string",
+      "name": "mixed_escapes",
+      "type": "string",
+      "value": "'\"\\\u0000q"
+    },
+    {
+      "input_type": "array",
+      "name": "empty_array_passthrough",
+      "type": "array",
+      "value": []
+    },
+    {
+      "input_type": "array",
+      "name": "string_array_not_recursive",
+      "type": "array",
+      "value": [
+        "a\\'b",
+        "c\\0d"
+      ]
+    },
+    {
+      "input_type": "array",
+      "name": "nested_array_not_recursive",
+      "type": "array",
+      "value": [
+        [
+          "a\\'b",
+          "c\\0d"
+        ],
+        false,
+        3
+      ]
+    },
+    {
+      "input_type": "array",
+      "name": "array_with_actual_nul_passthrough",
+      "type": "array",
+      "value": [
+        "a\u0000b",
+        "c\\\\d"
+      ]
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "compiler_ci": {
+    "overall": "pass",
+    "metadata": {
+      "commit": "78a4178bf5ff7d6cea3e52db5df5f31840d79f34",
+      "tree": "7aa14fc6a9f384298bdf94705dc80c236b85d37b",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40121644555",
+      "run_id": "40121644555",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-24T18:39:19.320401489Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "0d043bacd5de1a38fec895e18d51f9d63fdfc887c4edeb5fe01a9bd43c78fad8",
+      "test_exit": 0
+    },
+    "checks": 89,
+    "verdicts": [
+      {
+        "status": "pass",
+        "count": 89
+      }
+    ],
+    "new_cases": [
+      {
+        "id": "diff.ternary_stripslashes",
+        "test": "TestDifferential/ternary_stripslashes",
+        "package": "github.com/katsuakikureyama/GoHP/tests",
+        "kind": "differential",
+        "fixture": "tests/fixtures/ternary_stripslashes.php",
+        "fixture_sha256": "791ee281cb90edbe33124d042c0aef2123e51c882f4cd15e4f3db6cc1af2c110",
+        "generated_sha256": "ab46cf41eaa1a7c1b67ed3d73df88e92fb76f806b1ba472b22f89ab5c0d5d799",
+        "status": "pass",
+        "phase": {
+          "parse": "pass",
+          "codegen": "pass",
+          "go_build": "pass",
+          "go_execute": "pass",
+          "differential": "pass",
+          "stdout": "pass",
+          "exit": "pass",
+          "stderr": "not-checked",
+          "exceptions": "not-checked",
+          "side_effects": "not-checked"
+        }
+      },
+      {
+        "id": "negative.codegen.ternary_stripslashes",
+        "test": "TestTernaryAndStripSlashesKnownUnsupportedFormsFailBeforeGeneration",
+        "package": "github.com/katsuakikureyama/GoHP/internal/codegen",
+        "kind": "negative",
+        "status": "pass"
+      },
+      {
+        "id": "negative.ir.ternary_arity",
+        "test": "TestTernaryMalformedIRArityFailsBeforeGeneration",
+        "package": "github.com/katsuakikureyama/GoHP/internal/codegen",
+        "kind": "negative",
+        "status": "pass"
+      },
+      {
+        "id": "unit.codegen.ternary_mixed_arms",
+        "test": "TestTernaryMixedArmsRemainConservative",
+        "package": "github.com/katsuakikureyama/GoHP/internal/codegen",
+        "kind": "unit",
+        "status": "pass"
+      },
+      {
+        "id": "unit.codegen.ternary_stripslashes",
+        "test": "TestTernaryAndStripSlashesLowerToRuntimeBoundaries",
+        "package": "github.com/katsuakikureyama/GoHP/internal/codegen",
+        "kind": "unit",
+        "status": "pass"
+      },
+      {
+        "id": "unit.runtime.stripslashes",
+        "test": "TestStripSlashesRuntime",
+        "package": "github.com/katsuakikureyama/GoHP/runtime",
+        "kind": "unit",
+        "status": "pass"
+      }
+    ],
+    "artifact": {
+      "id": 12570818793,
+      "name": "compatibility-php8.3-40121644555-1",
+      "retention_days": 30
+    }
+  },
+  "execution": {
+    "gossip_commit": "f4e65138298ae6763670d457c9c2f74615b8103a",
+    "gossip_tree": "e4e0c78a9cc0403f97c21d56fa82a990e7e13886",
+    "gohp_tree": "7aa14fc6a9f384298bdf94705dc80c236b85d37b",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressStripslashesFromStringsOnlyHelper$'",
+    "test_seconds": 7.87,
+    "package_seconds": 8.078,
+    "vet_command": "go vet ./tests/gohp",
+    "vet": "pass",
+    "run_count": 1,
+    "host_go": "go1.22.1 darwin/arm64",
+    "date": "2026-10-25"
+  }
+}

@@ -2,7 +2,31 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: newline-preservation helper
+## Latest: string-only stripslashes helper
+
+- Branch `codex/gohp-stripslashes-helper`, [Draft #12](https://github.com/katsuakikureyama/Gossip/pull/12)
+  stacked on #11. Test commit `f4e65138298ae6763670d457c9c2f74615b8103a`
+  translates unchanged `stripslashes_from_strings_only()` at formatting.php2934–2936.
+- Compiler/runtime `0e49cc995913dfede0332566dd4dc11c5df16ff8`,
+  [GoHP Draft #23](https://github.com/katsuakikureyama/GoHP/pull/23), on #21.
+  Full three-arm ternary: condition once, selected arm only, both arms statically
+  validated; one-actual-string stripslashes with static/runtime guards.
+  Catalog35 entries/89 checks. No short ternary, coalescing, coercion or recursion.
+- New21 typed cases matched PHP8.3.36 and expectations, empty stderr/exit0:
+  initial PASS7.87s (package8.078s), vet PASS. Includes non-string passthrough
+  and escaped strings inside nested lists deliberately left unchanged.
+- Compiler local runtime/codegen/catalog tests and vet PASS; fixed
+  [CI40121644555](https://github.com/katsuakikureyama/GoHP/actions/runs/40121644555)
+  PASS89 checks, Go1.23.12 / PHP8.3.36. Clean CI tree equals compiler head.
+  Exact revisions/commands/hashes in [evidence](evidence/stripslashes-helper-2026-10-25.md),
+  with [contract](stripslashes-helper-unit.md). No manual rerun after PASS.
+- Sixth standalone unit, not a twelve-function bundle or recursive
+  `stripslashes_deep` / `wp_unslash` support. Earlier pins/evidence unchanged,
+  no reruns; other GoHP stack and normal checkout unchanged. Draft only,
+  no merge/deploy/release/license decision; WebMCP-excluded local capability,
+  no auth route changes. Devboard card unidentified/unsynced, not Done.
+
+## Previous: newline-preservation helper
 
 - Branch `codex/gohp-newline-helper`, stacked on Draft #10; test commit
   `ff02bbd05a0dd5b75940724cda2352622c543030` translates unchanged
@@ -75,7 +99,7 @@ New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 `gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
-admitted. This applies to hooks, all five standalone GoHP units and the combined
+admitted. This applies to hooks, all six standalone GoHP units and the combined
 helper experiment.
 See [policy](php-oracle-policy.md) and the
 [current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).

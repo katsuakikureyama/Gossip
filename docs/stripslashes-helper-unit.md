@@ -50,6 +50,8 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP \
 Missing opt-in is SKIP, not PASS. Earlier standalone and combined-helper units
 retain their pins, cases and evidence; this addition is not a twelve-function
 bundle or a revalidation of earlier units on the new compiler.
+The [execution record](evidence/stripslashes-helper-2026-10-25.md) records the
+21-case run, exact revisions, commands and limitations.
 
 ## Capability exclusion
 

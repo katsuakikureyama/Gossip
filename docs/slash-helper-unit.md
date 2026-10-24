@@ -13,11 +13,14 @@ hash, and exact excerpts: `trailingslashit` 2883–2885; `untrailingslashit` 289
 The bundle adds a PHP opening tag and separator newlines only. Function bodies,
 spacing, parameter names and the original `rtrim` call remain unchanged.
 
-GoHP compiler/runtime are pinned to `ceee0fc71e1e7947f1c78f1dd18875236b9a180b`
-([Draft PR #10](https://github.com/katsuakikureyama/GoHP/pull/10)). Its added
+GoHP compiler/runtime are pinned to
+[`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533),
+with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. Its bounded
 `rtrim` contract requires exactly two arguments, actual string input and a
 literal byte mask without `..` ranges. It does not implement default masks,
-dynamic masks, non-string coercion or all PHP trimming semantics.
+dynamic masks, non-string coercion or all PHP trimming semantics. The prior
+`ceee0fc71e1e7947f1c78f1dd18875236b9a180b` / Draft PR #10 pin remains only as
+historical evidence; it does not select this current run.
 
 The [case fixture](../gossip/tests/gohp/slash-cases.json) contains 13 explicit
 input/expected pairs: empty and slash-only strings, repeated/mixed suffixes,
@@ -57,8 +60,11 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP \
 ```
 
 No environment variable means an explicit skip, not a verified translation.
-The [constant-return unit](translation-units.md) keeps its own older compiler
-pin and earlier evidence; adding this unit does not rerun or relabel that result.
+The [constant-return unit](translation-units.md) and this unit now select one
+compiler, but remain independently generated, built and compared. The current
+PHP 8.3.36 result is recorded only in
+[unified-compiler evidence](evidence/unified-compiler-2026-10-25.md); it does
+not relabel the earlier per-pin evidence or turn the units into one bundle.
 The fixture is intentionally string-only and does not validate weak scalar
 coercion, warnings/exceptions, arbitrary byte input, full-file/core translation,
 path canonicalization, HTTP behavior, PHP plugins, themes or database semantics.

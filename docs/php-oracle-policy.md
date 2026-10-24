@@ -36,16 +36,23 @@ the same change set.
 The shared `internal/phporacle` helper applies this admission process to all
 Gossip Docker PHP oracles: the hook comparison and the three original-source
 GoHP units (constant/array returns, slash helpers and Boolean validation). Each
-unit retains its own WordPress excerpt, GoHP source pin and behavior contract.
-This policy does not merge the units, change their compiler pins, or incorporate
-the separate GoHP PR #14 stack.
+unit retains its own WordPress excerpt, fixture and behavior contract. The
+current unified compiler pin is `4e1b5abfe019ec121e13d85e99e51c206e765533`,
+with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`; using one
+compiler does not merge the three units into one source bundle or whole-core
+comparison. It backports only the PHP 8.3 policy commit
+`948647c2903a4a1b22069818861062df1f5bf414` from separate GoHP PR #14 to Draft
+PR #16, which is stacked on #13. Composer inventory, `strlen`, `array_keys`
+and `array_values` work are not included.
 
 Historical records executed with PHP 8.3.13 remain retained as historical
 evidence. They are useful provenance, but are below the current native floor
 and must not be reported as a current-policy run. The new PHP 8.3.36 record is
 separate in [PHP 8.3 floor evidence](evidence/php-83-floor-2026-10-25.md).
-Until that record contains a successful run for its stated scope, this policy
-does not establish an outcome for the affected comparisons.
+The new unified-compiler run is recorded separately in
+[unified-compiler evidence](evidence/unified-compiler-2026-10-25.md). Until
+that record contains an executed result for its stated scope, this policy does
+not establish an outcome for the affected comparisons.
 
 ## Capability exclusion
 

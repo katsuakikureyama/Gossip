@@ -13,10 +13,12 @@ staged source adds only the PHP opening tag; the function's spacing, parameter,
 branches and body are not rewritten.
 
 The contract pins GoHP
-[`14bb01053947f1bf2fb32edaff8085feb7227f48`](https://github.com/katsuakikureyama/GoHP/tree/14bb01053947f1bf2fb32edaff8085feb7227f48)
-and Gossip test commit `8901d634e4d52e9be06c4c2d7f91714652974b28`. It has its
-own source, compiler and case hashes; it neither updates nor combines the
-constant-return and slash-helper pins.
+[`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533)
+and Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. It has its
+own source and case hashes; it shares the compiler with the constant-return and
+slash-helper units without combining their sources or observations. The prior
+`14bb01053947f1bf2fb32edaff8085feb7227f48` / Draft PR #13 pin remains
+historical evidence only.
 
 [`boolean-cases.json`](../gossip/tests/gohp/boolean-cases.json) owns 23
 input/expected pairs. They cover null, both Boolean values, zero/positive/
@@ -67,8 +69,10 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP \
 The test is opt-in: an absent `GOSSIP_GOHP_SOURCE` produces a skip, not a
 translation result. Its outcome, hashes and observed values are recorded
 separately in the
-[Boolean execution record](evidence/boolean-helper-2026-10-25.md). That record
-is the only place to determine this contract's executed status; this document
+[Boolean execution record](evidence/boolean-helper-2026-10-25.md). The current
+shared-compiler PHP 8.3.36 run is separate in
+[unified-compiler evidence](evidence/unified-compiler-2026-10-25.md). Those
+records, rather than this contract, determine executed status; this document
 defines scope and procedure, not a compatibility conclusion.
 
 ## Capability exclusion

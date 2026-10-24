@@ -10,7 +10,8 @@ support or compatibility promise.
 | [Reuse boundary](reuse-boundary.md) | Original source versus Go experiment and GoHP blockers |
 | [Provenance](provenance.md) | Exact upstream/prototype references and unchanged source policy |
 | [PHP oracle policy](php-oracle-policy.md) | Admission floor for new Docker-oracle runs; not a compatibility conclusion |
-| [PHP 8.3 floor evidence](evidence/php-83-floor-2026-10-25.md) | New PHP 8.3.36 execution record for all Gossip Docker oracles |
+| [PHP 8.3 floor evidence](evidence/php-83-floor-2026-10-25.md) | Previous PHP 8.3.36 execution record, retained with its earlier three compiler pins |
+| [Unified-compiler evidence](evidence/unified-compiler-2026-10-25.md) | Current PHP 8.3.36 execution record for three independent GoHP units under one compiler pin |
 | [Hook comparison evidence](evidence/fork-hooks-2026-10-25.md) | Historical PHP 8.3.13 execution record: commit, runner, source/fixture hashes and exclusions |
 | [Original-source translation units](translation-units.md) | Extraction, isolation, GoHP report verification and comparison contract |
 | [Return-helper translation evidence](evidence/return-helpers-2026-10-25.md) | Historical PHP 8.3.13 record: five original helpers generated/built/compared; exact hashes and limitations |

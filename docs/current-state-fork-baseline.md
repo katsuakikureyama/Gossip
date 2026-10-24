@@ -9,21 +9,43 @@ New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
 admitted. This applies to hooks and all three GoHP translation units.
-See [policy](php-oracle-policy.md) and the separate
-[current execution record](evidence/php-83-floor-2026-10-25.md).
+See [policy](php-oracle-policy.md) and the
+[current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).
 
 The earlier PHP 8.3.13 Gossip results and PHP 7.4/8.3.30 compiler CI below are
 historical evidence only, not current-policy passes. Their files are retained
 without rewriting observations. GoHP compiler/runtime pins remain distinct and
-unchanged for each unit; integrating the separate GoHP PR #14 policy stack is
-not part of this runner migration. No compiler-project CI is rerun here.
+unchanged for each unit in the previous runner migration. The subsequent
+compiler integration below backports only the policy from the separate #14
+stack; other features from that stack are not imported.
 
 At `2cac2bf34ce66ef788975e0f2e6644cb815d33b5`, current-policy local execution
 PASSed with actual PHP 8.3.36: hook comparison (5 cases, twice each), six
 constant-return types/values, slash helpers (13 inputs/26 typed returns), and
 Boolean helper (23 inputs). Policy unit tests and affected-package vet also
 PASS. Each unit keeps its own compiler pin, and no general compatibility claim
-is inferred. Exact commands/hashes/timings are in the current execution record.
+is inferred. Exact commands/hashes/timings for that migration are in the
+[prior floor execution record](evidence/php-83-floor-2026-10-25.md).
+
+## Current unified compiler
+
+- All three manifests now pin `4e1b5abfe019ec121e13d85e99e51c206e765533`:
+  GoHP Draft #16 stacked on #13, policy backport from `948647c` only. Active
+  compiler target is 8.3 and native floor 8.3.36. Legacy-array/rtrim/Boolean
+  features are retained; Composer inventory/strlen/array_keys/array_values are
+  not imported. Catalog: 31 entries / 73 checks, only active target 8.3.
+- Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5` PASSed all
+  three original-source units once on PHP 8.3.36: six constant-return types/values
+  (13.37s), slash 13 inputs / 26 typed returns (8.64s), Boolean 23 inputs
+  (12.00s), package 34.204s. Same compiler/runtime identity, three separately
+  built units; not a single nine-function bundle or full WordPress execution.
+- Only three Gossip compiler pins changed. Source, cases, expected values,
+  observers, PHP admission and hooks are unchanged; earlier hook/admission
+  PASS is reused under the unchanged effective configuration, not rerun.
+- Compiler local internal/CLI tests, vet and shell syntax PASS. Native
+  [CI 40116685783](https://github.com/katsuakikureyama/GoHP/actions/runs/40116685783)
+  PASSed on fixed Go 1.23.12 / PHP 8.3.36. Exact evidence and limitations are
+  in the unified-compiler execution record. Historical files remain untouched.
 
 ## Repository identity
 
@@ -48,6 +70,8 @@ is inferred. Exact commands/hashes/timings are in the current execution record.
 - `codex/php-83-oracle-floor` is stacked on `codex/gohp-boolean-helper`;
   [Draft PR #7](https://github.com/katsuakikureyama/Gossip/pull/7) targets #6,
   not the default branch or WordPress upstream.
+- `codex/unified-php83-compiler` is stacked on `codex/php-83-oracle-floor`;
+  [Draft PR #8](https://github.com/katsuakikureyama/Gossip/pull/8) targets #7.
   The older `/Users/kureyamayuri/Desktop/Gossip` checkout still points to
   `Gossip-prototype`; it is not the new fork. No existing directory was removed.
 

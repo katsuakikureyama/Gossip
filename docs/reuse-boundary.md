@@ -11,7 +11,7 @@ specific source, platform and behavioral evidence exists.
 | Posts, terms, options, metadata, DB schema | Original WordPress implementation | No replacement with the prototype JSON store; no migration or Go DB mapping here |
 | Browser sessions, permissions and HTTP routes | Original WordPress implementation | No new routes or auth changes; no Go browser session claim |
 | Native Go plugins | Isolated `gossip/pkg/pluginsdk` experiment | Trusted in-process registry; not linked into the inherited PHP request lifecycle |
-| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers have their own isolated evidence, and two original slash helpers separately match 13 string inputs/26 typed results. A third, separately pinned Boolean-helper contract is tracked independently. None of these is general array, `rtrim`, scalar-coercion or full-core support; the hook engine remains unsupported |
+| PHP-to-Go translation | Separate GoHP project | Six original constant-return helpers, two slash helpers and one Boolean helper remain three independently generated/built/compared units. The current run selects one shared compiler pin, not a nine-function bundle or full-core test. This is not general array, `rtrim`, scalar-coercion or full-core support; the hook engine remains unsupported |
 | Earlier Go HTTP/editor/import/release prototype | Separate `Gossip-prototype` repository | Historical prototype only; not installed or activated by this fork |
 
 ## Docker PHP oracle admission — 2026-10-25 JST
@@ -29,32 +29,41 @@ PHP surface; see the [PHP oracle policy](php-oracle-policy.md) and the separate
 [PHP 8.3 floor execution record](evidence/php-83-floor-2026-10-25.md).
 
 The earlier Gossip evidence files retain their PHP 8.3.13 observations as
-historical records. They are not relabelled as current-policy PASS, and a new
-8.3.36 run is recorded independently. This policy does not alter the three
-existing GoHP source pins or integrate the separate GoHP PR #14 stack.
+historical records. The prior PHP 8.3.36 record also remains intact with its
+then-distinct compiler pins. Neither is relabelled as the current unified run,
+which is recorded independently.
 
 ## GoHP readiness check — 2026-10-25 JST
 
-The slash-helper unit inspects
-[`ceee0fc71e1e7947f1c78f1dd18875236b9a180b`](https://github.com/katsuakikureyama/GoHP/tree/ceee0fc71e1e7947f1c78f1dd18875236b9a180b),
-the unmerged Draft GoHP PR #10 stack based on `feat/legacy-array-syntax`. It
-adds only the bounded `rtrim` form needed by that unit: two arguments and a
-literal byte mask. It does not establish ranges, non-string coercion, dynamic
-masks, or general PHP builtin compatibility. The separately pinned
-[`c67fbefe34b1b098c0a9f475504d06bd014de23c`](https://github.com/katsuakikureyama/GoHP/tree/c67fbefe34b1b098c0a9f475504d06bd014de23c)
-remains the evidence pin for the six constant-return helpers and Draft GoHP PR
-#8's legacy `array()` expression. Neither candidate is a stable WordPress
-translator interface or a claim of general array compatibility.
+The current unified compiler candidate is
+[`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533),
+with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. It selects
+the same compiler/runtime for three independent units: six constant-return
+helpers, two slash helpers and `wp_validate_boolean()`. Each unit retains its
+own source excerpt, fixture, expected values, generated program and PHP oracle;
+this is nine functions across three comparisons, not one bundle or whole-core
+translation. Its execution outcome belongs only in
+[unified-compiler evidence](evidence/unified-compiler-2026-10-25.md).
+
+This candidate backports only GoHP PHP 8.3 policy commit
+`948647c2903a4a1b22069818861062df1f5bf414` from separate PR #14 to Draft PR
+#16, which is stacked on #13. It does not import Composer inventory, `strlen`,
+`array_keys` or `array_values` work. The earlier
+`c67fbefe34b1b098c0a9f475504d06bd014de23c`,
+`ceee0fc71e1e7947f1c78f1dd18875236b9a180b` and
+`14bb01053947f1bf2fb32edaff8085feb7227f48` pins remain historical explanations
+for their existing evidence; they do not select this run.
 
 The original hook engine requires features outside that subset: include/require,
 global state, references, array mutation, dynamic callbacks, variadic arguments,
-interfaces and other PHP builtins/object behavior. See the pinned GoHP
-[compatibility report](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/compatibility.md)
-and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/c67fbefe34b1b098c0a9f475504d06bd014de23c/docs/integration.md).
+interfaces and other PHP builtins/object behavior. See the current pinned GoHP
+[compatibility report](https://github.com/katsuakikureyama/GoHP/blob/4e1b5abfe019ec121e13d85e99e51c206e765533/docs/compatibility.md)
+and [integration contract](https://github.com/katsuakikureyama/GoHP/blob/4e1b5abfe019ec121e13d85e99e51c206e765533/docs/integration.md).
 No full-file translation attempt or deployable WordPress artifact is claimed.
-The [helper-unit experiment](translation-units.md) converts only six unchanged
-literal-return functions under its own pin; the separate
-[slash-helper unit](slash-helper-unit.md) records a different pin and contract.
+The [helper-unit experiment](translation-units.md),
+[slash-helper unit](slash-helper-unit.md) and
+[Boolean-helper unit](boolean-helper-unit.md) share the current compiler pin
+but retain separate contracts and observations.
 GoHP PR #8's [CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
 PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, recording
 `diff.legacy_arrays` and seven negative checks per target. It remains compiler
@@ -66,20 +75,6 @@ nine negative checks, and two runtime checks per target. It is scoped compiler
 evidence for the bounded `rtrim` addition, not a broad PHP or WordPress
 compatibility result.
 
-The separate Boolean-helper contract pins GoHP
-[`14bb01053947f1bf2fb32edaff8085feb7227f48`](https://github.com/katsuakikureyama/GoHP/tree/14bb01053947f1bf2fb32edaff8085feb7227f48)
-and Gossip test commit `8901d634e4d52e9be06c4c2d7f91714652974b28`. It extracts
-only `wp_validate_boolean()` from `wp-includes/functions.php` lines 7932–7942
-and records a 23-case mixed-input contract. Its generated/build/differential
-outcome belongs only in the
-[Boolean execution record](evidence/boolean-helper-2026-10-25.md); it does not
-rerun, revise or combine the older return-helper and slash-helper evidence.
-The bounded compiler work covers the helper's one-arm early return, `&&`
-short-circuiting, scalar `===`, Boolean cast, `is_bool`, `is_string`, and
-string-only ASCII `strtolower` under an explicitly selected and verified
-`LC_CTYPE=C`. Float and object behavior, and whole-file/core translation,
-remain unsupported.
-
 Do not replace the PHP originals to accommodate the translator. A later adapter
 must pin its inputs, run in isolation, record generated/build/differential
 outcomes separately, and keep a failed candidate inactive. A translated file
@@ -87,15 +82,12 @@ that compiles is not evidence of WordPress compatibility.
 
 ## Next bounded steps
 
-1. Six literal-return helpers pass under their own pin, including the unchanged
-   original empty-array helper. Separately, two slash helpers pass the 13-case
-   string contract under the newer pin. Neither result is a combined eight-
-   function test or evidence for arbitrary arrays, writes, mutations, paths,
-   or general `rtrim`. The Boolean helper has its own 23-case contract and
-   execution record, rather than being folded into either earlier result.
-   Select the next dependency-bearing unit with its own explicit contract; the
-   neighboring HTTP header helper still requires a separate side-effect contract
-   and remains unverified.
+1. Keep the shared-compiler run to its three independent unit boundaries: six
+   literal-return helpers, two slash helpers and one Boolean helper. It is not
+   a nine-function bundle or evidence for arbitrary arrays, writes, mutations,
+   paths or general `rtrim`. Select the next dependency-bearing unit with its
+   own explicit contract; the neighboring HTTP header helper still requires a
+   separate side-effect contract and remains unverified.
 2. Expand the comparison contract only for demonstrated behavior. Negative
    priorities, references, removal during dispatch, recursion and dynamic hook
    registration remain outside the current native SDK evidence.

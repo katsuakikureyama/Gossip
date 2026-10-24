@@ -66,13 +66,18 @@ GoHP blockers.
    this six-function unit; the scalar echo output remains a five-function,
    deliberately non-array observation.
 
-GoHP commit: `c67fbefe34b1b098c0a9f475504d06bd014de23c` (Draft PR #8, based on
-`feat/compatibility-views`). The source is exported from that exact commit;
-the currently checked-out branch does not select it. GoHP PR #8's
-[CI run 40112122164](https://github.com/katsuakikureyama/GoHP/actions/runs/40112122164)
-PASSed on fixed PHP 7.4.33 and 8.3.30 with Go 1.23.12, including
-`diff.legacy_arrays` and seven negative checks per target. That CI evidence is
-about the compiler change, not a broad WordPress compatibility result.
+The current shared GoHP commit is
+[`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533),
+with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. The source
+is exported from that exact commit; the checked-out branch does not select it.
+This unit remains one six-function comparison, separate from the slash and
+Boolean units despite sharing the compiler. Its current PHP 8.3.36 execution is
+recorded only in [unified-compiler evidence](evidence/unified-compiler-2026-10-25.md),
+not inferred from generation or from another unit.
+
+The previous `c67fbefe34b1b098c0a9f475504d06bd014de23c` pin and its Draft PR #8
+CI are retained as historical compiler evidence. They do not select the current
+unit or establish a current-policy result.
 Go and PHP runner images are immutable digests in the unit manifest. GoHP needs
 Go 1.23+, so the existing cached Go 1.25 image is used inside the builder; the
 host can continue running the Gossip test driver with Go 1.22.

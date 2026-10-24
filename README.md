@@ -61,11 +61,13 @@ GOSSIP_PHP_RUNNER_IMAGE=php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b
 ```
 
 This enables hooks; GoHP units additionally require `GOSSIP_GOHP_SOURCE` to
-point at a clone containing their distinct pinned commits. See the
-[PHP 8.3.36 execution record](docs/evidence/php-83-floor-2026-10-25.md) for the
-exact command used to run all four bounded comparison units under the new
-policy. Earlier linked PHP 8.3.13 records are historical, not current admission
-evidence.
+point at a clone containing the unified compiler pin
+`4e1b5abfe019ec121e13d85e99e51c206e765533`. The three GoHP units retain
+separate fixtures and comparison boundaries even though they now select that
+same compiler. See the [unified-compiler execution record](docs/evidence/unified-compiler-2026-10-25.md)
+and [current state](docs/current-state-fork-baseline.md) for the current run;
+the earlier [PHP 8.3.36 record](docs/evidence/php-83-floor-2026-10-25.md) and
+PHP 8.3.13 records remain historical evidence, not a substitute for this run.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

@@ -2,7 +2,33 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: original array_first/array_last24-case comparison PASS
+## Latest: twenty-four-original262-case integration PASS
+
+All24 original declarations and46 owned drivers translate/build together on
+GoHP #58 main `440308c77da07cbcdce403fed7fff3945e0d2078`. A single executable
+matches PHP8.3.36/C for all262 cases:230 retained search-bundle,24 edges and8
+new cross-helper compositions. All old corpora and source bytes are preserved.
+Actual typed returns and caller input/selector state match PHP and expectations.
+[Contract](edge-helper-bundle-unit.md), [record](evidence/edge-helper-bundle-2026-10-26.md).
+
+Successful test commit `c753c2d37ada08e2c412ea6996515f06dcf0b500`, tree
+`69e40a5525a299f7c193fe4f52eae96e9961aad5`; PASS9.28s/package9.489s,
+vet PASS, empty stderr/exit0. The initial snapshot failed to build an adapted
+observer because its JSON type import was removed. Retaining that import fixed
+the adapter; the comparison then completed. Evidence records both snapshots.
+Only documentation/evidence changes follow PASS.
+
+The eight new cases compose slice → Boolean mapping → first/last and search.
+They distinguish empty/null from singleton false, no-match from key0, selector
+order/deduplication and mixed/normalized keys. Older configurations remain exact
+historical records; this is a newly measured integration rather than summed PASS
+counts. WordPress startup/HTTP/DB/themes/plugins and broader callable/error
+semantics remain future work. Next select a concrete original-source dependency
+or application path to extend beyond the current bounded helper integration.
+Local capability remains WebMCP-excluded; route/auth unchanged. PR/current-state
+tracks progress, devboard card unidentified.
+
+## Previous: original array_first/array_last24-case comparison PASS
 
 Both originals now translate on GoHP main
 `440308c77da07cbcdce403fed7fff3945e0d2078` (#58) and execute in one binary.

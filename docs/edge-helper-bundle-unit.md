@@ -7,6 +7,9 @@ PHP8.3.36. It selects GoHP #58 main
 two-original edge unit. The subsequent #59 feature is not needed for this
 configuration. Its previous pins and evidence stay separate.
 
+The [execution record](evidence/edge-helper-bundle-2026-10-26.md) reports
+262/262 typed/caller-state comparisons and vet PASS on the exact configuration.
+
 The manifest `gossip/tests/gohp/edge-helper-bundle.json` retains the22-original
 search bundle's exact source fragments and adds array_first657–665 and
 array_last679–685 from compat.php. Source files and fragments are hash-checked;

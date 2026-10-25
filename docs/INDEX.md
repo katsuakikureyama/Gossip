@@ -6,7 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | array_first/last24-case PASS on GoHP #58; earlier22-original230-case integration and next steps |
+| [Current state](current-state-fork-baseline.md) | Twenty-four-original262-case single-binary PASS on GoHP #58; scope and next steps |
+| [Twenty-four-original integration](edge-helper-bundle-unit.md) | All24 originals/46 drivers;230 retained +24 edges +8 new composed cases |
+| [Twenty-four-original evidence](evidence/edge-helper-bundle-2026-10-26.md) | Actual typed/caller-state262-case PASS, exact snapshots, commands and hashes |
 | [Original array edges](array-edge-unit.md) | Both unchanged declarations in one Go binary;24 retained cases on integrated GoHP main |
 | [Array edge comparison evidence](evidence/array-edge-unit-2026-10-26.md) | Actual PHP8.3.36 return/input-after matches; commands, hashes and observations |
 | [Original array_first](array-first-unit.md) | Separate12-case comparison on GoHP #57; original declaration and guard retained |

@@ -1,0 +1,270 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type numericArrayCase struct {
+	Name           string          `json:"name"`
+	InputType      string          `json:"input_type"`
+	Input          any             `json:"input"`
+	Expected       json.RawMessage `json:"expected"`
+	ExpectedIsList json.RawMessage `json:"expected_is_list"`
+	InputAfter     json.RawMessage `json:"input_after"`
+}
+
+type numericArrayPolyfillCase struct {
+	Name       string          `json:"name"`
+	Operation  string          `json:"operation"`
+	Input      []any           `json:"input"`
+	Expected   json.RawMessage `json:"expected"`
+	InputAfter json.RawMessage `json:"input_after"`
+}
+
+type numericArrayInputAfter struct {
+	Type  string `json:"type"`
+	Value any    `json:"value"`
+}
+
+type numericArrayObservation struct {
+	Name       string                 `json:"name"`
+	InputType  string                 `json:"input_type"`
+	Type       string                 `json:"type"`
+	Value      bool                   `json:"value"`
+	IsList     any                    `json:"is_list"`
+	InputAfter numericArrayInputAfter `json:"input_after"`
+}
+
+type numericArrayOutput struct {
+	Predicate []numericArrayObservation `json:"predicate"`
+	Polyfill  []numericArrayObservation `json:"polyfill"`
+}
+
+func decodeNumericArrayFixture(path string, target any) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	if err := decoder.Decode(target); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("numeric-array fixture has trailing JSON values")
+	}
+}
+
+func numericArrayScalar(value any, field string) any {
+	switch typed := value.(type) {
+	case nil, bool, string:
+		return typed
+	case int64:
+		if typed < -1_000_000 || typed > 1_000_000 {
+			panic("observed integer outside bounded domain")
+		}
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("numeric-array fixture %s must be a bounded signed integer", field))
+		}
+		return integer
+	default:
+		panic(fmt.Sprintf("numeric-array fixture %s must be null, bool, int, or string; got %T", field, value))
+	}
+}
+
+func numericArrayKey(value any, field string) any {
+	var raw any
+	switch typed := value.(type) {
+	case string:
+		raw = typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("numeric-array fixture %s key must be a bounded signed integer or string", field))
+		}
+		raw = integer
+	default:
+		panic(fmt.Sprintf("numeric-array fixture %s key must be an integer or string; got %T", field, value))
+	}
+
+	normalized := rt.Key(raw)
+	if integer, ok := normalized.(int64); ok && (integer < -1_000_000 || integer > 1_000_000) {
+		panic(fmt.Sprintf("numeric-array fixture %s normalized key is outside the bounded range", field))
+	}
+	return normalized
+}
+
+func numericArrayPairs(value []any, field string) rt.Array {
+	entries := make([]rt.Entry, 0, len(value))
+	seen := map[any]bool{}
+	for index, rawPair := range value {
+		pair, ok := rawPair.([]any)
+		if !ok || len(pair) != 2 {
+			panic(fmt.Sprintf("numeric-array fixture %s pair %d must contain exactly key and value", field, index))
+		}
+		key := numericArrayKey(pair[0], fmt.Sprintf("%s pair %d", field, index))
+		if seen[key] {
+			panic(fmt.Sprintf("numeric-array fixture %s has duplicate normalized key at pair %d", field, index))
+		}
+		seen[key] = true
+		entries = append(entries, rt.Entry{Key: key, Value: numericArrayScalar(pair[1], fmt.Sprintf("%s pair %d value", field, index))})
+	}
+	return rt.NewArray(entries...)
+}
+
+func numericArrayInput(value any, inputType string, field string) any {
+	switch inputType {
+	case "array":
+		pairs, ok := value.([]any)
+		if !ok {
+			panic(fmt.Sprintf("numeric-array fixture %s array input must be an ordered pair list", field))
+		}
+		return numericArrayPairs(pairs, field)
+	case "null", "bool", "int", "string":
+		scalar := numericArrayScalar(value, field)
+		if numericArrayType(scalar) != inputType {
+			panic(fmt.Sprintf("numeric-array fixture %s does not match input_type %s", field, inputType))
+		}
+		return scalar
+	default:
+		panic(fmt.Sprintf("numeric-array fixture has unsupported input_type %q", inputType))
+	}
+}
+
+func numericArrayType(value any) string {
+	switch value.(type) {
+	case nil:
+		return "null"
+	case bool:
+		return "bool"
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	case rt.Array:
+		return "array"
+	default:
+		panic(fmt.Sprintf("numeric-array fixture unexpected translated type %T", value))
+	}
+}
+
+func numericArrayEntries(value rt.Array) [][]any {
+	entries := make([][]any, 0, len(value.Entries))
+	for index, entry := range value.Entries {
+		key := entry.Key // Observe stored key type; never normalize the result again.
+		switch key.(type) {
+		case int64, string:
+		default:
+			panic("observed key is not an integer or string")
+		}
+		if integer, ok := key.(int64); ok && (integer < -1_000_000 || integer > 1_000_000) {
+			panic(fmt.Sprintf("numeric-array fixture observed key %d is outside the bounded range", index))
+		}
+		entries = append(entries, []any{key, numericArrayScalar(entry.Value, fmt.Sprintf("observed array value %d", index))})
+	}
+	return entries
+}
+
+func observeNumericArrayInputAfter(input any) numericArrayInputAfter {
+	if array, ok := input.(rt.Array); ok {
+		return numericArrayInputAfter{Type: "array", Value: numericArrayEntries(array)}
+	}
+	return numericArrayInputAfter{Type: numericArrayType(input), Value: numericArrayScalar(input, "observed scalar input")}
+}
+
+func numericArrayPredicateObservation(testCase numericArrayCase) numericArrayObservation {
+	if testCase.Name == "" {
+		panic("numeric-array fixture case name is required")
+	}
+	input := numericArrayInput(testCase.Input, testCase.InputType, "input")
+	actual, ok := F_wp_is_numeric_array(input).(bool)
+	if !ok {
+		panic("wp_is_numeric_array did not return bool")
+	}
+	var isList any
+	if array, ok := input.(rt.Array); ok {
+		isList = rt.ArrayIsList(array)
+	}
+	return numericArrayObservation{
+		Name: testCase.Name, InputType: testCase.InputType, Type: "bool", Value: actual, IsList: isList,
+		InputAfter: observeNumericArrayInputAfter(input),
+	}
+}
+
+func numericArrayPolyfillValue(operation string, input rt.Array) bool {
+	var value any
+	switch operation {
+	case "gossip_array_all_key_value":
+		value = F_gossip_array_all_key_value(input)
+	case "gossip_array_all_short_circuit":
+		value = F_gossip_array_all_short_circuit(input)
+	case "gossip_array_all_empty":
+		value = F_gossip_array_all_empty(input)
+	case "gossip_array_all_mutation":
+		value = F_gossip_array_all_mutation(input)
+	default:
+		panic(fmt.Sprintf("numeric-array polyfill fixture has unsupported operation %q", operation))
+	}
+	actual, ok := value.(bool)
+	if !ok {
+		panic(fmt.Sprintf("%s did not return bool", operation))
+	}
+	return actual
+}
+
+func numericArrayPolyfillObservation(testCase numericArrayPolyfillCase) numericArrayObservation {
+	if testCase.Name == "" {
+		panic("numeric-array polyfill fixture case name is required")
+	}
+	input := numericArrayPairs(testCase.Input, "polyfill input")
+	actual := numericArrayPolyfillValue(testCase.Operation, input)
+	return numericArrayObservation{
+		Name: testCase.Name, InputType: "array", Type: "bool", Value: actual, IsList: rt.ArrayIsList(input),
+		InputAfter: observeNumericArrayInputAfter(input),
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It observes generated
+// helpers only; corpus expectations are host-side assertions, never inputs to
+// the observed results.
+func init() {
+	var predicateCases []numericArrayCase
+	decodeNumericArrayFixture("/input/cases.json", &predicateCases)
+	seenPredicate := map[string]bool{}
+	predicate := make([]numericArrayObservation, 0, len(predicateCases))
+	for _, testCase := range predicateCases {
+		if seenPredicate[testCase.Name] {
+			panic("numeric-array fixture case names must be unique")
+		}
+		seenPredicate[testCase.Name] = true
+		predicate = append(predicate, numericArrayPredicateObservation(testCase))
+	}
+
+	var polyfillCases []numericArrayPolyfillCase
+	decodeNumericArrayFixture("/input/polyfill-cases.json", &polyfillCases)
+	seenPolyfill := map[string]bool{}
+	polyfill := make([]numericArrayObservation, 0, len(polyfillCases))
+	for _, testCase := range polyfillCases {
+		if seenPolyfill[testCase.Name] {
+			panic("numeric-array polyfill fixture case names must be unique")
+		}
+		seenPolyfill[testCase.Name] = true
+		polyfill = append(polyfill, numericArrayPolyfillObservation(testCase))
+	}
+
+	if err := json.NewEncoder(os.Stdout).Encode(numericArrayOutput{Predicate: predicate, Polyfill: polyfill}); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

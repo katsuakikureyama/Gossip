@@ -1,0 +1,9 @@
+[
+  {"name":"key_value_match","operation":"gossip_array_all_key_value","input":[[-2,-2],["label","label"],[3,3]],"expected":true,"input_after":[[-2,-2],["label","label"],[3,3]]},
+  {"name":"key_value_mismatch","operation":"gossip_array_all_key_value","input":[[0,0],["label","other"]],"expected":false,"input_after":[[0,0],["label","other"]]},
+  {"name":"stop_first_skips_poison","operation":"gossip_array_all_short_circuit","input":[[0,"stop"],[1,"poison"]],"expected":false,"input_after":[[0,"stop"],[1,"poison"]]},
+  {"name":"stop_middle_skips_poison","operation":"gossip_array_all_short_circuit","input":[[-2,1],["end","stop"],[4,"poison"]],"expected":false,"input_after":[[-2,1],["end","stop"],[4,"poison"]]},
+  {"name":"all_true_mixed_key_order","operation":"gossip_array_all_short_circuit","input":[[2,1],["x","1"],[0,1]],"expected":true,"input_after":[[2,1],["x","1"],[0,1]]},
+  {"name":"empty_no_callback","operation":"gossip_array_all_empty","input":[],"expected":true,"input_after":[]},
+  {"name":"callback_locals_preserve_input","operation":"gossip_array_all_mutation","input":[["label",null],[-3,false],[0,"value"]],"expected":true,"input_after":[["label",null],[-3,false],[0,"value"]]}
+]

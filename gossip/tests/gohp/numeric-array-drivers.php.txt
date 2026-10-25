@@ -1,0 +1,18 @@
+// Owned calls into the original polyfill; not replacement helper bodies.
+function gossip_array_all_key_value(array $items): bool {
+    return array_all($items, fn($value, $key) => $value === $key);
+}
+function gossip_array_all_short_circuit(array $items): bool {
+    return array_all($items, fn($value, $key) => $value !== 'stop' && ($value + 0 === 1));
+}
+function gossip_array_all_empty(array $items): bool {
+    return array_all($items, fn($value, $key) => $value + 0 === 1);
+}
+function gossip_numeric_local_mutation($value, $key): bool {
+    $value = 'changed';
+    $key = 'changed';
+    return true;
+}
+function gossip_array_all_mutation(array $items): bool {
+    return array_all($items, fn($value, $key) => gossip_numeric_local_mutation($value, $key));
+}

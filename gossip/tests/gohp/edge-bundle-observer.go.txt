@@ -1,0 +1,54 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+// One executable observes all retained230, edge24 and new8 compositions.
+func init() {
+	retained := observeSearchBundle()
+	edges := observeEdgeUnit()
+	var cases []numericBundleCase
+	decodeNumericArrayFixture("/input/edge-composition-cases.json", &cases)
+	observations := make([]map[string]any, 0, len(cases))
+	seen := map[string]bool{}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid edge composition name")
+		}
+		seen[c.Name] = true
+		input := numericArrayPairs(c.Input, "edge composition")
+		for _, entry := range input.Entries {
+			if entry.Value != nil {
+				if _, ok := entry.Value.(string); !ok {
+					panic("expected string or null input")
+				}
+			}
+		}
+		keys := ynBundleFixtureSelectors(c.Keys, c.Operation)
+		var value any
+		switch c.Operation {
+		case "gossip_slice_edge_yn":
+			value = F_gossip_slice_edge_yn(input, keys)
+		case "gossip_slice_edge_falsy":
+			value = F_gossip_slice_edge_falsy(input, keys)
+		default:
+			panic("unknown edge composition")
+		}
+		result, ok := value.(rt.Array)
+		if !ok {
+			panic("expected actual array return")
+		}
+		for _, entry := range result.Entries {
+			numericArrayScalar(entry.Value, "observed result element")
+		}
+		observations = append(observations, map[string]any{"name": c.Name, "type": "array", "value": normalizeYnBundleValue(result, 0), "args_after": []any{numericArrayEntries(input), normalizeYnBundleValue(keys, 0)}})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(map[string]any{"retained": retained, "edge": edges, "composition": observations}); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

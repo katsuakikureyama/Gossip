@@ -5,12 +5,11 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 ## 現在の到達点（2026-10-26）
 
 検証済みの開発スタックを `master` に統合しています。
-選定した **22個の原文関数・230ケース**の Go/PHP 比較が成功しています。
-追加で、原文の `array_first` と `array_last` も[24ケースの Go/PHP 比較](docs/evidence/array-edge-unit-2026-10-26.md)に成功しました。
-これは2関数を同じ実行ファイルで検証した、上記22関数とは別の構成です。
+選定した **24個の原文関数・262ケース**を一つのGo実行ファイルにまとめ、PHPとの比較に成功しました。
+`array_first`・`array_last`を含み、配列の選択・真偽値変換・先頭末尾取得・検索を組み合わせた動作も確認しています。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
-[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/search-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
+[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/edge-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
 
 Gossip is an independent, experimental WordPress fork exploring a Go-powered
 runtime and native Go plugins. This repository retains the original WordPress
@@ -156,6 +155,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   and [passes all24 cases](docs/evidence/array-edge-unit-2026-10-26.md) for both
   array_first and array_last together. Both original declarations and the native
   guarded blocks are preserved unchanged.
+  The [twenty-four-original integration](docs/edge-helper-bundle-unit.md) now
+  combines all24 declarations and46 owned drivers into one executable on
+  GoHP #58. Its [262-case result](docs/evidence/edge-helper-bundle-2026-10-26.md)
+  includes all230 earlier cases,24 edge cases and8 new Boolean/edge/search
+  compositions. Earlier standalone and integrated evidence retains its pins.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

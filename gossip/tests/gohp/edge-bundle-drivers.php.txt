@@ -1,0 +1,24 @@
+// Owned composition calls into the unchanged WordPress helpers; this does not
+// replace any original helper body.
+function gossip_slice_edge_yn( $input, $keys ): array {
+	$flags = array_map( 'bool_from_yn', wp_array_slice_assoc( $input, $keys ) );
+	return [
+		array_first( $flags ),
+		array_last( $flags ),
+		array_any( $flags, fn( $value, $key ) => $value ),
+		array_find( $flags, fn( $value, $key ) => $value ),
+		array_find_key( $flags, fn( $value, $key ) => $value ),
+		wp_is_numeric_array( $flags ),
+	];
+}
+
+function gossip_slice_edge_falsy( $input, $keys ): array {
+	$flags = array_map( 'wp_validate_boolean', wp_array_slice_assoc( $input, $keys ) );
+	return [
+		array_first( $flags ),
+		array_last( $flags ),
+		array_any( $flags, fn( $value, $key ) => ! $value ),
+		array_find( $flags, fn( $value, $key ) => ! $value ),
+		array_find_key( $flags, fn( $value, $key ) => ! $value ),
+	];
+}

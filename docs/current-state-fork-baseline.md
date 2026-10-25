@@ -2,7 +2,40 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: original UTF-8 charset-name predicate
+## Latest: fifteen-original charset/array integration
+
+- Branch `codex/gohp-charset-helper-bundle`, stacked on #19. Test commit
+  `b0835877b9e2172670582a71697f066833837257`, tree
+  `27dd48a8bfcbb863b76cb483c04b93f21094c4af`, committed before execution.
+- Fifteen byte-unchanged originals from three pinned source files plus
+  nineteen owned drivers translate/build once into one binary. All89 calls
+  (direct55/composed34) match actual typed returns, ordered keys where relevant
+  and caller arguments against PHP8.3.36 and authored expectations.
+  Earlier55 associative cases plus28 direct charset cases and6 compositions.
+- GoHP `6305b9b486ee233e9aa4378ab8528f5b3d345f90`, tree
+  `48c92101a7000794eda13cdfbbd0240b7327afb9` (Draft #41 on #40), explicitly
+  merges #40 string/logical comparison and #36 isset/typed-array returns.
+  Both parents retained; separate #39 if/else excluded. Reserved-name,
+  fixture and spec conflicts preserve both contracts. New cross-stack native
+  fixture linked to existing catalog entries;51 features/313 checks.
+- Local Gossip comparison first PASS19.04s/package19.279s, empty stderr/exit0,
+  vetPASS. Compiler local runtime/frontend/codegen/compat/guards/vet PASS;
+  fixed PHP CI40159252743 overall PASS313 checks, actualPHP8.3.36/Go1.23.12,
+  exact clean head/tree, vet/CLI smoke/artifacts also successful.
+  [Contract](charset-helper-bundle-unit.md) and [evidence](evidence/charset-helper-bundle-2026-10-25.md)
+  retain revisions, commands, hashes, observations and pre-execution review
+  corrections. No test failure/retry; post-PASS documentation only.
+- Prior nine standalone and10/12/13/14-original configurations/evidence stay
+  unchanged, not rerun. Original WordPress/SDK/hooks/PHP admission/prototype
+  and master README-only state unchanged. No merge/deploy/release/license decision.
+- Next: identify the next bounded original-helper dependency independently.
+  Public option-dependent charset wrappers, general callbacks/objects/
+  references, nested associative transport, map_deep/wp_unslash and whole
+  core/HTTP/DB/theme/plugin operation remain unverified. Local developer
+  capability WebMCP-excluded, auth routes unchanged; devboard unidentified/
+  unsynchronized, not Done.
+
+## Previous: original UTF-8 charset-name predicate
 
 - Branch `codex/gohp-utf8-charset`, stacked on #18. Test commit
   `fccd38e47c4f23ed0bb8b35a0cc974c9486f4d2f`, tree

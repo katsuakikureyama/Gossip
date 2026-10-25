@@ -1,0 +1,1757 @@
+{
+  "binary_sha256": "faba092d3c1d1f30589ed290089287e01001b9fb6d78da642a64d0fe4f316a24",
+  "bundle_sha256": "2324842aaa6f7762a90f8f28afe324203daa8076ffa0a1b8ac7943fc1e554523",
+  "case_count": 89,
+  "cases_sha256": "64c35222d406c060185b0b497e0181a97c0a6855b5d8e96c9f57f1fdaa216b7e",
+  "compiler_sha256": "bc7b6bd95a981d169cc6888316a3d460a209e4c0d93aa7babcdba791f1d9256a",
+  "compiler_version": "0.1.0-dev",
+  "composed_call_count": 34,
+  "direct_call_count": 55,
+  "driver_first_line": 93,
+  "driver_sha256": "b0b0a2fe3ea1e6260e52c9b1777e62aad68753887c309d3ab85a0bc1f579f711",
+  "exit_code": 0,
+  "generated_sha256": "9becdb946293f9d1aa97debec3442f5183f783e450c8e79fbb2c11fc7e51e517",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "24eb13a0b883492f269f436d3e719d32315f761cb5101628cb11aa8a9241858f",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "a5a2a886387b7e5874850d9f193c3250f1c036c2037cca3ae9362007f193d3a1",
+  "gohp_commit": "6305b9b486ee233e9aa4378ab8528f5b3d345f90",
+  "manifest_sha256": "24113aacdd1d92a8a78dde261111738d4d0cd95ac0e89ea87c3f606068a3762d",
+  "original_function_count": 15,
+  "owned_driver_count": 19,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "98ab552d25dd0d20abc77a3a27ff13c3941e750332c8928048fc4a9ab1df0e7c",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "4bf4271b782448dd0782faac31130902046e4cba848227cd94f5c4df6fbc770c",
+  "schema": "gossip.charset-helper-bundle/v1",
+  "scope": "fifteen unchanged WordPress helpers and nineteen owned composition drivers translated together in one binary; 89 bounded observations include root associative key/value transport, UTF-8 charset predicate values, nested list values, actual returns, and caller arguments after each call; no nested associative values, recursive unescaping, full-file/core/startup, HTTP, DB, theme or plugin compatibility",
+  "selections": [
+    {
+      "bundle_first_line": 2,
+      "name": "__return_true",
+      "original_first_line": 7181,
+      "original_last_line": 7183,
+      "sha256": "194a7abeca0f4b3a1ca2c40ca6854667d79b6c3c382edb74e7d8046a1c6cf5a6",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 6,
+      "name": "__return_false",
+      "original_first_line": 7196,
+      "original_last_line": 7198,
+      "sha256": "6c1b2e3db3527da63160245f8bc855ebe3940fac88dc50e2b8d95a3b83db570e",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 10,
+      "name": "__return_zero",
+      "original_first_line": 7209,
+      "original_last_line": 7211,
+      "sha256": "44acf0951778dfe08acaee9486c64daf70dfb0e8664491c2a6845c5ede9253b2",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 14,
+      "name": "__return_empty_array",
+      "original_first_line": 7222,
+      "original_last_line": 7224,
+      "sha256": "46948aca39c4963ec0d513b7da9478f10d411ece115316ec5b7493d0cdc41530",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 18,
+      "name": "__return_null",
+      "original_first_line": 7235,
+      "original_last_line": 7237,
+      "sha256": "f437398fa84f0e44313c35c6efe791cd0831628a8f89e8f992ff7cab38f8ae65",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 22,
+      "name": "__return_empty_string",
+      "original_first_line": 7250,
+      "original_last_line": 7252,
+      "sha256": "1b417b245771afe887b8dba13c5725981291dadfc6e4a79558b02f8bf9ad2371",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 26,
+      "name": "wp_validate_boolean",
+      "original_first_line": 7932,
+      "original_last_line": 7942,
+      "sha256": "5dbcedd52adf3a516887a312cee7d9c620a8173c60b98852f23ba994ad557e87",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 38,
+      "name": "wp_array_slice_assoc",
+      "original_first_line": 5173,
+      "original_last_line": 5183,
+      "sha256": "887f2bc5b08b05075261d1b5ff38dfbe90c9de9a08efd86f3a03f5fd6367a213",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 50,
+      "name": "_autop_newline_preservation_helper",
+      "original_first_line": 811,
+      "original_last_line": 813,
+      "sha256": "2b21ce4ab89fcfb42f77b870f51da73de3062f541a0393b52497265edeb76829",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 54,
+      "name": "zeroise",
+      "original_first_line": 2848,
+      "original_last_line": 2850,
+      "sha256": "02f5dc321d4202c74eb1c8171f16b2b628f2fc0fd7840cd8a41ebe056d3d34f3",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 58,
+      "name": "trailingslashit",
+      "original_first_line": 2883,
+      "original_last_line": 2885,
+      "sha256": "3242c532f0668f82ada2b0bafb1aefa17a522b860498a8de47ed47d3d694d938",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 62,
+      "name": "untrailingslashit",
+      "original_first_line": 2898,
+      "original_last_line": 2900,
+      "sha256": "9e10b72e9db3d08ba4eabafb88e3682c6ac61d13a89c5ac8da9e24494d2ee596",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 66,
+      "name": "stripslashes_from_strings_only",
+      "original_first_line": 2934,
+      "original_last_line": 2936,
+      "sha256": "6dc050e27054431f775bef8a177355863b888973463af3e7814d170306b357b3",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 70,
+      "name": "wp_slash",
+      "original_first_line": 5933,
+      "original_last_line": 5943,
+      "sha256": "bf3198bad96957252e2390f2d924634717bb598e0e5cea650c7e759d2f96b854",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 82,
+      "name": "_is_utf8_charset",
+      "original_first_line": 102,
+      "original_last_line": 111,
+      "sha256": "241a7691e4461f13f8656fb12b8275fb4eaa71e34b983ef63301965286df5739",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    }
+  ],
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "args_after": [],
+      "name": "direct_return_true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [],
+      "name": "direct_return_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [],
+      "name": "direct_return_zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "args_after": [],
+      "name": "direct_return_empty_array",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [],
+      "name": "direct_return_null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "args_after": [],
+      "name": "direct_return_empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "args_after": [
+        "FaLsE"
+      ],
+      "name": "direct_validate_boolean",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        [
+          "first\nsecond",
+          "ignored"
+        ]
+      ],
+      "name": "direct_newline_helper",
+      "type": "string",
+      "value": "first<WPPreserveNewline />second"
+    },
+    {
+      "args_after": [
+        42,
+        5
+      ],
+      "name": "direct_zeroise",
+      "type": "string",
+      "value": "00042"
+    },
+    {
+      "args_after": [
+        "plain"
+      ],
+      "name": "direct_trailingslashit",
+      "type": "string",
+      "value": "plain/"
+    },
+    {
+      "args_after": [
+        "plain/\\"
+      ],
+      "name": "direct_untrailingslashit",
+      "type": "string",
+      "value": "plain"
+    },
+    {
+      "args_after": [
+        "It\\'s\\0ok"
+      ],
+      "name": "direct_stripslashes_string",
+      "type": "string",
+      "value": "It's\u0000ok"
+    },
+    {
+      "args_after": [
+        [
+          "a'b",
+          [
+            "x\u0000y",
+            false
+          ],
+          3
+        ]
+      ],
+      "name": "direct_wp_slash_nested",
+      "type": "array",
+      "value": [
+        "a\\'b",
+        [
+          "x\\0y",
+          false
+        ],
+        3
+      ]
+    },
+    {
+      "args_after": [
+        [
+          "a\nb"
+        ]
+      ],
+      "name": "capture_plain_lf",
+      "type": "string",
+      "value": "a<WPPreserveNewline />b"
+    },
+    {
+      "args_after": [
+        [
+          "a\\'b\nc",
+          "ignored"
+        ]
+      ],
+      "name": "capture_slash_quote_lf",
+      "type": "string",
+      "value": "a'b<WPPreserveNewline />c"
+    },
+    {
+      "args_after": [
+        [
+          "a\\0\nb"
+        ]
+      ],
+      "name": "capture_slash_zero_lf",
+      "type": "string",
+      "value": "a\u0000<WPPreserveNewline />b"
+    },
+    {
+      "args_after": [
+        [
+          "猫\n犬",
+          "ignored",
+          "also ignored"
+        ]
+      ],
+      "name": "capture_multibyte_lf",
+      "type": "string",
+      "value": "猫<WPPreserveNewline />犬"
+    },
+    {
+      "args_after": [
+        []
+      ],
+      "name": "unslash_empty_array_keys",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          "a\\'b",
+          "c\\0d"
+        ]
+      ],
+      "name": "unslash_list_array_keys",
+      "type": "array",
+      "value": [
+        0,
+        1
+      ]
+    },
+    {
+      "args_after": [
+        [
+          "a\\'b",
+          false,
+          3
+        ]
+      ],
+      "name": "unslash_list_shape",
+      "type": "array",
+      "value": [
+        true,
+        [
+          "a\\'b",
+          false,
+          3
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "a\\'b"
+          ],
+          [
+            "c\\0d"
+          ]
+        ]
+      ],
+      "name": "unslash_nested_list_shape",
+      "type": "array",
+      "value": [
+        true,
+        [
+          [
+            "a\\'b"
+          ],
+          [
+            "c\\0d"
+          ]
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        4
+      ],
+      "name": "wrapper_zero_pad",
+      "type": "string",
+      "value": "0000"
+    },
+    {
+      "args_after": [],
+      "name": "wrapper_false_boolean",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [],
+      "name": "wrapper_empty_string_path",
+      "type": "string",
+      "value": "/"
+    },
+    {
+      "args_after": [
+        "猫",
+        6
+      ],
+      "name": "wrapper_path_pad",
+      "type": "string",
+      "value": "00猫/"
+    },
+    {
+      "args_after": [
+        "'\"\\\u0000"
+      ],
+      "name": "scalar_special_roundtrip",
+      "type": "string",
+      "value": "'\"\\\u0000"
+    },
+    {
+      "args_after": [
+        "猫\\'犬"
+      ],
+      "name": "scalar_utf8_roundtrip",
+      "type": "string",
+      "value": "猫\\'犬"
+    },
+    {
+      "args_after": [
+        ""
+      ],
+      "name": "scalar_empty_roundtrip",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "args_after": [
+        [
+          "a'b",
+          "c\\d",
+          "e\u0000f",
+          false,
+          3,
+          null
+        ]
+      ],
+      "name": "flat_mixed_roundtrip",
+      "type": "array",
+      "value": [
+        "a'b",
+        "c\\d",
+        "e\u0000f",
+        false,
+        3,
+        null
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "a'b"
+          ],
+          "c\"d",
+          null
+        ]
+      ],
+      "name": "nested_not_recursively_unescaped",
+      "type": "array",
+      "value": [
+        [
+          "a\\'b"
+        ],
+        "c\"d",
+        null
+      ]
+    },
+    {
+      "args_after": [
+        []
+      ],
+      "name": "empty_list_roundtrip",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          "a'b\nc\\d\u0000",
+          "ignored"
+        ]
+      ],
+      "name": "slashed_capture_newline_unslash",
+      "type": "string",
+      "value": "a'b<WPPreserveNewline />c\\d\u0000"
+    },
+    {
+      "args_after": [
+        [
+          [
+            "a'b"
+          ],
+          "c\u0000d",
+          false
+        ]
+      ],
+      "name": "slashed_nested_array_shape",
+      "type": "array",
+      "value": [
+        true,
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          [
+            "a\\'b"
+          ],
+          "c\\0d",
+          false
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [],
+        []
+      ],
+      "name": "slice_direct_empty",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [],
+        [
+          "missing",
+          0
+        ]
+      ],
+      "name": "slice_direct_empty_input",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          [
+            "x",
+            "keep"
+          ],
+          [
+            "n",
+            null
+          ]
+        ],
+        []
+      ],
+      "name": "slice_direct_empty_selectors",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          [
+            "x",
+            "keep"
+          ]
+        ],
+        [
+          "absent",
+          "absent",
+          9
+        ]
+      ],
+      "name": "slice_direct_missing_only",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          [
+            "null",
+            null
+          ],
+          [
+            "ok",
+            "yes"
+          ]
+        ],
+        [
+          "null",
+          "missing",
+          "ok"
+        ]
+      ],
+      "name": "slice_direct_null_is_excluded",
+      "type": "array",
+      "value": [
+        [
+          "ok",
+          "yes"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "false",
+            false
+          ],
+          [
+            "zero",
+            0
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "string_zero",
+            "0"
+          ],
+          [
+            "empty_array",
+            []
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        [
+          "empty_array",
+          "empty",
+          "false",
+          "zero",
+          "string_zero",
+          "null"
+        ]
+      ],
+      "name": "slice_direct_falsy_values_are_set",
+      "type": "array",
+      "value": [
+        [
+          "empty_array",
+          []
+        ],
+        [
+          "empty",
+          ""
+        ],
+        [
+          "false",
+          false
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "string_zero",
+          "0"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "a",
+            "A"
+          ],
+          [
+            "b",
+            "B"
+          ],
+          [
+            "c",
+            "C"
+          ]
+        ],
+        [
+          "c",
+          "a",
+          "c",
+          "b",
+          "a"
+        ]
+      ],
+      "name": "slice_direct_request_order_and_duplicates",
+      "type": "array",
+      "value": [
+        [
+          "c",
+          "C"
+        ],
+        [
+          "a",
+          "A"
+        ],
+        [
+          "b",
+          "B"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            2,
+            "two"
+          ],
+          [
+            "02",
+            "leading"
+          ],
+          [
+            "+2",
+            "plus"
+          ],
+          [
+            "-0",
+            "negative_zero"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ],
+        [
+          "02",
+          2,
+          "+2",
+          "-0",
+          "0",
+          "2"
+        ]
+      ],
+      "name": "slice_direct_numeric_key_distinctions",
+      "type": "array",
+      "value": [
+        [
+          "02",
+          "leading"
+        ],
+        [
+          2,
+          "two"
+        ],
+        [
+          "+2",
+          "plus"
+        ],
+        [
+          "-0",
+          "negative_zero"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            -5,
+            "minus_five"
+          ],
+          [
+            -7,
+            "minus_seven"
+          ],
+          [
+            "-05",
+            "leading"
+          ]
+        ],
+        [
+          "-7",
+          -5,
+          "-05",
+          -7
+        ]
+      ],
+      "name": "slice_direct_negative_keys",
+      "type": "array",
+      "value": [
+        [
+          -7,
+          "minus_seven"
+        ],
+        [
+          -5,
+          "minus_five"
+        ],
+        [
+          "-05",
+          "leading"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "日本語",
+            "雪"
+          ],
+          [
+            "a\u0000b",
+            "x\u0000y"
+          ],
+          [
+            "",
+            "empty-key"
+          ]
+        ],
+        [
+          "a\u0000b",
+          "",
+          "日本語",
+          "不存在"
+        ]
+      ],
+      "name": "slice_direct_unicode_nul_and_empty_keys",
+      "type": "array",
+      "value": [
+        [
+          "a\u0000b",
+          "x\u0000y"
+        ],
+        [
+          "",
+          "empty-key"
+        ],
+        [
+          "日本語",
+          "雪"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "deep",
+            [
+              null,
+              false,
+              0,
+              "",
+              [
+                "a",
+                [],
+                [
+                  "日本語",
+                  "\u0000"
+                ]
+              ]
+            ]
+          ],
+          [
+            "empty",
+            []
+          ]
+        ],
+        [
+          "deep",
+          "empty"
+        ]
+      ],
+      "name": "slice_direct_nested_list_values",
+      "type": "array",
+      "value": [
+        [
+          "deep",
+          [
+            null,
+            false,
+            0,
+            "",
+            [
+              "a",
+              [],
+              [
+                "日本語",
+                "\u0000"
+              ]
+            ]
+          ]
+        ],
+        [
+          "empty",
+          []
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            "one"
+          ],
+          [
+            2,
+            "two"
+          ]
+        ],
+        [
+          2,
+          0,
+          2
+        ]
+      ],
+      "name": "slice_direct_sparse_order_from_list",
+      "type": "array",
+      "value": [
+        [
+          2,
+          "two"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            1,
+            null
+          ],
+          [
+            "01",
+            "leading"
+          ]
+        ],
+        [
+          1,
+          "1",
+          "01"
+        ]
+      ],
+      "name": "slice_direct_normalized_collision_to_null",
+      "type": "array",
+      "value": [
+        [
+          "01",
+          "leading"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            1,
+            -12345
+          ],
+          [
+            "other",
+            true
+          ],
+          [
+            "tail",
+            [
+              1,
+              "2",
+              false
+            ]
+          ]
+        ],
+        [
+          "tail",
+          "1",
+          "other",
+          1
+        ]
+      ],
+      "name": "slice_direct_normalized_replacement_keeps_position",
+      "type": "array",
+      "value": [
+        [
+          "tail",
+          [
+            1,
+            "2",
+            false
+          ]
+        ],
+        [
+          1,
+          -12345
+        ],
+        [
+          "other",
+          true
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "q",
+            "a'b"
+          ],
+          [
+            "n",
+            null
+          ],
+          [
+            "nested",
+            [
+              "x\u0000y"
+            ]
+          ],
+          [
+            "false",
+            false
+          ]
+        ],
+        [
+          "nested",
+          "q",
+          "false",
+          "missing",
+          "n"
+        ]
+      ],
+      "name": "slice_then_slash_mixed",
+      "type": "array",
+      "value": [
+        [
+          "nested",
+          [
+            "x\\0y"
+          ]
+        ],
+        [
+          "q",
+          "a\\'b"
+        ],
+        [
+          "false",
+          false
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "n",
+            null
+          ]
+        ],
+        [
+          "n",
+          "missing"
+        ]
+      ],
+      "name": "slice_then_slash_empty",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          [
+            "k'\\\u0000",
+            "a'b"
+          ],
+          [
+            "02",
+            [
+              "x\u0000y"
+            ]
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        [
+          "02",
+          "k'\\\u0000",
+          "null"
+        ]
+      ],
+      "name": "slash_then_slice_preserves_keys",
+      "type": "array",
+      "value": [
+        [
+          "02",
+          [
+            "x\\0y"
+          ]
+        ],
+        [
+          "k'\\\u0000",
+          "a\\'b"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            2,
+            "a'b"
+          ],
+          [
+            "z",
+            "c\\d"
+          ],
+          [
+            "n",
+            null
+          ],
+          [
+            "f",
+            false
+          ]
+        ],
+        [
+          "z",
+          2,
+          "f",
+          "n"
+        ]
+      ],
+      "name": "slice_shallow_flat_roundtrip",
+      "type": "array",
+      "value": [
+        [
+          "z",
+          "c\\d"
+        ],
+        [
+          2,
+          "a'b"
+        ],
+        [
+          "f",
+          false
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "deep",
+            [
+              "a'b",
+              "x\u0000y"
+            ]
+          ],
+          [
+            "flat",
+            "a'b"
+          ]
+        ],
+        [
+          "deep",
+          "flat"
+        ]
+      ],
+      "name": "slice_shallow_nested_stays_escaped",
+      "type": "array",
+      "value": [
+        [
+          "deep",
+          [
+            "a\\'b",
+            "x\\0y"
+          ]
+        ],
+        [
+          "flat",
+          "a'b"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            2,
+            "two"
+          ]
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ]
+      ],
+      "name": "slice_sparse_shape",
+      "type": "array",
+      "value": [
+        false,
+        [
+          2,
+          0
+        ],
+        [
+          "two",
+          "zero"
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "n",
+            null
+          ]
+        ],
+        [
+          "n",
+          "missing"
+        ]
+      ],
+      "name": "slice_empty_boolean",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        [
+          [
+            "f",
+            false
+          ],
+          [
+            "n",
+            null
+          ]
+        ],
+        [
+          "f",
+          "n"
+        ]
+      ],
+      "name": "slice_falsy_element_boolean",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "UTF-8"
+      ],
+      "name": "charset_direct_upper_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "utf-8"
+      ],
+      "name": "charset_direct_lower_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "UtF-8"
+      ],
+      "name": "charset_direct_mixed_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "UTF8"
+      ],
+      "name": "charset_direct_upper_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "utf8"
+      ],
+      "name": "charset_direct_lower_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "uTf8"
+      ],
+      "name": "charset_direct_mixed_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        ""
+      ],
+      "name": "charset_direct_empty",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf"
+      ],
+      "name": "charset_direct_prefix_only",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf-80"
+      ],
+      "name": "charset_direct_extra_digit",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf8x"
+      ],
+      "name": "charset_direct_extra_suffix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        " utf8"
+      ],
+      "name": "charset_direct_leading_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf8 "
+      ],
+      "name": "charset_direct_trailing_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf 8"
+      ],
+      "name": "charset_direct_internal_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf_8"
+      ],
+      "name": "charset_direct_underscore",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "utf–8"
+      ],
+      "name": "charset_direct_unicode_dash",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "ＵＴＦ８"
+      ],
+      "name": "charset_direct_fullwidth",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "UTF-8\u0000"
+      ],
+      "name": "charset_direct_trailing_nul",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "UTF\u0000-8"
+      ],
+      "name": "charset_direct_internal_nul",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "latin1"
+      ],
+      "name": "charset_direct_latin1",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        "UTF-16"
+      ],
+      "name": "charset_direct_utf16",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        null
+      ],
+      "name": "charset_direct_null",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        true
+      ],
+      "name": "charset_direct_true",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        false
+      ],
+      "name": "charset_direct_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        0
+      ],
+      "name": "charset_direct_zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        -1
+      ],
+      "name": "charset_direct_negative",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        []
+      ],
+      "name": "charset_direct_empty_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        [
+          "UTF-8"
+        ]
+      ],
+      "name": "charset_direct_string_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        [
+          [
+            "utf8"
+          ]
+        ]
+      ],
+      "name": "charset_direct_nested_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "args_after": [
+        [
+          [
+            "first",
+            "UTF-8"
+          ],
+          [
+            "skip",
+            null
+          ],
+          [
+            2,
+            false
+          ],
+          [
+            "nested",
+            [
+              "UTF8"
+            ]
+          ],
+          [
+            "last",
+            "utf8"
+          ]
+        ],
+        [
+          "last",
+          "missing",
+          "skip",
+          2,
+          "nested",
+          "first"
+        ]
+      ],
+      "name": "charset_slice_mixed_reversed_selection",
+      "type": "array",
+      "value": [
+        [
+          "last",
+          true
+        ],
+        [
+          2,
+          false
+        ],
+        [
+          "nested",
+          false
+        ],
+        [
+          "first",
+          true
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "utf",
+            "UTF8"
+          ],
+          [
+            "other",
+            "latin1"
+          ]
+        ],
+        [
+          "missing"
+        ]
+      ],
+      "name": "charset_slice_empty_selection",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        [
+          [
+            "key\\x",
+            "UTF\\8"
+          ],
+          [
+            "nested",
+            [
+              "UTF\\8"
+            ]
+          ],
+          [
+            "false",
+            false
+          ]
+        ],
+        [
+          "nested",
+          "key\\x",
+          "missing"
+        ]
+      ],
+      "name": "charset_slice_unescape_scalar_nested_and_key",
+      "type": "array",
+      "value": [
+        [
+          "nested",
+          false
+        ],
+        [
+          "key\\x",
+          true
+        ]
+      ]
+    },
+    {
+      "args_after": [
+        [
+          [
+            "utf",
+            "UTF\\8"
+          ]
+        ],
+        [
+          "absent"
+        ]
+      ],
+      "name": "charset_slice_unescape_empty_selection",
+      "type": "array",
+      "value": []
+    },
+    {
+      "args_after": [
+        "UTF-8"
+      ],
+      "name": "charset_boolean_normal_utf8",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "args_after": [
+        "UTF-8'x"
+      ],
+      "name": "charset_boolean_quote_suffix_false",
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "test_commit": "b0835877b9e2172670582a71697f066833837257",
+    "test_tree": "27dd48a8bfcbb863b76cb483c04b93f21094c4af",
+    "host_go": "go version go1.22.1 darwin/arm64",
+    "directory": "gossip",
+    "commands": [
+      "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressCharsetHelperBundle$'",
+      "go vet ./tests/gohp"
+    ],
+    "status": "pass",
+    "test_seconds": 19.04,
+    "package_seconds": 19.279,
+    "vet": "pass",
+    "comparison_attempts": 1,
+    "review_before_execution": "Corrected new composition expected order to selector order, included null/falsy selection, and allowed non-string direct charset inputs in both observers before committing/running.",
+    "post_pass_change": "Documentation/evidence only; no code or configuration changes, no rerun.",
+    "scope": "Local isolated Docker comparison, not Gossip CI."
+  },
+  "compiler_ci": {
+    "overall": "pass",
+    "metadata": {
+      "commit": "6305b9b486ee233e9aa4378ab8528f5b3d345f90",
+      "tree": "48c92101a7000794eda13cdfbbd0240b7327afb9",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40159252743",
+      "run_id": "40159252743",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T03:43:48.468522058Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "1c0bb7530899b70c7e053497ac2c620d9e5e04b76558621643738e74c1a00625",
+      "test_exit": 0
+    },
+    "catalog_sha256": "d980d3a4fd8338324ad9c4f27937fe9748adc342ec65668bb79d5bf19626749e",
+    "event_sha256": "08c3deea59bca1c813378f3b3c15fb132f3c2735bd483c2baff1452d2926f6ba",
+    "feature_count": 51,
+    "case_count": 313,
+    "new_case": [
+      {
+        "id": "diff.charset_array_integration",
+        "test": "TestDifferential/charset_array_integration",
+        "package": "github.com/katsuakikureyama/GoHP/tests",
+        "kind": "differential",
+        "fixture": "tests/fixtures/charset_array_integration.php",
+        "fixture_sha256": "6cedc55f745018a5af82b9288a2d7a857836c7195192acd9d153780c8f61810a",
+        "generated_sha256": "fd8d05ed41b4c8976dd7693e46cdb45d650abbe4c391a8338e39425353448fe1",
+        "status": "pass",
+        "phase": {
+          "parse": "pass",
+          "codegen": "pass",
+          "go_build": "pass",
+          "go_execute": "pass",
+          "differential": "pass",
+          "stdout": "pass",
+          "exit": "pass",
+          "stderr": "not-checked",
+          "exceptions": "not-checked",
+          "side_effects": "not-checked"
+        }
+      }
+    ],
+    "reused": false,
+    "artifact": {
+      "id": 12586085024,
+      "name": "compatibility-php8.3-40159252743-1",
+      "digest": "sha256:576222737242c9cdc768f22181f0415e514251b949b4c42933326b47e56bcbf8",
+      "expires_at": "2026-11-24T03:44:02Z",
+      "local_directory": "/private/tmp/gohp-charset-array-ci.JkfCnY"
+    },
+    "local": {
+      "go": "go1.23.0 darwin/arm64",
+      "prefix": "GOCACHE=/tmp/gohp-go-cache GOPROXY=off GOTOOLCHAIN=go1.23.0",
+      "commands": [
+        "go test -count=1 ./runtime ./internal/frontend ./internal/codegen ./internal/compat",
+        "go test -count=1 ./tests -run '^(TestArrayReturnRuntimeGuards|TestArrayIssetRuntimeGuards|TestStrCaseCmpRuntimeTypeGuards)$'",
+        "go vet ./..."
+      ],
+      "status": "pass",
+      "runtime_seconds": 0.257,
+      "frontend_seconds": 0.457,
+      "codegen_seconds": 0.562,
+      "compat_seconds": 0.733,
+      "generated_guards_seconds": 5.801
+    }
+  },
+  "compiler_parents": [
+    "d9f6c7b4f288ef816c4ee3cb6a3458d2226e00d5",
+    "db3051f8a179078e2227c5d97f50a2f1611d1451"
+  ]
+}

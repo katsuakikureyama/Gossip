@@ -75,7 +75,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   Its [28-case result](docs/evidence/utf8-charset-2026-10-25.md) observes actual
   bool returns and unchanged inputs. This recognizes charset names, not valid
   UTF-8 text, and does not execute the option-dependent public wrapper.
-  Its separate compiler pin has not joined the fourteen-original bundle.
+  A subsequent [fifteen-original bundle](docs/charset-helper-bundle-unit.md)
+  combines the published charset and typed-array compiler stacks and executes
+  all fifteen originals plus nineteen drivers in one binary. Its new
+  [89-case result](docs/evidence/charset-helper-bundle-2026-10-25.md) preserves
+  the earlier configurations and adds slice/charset compositions; it does not
+  establish whole-core compatibility.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -131,6 +136,9 @@ The fourteen-original bundle selects its configuration in
 The charset-name unit uses
 [`utf8-charset-helper.json`](gossip/tests/gohp/utf8-charset-helper.json), based on
 the separate logical/comparison compiler stack; earlier pins stay unchanged.
+The new merged-stack bundle uses
+[`charset-helper-bundle.json`](gossip/tests/gohp/charset-helper-bundle.json),
+without repinning the older standalone or combined experiments.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

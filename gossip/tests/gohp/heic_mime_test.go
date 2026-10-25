@@ -3,7 +3,6 @@ package gohp_test
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"

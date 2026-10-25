@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: nineteen-original integration published; next search unit in progress
+## Latest: three-original search unit PASS; nineteen-original integration retained
 
 - [Draft #27](https://github.com/katsuakikureyama/Gossip/pull/27) publishes the
   nineteen-original/192-case single-binary integration on GoHP #54.
@@ -13,9 +13,14 @@ Last updated: 2026-10-26 (JST).
 - The earlier two-original/31-case #53 unit also passed; see its
   [record](evidence/numeric-array-helper-2026-10-25.md). The rejected #44 boundary
   below is historical, not the current compiler result.
-- Next branch `codex/gohp-array-search-polyfills` adds a separate three-original
+- Branch `codex/gohp-array-search-polyfills` adds a separate three-original
   search unit on the same #54 pin. It is not a22-original integrated PASS.
-  [Contract](array-search-polyfills-unit.md); execution evidence is pending.
+  [Contract](array-search-polyfills-unit.md), [execution evidence](evidence/array-search-polyfills-2026-10-26.md).
+  Test commit `861814fcfecdc0eba0aca2e9f61ed6be1677bc03`, tree
+  `ff3e64f9e016944c82c80d9a63a5e10b24788fc4`: first30/30 PASS9.23s/package9.568s,
+  vetPASS, empty stderr/exit0, no retries. ActualPHP8.3.36, original guards retained
+  for native; compiler extracts unchanged declarations. No compiler retest.
+  Next: separately define a larger integration; do not add30 to192 as proof.
 - WordPress originals, previous settings/evidence, SDK/hooks, oracle policy,
   prototype and master unchanged. General callback/capture/bootstrap/core/HTTP/
   DB/theme/plugin compatibility is not established. Local capability remains

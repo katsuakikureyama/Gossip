@@ -5,6 +5,9 @@ It targets three sibling WordPress originals sharing the same callback/iteration
 contract: `array_any`, `array_find`, `array_find_key`. It is not an expansion of
 the nineteen-original/192-case integrated bundle and does not replace its pins.
 
+The [execution record](evidence/array-search-polyfills-2026-10-26.md) reports
+30/30 actual comparisons and vet PASS on the exact committed configuration.
+
 ## Original source and bounded contract
 
 Whole-source SHA-256 and the WordPress baseline are pinned before extraction.

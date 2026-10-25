@@ -1,0 +1,651 @@
+{
+  "date": "2026-10-26",
+  "branch": "codex/gohp-array-search-polyfills",
+  "test_commit": "861814fcfecdc0eba0aca2e9f61ed6be1677bc03",
+  "test_tree": "ff3e64f9e016944c82c80d9a63a5e10b24788fc4",
+  "commands": [
+    "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressArraySearchPolyfills$'",
+    "go vet ./tests/gohp"
+  ],
+  "test_result": "PASS",
+  "test_seconds": 9.23,
+  "package_seconds": 9.568,
+  "vet_result": "PASS",
+  "command_exit_code": 0,
+  "failures": 0,
+  "retries": 0,
+  "evidence": {
+    "binary_sha256": "2ca88d20117ec4ee66b8685012d4f7410dcc0473c5768398528241fb4e15fe58",
+    "case_count": 30,
+    "cases_sha256": "3ebab8acdcac68a054e8c6b6c54df9f21e5805b162fafd3067444a6cfe6f6216",
+    "compiled_bundle_sha256": "6186d6130942cf95e028bd59864b80ed34fd76e637c227befff782709c02f6c1",
+    "compiler_sha256": "8881bc6e79134563deb3b712662d24b10df2e376fab8deaab9c53b8b02a38131",
+    "compiler_version": "0.1.0-dev",
+    "drivers_sha256": "1948ec53a4da4bed06f371da38f234ad83be12c5b92035ad36f4af82981dc180",
+    "exit_code": 0,
+    "fragments": [
+      {
+        "first_line": 566,
+        "last_line": 574,
+        "name": "array_find",
+        "sha256": "d625a3be8ae9165e020aef996eb534546ede86343528027277ec98ea600a26da",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      },
+      {
+        "first_line": 554,
+        "last_line": 575,
+        "name": "array_find_guard",
+        "sha256": "726e184e3baa65c032758794ec79a57dd6f3c026bedccc52a6a38a5153a9d99f",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      },
+      {
+        "first_line": 589,
+        "last_line": 597,
+        "name": "array_find_key",
+        "sha256": "69a55f9210318d5e03e1a5912a24098e9ebf17c9593d2c8138330bdb81fdb958",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      },
+      {
+        "first_line": 577,
+        "last_line": 598,
+        "name": "array_find_key_guard",
+        "sha256": "37e3c451357eebb1fc9ab2a03f66d13e4677131433e7a32256d855aaabad45ad",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      },
+      {
+        "first_line": 612,
+        "last_line": 620,
+        "name": "array_any",
+        "sha256": "40bfeafda40d5bf171fb4733b1f115623187f99a27473e5aeb914af7fc9b0bda",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      },
+      {
+        "first_line": 600,
+        "last_line": 621,
+        "name": "array_any_guard",
+        "sha256": "8046f2c26b307088536909e93e3d8f01c947cfec39c4c08b823dd0edf78ede89",
+        "source_path": "wp-includes/compat.php",
+        "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+      }
+    ],
+    "generated_sha256": "525a2b6b73007e9b51f496ff9732a7f79cb05c5e92f7c5014c464248db7bf3fa",
+    "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+    "go_observer_sha256": "6331aabedc4306db5c5c10496aa93c856d1a4a124e9fa510372241b9ce2092d3",
+    "go_version": "go version go1.25.14 linux/arm64",
+    "gohp_archive_sha256": "1b98fe1b6540fb208a168a9d484b1774ccbcab893c59b082e707efcc47c40bc7",
+    "gohp_commit": "36191c57003408d001d9f7217805a3549fdd9f98",
+    "loading_guard": "native executes unchanged guard and verifies user-defined polyfill; compiler extracts unchanged declarations only",
+    "manifest_sha256": "bc866ba6da84ef5b6147d300f3ab1f65ab437a68839c7affa50dfeb52d15468f",
+    "native_bundle_sha256": "d48d6a48089c45f474ec49878053a74a1705b50023027f5bd840a05297513066",
+    "original_declaration_count": 3,
+    "owned_driver_count": 9,
+    "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+    "php_lc_ctype": "C",
+    "php_minimum": "8.3.36",
+    "php_observer_sha256": "788d795b2f11cb5ed35bf31b2619631648f91ca819409114a0cf154fed01ba97",
+    "php_target": "8.3",
+    "php_version": "8.3.36",
+    "report_sha256": "9c8ba3e8e52475890c25704f8c28b31aa4c8f24d608c028eec52b67bbe0389d7",
+    "schema": "gossip.array-search-polyfills/v1",
+    "scope": "three unchanged original search polyfills;30 cases; actual scalar return types/values and ordered caller inputs; flat scalar arrays and capture-free callbacks only; no general callable/capture/error/bootstrap/full-core compatibility; not an expanded19-original integration",
+    "status": "differential_pass",
+    "stderr": "",
+    "transport_hashes": {
+      "go_selected": "947cb552c45e89840ed40fd8209b0caaa181ba79f73cc47b28b0e4b0f2944c3c",
+      "go_source": "949a73763c8f3e63207f7d12416707905999239b46f14b5b3b1bbc38c7fdbd64",
+      "php_selected": "c7436331547debf2421d44b52a48465406c6d92b8a66aba861455177c498b81a",
+      "php_source": "ab53d02be0edb31d0bacaaab91c4cd0088940db639f9fe1a8248b2b9b737c804"
+    },
+    "typed_observations": [
+      {
+        "input_after": [],
+        "name": "any_match_empty",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            "zero",
+            "0"
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        "name": "any_match_falsy_all_miss",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "any_match_first_zero_stops",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            "left",
+            "none"
+          ],
+          [
+            "target",
+            "target"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "any_match_middle_string_key_stops",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "stop"
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "any_stop_first_string_stops_poison",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            -1000000,
+            "0"
+          ],
+          [
+            1000000,
+            "1"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "any_stop_middle_numeric_boundary_stops_poison",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            7,
+            1
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "any_stop_numeric_string_key_normalizes",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "1"
+          ],
+          [
+            1,
+            "stop"
+          ],
+          [
+            2,
+            "poison"
+          ]
+        ],
+        "name": "any_stop_first_match_order",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            "0"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "name": "any_truth_all_falsy",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": [
+          [
+            "false",
+            false
+          ],
+          [
+            "word",
+            "false"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "any_truth_first_truthy_order",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": [],
+        "name": "find_match_empty",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            "zero",
+            "0"
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        "name": "find_match_falsy_all_miss",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "find_match_first_zero_stops",
+        "type": "int",
+        "value": 0
+      },
+      {
+        "input_after": [
+          [
+            "left",
+            "none"
+          ],
+          [
+            "target",
+            "target"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "find_match_middle_string_key_stops",
+        "type": "string",
+        "value": "target"
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "stop"
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "find_stop_first_string_stops_poison",
+        "type": "string",
+        "value": "stop"
+      },
+      {
+        "input_after": [
+          [
+            -1000000,
+            "0"
+          ],
+          [
+            1000000,
+            "1"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "find_stop_middle_numeric_boundary_stops_poison",
+        "type": "string",
+        "value": "1"
+      },
+      {
+        "input_after": [
+          [
+            7,
+            1
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "find_stop_numeric_string_key_normalizes",
+        "type": "int",
+        "value": 1
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "1"
+          ],
+          [
+            1,
+            "stop"
+          ],
+          [
+            2,
+            "poison"
+          ]
+        ],
+        "name": "find_stop_first_match_order",
+        "type": "string",
+        "value": "1"
+      },
+      {
+        "input_after": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            "0"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "name": "find_truth_all_falsy",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            "false",
+            false
+          ],
+          [
+            "word",
+            "false"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "find_truth_first_truthy_order",
+        "type": "string",
+        "value": "false"
+      },
+      {
+        "input_after": [],
+        "name": "key_match_empty",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            0,
+            false
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            "zero",
+            "0"
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        "name": "key_match_falsy_all_miss",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "key_match_first_zero_stops",
+        "type": "int",
+        "value": 0
+      },
+      {
+        "input_after": [
+          [
+            "left",
+            "none"
+          ],
+          [
+            "target",
+            "target"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "key_match_middle_string_key_stops",
+        "type": "string",
+        "value": "target"
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "stop"
+          ],
+          [
+            1,
+            "poison"
+          ]
+        ],
+        "name": "key_stop_first_string_stops_poison",
+        "type": "int",
+        "value": 0
+      },
+      {
+        "input_after": [
+          [
+            -1000000,
+            "0"
+          ],
+          [
+            1000000,
+            "1"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "key_stop_middle_numeric_boundary_stops_poison",
+        "type": "int",
+        "value": 1000000
+      },
+      {
+        "input_after": [
+          [
+            7,
+            1
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "key_stop_numeric_string_key_normalizes",
+        "type": "int",
+        "value": 7
+      },
+      {
+        "input_after": [
+          [
+            0,
+            "1"
+          ],
+          [
+            1,
+            "stop"
+          ],
+          [
+            2,
+            "poison"
+          ]
+        ],
+        "name": "key_stop_first_match_order",
+        "type": "int",
+        "value": 0
+      },
+      {
+        "input_after": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            "0"
+          ],
+          [
+            4,
+            ""
+          ]
+        ],
+        "name": "key_truth_all_falsy",
+        "type": "null",
+        "value": null
+      },
+      {
+        "input_after": [
+          [
+            "false",
+            false
+          ],
+          [
+            "word",
+            "false"
+          ],
+          [
+            "later",
+            "poison"
+          ]
+        ],
+        "name": "key_truth_first_truthy_order",
+        "type": "string",
+        "value": "word"
+      }
+    ],
+    "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+  }
+}

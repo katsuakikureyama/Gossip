@@ -130,6 +130,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   the retained192 and30 cases plus8 new selection/Boolean/search compositions,
   distinguishing matched false, no-match null and integer key0. This does not
   establish WordPress bootstrap, HTTP, database, theme or plugin compatibility.
+  The next [array-edge boundary](docs/array-edge-boundary.md) fixes24 native
+  PHP reference cases for unchanged `array_first`/`array_last`. Its
+  [record](docs/evidence/array-edge-boundary-2026-10-26.md) confirms missing
+  `empty` and `array_key_last` translation support; neither is counted as an
+  additional Go-compatible original.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

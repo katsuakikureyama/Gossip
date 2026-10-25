@@ -6,6 +6,10 @@ It establishes native PHP behavior and explicit translation blockers for
 `array_first` and `array_last`, not an additional successful Go unit.
 The earlier22-original/230-case integration remains unchanged.
 
+The [execution record](evidence/array-edge-boundary-2026-10-26.md) reports
+24/24 native matches and the three expected code-generation rejections.
+This is not Go/PHP differential PASS.
+
 ## Exact original extraction and reference
 
 WordPress baseline and whole compat.php SHA-256 are checked before extraction.

@@ -2,7 +2,27 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: twenty-two-original integration PASS
+## Latest: array_first/last reference and explicit compiler blockers
+
+- Branch `codex/gohp-array-edge-boundary` on #29. Test commit
+  `6edeffa6cf568004babcdc59622e9fbd9662ab49`, tree
+  `9a820ac45f284e679f8249338ef06dea7d76cf41`; clean commit before execution.
+- Original guarded array_first/array_last native reference matches all24 typed
+  return/input-after cases. GoHP #54 unchanged. Both original declarations reject
+  with `PHP004 line 3: unsupported function empty`; an owned dependency probe
+  rejects with `PHP004 line 2: unsupported function array_key_last`.
+  CLI exit1/empty stdout/no generated/report artifacts required. Native exit0.
+- First boundary-test PASS10.85s/package11.099s and vetPASS, actualPHP8.3.36/C.
+  No unexpected failure/retry. Status is native_reference_pass_candidate_rejected,
+  not differential PASS. Earlier22-original/230-case integration is unchanged.
+  [Contract](array-edge-boundary.md), [record](evidence/array-edge-boundary-2026-10-26.md).
+- Next: bounded initialized-array-variable empty support, then original array_first
+  comparison on a new pin; separately array_key_last and original array_last.
+  No source rewrite, compiler modification/retest or old configuration rerun.
+  Original WordPress/SDK/hooks/oracle/prototype/master unchanged; no merge/deploy.
+  Local capability WebMCP-excluded; devboard unidentified/unsynchronized.
+
+## Previous: twenty-two-original integration PASS
 
 - Branch `codex/gohp-search-helper-bundle`, based on Draft #28 head
   `cdbc55b8eb80363935dfca5a7d519066bfaf138c`; GoHP #54 pin unchanged.

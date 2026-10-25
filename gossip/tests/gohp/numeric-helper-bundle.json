@@ -1,0 +1,128 @@
+{
+  "schema": "gossip.numeric-helper-bundle/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "gohp_commit": "36191c57003408d001d9f7217805a3549fdd9f98",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "sources": [
+    {
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+      "fragments": [
+        {
+          "name": "__return_true",
+          "first_line": 7181,
+          "last_line": 7183
+        },
+        {
+          "name": "__return_false",
+          "first_line": 7196,
+          "last_line": 7198
+        },
+        {
+          "name": "__return_zero",
+          "first_line": 7209,
+          "last_line": 7211
+        },
+        {
+          "name": "__return_empty_array",
+          "first_line": 7222,
+          "last_line": 7224
+        },
+        {
+          "name": "__return_null",
+          "first_line": 7235,
+          "last_line": 7237
+        },
+        {
+          "name": "__return_empty_string",
+          "first_line": 7250,
+          "last_line": 7252
+        },
+        {
+          "name": "wp_validate_boolean",
+          "first_line": 7932,
+          "last_line": 7942
+        },
+        {
+          "name": "wp_array_slice_assoc",
+          "first_line": 5173,
+          "last_line": 5183
+        },
+        {
+          "name": "wp_is_heic_image_mime_type",
+          "first_line": 9465,
+          "last_line": 9474
+        },
+        {
+          "name": "bool_from_yn",
+          "first_line": 1621,
+          "last_line": 1623
+        },
+        {
+          "name": "wp_is_numeric_array",
+          "first_line": 5448,
+          "last_line": 5454
+        }
+      ]
+    },
+    {
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+      "fragments": [
+        {
+          "name": "_autop_newline_preservation_helper",
+          "first_line": 811,
+          "last_line": 813
+        },
+        {
+          "name": "zeroise",
+          "first_line": 2848,
+          "last_line": 2850
+        },
+        {
+          "name": "trailingslashit",
+          "first_line": 2883,
+          "last_line": 2885
+        },
+        {
+          "name": "untrailingslashit",
+          "first_line": 2898,
+          "last_line": 2900
+        },
+        {
+          "name": "stripslashes_from_strings_only",
+          "first_line": 2934,
+          "last_line": 2936
+        },
+        {
+          "name": "wp_slash",
+          "first_line": 5933,
+          "last_line": 5943
+        }
+      ]
+    },
+    {
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487",
+      "fragments": [
+        {
+          "name": "_is_utf8_charset",
+          "first_line": 102,
+          "last_line": 111
+        },
+        {
+          "name": "array_all",
+          "first_line": 635,
+          "last_line": 643
+        },
+        {
+          "name": "array_all_guard",
+          "first_line": 623,
+          "last_line": 644
+        }
+      ]
+    }
+  ]
+}

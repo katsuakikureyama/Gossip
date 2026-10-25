@@ -2,7 +2,33 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: twenty-four-original262-case integration PASS
+## Latest: nested settings lookup reference and compiler gaps
+
+The next target is original _wp_array_get, called60 times across12 files at the
+fixed WordPress revision, including43 Theme JSON and6 global styles/settings
+calls. A24-case PHP8.3.36 reference records actual scalar/nested-array results
+and unchanged input/path/default arguments. Source5233–5272 is byte-unchanged.
+[Contract](array-get-boundary.md), [record](evidence/array-get-boundary-2026-10-26.md).
+
+On GoHP #59 main `c3420d8644642c2fee56d62a08c88a2dcedc45ac`, the original
+rejects at its default parameter. Four isolated probes separately confirm
+trailing defaults, bare/multiple isset and foreach continue parser gaps.
+All five exit1 with exact expected diagnostics and no Go/report artifacts.
+This is native_reference_pass_candidate_rejected, differential not-run.
+The successful24-original262-case integration remains unchanged.
+
+Test commit `79f94688f21369ee932c608cda5dcce3664f6d08`, tree
+`771df55853ed38faccaee77598822202d8fa3f55`; boundary PASS13.31s/package13.521s,
+vet PASS. Initial extraction omitted the closing brace; the range check stopped
+before native execution and was corrected. Evidence retains both snapshots.
+After PASS only docs/evidence changes follow.
+
+Next implement the three bounded compiler contracts and compare the unchanged
+original with a new pin. Theme JSON callers, block rendering, HTTP/DB/plugins
+and broader values/errors remain unverified. Local capability is WebMCP-excluded;
+no route/auth change. PR/current-state tracks progress, devboard unidentified.
+
+## Previous: twenty-four-original262-case integration PASS
 
 All24 original declarations and46 owned drivers translate/build together on
 GoHP #58 main `440308c77da07cbcdce403fed7fff3945e0d2078`. A single executable

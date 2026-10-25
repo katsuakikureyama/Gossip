@@ -1,5 +1,9 @@
 # Nested settings lookup: original _wp_array_get
 
+The [execution record](evidence/array-get-boundary-2026-10-26.md) reports24
+native matches, five explicit parser rejections and vet PASS. Go/PHP comparison
+is not-run; the successful integrated count stays24 originals/262 cases.
+
 The next application-oriented target is `_wp_array_get`, which retrieves a
 nested value from an ordered key path. The fixed WordPress source uses it in
 Theme JSON (43 callsites), global styles/settings (6) and block support lookup

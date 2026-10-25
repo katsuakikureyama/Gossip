@@ -1,0 +1,782 @@
+{
+  "date_jst": "2026-10-26",
+  "test_commit": "79f94688f21369ee932c608cda5dcce3664f6d08",
+  "test_tree": "771df55853ed38faccaee77598822202d8fa3f55",
+  "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-empty-array.nKn0kC/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressArrayGetBoundary$'",
+  "command_exit_code": 0,
+  "test_seconds": 13.31,
+  "package_seconds": 13.521,
+  "vet_command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+  "vet_status": "pass",
+  "prior_failure": {
+    "commit": "6afc943102e98af6abb9e7e66f6acdd89f91d0dc",
+    "tree": "0ca1d15861795b141a328a417ce681937e74ed2f",
+    "phase": "source selection",
+    "message": "Range ended at return statement5271; complete declaration ends at closing brace5272",
+    "native_status": "not-run",
+    "test_seconds": 0,
+    "package_seconds": 0.231
+  },
+  "callsite_survey": {
+    "actual_calls": 60,
+    "files": 12,
+    "theme_json": 43,
+    "global_styles_settings": 6,
+    "blocks_core": 1,
+    "other_calls": 10,
+    "declaration_and_doc_example_excluded": true
+  },
+  "location": "local Docker",
+  "case_count": 24,
+  "cases_sha256": "b0624f70429ae85a400a536d77eb779626298277062f8f33b7642c9021b23463",
+  "compiler_rejections": [
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "_wp_array_get",
+      "report_present": false,
+      "role": "original_declaration",
+      "source_sha256": "d5e78dd0d3f62f5811891daf065bb6acd91ff706871a2c6d7bf55712229e9429",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: expected , (at \"=\")\n",
+      "stdout": ""
+    },
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "gossip_probe_default",
+      "report_present": false,
+      "role": "owned_default_parameter",
+      "source_sha256": "027c7f6414344bfd56f914ede5ea275d4b87e78b588235db4437995a6c20ad6b",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: expected , (at \"=\")\n",
+      "stdout": ""
+    },
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "gossip_probe_isset_var",
+      "report_present": false,
+      "role": "owned_bare_isset",
+      "source_sha256": "c00360fb5b5ca3a61759485b2954d1f0f0b178250491fba14284906ec81ec456",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: expected [ (at \")\")\n",
+      "stdout": ""
+    },
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "gossip_probe_isset_multi",
+      "report_present": false,
+      "role": "owned_multi_isset",
+      "source_sha256": "9c11d77c9353b81b982837f1237d49504c2fa43f2987651b9f46d8ffcb4d5bd4",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: expected [ (at \",\")\n",
+      "stdout": ""
+    },
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "gossip_probe_continue",
+      "report_present": false,
+      "role": "owned_continue",
+      "source_sha256": "39f59fc7a57b7e3c7ca1536f78326fac92f539952354f94879652e30f067e015",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: unsupported statement (at \"continue\")\n",
+      "stdout": ""
+    }
+  ],
+  "compiler_sha256": "b92d38a8006d5eecc148aa171a61290df3751b012b911962ab65a7a5c3f53366",
+  "differential_status": "not-run",
+  "fragment": {
+    "first_line": 5233,
+    "last_line": 5272,
+    "name": "_wp_array_get",
+    "sha256": "8d677dc7ea1dc16014ec2edd3ea1c75d6d11b61c8b37304d3e0d37277306a080"
+  },
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "95497c5ea307acbd1da63cd87a307ec03a17778cc67f0e4b4a18c713f61a0ae5",
+  "gohp_commit": "c3420d8644642c2fee56d62a08c88a2dcedc45ac",
+  "manifest_sha256": "7e6fd5c1681b066ef6250376f3dea021fcebd8da8e99cbeced51be2937286d75",
+  "native_bundle_sha256": "d5e78dd0d3f62f5811891daf065bb6acd91ff706871a2c6d7bf55712229e9429",
+  "native_exit_code": 0,
+  "native_stderr": "",
+  "original_declaration_count": 1,
+  "owned_dependency_probe_count": 4,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "ce4754d62c17bbd5fb493ae8271caef42a7a190c14755ec91943fb005ed0870a",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "schema": "gossip.array-get-boundary/v1",
+  "scope": "native reference for unchanged _wp_array_get and explicit default/isset/continue rejections; no Go/PHP differential success",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "native_reference_pass_candidate_rejected",
+  "typed_native_observations": [
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "outer",
+            {
+              "array": [
+                [
+                  "middle",
+                  {
+                    "array": [
+                      [
+                        "leaf",
+                        "value"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "nested_three_levels_string",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "outer"
+          ],
+          [
+            9,
+            "middle"
+          ],
+          [
+            -3,
+            "leaf"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "value"
+    },
+    {
+      "default_after": null,
+      "input_after": {
+        "array": [
+          [
+            "outer",
+            {
+              "array": [
+                [
+                  "child",
+                  {
+                    "array": [
+                      [
+                        "x",
+                        1
+                      ],
+                      [
+                        "y",
+                        false
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "nested_return_array",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "outer"
+          ]
+        ]
+      },
+      "type": "array",
+      "value": {
+        "array": [
+          [
+            "child",
+            {
+              "array": [
+                [
+                  "x",
+                  1
+                ],
+                [
+                  "y",
+                  false
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "outer",
+            {
+              "array": [
+                [
+                  "present",
+                  1
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "missing_leaf_uses_string_default",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "outer"
+          ],
+          [
+            1,
+            "missing"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "fallback"
+    },
+    {
+      "default_after": false,
+      "input_after": {
+        "array": [
+          [
+            "outer",
+            0
+          ]
+        ]
+      },
+      "name": "scalar_intermediate_uses_default",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "outer"
+          ],
+          [
+            1,
+            "later"
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "present",
+            null
+          ]
+        ]
+      },
+      "name": "present_null_is_not_missing",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "present"
+          ]
+        ]
+      },
+      "type": "null",
+      "value": null
+    },
+    {
+      "default_after": {
+        "array": [
+          [
+            "unused",
+            "default"
+          ]
+        ]
+      },
+      "input_after": {
+        "array": [
+          [
+            "present",
+            1
+          ]
+        ]
+      },
+      "name": "missing_with_omitted_default",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "missing"
+          ]
+        ]
+      },
+      "type": "null",
+      "value": null
+    },
+    {
+      "default_after": "unused",
+      "input_after": {
+        "array": [
+          [
+            "present",
+            "kept"
+          ]
+        ]
+      },
+      "name": "present_with_omitted_default",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "present"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "kept"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "v",
+            false
+          ]
+        ]
+      },
+      "name": "present_false",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "v"
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "v",
+            0
+          ]
+        ]
+      },
+      "name": "present_zero",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "v"
+          ]
+        ]
+      },
+      "type": "int",
+      "value": 0
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "v",
+            "0"
+          ]
+        ]
+      },
+      "name": "present_string_zero",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "v"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "v",
+            ""
+          ]
+        ]
+      },
+      "name": "present_empty_string",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "v"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": ""
+    },
+    {
+      "default_after": {
+        "array": [
+          [
+            "d",
+            {
+              "array": [
+                [
+                  "nested",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "input_after": {
+        "array": [
+          [
+            "v",
+            1
+          ]
+        ]
+      },
+      "name": "nonarray_path_uses_array_default",
+      "path_after": "not-an-array",
+      "type": "array",
+      "value": {
+        "array": [
+          [
+            "d",
+            {
+              "array": [
+                [
+                  "nested",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "default_after": -1000000,
+      "input_after": {
+        "array": [
+          [
+            "v",
+            1
+          ]
+        ]
+      },
+      "name": "empty_path_uses_integer_default",
+      "path_after": {
+        "array": []
+      },
+      "type": "int",
+      "value": -1000000
+    },
+    {
+      "default_after": "root-default",
+      "input_after": true,
+      "name": "nonarray_root_uses_default",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "v"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "root-default"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            -1000000,
+            "low"
+          ],
+          [
+            1000000,
+            "high"
+          ]
+        ]
+      },
+      "name": "integer_key",
+      "path_after": {
+        "array": [
+          [
+            0,
+            1000000
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "high"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            7,
+            "seven"
+          ]
+        ]
+      },
+      "name": "numeric_string_key_normalizes",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "7"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "seven"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "07",
+            "leading-zero"
+          ]
+        ]
+      },
+      "name": "leading_zero_key_stays_string",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "07"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "leading-zero"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "",
+            "empty-key"
+          ]
+        ]
+      },
+      "name": "empty_string_key",
+      "path_after": {
+        "array": [
+          [
+            0,
+            ""
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "empty-key"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "\u0000雪",
+            "\u0000値雪"
+          ]
+        ]
+      },
+      "name": "nul_unicode_key",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "\u0000雪"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "\u0000値雪"
+    },
+    {
+      "default_after": "invalid-path",
+      "input_after": {
+        "array": [
+          [
+            1,
+            "would-coerce"
+          ]
+        ]
+      },
+      "name": "bool_path_element_rejected",
+      "path_after": {
+        "array": [
+          [
+            0,
+            true
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "invalid-path"
+    },
+    {
+      "default_after": "invalid-path",
+      "input_after": {
+        "array": [
+          [
+            "",
+            "would-coerce"
+          ]
+        ]
+      },
+      "name": "null_path_element_rejected",
+      "path_after": {
+        "array": [
+          [
+            0,
+            null
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "invalid-path"
+    },
+    {
+      "default_after": "invalid-path",
+      "input_after": {
+        "array": [
+          [
+            "x",
+            "would-not-descend"
+          ]
+        ]
+      },
+      "name": "array_path_element_rejected",
+      "path_after": {
+        "array": [
+          [
+            0,
+            {
+              "array": [
+                [
+                  0,
+                  "x"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "invalid-path"
+    },
+    {
+      "default_after": "fallback",
+      "input_after": {
+        "array": [
+          [
+            "a",
+            {
+              "array": [
+                [
+                  "b",
+                  "ordered"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "associative_sparse_path_uses_foreach_order",
+      "path_after": {
+        "array": [
+          [
+            1000000,
+            "a"
+          ],
+          [
+            "sparse",
+            "b"
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "ordered"
+    },
+    {
+      "default_after": {
+        "array": [
+          [
+            0,
+            "first"
+          ],
+          [
+            "tail",
+            2
+          ]
+        ]
+      },
+      "input_after": {
+        "array": [
+          [
+            "a",
+            1
+          ]
+        ]
+      },
+      "name": "default_array_for_missing_path",
+      "path_after": {
+        "array": [
+          [
+            0,
+            "missing"
+          ]
+        ]
+      },
+      "type": "array",
+      "value": {
+        "array": [
+          [
+            0,
+            "first"
+          ],
+          [
+            "tail",
+            2
+          ]
+        ]
+      }
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

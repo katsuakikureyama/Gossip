@@ -7,6 +7,7 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Yes/no-label unit](bool-yn-unit.md) | Eleventh standalone unit: unchanged bool_from_yn, string-only y/Y recognition; no general Boolean coercion |
 | [Sixteen-original HEIC/charset/array bundle](heic-helper-bundle-unit.md) | Separate119-case integration with16 unchanged originals and22 owned drivers; strict scalar HEIC domain |
 | [Sixteen-original bundle evidence](evidence/heic-helper-bundle-2026-10-25.md) | 119 typed/input-after comparisons PASS; exact tested bytes and reused compiler336-check evidence |
 | [HEIC MIME-label unit](heic-mime-unit.md) | Tenth standalone original helper; bounded strict scalar membership, not image inspection |

@@ -92,6 +92,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   slice/unescape/Boolean compositions without changing earlier pins.
   The [119-case result](docs/evidence/heic-helper-bundle-2026-10-25.md) matches
   actual typed returns, ordered arrays and caller arguments against PHP.
+  An eleventh standalone [yes/no-label unit](docs/bool-yn-unit.md) targets
+  unchanged `bool_from_yn()` with24 actual-string inputs. It distinguishes
+  the exact labels `y`/`Y` from words, digit strings, whitespace and non-ASCII
+  text; this is not general Boolean parsing or a17-original integrated run.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -155,6 +159,9 @@ The HEIC MIME-label unit separately pins its strict-membership compiler in
 The sixteen-original integration has its own
 [`heic-helper-bundle.json`](gossip/tests/gohp/heic-helper-bundle.json), using
 the same published strict-membership compiler without changing that compiler.
+The yes/no-label unit uses
+[`bool-yn-helper.json`](gossip/tests/gohp/bool-yn-helper.json) with that same
+compiler, keeping all earlier unit and bundle pins separate.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

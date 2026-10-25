@@ -1,0 +1,146 @@
+[
+  {
+    "name": "lower_y",
+    "input_type": "string",
+    "input": "y",
+    "expected": true
+  },
+  {
+    "name": "upper_y",
+    "input_type": "string",
+    "input": "Y",
+    "expected": true
+  },
+  {
+    "name": "lower_n",
+    "input_type": "string",
+    "input": "n",
+    "expected": false
+  },
+  {
+    "name": "upper_n",
+    "input_type": "string",
+    "input": "N",
+    "expected": false
+  },
+  {
+    "name": "word_yes",
+    "input_type": "string",
+    "input": "yes",
+    "expected": false
+  },
+  {
+    "name": "upper_yes",
+    "input_type": "string",
+    "input": "YES",
+    "expected": false
+  },
+  {
+    "name": "word_true",
+    "input_type": "string",
+    "input": "true",
+    "expected": false
+  },
+  {
+    "name": "word_false",
+    "input_type": "string",
+    "input": "false",
+    "expected": false
+  },
+  {
+    "name": "digit_one",
+    "input_type": "string",
+    "input": "1",
+    "expected": false
+  },
+  {
+    "name": "digit_zero",
+    "input_type": "string",
+    "input": "0",
+    "expected": false
+  },
+  {
+    "name": "empty",
+    "input_type": "string",
+    "input": "",
+    "expected": false
+  },
+  {
+    "name": "space",
+    "input_type": "string",
+    "input": " ",
+    "expected": false
+  },
+  {
+    "name": "leading_space",
+    "input_type": "string",
+    "input": " y",
+    "expected": false
+  },
+  {
+    "name": "trailing_space",
+    "input_type": "string",
+    "input": "y ",
+    "expected": false
+  },
+  {
+    "name": "newline_suffix",
+    "input_type": "string",
+    "input": "y\n",
+    "expected": false
+  },
+  {
+    "name": "tab_suffix",
+    "input_type": "string",
+    "input": "y\t",
+    "expected": false
+  },
+  {
+    "name": "nul_suffix",
+    "input_type": "string",
+    "input": "y\u0000",
+    "expected": false
+  },
+  {
+    "name": "nul_prefix",
+    "input_type": "string",
+    "input": "\u0000y",
+    "expected": false
+  },
+  {
+    "name": "latin_diaeresis",
+    "input_type": "string",
+    "input": "ÿ",
+    "expected": false
+  },
+  {
+    "name": "fullwidth_y",
+    "input_type": "string",
+    "input": "Ｙ",
+    "expected": false
+  },
+  {
+    "name": "greek_upsilon",
+    "input_type": "string",
+    "input": "Υ",
+    "expected": false
+  },
+  {
+    "name": "japanese",
+    "input_type": "string",
+    "input": "はい",
+    "expected": false
+  },
+  {
+    "name": "repeated_y",
+    "input_type": "string",
+    "input": "yy",
+    "expected": false
+  },
+  {
+    "name": "word_no",
+    "input_type": "string",
+    "input": "no",
+    "expected": false
+  }
+]

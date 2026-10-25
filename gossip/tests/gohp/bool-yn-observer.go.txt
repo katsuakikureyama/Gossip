@@ -1,0 +1,76 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+)
+
+type boolYNCase struct {
+	Name      string `json:"name"`
+	InputType string `json:"input_type"`
+	Input     any    `json:"input"`
+	Expected  bool   `json:"expected"`
+}
+
+type boolYNValueObservation struct {
+	Type  string `json:"type"`
+	Value string `json:"value"`
+}
+
+type boolYNObservation struct {
+	Name       string                 `json:"name"`
+	InputType  string                 `json:"input_type"`
+	Type       string                 `json:"type"`
+	Value      bool                   `json:"value"`
+	InputAfter boolYNValueObservation `json:"input_after"`
+}
+
+func boolYNFixtureInput(value any) string {
+	input, ok := value.(string)
+	if !ok {
+		panic(fmt.Sprintf("bool_from_yn fixture transports strings only, got %T", value))
+	}
+	return input
+}
+
+// init is compiled beside GoHP's generated main.go. It invokes only the
+// generated original helper; expected values remain host-side assertions.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []boolYNCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("bool_from_yn fixture has trailing JSON values")
+	}
+
+	observations := make([]boolYNObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" || testCase.InputType != "string" {
+			panic("bool_from_yn fixture requires a named string case")
+		}
+		input := boolYNFixtureInput(testCase.Input)
+		value, ok := F_bool_from_yn(input).(bool)
+		if !ok {
+			panic("bool_from_yn did not return bool")
+		}
+		observations = append(observations, boolYNObservation{
+			Name: testCase.Name, InputType: "string", Type: "bool", Value: value,
+			InputAfter: boolYNValueObservation{Type: "string", Value: input},
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "name": "yn_empty_missing_and_null_excluded",
+    "operation": "gossip_slice_search_yn",
+    "input": [[0, "y"], ["unset", null]],
+    "keys": ["unset", "missing"],
+    "expected": [false, null, null, true],
+    "input_after": [[0, "y"], ["unset", null]],
+    "keys_after": ["unset", "missing"]
+  },
+  {
+    "name": "yn_selector_order_dedup_mixed_keys",
+    "operation": "gossip_slice_search_yn",
+    "input": [["2", "Y"], ["mode", "false"], [0, "y"], [5, "n"], ["unset", null]],
+    "keys": [5, "2", 0, "2", "mode", "unset", "missing"],
+    "expected": [true, true, 2, false],
+    "input_after": [[2, "Y"], ["mode", "false"], [0, "y"], [5, "n"], ["unset", null]],
+    "keys_after": [5, "2", 0, "2", "mode", "unset", "missing"]
+  },
+  {
+    "name": "yn_first_match_key_zero_not_null",
+    "operation": "gossip_slice_search_yn",
+    "input": [[0, "y"], [1, "Y"]],
+    "keys": [0, 1],
+    "expected": [true, true, 0, true],
+    "input_after": [[0, "y"], [1, "Y"]],
+    "keys_after": [0, 1]
+  },
+  {
+    "name": "yn_no_true_match_is_null",
+    "operation": "gossip_slice_search_yn",
+    "input": [[0, "false"], ["mode", "n"]],
+    "keys": ["mode", 0],
+    "expected": [false, null, null, false],
+    "input_after": [[0, "false"], ["mode", "n"]],
+    "keys_after": ["mode", 0]
+  },
+  {
+    "name": "falsy_empty_missing_and_null_excluded",
+    "operation": "gossip_slice_search_falsy",
+    "input": [[0, null], ["other", "Y"]],
+    "keys": ["absent", 0],
+    "expected": [false, null, null],
+    "input_after": [[0, null], ["other", "Y"]],
+    "keys_after": ["absent", 0]
+  },
+  {
+    "name": "falsy_selector_order_dedup_normalized_key",
+    "operation": "gossip_slice_search_falsy",
+    "input": [["7", "false"], ["mode", "Y"], [0, "0"], [-1, "y"], ["unset", null]],
+    "keys": ["mode", "7", 0, "7", "unset", -1, "missing"],
+    "expected": [true, false, 7],
+    "input_after": [[7, "false"], ["mode", "Y"], [0, "0"], [-1, "y"], ["unset", null]],
+    "keys_after": ["mode", "7", 0, "7", "unset", -1, "missing"]
+  },
+  {
+    "name": "falsy_matched_false_key_zero_not_null",
+    "operation": "gossip_slice_search_falsy",
+    "input": [[0, "false"], [1, "y"]],
+    "keys": [0, 1],
+    "expected": [true, false, 0],
+    "input_after": [[0, "false"], [1, "y"]],
+    "keys_after": [0, 1]
+  },
+  {
+    "name": "falsy_no_match_is_null_with_boundary_keys",
+    "operation": "gossip_slice_search_falsy",
+    "input": [[-1000000, "Y"], ["name", "1"], [1000000, "y"]],
+    "keys": [1000000, "name", -1000000, 1000000],
+    "expected": [false, null, null],
+    "input_after": [[-1000000, "Y"], ["name", "1"], [1000000, "y"]],
+    "keys_after": [1000000, "name", -1000000, 1000000]
+  }
+]

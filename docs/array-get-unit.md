@@ -1,9 +1,12 @@
 # Original nested settings lookup comparison
 
-The new `array-get-unit.json` pins integrated GoHP #63 main
-`1f10764ce7afec18276cd5b3da9662db575be7df`. It reuses main #62 foreach continue
-and adds trailing untyped null defaults plus defined bare/multi-address isset.
-GoHP's exact feature snapshot passed470 catalog checks on fixed PHP8.3.36.
+The new `array-get-unit.json` pins integrated GoHP #64 main
+`b8dc1757ed61f459d51362da004aa1d73d024116`. It reuses main #62 foreach continue,
+#63 trailing untyped null defaults/defined bare-multi isset, and adds #64 literal
+null strict identity probes. The first #63 execution exposed the last gap on an
+array-valued path element; it generated/built but failed execution. The original
+and cases were not edited to avoid that case. GoHP's final exact feature snapshot
+passed473 catalog checks on fixed PHP8.3.36.
 This is compiler evidence, not a WordPress result by itself.
 
 The harness extracts the complete, byte-unchanged `_wp_array_get` declaration

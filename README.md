@@ -47,6 +47,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   The [string-only stripslashes unit](docs/stripslashes-helper-unit.md) adds
   an original ternary helper, with non-string values returned unchanged.
   This is not recursive `stripslashes_deep` / `wp_unslash` support.
+  A separate [integrated twelve-helper bundle](docs/integrated-helper-bundle-unit.md)
+  brings all twelve selected originals and owned composition drivers into one
+  executable on the combined conditional/string/array compiler. Its new corpus
+  does not replace the independent unit or earlier ten-helper results.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

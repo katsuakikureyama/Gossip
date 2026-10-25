@@ -42,6 +42,13 @@ formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 
+The [integrated twelve-helper bundle](integrated-helper-bundle-unit.md) adopts
+the combined conditional/string/array compiler in a new single-executable
+configuration. It includes all twelve selected original functions plus owned
+PHP composition calls. Earlier six standalone units and the ten-helper bundle
+retain their existing pins and evidence; their old inputs are not relabelled
+as verified on the integrated compiler. This still is not full WordPress startup.
+
 The [string-only stripslashes unit](stripslashes-helper-unit.md) adds full
 three-operand conditional expressions and a guarded string-only builtin.
 The original returns non-strings unchanged, including escaped strings inside

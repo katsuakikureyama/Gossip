@@ -64,7 +64,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   executes unchanged `wp_array_slice_assoc()`, including its `: array` return
   declaration. Fourteen cases observe ordered integer/string keys, null
   exclusion and caller-input preservation. Its [evidence](docs/evidence/array-slice-assoc-2026-10-25.md)
-  is separate; the fourteenth original has not joined the combined bundle yet.
+  remains a separate standalone result. The subsequent
+  [fourteen-original bundle](docs/associative-helper-bundle-unit.md) integrates
+  all fourteen originals and sixteen owned drivers into one executable.
+  Its [55-case PASS](docs/evidence/associative-helper-bundle-2026-10-25.md)
+  covers direct calls and compositions with ordered keys and caller arguments;
+  it does not establish full-core or recursive unescaping compatibility.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -115,6 +120,8 @@ The recursive wp_slash unit uses the additional pin in
 [`wp-slash-helper.json`](gossip/tests/gohp/wp-slash-helper.json).
 The associative slice unit uses its own pin in
 [`array-slice-assoc-helper.json`](gossip/tests/gohp/array-slice-assoc-helper.json).
+The fourteen-original bundle selects its configuration in
+[`associative-helper-bundle.json`](gossip/tests/gohp/associative-helper-bundle.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

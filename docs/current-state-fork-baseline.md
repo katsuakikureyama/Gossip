@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: original associative array slice
+## Latest: fourteen-original associative bundle
+
+- Branch `codex/gohp-associative-helper-bundle`, stacked on #17. Tested
+  snapshot `9c14ce515c266d9db6d1f125a889c9e93cfc3dd1`, tree
+  `c5ae3be90a0ed10feb4146f05bac6bb6f1af6879` (exact staged bytes committed
+  after execution). Fourteen byte-unchanged originals and sixteen owned
+  drivers translate/build once into one executable.
+- All 55 cases PASS: previous 33 recursive-bundle cases, fourteen standalone
+  slice cases and eight new compositions. Actual return type/value, ordered
+  keys where applicable and both caller arguments agree with PHP 8.3.36 and
+  authored expectations. Direct27/composed28; empty stderr/exit0. Local test
+  8.41s/package8.629s and vet PASS, first comparison, no rerun.
+- GoHP pin remains `db3051f8a179078e2227c5d97f50a2f1611d1451` (#36).
+  Existing exact-commit CI40156201018 (238 checks/46 features) and earlier
+  compiler local tests are explicitly reused, not rerun. Other compiler
+  branches are not integrated. Prior eight standalone and ten/twelve/thirteen
+  bundle configurations and evidence stay untouched.
+- [Contract](associative-helper-bundle-unit.md) and
+  [evidence](evidence/associative-helper-bundle-2026-10-25.md) retain exact
+  hashes/observations. A pre-commit whitespace check failed on a trailing
+  PHP EOF blank line; after successful runtime validation and exact-snapshot
+  commit, only that cosmetic line was removed alongside documentation.
+  No executable statement/configuration changed, so runtime PASS is reused.
+- Next boundary: identify a concrete missing original-helper dependency
+  before extending the compiler. Nested associative values, general objects/
+  references/callbacks, map_deep/wp_unslash and full core/HTTP/DB/theme/plugin
+  operation remain unverified. No implementation merge/release/deploy or
+  license decision. Master README-only publication remains untouched.
+  Local developer capability remains WebMCP-excluded; auth routes unchanged.
+  Devboard unidentified/unsynchronized, not Done.
+
+## Previous: original associative array slice
 
 - Branch `codex/gohp-array-slice-assoc`, based on #15. Test commit
   `1b191a17b574f174e04249b6420e893ec57750c5`, tree

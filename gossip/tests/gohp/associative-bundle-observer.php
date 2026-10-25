@@ -317,4 +317,3 @@ foreach ($cases as $case) {
 }
 
 echo json_encode($observations, JSON_THROW_ON_ERROR), "\n";
-

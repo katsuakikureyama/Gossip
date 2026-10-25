@@ -2,7 +2,36 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: nested settings lookup reference and compiler gaps
+## Latest: unchanged nested settings lookup24-case Go/PHP PASS
+
+Original `_wp_array_get` now generates/builds and matches PHP8.3.36/C on all24
+retained cases with GoHP #64 main `b8dc1757ed61f459d51362da004aa1d73d024116`.
+The complete functions.php5233–5272 declaration, case corpus and PHP observer
+are unchanged. Actual return types/values, including nested arrays, and
+input/path/default states match; all caller arguments remain unchanged.
+[Contract](array-get-unit.md), [record](evidence/array-get-unit-2026-10-26.md).
+
+Test commit `ce5318d414d0701f6d1d312d7d81ddbaeb4e514d`, tree
+`1c67b687f6ede81a061ba800c891b44eb4cbb213`; PASS9.12s/package9.359s,
+exit0 and empty stderr. Vet PASS from the same Go sources is reused after
+manifest-only compiler repin. Only docs/evidence changes follow successful test.
+
+GoHP #63 added bounded null defaults and bare/multiple isset, reusing #62
+continue. Initial Gossip snapshotd2bc85ce6 generated/built but failed at
+`null === $path_element` on an array value. #64 fixed literal-null comparison
+without general array/object identity; its exact clean feature tree passed473
+CI checks. The failed execution and obsolete callable-null negative CI test
+correction are retained in the record, not erased or counted as success.
+
+This is the25th successful original in a separate unit. The old24-original262-
+case bundle is unchanged; a25-original combined binary has not run. Next combine
+the new lookup with the existing bundle and useful bounded compositions before
+claiming integrated coverage. Theme JSON/block callers, full WordPress startup,
+HTTP/DB/themes/plugins and broad PHP value/error semantics remain unverified.
+Local capability stays WebMCP-excluded, route/auth unchanged; no new deployment
+target. Devboard unidentified/not synced; PR/current-state tracks progress.
+
+## Previous: nested settings lookup reference and compiler gaps
 
 The next target is original _wp_array_get, called60 times across12 files at the
 fixed WordPress revision, including43 Theme JSON and6 global styles/settings

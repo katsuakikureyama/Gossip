@@ -7,7 +7,7 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 検証済みの開発スタックを `master` に統合しています。
 選定した **24個の原文関数・262ケース**を一つのGo実行ファイルにまとめ、PHPとの比較に成功しました。
 `array_first`・`array_last`を含み、配列の選択・真偽値変換・先頭末尾取得・検索を組み合わせた動作も確認しています。
-次の対象はテーマ設定などで使われる `_wp_array_get` です。[PHP参照24ケースと未対応箇所](docs/evidence/array-get-boundary-2026-10-26.md)を確認し、GoHPの既定引数・isset・continue対応へ進みます。
+加えて、テーマ設定などで使われる原文 `_wp_array_get` も、別構成の[24ケースでGo/PHP比較に成功](docs/evidence/array-get-unit-2026-10-26.md)しました。既定引数・isset・continueと、実行時に見つかったnull比較の不足をGoHP側で修正しています。25関数をまとめた統合検証はこれからです。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
 [現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/edge-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
@@ -161,10 +161,13 @@ project, and it is **not yet a Go replacement for WordPress**.
   GoHP #58. Its [262-case result](docs/evidence/edge-helper-bundle-2026-10-26.md)
   includes all230 earlier cases,24 edge cases and8 new Boolean/edge/search
   compositions. Earlier standalone and integrated evidence retains its pins.
-  The next [nested settings lookup boundary](docs/array-get-boundary.md) targets
-  the original _wp_array_get used by Theme JSON and block settings. Its24 native
-  cases pass; explicit parser probes identify default-parameter, bare/multiple
-  isset and continue support required before a Go comparison can run.
+  The [nested settings lookup unit](docs/array-get-unit.md) now executes unchanged
+  _wp_array_get used by Theme JSON and block settings. Its retained24 cases
+  [match Go/PHP](docs/evidence/array-get-unit-2026-10-26.md), including actual
+  nested returns and unchanged caller arguments. GoHP #63/#64 supplied bounded
+  defaults/isset and the literal-null fix exposed by the first execution.
+  This adds a25th successful original separately, not a25-original integration.
+  The earlier [rejection boundary](docs/array-get-boundary.md) keeps its old pin.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

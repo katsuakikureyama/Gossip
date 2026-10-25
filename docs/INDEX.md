@@ -6,7 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Current state](current-state-fork-baseline.md) | Owner-approved master consolidation; 22-original/230-case PASS, native-only boundaries and next steps |
 | [Array edge boundary](array-edge-boundary.md) | Original array_first/last PHP reference; missing empty and array_key_last dependencies |
 | [Array edge boundary evidence](evidence/array-edge-boundary-2026-10-26.md) | Native24/24 PASS,2 original +1 dependency rejection; not Go/PHP differential PASS |
 | [Twenty-two-original search bundle](search-helper-bundle-unit.md) | One binary,22 unchanged originals/44 drivers/230 cases; retained settings unchanged |

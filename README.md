@@ -1,5 +1,16 @@
 # Gossip
 
+WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製プラグインを探る、実験的な WordPress フォークです。
+
+## 現在の到達点（2026-10-26）
+
+検証済みの開発スタックを `master` へ統合するベースラインです。
+選定した **22個の原文関数・230ケース**の Go/PHP 比較が成功しています。
+`array_first` / `array_last` の24ケースはPHP参照のみで、Go変換は未対応です。
+WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
+
+[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/search-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
+
 Gossip is an independent, experimental WordPress fork exploring a Go-powered
 runtime and native Go plugins. This repository retains the original WordPress
 source and history. It is not affiliated with or endorsed by the WordPress
@@ -221,7 +232,8 @@ run the original WordPress hook engine, despite the narrow helper-unit PASS.
 No production deployment, migration,
 marketplace, full-theme rendering or general plugin compatibility is claimed.
 
-Development changes go through a Draft PR **in this fork**, not an upstream
-WordPress PR. See the [documentation index](docs/INDEX.md),
+Development changes go through a PR **in this fork**, not an upstream
+WordPress PR. Use Draft while work is incomplete; integrate verified changes
+into master at bounded milestones. A merge is not a production deployment. See the [documentation index](docs/INDEX.md),
 [reuse boundary](docs/reuse-boundary.md), and
 [source provenance](docs/provenance.md).

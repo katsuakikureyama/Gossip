@@ -2,6 +2,31 @@
 
 Last updated: 2026-10-26 (JST).
 
+## Default-branch consolidation (owner approved)
+
+The owner approved integrating the validated development stack into `master`.
+The integration branch combines candidate `afaa7e38980a150fd9ae43bd8194c67b26ee266b`
+with the README-only master `9b72be0e5d4dbb5a36e4c5aaaca4091a7b662d3c`.
+Only README/current-state/index documentation is reconciled; implementation,
+test code, compiler pins, original WordPress files and historical evidence stay
+unchanged. Merge history is retained, not squashed or rebased.
+
+The preceding GoHP integration is merged as
+[`6e385ea`](https://github.com/katsuakikureyama/GoHP/pull/56), with the exact
+source tree of its 420-check PHP 8.3.36 PASS. This does **not** repin Gossip:
+the latest 22-original/230-case bundle still uses GoHP #54 `36191c5`.
+Its existing PASS and the separate native-only 24-case boundary record below
+remain the evidence; this documentation-only reconciliation does not rerun them.
+
+Earlier "master unchanged", "Draft" and "no merge" statements below are
+historical execution/publication status, not a continuing ban on integration.
+New work should branch from the integrated master and merge at verified
+milestones instead of indefinitely extending a Draft stack. No release,
+deployment, branch deletion or prototype change is part of this consolidation.
+The new bounded `empty` work remains local and unverified, outside this baseline.
+Devboard card remains unidentified/unsynchronized; full WordPress compatibility
+is not Done. PR merge state and the default-branch SHA are the publication record.
+
 ## Latest: array_first/last reference and explicit compiler blockers
 
 - Branch `codex/gohp-array-edge-boundary` on #29. Test commit

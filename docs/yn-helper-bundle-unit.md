@@ -58,7 +58,8 @@ same-process PHP8.3.36 guard, LC_CTYPE=C, non-root/read-only/network-disabled
 containers and resource limits remain. Source/generated/report hashes must
 agree before build. PASS additionally requires actual observations to match
 the oracle and expectations with empty stderr/exit0. Results are recorded
-separately after execution.
+in the [execution record](evidence/yn-helper-bundle-2026-10-25.md):149-call
+PASS, exact pre-execution snapshot and explicitly reused compiler evidence.
 
 Eleven older standalone units and all previous bundles remain pinned and
 unchanged; this is not every historical standalone input. General Boolean

@@ -102,6 +102,8 @@ project, and it is **not yet a Go replacement for WordPress**.
   original to one binary with25 owned drivers and149 cases. New compositions
   cover selected-array yes/no classification and the distinct behavior of
   `bool_from_yn()` and `wp_validate_boolean()` on the same input string.
+  Its [149-case result](docs/evidence/yn-helper-bundle-2026-10-25.md) matches
+  actual types/values, ordered keys and caller arguments against PHP.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

@@ -2,7 +2,37 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: original yes/no-label predicate
+## Latest: seventeen-original yes/no integration
+
+- Branch `codex/gohp-yn-helper-bundle` on #23. Test commit
+  `22a5a4d9ab9dac84402e3c22d4d7a91ffa9963f3`, tree
+  `6e1cec3c6132026cf623c6dee9d21ddba9db78a7`; committed before execution.
+- Seventeen byte-unchanged originals and25 owned drivers translate/build once
+  into one binary. All149 calls (direct103/composed46) match actual typed values,
+  ordered keys and caller arguments against PHP8.3.36 and authored expectations.
+  Previous119 cases plus24 direct yes/no and6 new compositions. The two original
+  validators preserve their distinct results for the same string: yes→[false,true].
+- First run PASS10.14s/package10.336s, empty stderr/exit0, vetPASS. Parent corrected
+  a draft bool-return assertion and removed a duplicate helper before commit/
+  first execution. No runtime failure/retry; post-PASS docs only.
+  [Contract](yn-helper-bundle-unit.md) and
+  [evidence](evidence/yn-helper-bundle-2026-10-25.md) retain all observations,
+  hashes, exact commands and pre-execution review corrections.
+- Compiler unchanged: GoHP `49a302e44464623dc4912bafbcf44192759d7878` (#44),
+  tree `dc2046b28420a9f7a9da7447052a5e70d6543279`. Earlier CI40159749575
+  PASS336 checks/52 features reused without compiler tests/CI rerun. Newer
+  control-flow compiler branches are not adopted.
+- New yes/no direct/pair inputs are strings; new slice roots contain only
+  strings/null, with null removed by original slice before mapping. Prior HEIC
+  scalar and nested-list domains retained. Eleven standalone and all old bundle
+  settings remain unchanged/not rerun. WordPress originals/SDK/hooks/oracle
+  policy/prototype/master unchanged. No merge/deploy/release/license decision.
+- Next: select the next bounded original-helper dependency. General Boolean
+  coercion, option-backed wrappers, array_all/arrow closures, whole core/HTTP/
+  DB/themes/plugins remain unverified. Local developer capability WebMCP-excluded,
+  auth routes unchanged; devboard unidentified/unsynchronized, not Done.
+
+## Previous: original yes/no-label predicate
 
 - Branch `codex/gohp-bool-yn` on #22. Test commit
   `0f236704a0fcb3140dd7f8c3699ed3aa8abfa615`, tree

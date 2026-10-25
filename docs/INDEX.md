@@ -8,6 +8,7 @@ support or compatibility promise.
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
 | [Seventeen-original yes/no bundle](yn-helper-bundle-unit.md) | One binary,17 unchanged originals/25 owned drivers/149 cases; separate input domains and Boolean contracts |
+| [Seventeen-original bundle evidence](evidence/yn-helper-bundle-2026-10-25.md) | 149-call typed/input-after PASS; exact pre-execution commit and reused compiler336-check evidence |
 | [Yes/no-label unit](bool-yn-unit.md) | Eleventh standalone unit: unchanged bool_from_yn, string-only y/Y recognition; no general Boolean coercion |
 | [Yes/no-label evidence](evidence/bool-yn-2026-10-25.md) | 24-case bool/input-after PASS; exact pre-execution snapshot and reused compiler evidence |
 | [Sixteen-original HEIC/charset/array bundle](heic-helper-bundle-unit.md) | Separate119-case integration with16 unchanged originals and22 owned drivers; strict scalar HEIC domain |

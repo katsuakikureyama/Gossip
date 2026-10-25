@@ -49,6 +49,15 @@ their original compiler pins, cases and evidence. They are not repinned,
 rerun or relabelled as passing on the new compiler. This new corpus provides
 its own combined evidence; it is not a rerun of every earlier individual input.
 
+```sh
+cd gossip
+GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP \
+  go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressIntegratedHelperBundle$'
+```
+
+See the [execution record](evidence/integrated-helper-bundle-2026-10-25.md)
+for exact revisions, commands, all24 observations and compiler CI provenance.
+
 Whole PHP files, WordPress startup, hooks, HTTP, databases, themes and plugins
 remain unverified. No default-branch merge, deployment, release or license
 decision is implied.

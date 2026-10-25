@@ -8,6 +8,7 @@ support or compatibility promise.
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
 | [Integrated twelve-helper bundle](integrated-helper-bundle-unit.md) | One generated executable using the combined conditional/string/array compiler; separate direct/composed corpus |
+| [Integrated twelve-helper evidence](evidence/integrated-helper-bundle-2026-10-25.md) | New24 typed observations and combined compiler CI166-check result; earlier configurations retained |
 | [String-only stripslashes unit](stripslashes-helper-unit.md) | Original conditional helper, lazy string-only builtin and non-string passthrough; not recursive unescaping |
 | [String-only stripslashes evidence](evidence/stripslashes-helper-2026-10-25.md) | Separate 21-case native PHP comparison and exact compiler/test pins |
 | [Newline preservation unit](newline-helper-unit.md) | Original `wpautop` callback helper with bounded string replacement; not paragraph-renderer support |

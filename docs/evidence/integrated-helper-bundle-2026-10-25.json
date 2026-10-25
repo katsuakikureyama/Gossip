@@ -1,0 +1,359 @@
+{
+  "binary_sha256": "3481db40e9d63087db76f71be445422d6e6888d9aae9bf9d884d69ecc8ebc2c8",
+  "bundle_sha256": "cb7e19216a2bfdb0935bb3f7442a8610f55e0292bc9ca9afb9071c4189807036",
+  "case_count": 24,
+  "cases_sha256": "c21f8b452d33820ab238b6f2781089185218c28fb8c9166fb4784d9d7129746c",
+  "compiler_sha256": "e5f20489d09ce16ff4f49d0bd0c229fb496758ca289b8bdb8a50537e7ab9aeb0",
+  "compiler_version": "0.1.0-dev",
+  "composed_call_count": 12,
+  "direct_call_count": 12,
+  "driver_first_line": 58,
+  "driver_sha256": "077f4f74c0e05658a0c084cf82d5c42cc8bba6e2f418a51875173efcb1c4b559",
+  "exit_code": 0,
+  "generated_sha256": "c1387665bc9c5ce4f699a37cf44c3ec76b4edb9a94f96efd4a188423d7ca2d3f",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "6c005bd256e92419e8c8118e7811f74b66df07d7e7e34f71783b6394a42b61e0",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "5450253d22fb398515c3a4fbf18815c490d9c01154d33eb7a6b2ae386dabec4a",
+  "gohp_commit": "e5ba8c1db81d235cc177cc83699868d812abff7e",
+  "manifest_sha256": "0f0e3a9dbf02b6692d8efa4d1897047edcded2d0a1b5fd0ff3d94f7626eff634",
+  "original_function_count": 12,
+  "owned_driver_count": 7,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "0d6f4ec3c3e2404cbc148763c5a45f1391b133d2d9e3983dac17f996cef0f878",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "25738cb9074ec919ad6f27a424e6de5c08b5d9a000aec28891d713f126c2b815",
+  "schema": "gossip.integrated-helper-bundle/v1",
+  "scope": "twelve unchanged WordPress helpers and seven owned composition drivers translated together in one binary; 24 bounded typed observations include newline capture-to-unescape, non-string list pass-through through array_keys/array_is_list, and existing scalar compositions; not full-file/core/startup, HTTP, DB, theme or plugin compatibility",
+  "selections": [
+    {
+      "bundle_first_line": 2,
+      "name": "__return_true",
+      "original_first_line": 7181,
+      "original_last_line": 7183,
+      "sha256": "194a7abeca0f4b3a1ca2c40ca6854667d79b6c3c382edb74e7d8046a1c6cf5a6",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 6,
+      "name": "__return_false",
+      "original_first_line": 7196,
+      "original_last_line": 7198,
+      "sha256": "6c1b2e3db3527da63160245f8bc855ebe3940fac88dc50e2b8d95a3b83db570e",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 10,
+      "name": "__return_zero",
+      "original_first_line": 7209,
+      "original_last_line": 7211,
+      "sha256": "44acf0951778dfe08acaee9486c64daf70dfb0e8664491c2a6845c5ede9253b2",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 14,
+      "name": "__return_empty_array",
+      "original_first_line": 7222,
+      "original_last_line": 7224,
+      "sha256": "46948aca39c4963ec0d513b7da9478f10d411ece115316ec5b7493d0cdc41530",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 18,
+      "name": "__return_null",
+      "original_first_line": 7235,
+      "original_last_line": 7237,
+      "sha256": "f437398fa84f0e44313c35c6efe791cd0831628a8f89e8f992ff7cab38f8ae65",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 22,
+      "name": "__return_empty_string",
+      "original_first_line": 7250,
+      "original_last_line": 7252,
+      "sha256": "1b417b245771afe887b8dba13c5725981291dadfc6e4a79558b02f8bf9ad2371",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 26,
+      "name": "wp_validate_boolean",
+      "original_first_line": 7932,
+      "original_last_line": 7942,
+      "sha256": "5dbcedd52adf3a516887a312cee7d9c620a8173c60b98852f23ba994ad557e87",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "bundle_first_line": 38,
+      "name": "_autop_newline_preservation_helper",
+      "original_first_line": 811,
+      "original_last_line": 813,
+      "sha256": "2b21ce4ab89fcfb42f77b870f51da73de3062f541a0393b52497265edeb76829",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 42,
+      "name": "zeroise",
+      "original_first_line": 2848,
+      "original_last_line": 2850,
+      "sha256": "02f5dc321d4202c74eb1c8171f16b2b628f2fc0fd7840cd8a41ebe056d3d34f3",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 46,
+      "name": "trailingslashit",
+      "original_first_line": 2883,
+      "original_last_line": 2885,
+      "sha256": "3242c532f0668f82ada2b0bafb1aefa17a522b860498a8de47ed47d3d694d938",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 50,
+      "name": "untrailingslashit",
+      "original_first_line": 2898,
+      "original_last_line": 2900,
+      "sha256": "9e10b72e9db3d08ba4eabafb88e3682c6ac61d13a89c5ac8da9e24494d2ee596",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    },
+    {
+      "bundle_first_line": 54,
+      "name": "stripslashes_from_strings_only",
+      "original_first_line": 2934,
+      "original_last_line": 2936,
+      "sha256": "6dc050e27054431f775bef8a177355863b888973463af3e7814d170306b357b3",
+      "source_path": "wp-includes/formatting.php",
+      "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e"
+    }
+  ],
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "name": "direct_return_true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "direct_return_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "direct_return_zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "name": "direct_return_empty_array",
+      "type": "array",
+      "value": []
+    },
+    {
+      "name": "direct_return_null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "name": "direct_return_empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "direct_validate_boolean",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "direct_newline_helper",
+      "type": "string",
+      "value": "first<WPPreserveNewline />second"
+    },
+    {
+      "name": "direct_zeroise",
+      "type": "string",
+      "value": "00042"
+    },
+    {
+      "name": "direct_trailingslashit",
+      "type": "string",
+      "value": "plain/"
+    },
+    {
+      "name": "direct_untrailingslashit",
+      "type": "string",
+      "value": "plain"
+    },
+    {
+      "name": "direct_stripslashes_string",
+      "type": "string",
+      "value": "It's\u0000ok"
+    },
+    {
+      "name": "capture_plain_lf",
+      "type": "string",
+      "value": "a<WPPreserveNewline />b"
+    },
+    {
+      "name": "capture_slash_quote_lf",
+      "type": "string",
+      "value": "a'b<WPPreserveNewline />c"
+    },
+    {
+      "name": "capture_slash_zero_lf",
+      "type": "string",
+      "value": "a\u0000<WPPreserveNewline />b"
+    },
+    {
+      "name": "capture_multibyte_lf",
+      "type": "string",
+      "value": "猫<WPPreserveNewline />犬"
+    },
+    {
+      "name": "unslash_empty_array_keys",
+      "type": "array",
+      "value": []
+    },
+    {
+      "name": "unslash_list_array_keys",
+      "type": "array",
+      "value": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "unslash_list_shape",
+      "type": "array",
+      "value": [
+        true,
+        [
+          "a\\'b",
+          false,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "unslash_nested_list_shape",
+      "type": "array",
+      "value": [
+        true,
+        [
+          [
+            "a\\'b"
+          ],
+          [
+            "c\\0d"
+          ]
+        ]
+      ]
+    },
+    {
+      "name": "wrapper_zero_pad",
+      "type": "string",
+      "value": "0000"
+    },
+    {
+      "name": "wrapper_false_boolean",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "name": "wrapper_empty_string_path",
+      "type": "string",
+      "value": "/"
+    },
+    {
+      "name": "wrapper_path_pad",
+      "type": "string",
+      "value": "00猫/"
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "date": "2026-10-25",
+    "gossip_commit": "74e234dcd80674c03b7f718040e8804866c8b04f",
+    "gossip_tree": "ae04dc19a38c88556f56fc9e4de707a4849f2159",
+    "gohp_tree": "0a82fee62457c2bc656bdd3e4d0a71c9d6d81e75",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressIntegratedHelperBundle$'",
+    "test_seconds": 7.6,
+    "package_seconds": 7.834,
+    "vet_command": "go vet ./tests/gohp",
+    "vet": "pass",
+    "run_count": 1,
+    "host_go": "go1.22.1 darwin/arm64"
+  },
+  "compiler_ci": {
+    "overall": "pass",
+    "metadata": {
+      "commit": "5cbb87344104c906bf3595b4a8c54da09ff9612f",
+      "tree": "0a82fee62457c2bc656bdd3e4d0a71c9d6d81e75",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40149530122",
+      "run_id": "40149530122",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T01:10:13.303550071Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "014e9bcd1529d42f85a240e918e55c7c461dbe26c8869bb0404819f293f75c79",
+      "test_exit": 0
+    },
+    "checks": 166,
+    "verdicts": [
+      {
+        "status": "pass",
+        "count": 166
+      }
+    ],
+    "integration_case": [
+      {
+        "id": "diff.conditional_array_integration",
+        "test": "TestDifferential/conditional_array_integration",
+        "package": "github.com/katsuakikureyama/GoHP/tests",
+        "kind": "differential",
+        "fixture": "tests/fixtures/conditional_array_integration.php",
+        "fixture_sha256": "f3b99ed4ba07e3ad6f43d56011e305796e72b6ad6d6b5e51ac857023698ed38a",
+        "generated_sha256": "9bc0976fda1fdbcc257982dd4e41f94665dcdf38a57fb7c6565e83cf848fd1e7",
+        "status": "pass",
+        "phase": {
+          "parse": "pass",
+          "codegen": "pass",
+          "go_build": "pass",
+          "go_execute": "pass",
+          "differential": "pass",
+          "stdout": "pass",
+          "exit": "pass",
+          "stderr": "not-checked",
+          "exceptions": "not-checked",
+          "side_effects": "not-checked"
+        }
+      }
+    ],
+    "artifact": {
+      "id": 12581503118,
+      "name": "compatibility-php8.3-40149530122-1",
+      "retention_days": 30
+    }
+  }
+}

@@ -2,7 +2,35 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: string-only stripslashes helper
+## Latest: twelve-original bundle on the integrated compiler
+
+- Branch `codex/gohp-integrated-helper-bundle`, [Draft #13](https://github.com/katsuakikureyama/Gossip/pull/13)
+  stacked on #12. Test commit `74e234dcd80674c03b7f718040e8804866c8b04f`,
+  tree `ae04dc19a38c88556f56fc9e4de707a4849f2159`.
+- Twelve unchanged WordPress functions plus seven owned PHP drivers are
+  translated/built together into one executable. New24 observations:12 direct
+  probes and12 compositions (captures→newline→unslash, array passthrough→keys
+  or list shape/actual values, and four scalar chains).
+- Compiler/runtime `e5ba8c1db81d235cc177cc83699868d812abff7e`,
+  [GoHP Draft #24](https://github.com/katsuakikureyama/GoHP/pull/24), stacked
+  on #22 and integrating #23. Full builtin reservations/fixtures/guards retained;
+  shared semantic validation reconciled. No new runtime domain or PHP policy.
+- Initial local Gossip PASS7.60s/package7.834s, actualPHP8.3.36, all24 typed
+  values/expectations match, empty stderr/exit0; vetPASS. Compiler local tests
+  and vetPASS; fixed [CI40149530122](https://github.com/katsuakikureyama/GoHP/actions/runs/40149530122)
+  PASS166 checks across40 catalog entries, Go1.23.12/PHP8.3.36. Clean CI tree
+  equals compiler head. No manual retry or implementation change after PASS.
+- [Contract](integrated-helper-bundle-unit.md) and
+  [evidence](evidence/integrated-helper-bundle-2026-10-25.md) record exact
+  commands/pins/hashes. Existing six standalone units and ten-helper bundle
+  retain their pins/results, not rerun or relabelled. Original files, SDK/hooks,
+  native admission implementation and other session checkout unchanged.
+- This verifies one bounded combined configuration, not whole files, recursive
+  callbacks/unescaping, core startup, HTTP/DB/themes/plugins. Draft only,
+  no default-branch merge/deploy/release/license decision. Local tooling remains
+  WebMCP-excluded, auth routes unchanged; devboard unidentified/unsynced, not Done.
+
+## Previous: string-only stripslashes helper
 
 - Branch `codex/gohp-stripslashes-helper`, [Draft #12](https://github.com/katsuakikureyama/Gossip/pull/12)
   stacked on #11. Test commit `f4e65138298ae6763670d457c9c2f74615b8103a`
@@ -99,8 +127,8 @@ New local oracle runs admit only the reviewed official PHP 8.3.36 image in
 `gossip/internal/phporacle`, with stable 8.3 >=8.3.36 checked before any fixture
 is required in the same PHP process. Other digests are refused before Docker
 starts. PHP 7.4, lower patches, prereleases and unreviewed newer series are not
-admitted. This applies to hooks, all six standalone GoHP units and the combined
-helper experiment.
+admitted. This applies to hooks, all six standalone GoHP units and both the
+ten-helper and integrated twelve-helper bundle experiments.
 See [policy](php-oracle-policy.md) and the
 [current unified-compiler execution record](evidence/unified-compiler-2026-10-25.md).
 

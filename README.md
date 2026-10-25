@@ -81,6 +81,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   [89-case result](docs/evidence/charset-helper-bundle-2026-10-25.md) preserves
   the earlier configurations and adds slice/charset compositions; it does not
   establish whole-core compatibility.
+  A tenth standalone [HEIC MIME-label unit](docs/heic-mime-unit.md) executes
+  unchanged `wp_is_heic_image_mime_type()` with strict scalar membership.
+  Its [24-case result](docs/evidence/heic-mime-2026-10-25.md) compares actual
+  bool returns and unchanged inputs. This recognizes exact MIME labels only;
+  it does not inspect, decode or convert image contents.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -139,6 +144,8 @@ the separate logical/comparison compiler stack; earlier pins stay unchanged.
 The new merged-stack bundle uses
 [`charset-helper-bundle.json`](gossip/tests/gohp/charset-helper-bundle.json),
 without repinning the older standalone or combined experiments.
+The HEIC MIME-label unit separately pins its strict-membership compiler in
+[`heic-mime-helper.json`](gossip/tests/gohp/heic-mime-helper.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

@@ -2,7 +2,35 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: fifteen-original charset/array integration
+## Latest: original HEIC/HEIF MIME-label predicate
+
+- Branch `codex/gohp-heic-mime`, stacked on #20. Test commit
+  `dde6850d859b0a51a4c05fefda19c4ef4cba8c61`, tree
+  `ccdc46abd387ce9f3b31dc28266dd813db6eb4f4`, fixed before execution.
+- WordPress functions.php9465–9474 is extracted byte-unchanged. All24 scalar
+  cases match actual bool returns and caller input against PHP8.3.36 and
+  authored expectations. MIME-label classification only, not image inspection.
+- GoHP `49a302e44464623dc4912bafbcf44192759d7878`, tree
+  `dc2046b28420a9f7a9da7447052a5e70d6543279`, Draft #44 on #41,
+  adds strict scalar `in_array(..., true)` with whole-domain guards.
+  Fixed PHP CI40159749575 passes336 checks/52 features plus vet/CLI smoke.
+  Local runtime/codegen/catalog/static-negative/generated-guard/vet PASS.
+- Gossip initial host compilation failed for one unused import; that import
+  was removed before the successful run. Corrected snapshot PASS9.07s/
+  package9.261s, vetPASS, empty stderr/exit0. After PASS docs only.
+  [Contract](heic-mime-unit.md), [evidence](evidence/heic-mime-2026-10-25.md)
+  record exact attempts, commands, pins, observations and compiler CI artifact.
+- Tenth standalone, not16-original integration. Older nine units and all
+  bundles including15-original/89-case remain pinned and not rerun. WordPress
+  original/SDK/hooks/oracle policy/prototype/master unchanged; no merge/deploy/
+  release/license decision. Browser/S2S/MCP authentication unchanged; local
+  developer capability WebMCP-excluded; devboard unidentified/unsynchronized.
+- Next: a separately pinned16-original integration can compose the new
+  predicate with existing array selectors and Boolean helpers. No such run
+  yet; general PHP, image contents and whole core/HTTP/DB/themes/plugins
+  remain unverified. Separate if/else/elseif compiler stack is not integrated.
+
+## Previous: fifteen-original charset/array integration
 
 - Branch `codex/gohp-charset-helper-bundle`, stacked on #19. Test commit
   `b0835877b9e2172670582a71697f066833837257`, tree

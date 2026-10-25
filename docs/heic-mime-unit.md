@@ -36,7 +36,7 @@ convert or validate uploads/media metadata. This new pin builds on compiler
 Whole functions.php, WordPress core/HTTP/DB/theme/plugin execution, general
 PHP semantics, deployment and license resolution remain unverified.
 
-Local developer capability `gossip.original-source.compare` remains explicitly
+Local developer capability `gossip.dev.wordpress-unit.translate-compare` remains explicitly
 WebMCP-excluded: no browser action, public agent operation or auth-route change.
 No master change, merge, release or deployment. Devboard remains unidentified
 and unsynchronized, not Done. Execution evidence is recorded separately after

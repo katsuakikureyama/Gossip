@@ -1,0 +1,232 @@
+{
+  "date_jst": "2026-10-26",
+  "test_commit": "fdf018beee72a4edb5e011ee8c3ed7e0afb0bae1",
+  "test_tree": "66757ce66aece6ec82cb29e3558b77d94eb95f85",
+  "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-empty-array.nKn0kC/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressArrayFirst$'",
+  "test_seconds": 14.95,
+  "package_seconds": 15.187,
+  "command_exit_code": 0,
+  "vet_command": "go vet ./tests/gohp",
+  "vet_status": "pass",
+  "location": "local Docker",
+  "attempts": 1,
+  "binary_sha256": "94e4a4e83d97c251b778b7210ed262e9ae76c2562a56c43cfdd2c482c89cbf62",
+  "case_count": 12,
+  "cases_sha256": "bac326bb1b4cfe9236b8a31ebef0361fbaa0f6a6798740b604cd5e96bfa8e7b3",
+  "compiled_bundle_sha256": "2df34d6864638803df9794abce6412b466c9a119dc0c25ac115f08e8992761c0",
+  "compiler_sha256": "6eb41edd57dd3943a582f43e9cabb37f8696af5366ab1a69828788476ebfc46a",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 657,
+      "last_line": 665,
+      "name": "array_first",
+      "sha256": "7bc3b36b44e564e4a01b400449d0faba5fb55525bc7ba7df14bc0add1c145961",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "first_line": 646,
+      "last_line": 666,
+      "name": "array_first_guard",
+      "sha256": "41f6ef93e2355135adeea05f8fcb86cd2ce1b42604d85044586a581a499bb430",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    }
+  ],
+  "generated_sha256": "06741abc537d97c2b000d30c63f27d3c090e2ddcf4ee06d055b1d88f8aeaac9a",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "47261c14621a490a99b7f22edb2de4052d2715a49b3381f48b1a0bb45c815991",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "ca623693e768031406151d738fc5798bacdd766ce9af78872b2013bcc5027764",
+  "gohp_commit": "4a4fffb995e57daf592785b6626e45a7babe08da",
+  "loading_guard": "native executes unchanged guard and verifies user-defined polyfill; compiler extracts unchanged declarations only",
+  "manifest_sha256": "704ecbc9e014c927465bcd035cba3fe096256181d5e42af209a346cdd6340f56",
+  "native_bundle_sha256": "3c162c5ca44b37fc6edeba76405c97470e075abb79d4515ff157cae6ef80ed60",
+  "original_declaration_count": 1,
+  "owned_driver_count": 0,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "231bfe291aa5eb09d076f8a4629942ca761316c61f58d6bc14b16cf48df5e4dd",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "79506cd71046d83a761955ed35374e3e3d203ca42ae94a84ddc292867aaf4fac",
+  "schema": "gossip.array-first-unit/v1",
+  "scope": "one unchanged original array_first polyfill;12 retained cases; actual scalar return types/values and ordered caller inputs; flat scalar arrays; separate from22-original230-case integration; array_last remains unsupported",
+  "status": "differential_pass",
+  "stderr": "",
+  "transport_hashes": {
+    "go_selected": "947cb552c45e89840ed40fd8209b0caaa181ba79f73cc47b28b0e4b0f2944c3c",
+    "go_source": "949a73763c8f3e63207f7d12416707905999239b46f14b5b3b1bbc38c7fdbd64",
+    "php_selected": "c7436331547debf2421d44b52a48465406c6d92b8a66aba861455177c498b81a",
+    "php_source": "ab53d02be0edb31d0bacaaab91c4cd0088940db639f9fe1a8248b2b9b737c804"
+  },
+  "typed_observations": [
+    {
+      "input_after": [],
+      "name": "first_empty",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          null
+        ]
+      ],
+      "name": "first_singleton_null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          false
+        ]
+      ],
+      "name": "first_singleton_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": [
+        [
+          0,
+          0
+        ]
+      ],
+      "name": "first_singleton_zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "input_after": [
+        [
+          0,
+          "0"
+        ]
+      ],
+      "name": "first_singleton_string_zero",
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "input_after": [
+        [
+          0,
+          ""
+        ]
+      ],
+      "name": "first_singleton_empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "input_after": [
+        [
+          1000000,
+          "high-first"
+        ],
+        [
+          -1000000,
+          "low-later"
+        ],
+        [
+          0,
+          "zero-later"
+        ]
+      ],
+      "name": "first_insertion_order_not_numeric_order",
+      "type": "string",
+      "value": "high-first"
+    },
+    {
+      "input_after": [
+        [
+          -1000000,
+          "negative-first"
+        ],
+        [
+          42,
+          "middle"
+        ],
+        [
+          1000000,
+          "positive-last"
+        ]
+      ],
+      "name": "first_sparse_negative_boundaries",
+      "type": "string",
+      "value": "negative-first"
+    },
+    {
+      "input_after": [
+        [
+          7,
+          "seven"
+        ],
+        [
+          "later",
+          "later"
+        ]
+      ],
+      "name": "first_numeric_string_key_normalizes",
+      "type": "string",
+      "value": "seven"
+    },
+    {
+      "input_after": [
+        [
+          "\u0000雪",
+          "\u0000値雪"
+        ],
+        [
+          "later",
+          "later"
+        ]
+      ],
+      "name": "first_unicode_nul_key_and_value",
+      "type": "string",
+      "value": "\u0000値雪"
+    },
+    {
+      "input_after": [
+        [
+          "bool",
+          true
+        ],
+        [
+          "int",
+          1
+        ],
+        [
+          "string",
+          "tail"
+        ]
+      ],
+      "name": "first_mixed_scalar_value_domain",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": [
+        [
+          "alpha",
+          "left"
+        ],
+        [
+          1,
+          "right"
+        ]
+      ],
+      "name": "first_string_key_precedes_integer_key",
+      "type": "string",
+      "value": "left"
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

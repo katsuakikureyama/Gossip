@@ -2,7 +2,30 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Default-branch consolidation (owner approved)
+## Latest: original array_first comparison PASS
+
+Original array_first now translates and matches PHP for all12 retained cases
+using GoHP main `4a4fffb995e57daf592785b6626e45a7babe08da` (#57).
+Test snapshot `fdf018beee72a4edb5e011ee8c3ed7e0afb0bae1`, tree
+`66757ce66aece6ec82cb29e3558b77d94eb95f85`; first PASS14.95s/package15.187s,
+vet PASS. Actual PHP8.3.36/C, empty stderr/exit0. Declaration and native loading
+guard remain byte-unchanged; native Reflection confirms the user-defined polyfill.
+Actual return type/value and ordered caller input match authored expectations.
+[Contract](array-first-unit.md), [record](evidence/array-first-2026-10-26.md).
+
+This unit uses the already-merged #57 implementation. The earlier locally saved
+empty implementation is not adopted. Previous pins/corpora/rejection evidence are
+retained, and the22-original/230-case integration remains its own configuration.
+array_last still requires array_key_last; larger integration and WordPress
+startup/HTTP/DB/theme/plugin behavior remain future work.
+
+The owner authorized verified changes through PR and merge, and necessary
+deployment during this development stage, without repeating approval prompts.
+This change adds a developer comparison unit. No deployable runtime is introduced.
+The local capability remains WebMCP-excluded. Devboard card is unidentified;
+the PR and this record track progress.
+
+## Previous: default-branch consolidation
 
 The owner approved integrating the validated development stack into `master`.
 The integration branch combines candidate `afaa7e38980a150fd9ae43bd8194c67b26ee266b`

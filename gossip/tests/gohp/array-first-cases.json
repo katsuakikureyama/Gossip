@@ -1,0 +1,14 @@
+[
+  {"name":"first_empty","operation":"array_first","input":[],"expected":{"type":"null","value":null},"input_after":[]},
+  {"name":"first_singleton_null","operation":"array_first","input":[[0,null]],"expected":{"type":"null","value":null},"input_after":[[0,null]]},
+  {"name":"first_singleton_false","operation":"array_first","input":[[0,false]],"expected":{"type":"bool","value":false},"input_after":[[0,false]]},
+  {"name":"first_singleton_zero","operation":"array_first","input":[[0,0]],"expected":{"type":"int","value":0},"input_after":[[0,0]]},
+  {"name":"first_singleton_string_zero","operation":"array_first","input":[[0,"0"]],"expected":{"type":"string","value":"0"},"input_after":[[0,"0"]]},
+  {"name":"first_singleton_empty_string","operation":"array_first","input":[[0,""]],"expected":{"type":"string","value":""},"input_after":[[0,""]]},
+  {"name":"first_insertion_order_not_numeric_order","operation":"array_first","input":[[1000000,"high-first"],[-1000000,"low-later"],[0,"zero-later"]],"expected":{"type":"string","value":"high-first"},"input_after":[[1000000,"high-first"],[-1000000,"low-later"],[0,"zero-later"]]},
+  {"name":"first_sparse_negative_boundaries","operation":"array_first","input":[[-1000000,"negative-first"],[42,"middle"],[1000000,"positive-last"]],"expected":{"type":"string","value":"negative-first"},"input_after":[[-1000000,"negative-first"],[42,"middle"],[1000000,"positive-last"]]},
+  {"name":"first_numeric_string_key_normalizes","operation":"array_first","input":[["7","seven"],["later","later"]],"expected":{"type":"string","value":"seven"},"input_after":[[7,"seven"],["later","later"]]},
+  {"name":"first_unicode_nul_key_and_value","operation":"array_first","input":[["\u0000雪","\u0000値雪"],["later","later"]],"expected":{"type":"string","value":"\u0000値雪"},"input_after":[["\u0000雪","\u0000値雪"],["later","later"]]},
+  {"name":"first_mixed_scalar_value_domain","operation":"array_first","input":[["bool",true],["int",1],["string","tail"]],"expected":{"type":"bool","value":true},"input_after":[["bool",true],["int",1],["string","tail"]]},
+  {"name":"first_string_key_precedes_integer_key","operation":"array_first","input":[["alpha","left"],[1,"right"]],"expected":{"type":"string","value":"left"},"input_after":[["alpha","left"],[1,"right"]]}
+]

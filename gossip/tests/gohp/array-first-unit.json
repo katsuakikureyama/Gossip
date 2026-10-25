@@ -1,0 +1,26 @@
+{
+  "schema": "gossip.array-first-unit/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "gohp_commit": "4a4fffb995e57daf592785b6626e45a7babe08da",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "sources": [
+    {
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487",
+      "fragments": [
+        {
+          "name": "array_first",
+          "first_line": 657,
+          "last_line": 665
+        },
+        {
+          "name": "array_first_guard",
+          "first_line": 646,
+          "last_line": 666
+        }
+      ]
+    }
+  ]
+}

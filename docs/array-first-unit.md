@@ -6,6 +6,9 @@ Its existing fixed PHP8.3.36 CI passed all427 compiler checks. Gossip compares
 the actual original polyfill separately rather than deriving compatibility from
 compiler-owned fixtures. The earlier local empty implementation is not used.
 
+The [execution record](evidence/array-first-2026-10-26.md) reports12/12
+comparisons and vet PASS on the exact committed test configuration.
+
 The WordPress baseline and whole `wp-includes/compat.php` SHA-256 are pinned
 in `gossip/tests/gohp/array-first-unit.json`. Declaration lines657–665, including
 the array parameter annotation, comments and body, are extracted byte-for-byte

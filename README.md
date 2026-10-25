@@ -4,9 +4,10 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 
 ## 現在の到達点（2026-10-26）
 
-検証済みの開発スタックを `master` へ統合するベースラインです。
+検証済みの開発スタックを `master` に統合しています。
 選定した **22個の原文関数・230ケース**の Go/PHP 比較が成功しています。
-`array_first` / `array_last` の24ケースはPHP参照のみで、Go変換は未対応です。
+追加で、原文の `array_first` も[12ケースの Go/PHP 比較](docs/evidence/array-first-2026-10-26.md)に成功しました。
+これは別構成の検証です。`array_last` は `array_key_last` の対応待ちです。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
 [現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/search-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
@@ -146,6 +147,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   [record](docs/evidence/array-edge-boundary-2026-10-26.md) confirms missing
   `empty` and `array_key_last` translation support; neither is counted as an
   additional Go-compatible original.
+  A later [array_first unit](docs/array-first-unit.md) adopts the integrated
+  empty-capable GoHP main and [passes all12 retained cases](docs/evidence/array-first-2026-10-26.md).
+  The historical boundary above still describes its older compiler pin;
+  array_last remains blocked. The22-original/230-case integrated result retains
+  its own configuration.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

@@ -54,7 +54,8 @@ No opt-in means skip, not PASS. Existing PHP8.3.36 admission and same-process
 version guard, LC_CTYPE=C, immutable images, non-root/read-only/network-disabled
 containers and resource limits remain. Generation/report hashes precede build;
 PASS additionally requires matching PHP and authored expectations, empty
-stderr and exit0. Execution evidence is recorded separately after the run.
+stderr and exit0. The [execution record](evidence/heic-helper-bundle-2026-10-25.md)
+records119-call PASS, exact tested bytes and reused compiler evidence separately.
 
 This is MIME-label classification and charset-name recognition, not image
 inspection/decoding/conversion, upload validation or UTF-8 text validation.

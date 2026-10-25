@@ -90,6 +90,8 @@ project, and it is **not yet a Go replacement for WordPress**.
   the HEIC predicate with the earlier helpers and22 owned drivers in one
   binary. Its separate119-case configuration covers direct calls and
   slice/unescape/Boolean compositions without changing earlier pins.
+  The [119-case result](docs/evidence/heic-helper-bundle-2026-10-25.md) matches
+  actual typed returns, ordered arrays and caller arguments against PHP.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

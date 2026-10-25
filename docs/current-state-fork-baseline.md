@@ -2,7 +2,37 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: original HEIC/HEIF MIME-label predicate
+## Latest: sixteen-original HEIC/charset/array integration
+
+- Branch `codex/gohp-heic-helper-bundle` on #21. Tested tree
+  `eabbffa481c23c04ed1c29380c2b2845ae8d1171`, recorded unchanged in commit
+  `fb80796656c2628f73f086e8e53c53356e371b15` during execution. A pre-commit
+  diff-check warning for PHP-observer EOF whitespace prevented the initial
+  commit; staged bytes were unchanged. See evidence for launch-head/timing.
+- Sixteen byte-unchanged originals from three source files and22 owned drivers
+  translate/build once into one executable. All119 calls (direct79/composed40)
+  match actual typed values, ordered keys and caller arguments against PHP8.3.36
+  and authored expectations. Prior89 charset cases plus24 direct HEIC and6
+  new slice/unescape/Boolean compositions. First runtime PASS32.63s/
+  package32.878s, empty stderr/exit0, vetPASS. Post-PASS docs only.
+- Compiler remains `49a302e44464623dc4912bafbcf44192759d7878` (GoHP #44),
+  tree `dc2046b28420a9f7a9da7447052a5e70d6543279`. Existing CI40159749575
+  PASS336 checks/52 features is reused, not rerun; #43 control-flow not adopted.
+  [Contract](heic-helper-bundle-unit.md) and
+  [evidence](evidence/heic-helper-bundle-2026-10-25.md) retain all hashes,
+  actual119 observations, commands and the snapshot timing exception.
+- New HEIC operands are scalar-only, including unselected values in new slice
+  roots. Older nested-list cases remain. This is MIME-label/charset-name
+  classification, not image contents, decoding, uploads or UTF-8 validation.
+- Ten standalone and all earlier bundle configurations remain unchanged and
+  not rerun. Original WordPress/SDK/hooks/oracle policy/prototype/master unchanged.
+  No merge/deploy/release/license decision. Local developer capability
+  WebMCP-excluded, auth routes unchanged; devboard unidentified/unsynchronized.
+- Next: identify the next original-helper dependency and its bounded contract.
+  General PHP, option-dependent wrappers and full core/HTTP/DB/themes/plugins
+  remain unverified; this does not measure every historical standalone input.
+
+## Previous: original HEIC/HEIF MIME-label predicate
 
 - Branch `codex/gohp-heic-mime`, stacked on #20. Test commit
   `dde6850d859b0a51a4c05fefda19c4ef4cba8c61`, tree

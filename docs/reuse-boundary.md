@@ -42,6 +42,12 @@ formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 
+The [thirteen-original recursive bundle](recursive-helper-bundle-unit.md) combines
+the existing twelve helpers with wp_slash under its unchanged compiler pin.
+New configuration:33 direct/composed observations, including post-call argument
+preservation, string roundtrips and shallow list stripping. This does not add
+map_deep/wp_unslash or object traversal. Earlier pins and evidence remain intact.
+
 The [recursive wp_slash unit](wp-slash-unit.md) selects a descendant compiler
 with literal one-argument global callbacks, a single array input, `is_array`
 and string-only `addslashes`. Its 22-case contract includes finite nested lists

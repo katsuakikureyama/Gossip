@@ -55,6 +55,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   the unchanged original through literal single-array callbacks and string-only
   `addslashes`. It observes nested lists and caller-input preservation, not a
   thirteen-function bundle or general callback/object traversal support.
+  A later [thirteen-original bundle](docs/recursive-helper-bundle-unit.md) brings
+  that recursive helper together with the previous twelve in one executable.
+  Its 33-case corpus checks actual direct/composed returns and caller arguments;
+  earlier standalone and bundle evidence remains separate. Shallow stripping of
+  escaped lists is explicitly distinguished from unsupported `wp_unslash`.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

@@ -1,0 +1,404 @@
+{
+  "binary_sha256": "4fe08538e776045f9961dcfb290ebd9f0bd9f153d0ffbec1449e8a7d2827eb50",
+  "bundle_sha256": "d0ef134ec826df9825b1cbf0e47552cd2314241b42a82287e77fc3f6415ced02",
+  "case_count": 22,
+  "cases_sha256": "3c4c1d686c1322d7aeeedc8a5aa3f53b1e557f94cfbe1bccf1cc38cbb63ddecd",
+  "compiler_sha256": "73f12f958d9b877500dab783c4f58abd3957c143be77028e7964f8b675b01c9a",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "wp_slash",
+    "original_first_line": 5933,
+    "original_last_line": 5943,
+    "sha256": "bf3198bad96957252e2390f2d924634717bb598e0e5cea650c7e759d2f96b854"
+  },
+  "generated_sha256": "156efba78e523c64b8a414278577fb7e6396ca093152065a2ea11283b71f8526",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "618ad42b23af507a909294376e8059efd57e1e312e47166e7ba0d4488459b229",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "3142a0f87274395940287c894a52bd6d97fe53bf62a641b2ed033e09c318eb73",
+  "gohp_commit": "03d433e73503e32a84f310f023fc0f65c9b188cd",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "d8b20de069246d5c76104da892cd4da15874cc8088873bf663ef4c7a9e5824eb",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "af4029c8f288ec5046a07760a5cf758c0a67a4325d11c98017e3c6d21cb0be2f",
+  "schema": "gossip.wp-slash-observation/v1",
+  "scope": "one unchanged recursive WordPress helper; twenty-two JSON-transported inputs limited to null, bool, modest signed integer, string and sequential list arrays, including nested lists, NUL and UTF-8 bytes; records the root return and caller input after invocation; no floats, objects/maps, non-list keys, cycles, whole-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 22,
+  "typed_observations": [
+    {
+      "input_after": {
+        "type": "null",
+        "value": null
+      },
+      "input_type": "null",
+      "name": "null_passthrough",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": true
+      },
+      "input_type": "bool",
+      "name": "bool_true_passthrough",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": false
+      },
+      "input_type": "bool",
+      "name": "bool_false_passthrough",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": 0
+      },
+      "input_type": "int",
+      "name": "int_zero_passthrough",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": -17
+      },
+      "input_type": "int",
+      "name": "int_negative_passthrough",
+      "type": "int",
+      "value": -17
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": ""
+      },
+      "input_type": "string",
+      "name": "empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "plain text"
+      },
+      "input_type": "string",
+      "name": "plain_string",
+      "type": "string",
+      "value": "plain text"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "It's here"
+      },
+      "input_type": "string",
+      "name": "single_quote",
+      "type": "string",
+      "value": "It\\'s here"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "say \"hello\""
+      },
+      "input_type": "string",
+      "name": "double_quote",
+      "type": "string",
+      "value": "say \\\"hello\\\""
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "left\\right"
+      },
+      "input_type": "string",
+      "name": "backslash",
+      "type": "string",
+      "value": "left\\\\right"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "left\u0000right"
+      },
+      "input_type": "string",
+      "name": "nul",
+      "type": "string",
+      "value": "left\\0right"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "猫🦊犬"
+      },
+      "input_type": "string",
+      "name": "utf8",
+      "type": "string",
+      "value": "猫🦊犬"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "first\nsecond\r\nthird"
+      },
+      "input_type": "string",
+      "name": "newlines",
+      "type": "string",
+      "value": "first\nsecond\r\nthird"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "already\\'escaped"
+      },
+      "input_type": "string",
+      "name": "already_escaped",
+      "type": "string",
+      "value": "already\\\\\\'escaped"
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "'\"\\\u0000"
+      },
+      "input_type": "string",
+      "name": "all_special_bytes",
+      "type": "string",
+      "value": "\\'\\\"\\\\\\0"
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": []
+      },
+      "input_type": "array",
+      "name": "empty_list",
+      "type": "array",
+      "value": []
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          "a'b",
+          "c\\d",
+          "e\u0000f"
+        ]
+      },
+      "input_type": "array",
+      "name": "string_list",
+      "type": "array",
+      "value": [
+        "a\\'b",
+        "c\\\\d",
+        "e\\0f"
+      ]
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          null,
+          true,
+          false,
+          4,
+          "a'b"
+        ]
+      },
+      "input_type": "array",
+      "name": "mixed_scalars",
+      "type": "array",
+      "value": [
+        null,
+        true,
+        false,
+        4,
+        "a\\'b"
+      ]
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "a'b",
+            false
+          ],
+          [
+            "c\\d",
+            7
+          ],
+          null
+        ]
+      },
+      "input_type": "array",
+      "name": "nested_mixed",
+      "type": "array",
+      "value": [
+        [
+          "a\\'b",
+          false
+        ],
+        [
+          "c\\\\d",
+          7
+        ],
+        null
+      ]
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            [
+              [
+                "a\"b"
+              ]
+            ]
+          ]
+        ]
+      },
+      "input_type": "array",
+      "name": "depth_four",
+      "type": "array",
+      "value": [
+        [
+          [
+            [
+              "a\\\"b"
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [],
+          [
+            [],
+            [
+              "x'y"
+            ]
+          ]
+        ]
+      },
+      "input_type": "array",
+      "name": "nested_empty_lists",
+      "type": "array",
+      "value": [
+        [],
+        [
+          [],
+          [
+            "x\\'y"
+          ]
+        ]
+      ]
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          "top",
+          [
+            [
+              "'\"\\\u0000",
+              -9
+            ],
+            "猫"
+          ],
+          true
+        ]
+      },
+      "input_type": "array",
+      "name": "deep_special_mix",
+      "type": "array",
+      "value": [
+        "top",
+        [
+          [
+            "\\'\\\"\\\\\\0",
+            -9
+          ],
+          "猫"
+        ],
+        true
+      ]
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "gossip_commit": "d3f02dc3625d331a477cd5fb8655f4d28e864432",
+    "gossip_tree": "2a6af2b6070e1bf36b18bc0cd93d75b484ee1720",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressWpSlashHelper$'",
+    "cwd": "gossip",
+    "test_seconds": 8.19,
+    "package_seconds": 8.423,
+    "vet_command": "go vet ./tests/gohp",
+    "vet": "pass",
+    "host_go": "go1.22.1 darwin/arm64",
+    "attempt": 1,
+    "location": "local isolated Docker, not Gossip CI"
+  },
+  "compiler_ci": {
+    "metadata": {
+      "commit": "60d0b142b55d8654aa19910106c778d1102cbc81",
+      "tree": "4e94e4b6e826436a858bdd29fcc7a79af43ba8e9",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40152066817",
+      "run_id": "40152066817",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T01:49:13.234158255Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "a372e8288e849bdfb9561db91dcac6faf7bee55780721d1c227b2c5e6d176aec",
+      "test_exit": 0
+    },
+    "overall": "pass",
+    "catalog_sha256": "dc78faa8731ebfbec74a2b9a1e2a106294284212bfeb9442cc1bc9081d9a4c8d",
+    "event_sha256": "40312be90d8b42338d1d18b62a1e98d56fcee46397e89ba90f44ae496a83f3b1",
+    "check_count": 181,
+    "statuses": [
+      {
+        "status": "pass",
+        "count": 181
+      }
+    ],
+    "artifact": {
+      "id": 12582837295,
+      "name": "compatibility-php8.3-40152066817-1",
+      "local_directory": "/private/tmp/gohp-array-map-ci.fV1ibO",
+      "expires_at": "2026-11-24T01:49:21Z",
+      "digest": "sha256:152d134774433edba5c121a49eeab22e85a4dd0e0508fd28e156b386b0d69349"
+    },
+    "catalog_entries": 42
+  }
+}

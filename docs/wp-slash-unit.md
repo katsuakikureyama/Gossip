@@ -39,6 +39,9 @@ external execution is introduced. See the PHP
 
 ## Execution and separation
 
+The [execution record](evidence/wp-slash-2026-10-25.md) contains the initial
+22-case PASS, exact test/compiler revisions and source/output hashes.
+
 The manifest pins the whole original source hash, exact excerpt and committed
 compiler/runtime. Report source/generated hashes are verified before building.
 The existing approved immutable PHP8.3.36 image, same-process version guard,

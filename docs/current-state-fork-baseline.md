@@ -2,7 +2,34 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: twelve-original bundle on the integrated compiler
+## Latest: original recursive wp_slash
+
+- Branch `codex/gohp-wp-slash`, [Draft #14](https://github.com/katsuakikureyama/Gossip/pull/14)
+  on #13; test commit `d3f02dc3625d331a477cd5fb8655f4d28e864432`,
+  tree `2a6af2b6070e1bf36b18bc0cd93d75b484ee1720`.
+- Complete unchanged formatting.php5933–5943 translated through compiler/runtime
+  `03d433e73503e32a84f310f023fc0f65c9b188cd`,
+  [GoHP Draft #27](https://github.com/katsuakikureyama/GoHP/pull/27) on #24,
+  incorporating #25 is_array. Adds literal declared-global one-argument callback,
+  single-input array_map and actual-string-only addslashes. No general callback
+  system, weak coercion, object traversal or arbitrary-depth claim.
+- Initial local PHP8.3.36 comparison PASS22 cases: actual return type/value and
+  caller input after invocation match PHP and explicit expectations, empty
+  stderr/exit0. PASS8.19s/package8.423s; vetPASS. Compiler local test typo caused
+  one codegen FAIL, corrected before CI and only affected package rerun; final
+  local tests/vetPASS. Fixed CI40152066817 PASS181 checks,42 catalog entries,
+  PHP8.3.36/Go1.23.12; clean CI tree equals head.
+- [Contract](wp-slash-unit.md) and [evidence](evidence/wp-slash-2026-10-25.md)
+  preserve exact commands/revisions/hashes, failure/fix and unverified boundaries.
+  Seventh standalone unit; previous six and both bundles unchanged/not rerun.
+  No thirteen-function bundle, full WordPress startup, wp_unslash/map_deep,
+  HTTP/DB/theme/plugin support. Next: select a concrete remaining original-source
+  dependency, or test new composition under a separately pinned configuration.
+- Draft only; no merge/deploy/release/license decision. Original files/SDK/hooks,
+  PHP admission policy and other GoHP checkout unchanged. WebMCP-excluded local
+  tooling, no auth changes; devboard unidentified/unsynced, not Done.
+
+## Previous: twelve-original bundle on the integrated compiler
 
 - Branch `codex/gohp-integrated-helper-bundle`, [Draft #13](https://github.com/katsuakikureyama/Gossip/pull/13)
   stacked on #12. Test commit `74e234dcd80674c03b7f718040e8804866c8b04f`,

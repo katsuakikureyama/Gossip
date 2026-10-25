@@ -1,0 +1,3901 @@
+[
+  {
+    "name": "direct_return_true",
+    "operation": "__return_true",
+    "args": [],
+    "expected": {
+      "type": "bool",
+      "value": true
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_return_false",
+    "operation": "__return_false",
+    "args": [],
+    "expected": {
+      "type": "bool",
+      "value": false
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_return_zero",
+    "operation": "__return_zero",
+    "args": [],
+    "expected": {
+      "type": "int",
+      "value": 0
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_return_empty_array",
+    "operation": "__return_empty_array",
+    "args": [],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_return_null",
+    "operation": "__return_null",
+    "args": [],
+    "expected": {
+      "type": "null",
+      "value": null
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_return_empty_string",
+    "operation": "__return_empty_string",
+    "args": [],
+    "expected": {
+      "type": "string",
+      "value": ""
+    },
+    "args_after": []
+  },
+  {
+    "name": "direct_validate_boolean",
+    "operation": "wp_validate_boolean",
+    "args": [
+      "FaLsE"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    },
+    "args_after": [
+      "FaLsE"
+    ]
+  },
+  {
+    "name": "direct_newline_helper",
+    "operation": "_autop_newline_preservation_helper",
+    "args": [
+      [
+        "first\nsecond",
+        "ignored"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "first<WPPreserveNewline />second"
+    },
+    "args_after": [
+      [
+        "first\nsecond",
+        "ignored"
+      ]
+    ]
+  },
+  {
+    "name": "direct_zeroise",
+    "operation": "zeroise",
+    "args": [
+      42,
+      5
+    ],
+    "expected": {
+      "type": "string",
+      "value": "00042"
+    },
+    "args_after": [
+      42,
+      5
+    ]
+  },
+  {
+    "name": "direct_trailingslashit",
+    "operation": "trailingslashit",
+    "args": [
+      "plain"
+    ],
+    "expected": {
+      "type": "string",
+      "value": "plain/"
+    },
+    "args_after": [
+      "plain"
+    ]
+  },
+  {
+    "name": "direct_untrailingslashit",
+    "operation": "untrailingslashit",
+    "args": [
+      "plain/\\"
+    ],
+    "expected": {
+      "type": "string",
+      "value": "plain"
+    },
+    "args_after": [
+      "plain/\\"
+    ]
+  },
+  {
+    "name": "direct_stripslashes_string",
+    "operation": "stripslashes_from_strings_only",
+    "args": [
+      "It\\'s\\0ok"
+    ],
+    "expected": {
+      "type": "string",
+      "value": "It's\u0000ok"
+    },
+    "args_after": [
+      "It\\'s\\0ok"
+    ]
+  },
+  {
+    "name": "direct_wp_slash_nested",
+    "operation": "wp_slash",
+    "args": [
+      [
+        "a'b",
+        [
+          "x\u0000y",
+          false
+        ],
+        3
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        "a\\'b",
+        [
+          "x\\0y",
+          false
+        ],
+        3
+      ]
+    },
+    "args_after": [
+      [
+        "a'b",
+        [
+          "x\u0000y",
+          false
+        ],
+        3
+      ]
+    ]
+  },
+  {
+    "name": "capture_plain_lf",
+    "operation": "gossip_capture_newline_unslash",
+    "args": [
+      [
+        "a\nb"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "a<WPPreserveNewline />b"
+    },
+    "args_after": [
+      [
+        "a\nb"
+      ]
+    ]
+  },
+  {
+    "name": "capture_slash_quote_lf",
+    "operation": "gossip_capture_newline_unslash",
+    "args": [
+      [
+        "a\\'b\nc",
+        "ignored"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "a'b<WPPreserveNewline />c"
+    },
+    "args_after": [
+      [
+        "a\\'b\nc",
+        "ignored"
+      ]
+    ]
+  },
+  {
+    "name": "capture_slash_zero_lf",
+    "operation": "gossip_capture_newline_unslash",
+    "args": [
+      [
+        "a\\0\nb"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "a\u0000<WPPreserveNewline />b"
+    },
+    "args_after": [
+      [
+        "a\\0\nb"
+      ]
+    ]
+  },
+  {
+    "name": "capture_multibyte_lf",
+    "operation": "gossip_capture_newline_unslash",
+    "args": [
+      [
+        "猫\n犬",
+        "ignored",
+        "also ignored"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "猫<WPPreserveNewline />犬"
+    },
+    "args_after": [
+      [
+        "猫\n犬",
+        "ignored",
+        "also ignored"
+      ]
+    ]
+  },
+  {
+    "name": "unslash_empty_array_keys",
+    "operation": "gossip_unslash_array_keys",
+    "args": [
+      []
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      []
+    ]
+  },
+  {
+    "name": "unslash_list_array_keys",
+    "operation": "gossip_unslash_array_keys",
+    "args": [
+      [
+        "a\\'b",
+        "c\\0d"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        0,
+        1
+      ]
+    },
+    "args_after": [
+      [
+        "a\\'b",
+        "c\\0d"
+      ]
+    ]
+  },
+  {
+    "name": "unslash_list_shape",
+    "operation": "gossip_unslash_array_shape",
+    "args": [
+      [
+        "a\\'b",
+        false,
+        3
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        true,
+        [
+          "a\\'b",
+          false,
+          3
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        "a\\'b",
+        false,
+        3
+      ]
+    ]
+  },
+  {
+    "name": "unslash_nested_list_shape",
+    "operation": "gossip_unslash_array_shape",
+    "args": [
+      [
+        [
+          "a\\'b"
+        ],
+        [
+          "c\\0d"
+        ]
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        true,
+        [
+          [
+            "a\\'b"
+          ],
+          [
+            "c\\0d"
+          ]
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "a\\'b"
+        ],
+        [
+          "c\\0d"
+        ]
+      ]
+    ]
+  },
+  {
+    "name": "wrapper_zero_pad",
+    "operation": "gossip_zero_pad",
+    "args": [
+      4
+    ],
+    "expected": {
+      "type": "string",
+      "value": "0000"
+    },
+    "args_after": [
+      4
+    ]
+  },
+  {
+    "name": "wrapper_false_boolean",
+    "operation": "gossip_false_boolean",
+    "args": [],
+    "expected": {
+      "type": "bool",
+      "value": false
+    },
+    "args_after": []
+  },
+  {
+    "name": "wrapper_empty_string_path",
+    "operation": "gossip_empty_string_path",
+    "args": [],
+    "expected": {
+      "type": "string",
+      "value": "/"
+    },
+    "args_after": []
+  },
+  {
+    "name": "wrapper_path_pad",
+    "operation": "gossip_path_pad",
+    "args": [
+      "猫",
+      6
+    ],
+    "expected": {
+      "type": "string",
+      "value": "00猫/"
+    },
+    "args_after": [
+      "猫",
+      6
+    ]
+  },
+  {
+    "name": "scalar_special_roundtrip",
+    "operation": "gossip_slash_scalar_roundtrip",
+    "args": [
+      "'\"\\\u0000"
+    ],
+    "expected": {
+      "type": "string",
+      "value": "'\"\\\u0000"
+    },
+    "args_after": [
+      "'\"\\\u0000"
+    ]
+  },
+  {
+    "name": "scalar_utf8_roundtrip",
+    "operation": "gossip_slash_scalar_roundtrip",
+    "args": [
+      "猫\\'犬"
+    ],
+    "expected": {
+      "type": "string",
+      "value": "猫\\'犬"
+    },
+    "args_after": [
+      "猫\\'犬"
+    ]
+  },
+  {
+    "name": "scalar_empty_roundtrip",
+    "operation": "gossip_slash_scalar_roundtrip",
+    "args": [
+      ""
+    ],
+    "expected": {
+      "type": "string",
+      "value": ""
+    },
+    "args_after": [
+      ""
+    ]
+  },
+  {
+    "name": "flat_mixed_roundtrip",
+    "operation": "gossip_slash_list_shallow_roundtrip",
+    "args": [
+      [
+        "a'b",
+        "c\\d",
+        "e\u0000f",
+        false,
+        3,
+        null
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        "a'b",
+        "c\\d",
+        "e\u0000f",
+        false,
+        3,
+        null
+      ]
+    },
+    "args_after": [
+      [
+        "a'b",
+        "c\\d",
+        "e\u0000f",
+        false,
+        3,
+        null
+      ]
+    ]
+  },
+  {
+    "name": "nested_not_recursively_unescaped",
+    "operation": "gossip_slash_list_shallow_roundtrip",
+    "args": [
+      [
+        [
+          "a'b"
+        ],
+        "c\"d",
+        null
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "a\\'b"
+        ],
+        "c\"d",
+        null
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "a'b"
+        ],
+        "c\"d",
+        null
+      ]
+    ]
+  },
+  {
+    "name": "empty_list_roundtrip",
+    "operation": "gossip_slash_list_shallow_roundtrip",
+    "args": [
+      []
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      []
+    ]
+  },
+  {
+    "name": "slashed_capture_newline_unslash",
+    "operation": "gossip_slash_capture_newline_unslash",
+    "args": [
+      [
+        "a'b\nc\\d\u0000",
+        "ignored"
+      ]
+    ],
+    "expected": {
+      "type": "string",
+      "value": "a'b<WPPreserveNewline />c\\d\u0000"
+    },
+    "args_after": [
+      [
+        "a'b\nc\\d\u0000",
+        "ignored"
+      ]
+    ]
+  },
+  {
+    "name": "slashed_nested_array_shape",
+    "operation": "gossip_slash_array_shape",
+    "args": [
+      [
+        [
+          "a'b"
+        ],
+        "c\u0000d",
+        false
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        true,
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          [
+            "a\\'b"
+          ],
+          "c\\0d",
+          false
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "a'b"
+        ],
+        "c\u0000d",
+        false
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_empty",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [],
+      []
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      [],
+      []
+    ]
+  },
+  {
+    "name": "slice_direct_empty_input",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [],
+      [
+        "missing",
+        0
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      [],
+      [
+        "missing",
+        0
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_empty_selectors",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "x",
+          "keep"
+        ],
+        [
+          "n",
+          null
+        ]
+      ],
+      []
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      [
+        [
+          "x",
+          "keep"
+        ],
+        [
+          "n",
+          null
+        ]
+      ],
+      []
+    ]
+  },
+  {
+    "name": "slice_direct_missing_only",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "x",
+          "keep"
+        ]
+      ],
+      [
+        "absent",
+        "absent",
+        9
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      [
+        [
+          "x",
+          "keep"
+        ]
+      ],
+      [
+        "absent",
+        "absent",
+        9
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_null_is_excluded",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "null",
+          null
+        ],
+        [
+          "ok",
+          "yes"
+        ]
+      ],
+      [
+        "null",
+        "missing",
+        "ok"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "ok",
+          "yes"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "null",
+          null
+        ],
+        [
+          "ok",
+          "yes"
+        ]
+      ],
+      [
+        "null",
+        "missing",
+        "ok"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_falsy_values_are_set",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "false",
+          false
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "empty",
+          ""
+        ],
+        [
+          "string_zero",
+          "0"
+        ],
+        [
+          "empty_array",
+          []
+        ],
+        [
+          "null",
+          null
+        ]
+      ],
+      [
+        "empty_array",
+        "empty",
+        "false",
+        "zero",
+        "string_zero",
+        "null"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "empty_array",
+          []
+        ],
+        [
+          "empty",
+          ""
+        ],
+        [
+          "false",
+          false
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "string_zero",
+          "0"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "false",
+          false
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "empty",
+          ""
+        ],
+        [
+          "string_zero",
+          "0"
+        ],
+        [
+          "empty_array",
+          []
+        ],
+        [
+          "null",
+          null
+        ]
+      ],
+      [
+        "empty_array",
+        "empty",
+        "false",
+        "zero",
+        "string_zero",
+        "null"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_request_order_and_duplicates",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "a",
+          "A"
+        ],
+        [
+          "b",
+          "B"
+        ],
+        [
+          "c",
+          "C"
+        ]
+      ],
+      [
+        "c",
+        "a",
+        "c",
+        "b",
+        "a"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "c",
+          "C"
+        ],
+        [
+          "a",
+          "A"
+        ],
+        [
+          "b",
+          "B"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "a",
+          "A"
+        ],
+        [
+          "b",
+          "B"
+        ],
+        [
+          "c",
+          "C"
+        ]
+      ],
+      [
+        "c",
+        "a",
+        "c",
+        "b",
+        "a"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_numeric_key_distinctions",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "2",
+          "two"
+        ],
+        [
+          "02",
+          "leading"
+        ],
+        [
+          "+2",
+          "plus"
+        ],
+        [
+          "-0",
+          "negative_zero"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ],
+      [
+        "02",
+        2,
+        "+2",
+        "-0",
+        "0",
+        "2"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "02",
+          "leading"
+        ],
+        [
+          2,
+          "two"
+        ],
+        [
+          "+2",
+          "plus"
+        ],
+        [
+          "-0",
+          "negative_zero"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          2,
+          "two"
+        ],
+        [
+          "02",
+          "leading"
+        ],
+        [
+          "+2",
+          "plus"
+        ],
+        [
+          "-0",
+          "negative_zero"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ],
+      [
+        "02",
+        2,
+        "+2",
+        "-0",
+        "0",
+        "2"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_negative_keys",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          -5,
+          "minus_five"
+        ],
+        [
+          "-7",
+          "minus_seven"
+        ],
+        [
+          "-05",
+          "leading"
+        ]
+      ],
+      [
+        "-7",
+        -5,
+        "-05",
+        -7
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          -7,
+          "minus_seven"
+        ],
+        [
+          -5,
+          "minus_five"
+        ],
+        [
+          "-05",
+          "leading"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          -5,
+          "minus_five"
+        ],
+        [
+          -7,
+          "minus_seven"
+        ],
+        [
+          "-05",
+          "leading"
+        ]
+      ],
+      [
+        "-7",
+        -5,
+        "-05",
+        -7
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_unicode_nul_and_empty_keys",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "日本語",
+          "雪"
+        ],
+        [
+          "a\u0000b",
+          "x\u0000y"
+        ],
+        [
+          "",
+          "empty-key"
+        ]
+      ],
+      [
+        "a\u0000b",
+        "",
+        "日本語",
+        "不存在"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "a\u0000b",
+          "x\u0000y"
+        ],
+        [
+          "",
+          "empty-key"
+        ],
+        [
+          "日本語",
+          "雪"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "日本語",
+          "雪"
+        ],
+        [
+          "a\u0000b",
+          "x\u0000y"
+        ],
+        [
+          "",
+          "empty-key"
+        ]
+      ],
+      [
+        "a\u0000b",
+        "",
+        "日本語",
+        "不存在"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_nested_list_values",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "deep",
+          [
+            null,
+            false,
+            0,
+            "",
+            [
+              "a",
+              [],
+              [
+                "日本語",
+                "\u0000"
+              ]
+            ]
+          ]
+        ],
+        [
+          "empty",
+          []
+        ]
+      ],
+      [
+        "deep",
+        "empty"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "deep",
+          [
+            null,
+            false,
+            0,
+            "",
+            [
+              "a",
+              [],
+              [
+                "日本語",
+                "\u0000"
+              ]
+            ]
+          ]
+        ],
+        [
+          "empty",
+          []
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "deep",
+          [
+            null,
+            false,
+            0,
+            "",
+            [
+              "a",
+              [],
+              [
+                "日本語",
+                "\u0000"
+              ]
+            ]
+          ]
+        ],
+        [
+          "empty",
+          []
+        ]
+      ],
+      [
+        "deep",
+        "empty"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_sparse_order_from_list",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          0,
+          "zero"
+        ],
+        [
+          1,
+          "one"
+        ],
+        [
+          2,
+          "two"
+        ]
+      ],
+      [
+        2,
+        0,
+        2
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          2,
+          "two"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          0,
+          "zero"
+        ],
+        [
+          1,
+          "one"
+        ],
+        [
+          2,
+          "two"
+        ]
+      ],
+      [
+        2,
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_normalized_collision_to_null",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "1",
+          "before"
+        ],
+        [
+          1,
+          null
+        ],
+        [
+          "01",
+          "leading"
+        ]
+      ],
+      [
+        1,
+        "1",
+        "01"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "01",
+          "leading"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          1,
+          null
+        ],
+        [
+          "01",
+          "leading"
+        ]
+      ],
+      [
+        1,
+        "1",
+        "01"
+      ]
+    ]
+  },
+  {
+    "name": "slice_direct_normalized_replacement_keeps_position",
+    "operation": "wp_array_slice_assoc",
+    "args": [
+      [
+        [
+          "1",
+          "before"
+        ],
+        [
+          "other",
+          true
+        ],
+        [
+          1,
+          -12345
+        ],
+        [
+          "tail",
+          [
+            1,
+            "2",
+            false
+          ]
+        ]
+      ],
+      [
+        "tail",
+        "1",
+        "other",
+        1
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "tail",
+          [
+            1,
+            "2",
+            false
+          ]
+        ],
+        [
+          1,
+          -12345
+        ],
+        [
+          "other",
+          true
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          1,
+          -12345
+        ],
+        [
+          "other",
+          true
+        ],
+        [
+          "tail",
+          [
+            1,
+            "2",
+            false
+          ]
+        ]
+      ],
+      [
+        "tail",
+        "1",
+        "other",
+        1
+      ]
+    ]
+  },
+  {
+    "name": "slice_then_slash_mixed",
+    "operation": "gossip_slice_slash",
+    "args": [
+      [
+        [
+          "q",
+          "a'b"
+        ],
+        [
+          "n",
+          null
+        ],
+        [
+          "nested",
+          [
+            "x\u0000y"
+          ]
+        ],
+        [
+          "false",
+          false
+        ]
+      ],
+      [
+        "nested",
+        "q",
+        "false",
+        "missing",
+        "n"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "nested",
+          [
+            "x\\0y"
+          ]
+        ],
+        [
+          "q",
+          "a\\'b"
+        ],
+        [
+          "false",
+          false
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "q",
+          "a'b"
+        ],
+        [
+          "n",
+          null
+        ],
+        [
+          "nested",
+          [
+            "x\u0000y"
+          ]
+        ],
+        [
+          "false",
+          false
+        ]
+      ],
+      [
+        "nested",
+        "q",
+        "false",
+        "missing",
+        "n"
+      ]
+    ]
+  },
+  {
+    "name": "slice_then_slash_empty",
+    "operation": "gossip_slice_slash",
+    "args": [
+      [
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "n",
+        "missing"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    },
+    "args_after": [
+      [
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "n",
+        "missing"
+      ]
+    ]
+  },
+  {
+    "name": "slash_then_slice_preserves_keys",
+    "operation": "gossip_slash_slice",
+    "args": [
+      [
+        [
+          "k'\\\u0000",
+          "a'b"
+        ],
+        [
+          "02",
+          [
+            "x\u0000y"
+          ]
+        ],
+        [
+          "null",
+          null
+        ]
+      ],
+      [
+        "02",
+        "k'\\\u0000",
+        "null"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "02",
+          [
+            "x\\0y"
+          ]
+        ],
+        [
+          "k'\\\u0000",
+          "a\\'b"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "k'\\\u0000",
+          "a'b"
+        ],
+        [
+          "02",
+          [
+            "x\u0000y"
+          ]
+        ],
+        [
+          "null",
+          null
+        ]
+      ],
+      [
+        "02",
+        "k'\\\u0000",
+        "null"
+      ]
+    ]
+  },
+  {
+    "name": "slice_shallow_flat_roundtrip",
+    "operation": "gossip_slice_shallow_roundtrip",
+    "args": [
+      [
+        [
+          2,
+          "a'b"
+        ],
+        [
+          "z",
+          "c\\d"
+        ],
+        [
+          "n",
+          null
+        ],
+        [
+          "f",
+          false
+        ]
+      ],
+      [
+        "z",
+        2,
+        "f",
+        "n"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "z",
+          "c\\d"
+        ],
+        [
+          2,
+          "a'b"
+        ],
+        [
+          "f",
+          false
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          2,
+          "a'b"
+        ],
+        [
+          "z",
+          "c\\d"
+        ],
+        [
+          "n",
+          null
+        ],
+        [
+          "f",
+          false
+        ]
+      ],
+      [
+        "z",
+        2,
+        "f",
+        "n"
+      ]
+    ]
+  },
+  {
+    "name": "slice_shallow_nested_stays_escaped",
+    "operation": "gossip_slice_shallow_roundtrip",
+    "args": [
+      [
+        [
+          "deep",
+          [
+            "a'b",
+            "x\u0000y"
+          ]
+        ],
+        [
+          "flat",
+          "a'b"
+        ]
+      ],
+      [
+        "deep",
+        "flat"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "deep",
+          [
+            "a\\'b",
+            "x\\0y"
+          ]
+        ],
+        [
+          "flat",
+          "a'b"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          "deep",
+          [
+            "a'b",
+            "x\u0000y"
+          ]
+        ],
+        [
+          "flat",
+          "a'b"
+        ]
+      ],
+      [
+        "deep",
+        "flat"
+      ]
+    ]
+  },
+  {
+    "name": "slice_sparse_shape",
+    "operation": "gossip_slice_shape",
+    "args": [
+      [
+        [
+          0,
+          "zero"
+        ],
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          "two"
+        ]
+      ],
+      [
+        2,
+        1,
+        0,
+        2
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        false,
+        [
+          2,
+          0
+        ],
+        [
+          "two",
+          "zero"
+        ]
+      ]
+    },
+    "args_after": [
+      [
+        [
+          0,
+          "zero"
+        ],
+        [
+          1,
+          null
+        ],
+        [
+          2,
+          "two"
+        ]
+      ],
+      [
+        2,
+        1,
+        0,
+        2
+      ]
+    ]
+  },
+  {
+    "name": "slice_empty_boolean",
+    "operation": "gossip_slice_boolean",
+    "args": [
+      [
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "n",
+        "missing"
+      ]
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    },
+    "args_after": [
+      [
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "n",
+        "missing"
+      ]
+    ]
+  },
+  {
+    "name": "slice_falsy_element_boolean",
+    "operation": "gossip_slice_boolean",
+    "args": [
+      [
+        [
+          "f",
+          false
+        ],
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "f",
+        "n"
+      ]
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    },
+    "args_after": [
+      [
+        [
+          "f",
+          false
+        ],
+        [
+          "n",
+          null
+        ]
+      ],
+      [
+        "f",
+        "n"
+      ]
+    ]
+  },
+  {
+    "name": "charset_direct_upper_hyphen",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UTF-8"
+    ],
+    "args_after": [
+      "UTF-8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_lower_hyphen",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf-8"
+    ],
+    "args_after": [
+      "utf-8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_mixed_hyphen",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UtF-8"
+    ],
+    "args_after": [
+      "UtF-8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_upper_compact",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UTF8"
+    ],
+    "args_after": [
+      "UTF8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_lower_compact",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf8"
+    ],
+    "args_after": [
+      "utf8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_mixed_compact",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "uTf8"
+    ],
+    "args_after": [
+      "uTf8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_direct_empty",
+    "operation": "_is_utf8_charset",
+    "args": [
+      ""
+    ],
+    "args_after": [
+      ""
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_prefix_only",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf"
+    ],
+    "args_after": [
+      "utf"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_extra_digit",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf-80"
+    ],
+    "args_after": [
+      "utf-80"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_extra_suffix",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf8x"
+    ],
+    "args_after": [
+      "utf8x"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_leading_space",
+    "operation": "_is_utf8_charset",
+    "args": [
+      " utf8"
+    ],
+    "args_after": [
+      " utf8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_trailing_space",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf8 "
+    ],
+    "args_after": [
+      "utf8 "
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_internal_space",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf 8"
+    ],
+    "args_after": [
+      "utf 8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_underscore",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf_8"
+    ],
+    "args_after": [
+      "utf_8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_unicode_dash",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "utf–8"
+    ],
+    "args_after": [
+      "utf–8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_fullwidth",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "ＵＴＦ８"
+    ],
+    "args_after": [
+      "ＵＴＦ８"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_trailing_nul",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UTF-8\u0000"
+    ],
+    "args_after": [
+      "UTF-8\u0000"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_internal_nul",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UTF\u0000-8"
+    ],
+    "args_after": [
+      "UTF\u0000-8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_latin1",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "latin1"
+    ],
+    "args_after": [
+      "latin1"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_utf16",
+    "operation": "_is_utf8_charset",
+    "args": [
+      "UTF-16"
+    ],
+    "args_after": [
+      "UTF-16"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_null",
+    "operation": "_is_utf8_charset",
+    "args": [
+      null
+    ],
+    "args_after": [
+      null
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_true",
+    "operation": "_is_utf8_charset",
+    "args": [
+      true
+    ],
+    "args_after": [
+      true
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_false",
+    "operation": "_is_utf8_charset",
+    "args": [
+      false
+    ],
+    "args_after": [
+      false
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_zero",
+    "operation": "_is_utf8_charset",
+    "args": [
+      0
+    ],
+    "args_after": [
+      0
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_negative",
+    "operation": "_is_utf8_charset",
+    "args": [
+      -1
+    ],
+    "args_after": [
+      -1
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_empty_array",
+    "operation": "_is_utf8_charset",
+    "args": [
+      []
+    ],
+    "args_after": [
+      []
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_string_array",
+    "operation": "_is_utf8_charset",
+    "args": [
+      [
+        "UTF-8"
+      ]
+    ],
+    "args_after": [
+      [
+        "UTF-8"
+      ]
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_direct_nested_array",
+    "operation": "_is_utf8_charset",
+    "args": [
+      [
+        [
+          "utf8"
+        ]
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "utf8"
+        ]
+      ]
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "charset_slice_mixed_reversed_selection",
+    "operation": "gossip_slice_charset",
+    "args": [
+      [
+        [
+          "first",
+          "UTF-8"
+        ],
+        [
+          "skip",
+          null
+        ],
+        [
+          2,
+          false
+        ],
+        [
+          "nested",
+          [
+            "UTF8"
+          ]
+        ],
+        [
+          "last",
+          "utf8"
+        ]
+      ],
+      [
+        "last",
+        "missing",
+        "skip",
+        2,
+        "nested",
+        "first"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "first",
+          "UTF-8"
+        ],
+        [
+          "skip",
+          null
+        ],
+        [
+          2,
+          false
+        ],
+        [
+          "nested",
+          [
+            "UTF8"
+          ]
+        ],
+        [
+          "last",
+          "utf8"
+        ]
+      ],
+      [
+        "last",
+        "missing",
+        "skip",
+        2,
+        "nested",
+        "first"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "last",
+          true
+        ],
+        [
+          2,
+          false
+        ],
+        [
+          "nested",
+          false
+        ],
+        [
+          "first",
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "name": "charset_slice_empty_selection",
+    "operation": "gossip_slice_charset",
+    "args": [
+      [
+        [
+          "utf",
+          "UTF8"
+        ],
+        [
+          "other",
+          "latin1"
+        ]
+      ],
+      [
+        "missing"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "utf",
+          "UTF8"
+        ],
+        [
+          "other",
+          "latin1"
+        ]
+      ],
+      [
+        "missing"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    }
+  },
+  {
+    "name": "charset_slice_unescape_scalar_nested_and_key",
+    "operation": "gossip_slice_unescape_charset",
+    "args": [
+      [
+        [
+          "key\\x",
+          "UTF\\8"
+        ],
+        [
+          "nested",
+          [
+            "UTF\\8"
+          ]
+        ],
+        [
+          "false",
+          false
+        ]
+      ],
+      [
+        "nested",
+        "key\\x",
+        "missing"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "key\\x",
+          "UTF\\8"
+        ],
+        [
+          "nested",
+          [
+            "UTF\\8"
+          ]
+        ],
+        [
+          "false",
+          false
+        ]
+      ],
+      [
+        "nested",
+        "key\\x",
+        "missing"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "nested",
+          false
+        ],
+        [
+          "key\\x",
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "name": "charset_slice_unescape_empty_selection",
+    "operation": "gossip_slice_unescape_charset",
+    "args": [
+      [
+        [
+          "utf",
+          "UTF\\8"
+        ]
+      ],
+      [
+        "absent"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "utf",
+          "UTF\\8"
+        ]
+      ],
+      [
+        "absent"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    }
+  },
+  {
+    "name": "charset_boolean_normal_utf8",
+    "operation": "gossip_charset_boolean",
+    "args": [
+      "UTF-8"
+    ],
+    "args_after": [
+      "UTF-8"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "charset_boolean_quote_suffix_false",
+    "operation": "gossip_charset_boolean",
+    "args": [
+      "UTF-8'x"
+    ],
+    "args_after": [
+      "UTF-8'x"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_heic",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heic"
+    ],
+    "args_after": [
+      "image/heic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_heic_heif",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heif"
+    ],
+    "args_after": [
+      "image/heif"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_heic_heic_sequence",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heic-sequence"
+    ],
+    "args_after": [
+      "image/heic-sequence"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_heic_heif_sequence",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heif-sequence"
+    ],
+    "args_after": [
+      "image/heif-sequence"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_heic_empty",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      ""
+    ],
+    "args_after": [
+      ""
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_jpeg",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/jpeg"
+    ],
+    "args_after": [
+      "image/jpeg"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_png",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/png"
+    ],
+    "args_after": [
+      "image/png"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_avif",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/avif"
+    ],
+    "args_after": [
+      "image/avif"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_upper_case",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "IMAGE/HEIC"
+    ],
+    "args_after": [
+      "IMAGE/HEIC"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_mixed_case",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "Image/Heic"
+    ],
+    "args_after": [
+      "Image/Heic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_leading_space",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      " image/heic"
+    ],
+    "args_after": [
+      " image/heic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_trailing_space",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heic "
+    ],
+    "args_after": [
+      "image/heic "
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_parameterized",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heic; charset=binary"
+    ],
+    "args_after": [
+      "image/heic; charset=binary"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_suffix",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heicx"
+    ],
+    "args_after": [
+      "image/heicx"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_trailing_nul",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "image/heic\u0000"
+    ],
+    "args_after": [
+      "image/heic\u0000"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_unicode_fullwidth",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "ｉｍａｇｅ／ｈｅｉｃ"
+    ],
+    "args_after": [
+      "ｉｍａｇｅ／ｈｅｉｃ"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_url",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "https://example.test/image/heic"
+    ],
+    "args_after": [
+      "https://example.test/image/heic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_compact",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      "imageheic"
+    ],
+    "args_after": [
+      "imageheic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_null",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      null
+    ],
+    "args_after": [
+      null
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_true",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      true
+    ],
+    "args_after": [
+      true
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_false",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      false
+    ],
+    "args_after": [
+      false
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_zero",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      0
+    ],
+    "args_after": [
+      0
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_one",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      1
+    ],
+    "args_after": [
+      1
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_heic_negative_one",
+    "operation": "wp_is_heic_image_mime_type",
+    "args": [
+      -1
+    ],
+    "args_after": [
+      -1
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "heic_slice_mixed_keys_strict_values",
+    "operation": "gossip_slice_heic",
+    "args": [
+      [
+        [
+          "primary",
+          "image/heic"
+        ],
+        [
+          -2,
+          "image/heif-sequence"
+        ],
+        [
+          "upper",
+          "IMAGE/HEIC"
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "false",
+          false
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "image/heic\u0000"
+        ]
+      ],
+      [
+        "nil",
+        "false",
+        -2,
+        "primary",
+        "upper",
+        "zero",
+        "nul",
+        "missing",
+        "primary"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "primary",
+          "image/heic"
+        ],
+        [
+          -2,
+          "image/heif-sequence"
+        ],
+        [
+          "upper",
+          "IMAGE/HEIC"
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "false",
+          false
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "image/heic\u0000"
+        ]
+      ],
+      [
+        "nil",
+        "false",
+        -2,
+        "primary",
+        "upper",
+        "zero",
+        "nul",
+        "missing",
+        "primary"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "false",
+          false
+        ],
+        [
+          -2,
+          true
+        ],
+        [
+          "primary",
+          true
+        ],
+        [
+          "upper",
+          false
+        ],
+        [
+          "zero",
+          false
+        ],
+        [
+          "nul",
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "name": "heic_slice_empty_selection",
+    "operation": "gossip_slice_heic",
+    "args": [
+      [
+        [
+          "mime",
+          "image/heif"
+        ],
+        [
+          "nil",
+          null
+        ]
+      ],
+      [
+        "missing",
+        "nil"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "mime",
+          "image/heif"
+        ],
+        [
+          "nil",
+          null
+        ]
+      ],
+      [
+        "missing",
+        "nil"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    }
+  },
+  {
+    "name": "heic_slice_unescape_labels_and_scalars",
+    "operation": "gossip_slice_unescape_heic",
+    "args": [
+      [
+        [
+          "escaped",
+          "image\\/heic"
+        ],
+        [
+          4,
+          "image\\/heif-sequence"
+        ],
+        [
+          "quote",
+          "image/heic\\'"
+        ],
+        [
+          "falsy",
+          false
+        ],
+        [
+          "integer",
+          1
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "image/heic\\0"
+        ]
+      ],
+      [
+        "nul",
+        4,
+        "escaped",
+        "quote",
+        "falsy",
+        "integer",
+        "nil",
+        "missing",
+        4
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "escaped",
+          "image\\/heic"
+        ],
+        [
+          4,
+          "image\\/heif-sequence"
+        ],
+        [
+          "quote",
+          "image/heic\\'"
+        ],
+        [
+          "falsy",
+          false
+        ],
+        [
+          "integer",
+          1
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "image/heic\\0"
+        ]
+      ],
+      [
+        "nul",
+        4,
+        "escaped",
+        "quote",
+        "falsy",
+        "integer",
+        "nil",
+        "missing",
+        4
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "nul",
+          false
+        ],
+        [
+          4,
+          true
+        ],
+        [
+          "escaped",
+          true
+        ],
+        [
+          "quote",
+          false
+        ],
+        [
+          "falsy",
+          false
+        ],
+        [
+          "integer",
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "name": "heic_slice_unescape_no_match",
+    "operation": "gossip_slice_unescape_heic",
+    "args": [
+      [
+        [
+          "upper",
+          "IMAGE\\/HEIC"
+        ],
+        [
+          "jpeg",
+          "image\\/jpeg"
+        ],
+        [
+          "space",
+          "image/heif "
+        ],
+        [
+          "zero",
+          0
+        ]
+      ],
+      [
+        "space",
+        "zero",
+        "jpeg",
+        "upper"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "upper",
+          "IMAGE\\/HEIC"
+        ],
+        [
+          "jpeg",
+          "image\\/jpeg"
+        ],
+        [
+          "space",
+          "image/heif "
+        ],
+        [
+          "zero",
+          0
+        ]
+      ],
+      [
+        "space",
+        "zero",
+        "jpeg",
+        "upper"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "space",
+          false
+        ],
+        [
+          "zero",
+          false
+        ],
+        [
+          "jpeg",
+          false
+        ],
+        [
+          "upper",
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "name": "heic_boolean_roundtrip_match",
+    "operation": "gossip_heic_boolean",
+    "args": [
+      "image/heic"
+    ],
+    "args_after": [
+      "image/heic"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "heic_boolean_roundtrip_nul_miss",
+    "operation": "gossip_heic_boolean",
+    "args": [
+      "image/heic\u0000"
+    ],
+    "args_after": [
+      "image/heic\u0000"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_lower_y",
+    "operation": "bool_from_yn",
+    "args": [
+      "y"
+    ],
+    "args_after": [
+      "y"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_yn_upper_y",
+    "operation": "bool_from_yn",
+    "args": [
+      "Y"
+    ],
+    "args_after": [
+      "Y"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": true
+    }
+  },
+  {
+    "name": "direct_yn_lower_n",
+    "operation": "bool_from_yn",
+    "args": [
+      "n"
+    ],
+    "args_after": [
+      "n"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_upper_n",
+    "operation": "bool_from_yn",
+    "args": [
+      "N"
+    ],
+    "args_after": [
+      "N"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_word_yes",
+    "operation": "bool_from_yn",
+    "args": [
+      "yes"
+    ],
+    "args_after": [
+      "yes"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_upper_yes",
+    "operation": "bool_from_yn",
+    "args": [
+      "YES"
+    ],
+    "args_after": [
+      "YES"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_word_true",
+    "operation": "bool_from_yn",
+    "args": [
+      "true"
+    ],
+    "args_after": [
+      "true"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_word_false",
+    "operation": "bool_from_yn",
+    "args": [
+      "false"
+    ],
+    "args_after": [
+      "false"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_digit_one",
+    "operation": "bool_from_yn",
+    "args": [
+      "1"
+    ],
+    "args_after": [
+      "1"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_digit_zero",
+    "operation": "bool_from_yn",
+    "args": [
+      "0"
+    ],
+    "args_after": [
+      "0"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_empty",
+    "operation": "bool_from_yn",
+    "args": [
+      ""
+    ],
+    "args_after": [
+      ""
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_space",
+    "operation": "bool_from_yn",
+    "args": [
+      " "
+    ],
+    "args_after": [
+      " "
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_leading_space",
+    "operation": "bool_from_yn",
+    "args": [
+      " y"
+    ],
+    "args_after": [
+      " y"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_trailing_space",
+    "operation": "bool_from_yn",
+    "args": [
+      "y "
+    ],
+    "args_after": [
+      "y "
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_newline_suffix",
+    "operation": "bool_from_yn",
+    "args": [
+      "y\n"
+    ],
+    "args_after": [
+      "y\n"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_tab_suffix",
+    "operation": "bool_from_yn",
+    "args": [
+      "y\t"
+    ],
+    "args_after": [
+      "y\t"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_nul_suffix",
+    "operation": "bool_from_yn",
+    "args": [
+      "y\u0000"
+    ],
+    "args_after": [
+      "y\u0000"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_nul_prefix",
+    "operation": "bool_from_yn",
+    "args": [
+      "\u0000y"
+    ],
+    "args_after": [
+      "\u0000y"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_latin_diaeresis",
+    "operation": "bool_from_yn",
+    "args": [
+      "ÿ"
+    ],
+    "args_after": [
+      "ÿ"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_fullwidth_y",
+    "operation": "bool_from_yn",
+    "args": [
+      "Ｙ"
+    ],
+    "args_after": [
+      "Ｙ"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_greek_upsilon",
+    "operation": "bool_from_yn",
+    "args": [
+      "Υ"
+    ],
+    "args_after": [
+      "Υ"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_japanese",
+    "operation": "bool_from_yn",
+    "args": [
+      "はい"
+    ],
+    "args_after": [
+      "はい"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_repeated_y",
+    "operation": "bool_from_yn",
+    "args": [
+      "yy"
+    ],
+    "args_after": [
+      "yy"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "direct_yn_word_no",
+    "operation": "bool_from_yn",
+    "args": [
+      "no"
+    ],
+    "args_after": [
+      "no"
+    ],
+    "expected": {
+      "type": "bool",
+      "value": false
+    }
+  },
+  {
+    "name": "yn_slice_key_order_duplicates_and_null",
+    "operation": "gossip_slice_yn",
+    "args": [
+      [
+        [
+          "upper",
+          "Y"
+        ],
+        [
+          -3,
+          "y"
+        ],
+        [
+          "word",
+          "yes"
+        ],
+        [
+          "zero",
+          "0"
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "y\u0000"
+        ],
+        [
+          "space",
+          "y "
+        ]
+      ],
+      [
+        "nil",
+        "word",
+        -3,
+        "upper",
+        "zero",
+        "nul",
+        "space",
+        "missing",
+        "upper"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "upper",
+          "Y"
+        ],
+        [
+          -3,
+          "y"
+        ],
+        [
+          "word",
+          "yes"
+        ],
+        [
+          "zero",
+          "0"
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "y\u0000"
+        ],
+        [
+          "space",
+          "y "
+        ]
+      ],
+      [
+        "nil",
+        "word",
+        -3,
+        "upper",
+        "zero",
+        "nul",
+        "space",
+        "missing",
+        "upper"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          "word",
+          false
+        ],
+        [
+          -3,
+          true
+        ],
+        [
+          "upper",
+          true
+        ],
+        [
+          "zero",
+          false
+        ],
+        [
+          "nul",
+          false
+        ],
+        [
+          "space",
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "name": "yn_slice_empty_root",
+    "operation": "gossip_slice_yn",
+    "args": [
+      [],
+      [
+        "missing",
+        -3
+      ]
+    ],
+    "args_after": [
+      [],
+      [
+        "missing",
+        -3
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    }
+  },
+  {
+    "name": "yn_slice_unescape_strings",
+    "operation": "gossip_slice_unescape_yn",
+    "args": [
+      [
+        [
+          "escaped",
+          "\\Y"
+        ],
+        [
+          4,
+          "Y\\"
+        ],
+        [
+          "quote",
+          "y\\'"
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "y\\0"
+        ],
+        [
+          "word",
+          "yes"
+        ]
+      ],
+      [
+        "nil",
+        4,
+        "escaped",
+        "quote",
+        "nul",
+        "word",
+        "missing",
+        4
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "escaped",
+          "\\Y"
+        ],
+        [
+          4,
+          "Y\\"
+        ],
+        [
+          "quote",
+          "y\\'"
+        ],
+        [
+          "nil",
+          null
+        ],
+        [
+          "nul",
+          "y\\0"
+        ],
+        [
+          "word",
+          "yes"
+        ]
+      ],
+      [
+        "nil",
+        4,
+        "escaped",
+        "quote",
+        "nul",
+        "word",
+        "missing",
+        4
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        [
+          4,
+          true
+        ],
+        [
+          "escaped",
+          true
+        ],
+        [
+          "quote",
+          false
+        ],
+        [
+          "nul",
+          false
+        ],
+        [
+          "word",
+          false
+        ]
+      ]
+    }
+  },
+  {
+    "name": "yn_slice_unescape_empty_selection",
+    "operation": "gossip_slice_unescape_yn",
+    "args": [
+      [
+        [
+          "yn",
+          "\\Y"
+        ],
+        [
+          "nil",
+          null
+        ]
+      ],
+      [
+        "nil",
+        "missing"
+      ]
+    ],
+    "args_after": [
+      [
+        [
+          "yn",
+          "\\Y"
+        ],
+        [
+          "nil",
+          null
+        ]
+      ],
+      [
+        "nil",
+        "missing"
+      ]
+    ],
+    "expected": {
+      "type": "array",
+      "value": []
+    }
+  },
+  {
+    "name": "yn_and_boolean_upper_y",
+    "operation": "gossip_yn_boolean_pair",
+    "args": [
+      "Y"
+    ],
+    "args_after": [
+      "Y"
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "name": "yn_and_boolean_word_yes",
+    "operation": "gossip_yn_boolean_pair",
+    "args": [
+      "yes"
+    ],
+    "args_after": [
+      "yes"
+    ],
+    "expected": {
+      "type": "array",
+      "value": [
+        false,
+        true
+      ]
+    }
+  }
+]

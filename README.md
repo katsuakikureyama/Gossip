@@ -98,6 +98,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   text; this is not general Boolean parsing or a17-original integrated run.
   Its [24-case result](docs/evidence/bool-yn-2026-10-25.md) matches actual
   Boolean returns and unchanged inputs against PHP8.3.36.
+  The [seventeen-original bundle](docs/yn-helper-bundle-unit.md) adds that
+  original to one binary with25 owned drivers and149 cases. New compositions
+  cover selected-array yes/no classification and the distinct behavior of
+  `bool_from_yn()` and `wp_validate_boolean()` on the same input string.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -164,6 +168,8 @@ the same published strict-membership compiler without changing that compiler.
 The yes/no-label unit uses
 [`bool-yn-helper.json`](gossip/tests/gohp/bool-yn-helper.json) with that same
 compiler, keeping all earlier unit and bundle pins separate.
+The seventeen-original configuration is separately pinned in
+[`yn-helper-bundle.json`](gossip/tests/gohp/yn-helper-bundle.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

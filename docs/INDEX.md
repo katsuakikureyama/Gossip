@@ -6,7 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | Twenty-four-original262-case single-binary PASS on GoHP #58; scope and next steps |
+| [Current state](current-state-fork-baseline.md) | _wp_array_get native24-case reference and three compiler gaps; retained24-original262-case integration |
+| [Nested settings lookup boundary](array-get-boundary.md) | Original helper used by Theme JSON/global styles; default/isset/continue prerequisites |
+| [Nested settings reference evidence](evidence/array-get-boundary-2026-10-26.md) | Native24 PASS, five parser rejections, exact snapshots/commands/hashes; Go/PHP not-run |
 | [Twenty-four-original integration](edge-helper-bundle-unit.md) | All24 originals/46 drivers;230 retained +24 edges +8 new composed cases |
 | [Twenty-four-original evidence](evidence/edge-helper-bundle-2026-10-26.md) | Actual typed/caller-state262-case PASS, exact snapshots, commands and hashes |
 | [Original array edges](array-edge-unit.md) | Both unchanged declarations in one Go binary;24 retained cases on integrated GoHP main |

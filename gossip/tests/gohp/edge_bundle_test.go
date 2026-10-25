@@ -257,7 +257,7 @@ func TestOriginalWordPressEdgeHelperBundle(t *testing.T) {
 		"\treturn map[string]any{\"retained\":retained,\"search\":search,\"composition\":observations}")
 	edgeGo := adapt("array-edge-unit-observer.go.txt",
 		"func init() {", "func observeEdgeUnit() []map[string]any {",
-		"import (\n\t\"encoding/json\"\n\t\"os\"\n)\n", "",
+		"\n\t\"os\"", "",
 		"/input/cases.json", "/input/edge-cases.json",
 		"\tif err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {\n\t\tpanic(err)\n\t}\n\tos.Exit(0)",
 		"\treturn observations")

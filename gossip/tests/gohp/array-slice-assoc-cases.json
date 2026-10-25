@@ -1,0 +1,713 @@
+[
+  {
+    "name": "empty",
+    "input": [],
+    "keys": [],
+    "expected": [],
+    "input_after": [],
+    "keys_after": []
+  },
+  {
+    "name": "empty_input",
+    "input": [],
+    "keys": [
+      "missing",
+      0
+    ],
+    "expected": [],
+    "input_after": [],
+    "keys_after": [
+      "missing",
+      0
+    ]
+  },
+  {
+    "name": "empty_selectors",
+    "input": [
+      [
+        "x",
+        "keep"
+      ],
+      [
+        "n",
+        null
+      ]
+    ],
+    "keys": [],
+    "expected": [],
+    "input_after": [
+      [
+        "x",
+        "keep"
+      ],
+      [
+        "n",
+        null
+      ]
+    ],
+    "keys_after": []
+  },
+  {
+    "name": "missing_only",
+    "input": [
+      [
+        "x",
+        "keep"
+      ]
+    ],
+    "keys": [
+      "absent",
+      "absent",
+      9
+    ],
+    "expected": [],
+    "input_after": [
+      [
+        "x",
+        "keep"
+      ]
+    ],
+    "keys_after": [
+      "absent",
+      "absent",
+      9
+    ]
+  },
+  {
+    "name": "null_is_excluded",
+    "input": [
+      [
+        "null",
+        null
+      ],
+      [
+        "ok",
+        "yes"
+      ]
+    ],
+    "keys": [
+      "null",
+      "missing",
+      "ok"
+    ],
+    "expected": [
+      [
+        "ok",
+        "yes"
+      ]
+    ],
+    "input_after": [
+      [
+        "null",
+        null
+      ],
+      [
+        "ok",
+        "yes"
+      ]
+    ],
+    "keys_after": [
+      "null",
+      "missing",
+      "ok"
+    ]
+  },
+  {
+    "name": "falsy_values_are_set",
+    "input": [
+      [
+        "false",
+        false
+      ],
+      [
+        "zero",
+        0
+      ],
+      [
+        "empty",
+        ""
+      ],
+      [
+        "string_zero",
+        "0"
+      ],
+      [
+        "empty_array",
+        []
+      ],
+      [
+        "null",
+        null
+      ]
+    ],
+    "keys": [
+      "empty_array",
+      "empty",
+      "false",
+      "zero",
+      "string_zero",
+      "null"
+    ],
+    "expected": [
+      [
+        "empty_array",
+        []
+      ],
+      [
+        "empty",
+        ""
+      ],
+      [
+        "false",
+        false
+      ],
+      [
+        "zero",
+        0
+      ],
+      [
+        "string_zero",
+        "0"
+      ]
+    ],
+    "input_after": [
+      [
+        "false",
+        false
+      ],
+      [
+        "zero",
+        0
+      ],
+      [
+        "empty",
+        ""
+      ],
+      [
+        "string_zero",
+        "0"
+      ],
+      [
+        "empty_array",
+        []
+      ],
+      [
+        "null",
+        null
+      ]
+    ],
+    "keys_after": [
+      "empty_array",
+      "empty",
+      "false",
+      "zero",
+      "string_zero",
+      "null"
+    ]
+  },
+  {
+    "name": "request_order_and_duplicates",
+    "input": [
+      [
+        "a",
+        "A"
+      ],
+      [
+        "b",
+        "B"
+      ],
+      [
+        "c",
+        "C"
+      ]
+    ],
+    "keys": [
+      "c",
+      "a",
+      "c",
+      "b",
+      "a"
+    ],
+    "expected": [
+      [
+        "c",
+        "C"
+      ],
+      [
+        "a",
+        "A"
+      ],
+      [
+        "b",
+        "B"
+      ]
+    ],
+    "input_after": [
+      [
+        "a",
+        "A"
+      ],
+      [
+        "b",
+        "B"
+      ],
+      [
+        "c",
+        "C"
+      ]
+    ],
+    "keys_after": [
+      "c",
+      "a",
+      "c",
+      "b",
+      "a"
+    ]
+  },
+  {
+    "name": "numeric_key_distinctions",
+    "input": [
+      [
+        "2",
+        "two"
+      ],
+      [
+        "02",
+        "leading"
+      ],
+      [
+        "+2",
+        "plus"
+      ],
+      [
+        "-0",
+        "negative_zero"
+      ],
+      [
+        0,
+        "zero"
+      ]
+    ],
+    "keys": [
+      "02",
+      2,
+      "+2",
+      "-0",
+      "0",
+      "2"
+    ],
+    "expected": [
+      [
+        "02",
+        "leading"
+      ],
+      [
+        2,
+        "two"
+      ],
+      [
+        "+2",
+        "plus"
+      ],
+      [
+        "-0",
+        "negative_zero"
+      ],
+      [
+        0,
+        "zero"
+      ]
+    ],
+    "input_after": [
+      [
+        2,
+        "two"
+      ],
+      [
+        "02",
+        "leading"
+      ],
+      [
+        "+2",
+        "plus"
+      ],
+      [
+        "-0",
+        "negative_zero"
+      ],
+      [
+        0,
+        "zero"
+      ]
+    ],
+    "keys_after": [
+      "02",
+      2,
+      "+2",
+      "-0",
+      "0",
+      "2"
+    ]
+  },
+  {
+    "name": "negative_keys",
+    "input": [
+      [
+        -5,
+        "minus_five"
+      ],
+      [
+        "-7",
+        "minus_seven"
+      ],
+      [
+        "-05",
+        "leading"
+      ]
+    ],
+    "keys": [
+      "-7",
+      -5,
+      "-05",
+      -7
+    ],
+    "expected": [
+      [
+        -7,
+        "minus_seven"
+      ],
+      [
+        -5,
+        "minus_five"
+      ],
+      [
+        "-05",
+        "leading"
+      ]
+    ],
+    "input_after": [
+      [
+        -5,
+        "minus_five"
+      ],
+      [
+        -7,
+        "minus_seven"
+      ],
+      [
+        "-05",
+        "leading"
+      ]
+    ],
+    "keys_after": [
+      "-7",
+      -5,
+      "-05",
+      -7
+    ]
+  },
+  {
+    "name": "unicode_nul_and_empty_keys",
+    "input": [
+      [
+        "日本語",
+        "雪"
+      ],
+      [
+        "a\u0000b",
+        "x\u0000y"
+      ],
+      [
+        "",
+        "empty-key"
+      ]
+    ],
+    "keys": [
+      "a\u0000b",
+      "",
+      "日本語",
+      "不存在"
+    ],
+    "expected": [
+      [
+        "a\u0000b",
+        "x\u0000y"
+      ],
+      [
+        "",
+        "empty-key"
+      ],
+      [
+        "日本語",
+        "雪"
+      ]
+    ],
+    "input_after": [
+      [
+        "日本語",
+        "雪"
+      ],
+      [
+        "a\u0000b",
+        "x\u0000y"
+      ],
+      [
+        "",
+        "empty-key"
+      ]
+    ],
+    "keys_after": [
+      "a\u0000b",
+      "",
+      "日本語",
+      "不存在"
+    ]
+  },
+  {
+    "name": "nested_list_values",
+    "input": [
+      [
+        "deep",
+        [
+          null,
+          false,
+          0,
+          "",
+          [
+            "a",
+            [],
+            [
+              "日本語",
+              "\u0000"
+            ]
+          ]
+        ]
+      ],
+      [
+        "empty",
+        []
+      ]
+    ],
+    "keys": [
+      "deep",
+      "empty"
+    ],
+    "expected": [
+      [
+        "deep",
+        [
+          null,
+          false,
+          0,
+          "",
+          [
+            "a",
+            [],
+            [
+              "日本語",
+              "\u0000"
+            ]
+          ]
+        ]
+      ],
+      [
+        "empty",
+        []
+      ]
+    ],
+    "input_after": [
+      [
+        "deep",
+        [
+          null,
+          false,
+          0,
+          "",
+          [
+            "a",
+            [],
+            [
+              "日本語",
+              "\u0000"
+            ]
+          ]
+        ]
+      ],
+      [
+        "empty",
+        []
+      ]
+    ],
+    "keys_after": [
+      "deep",
+      "empty"
+    ]
+  },
+  {
+    "name": "sparse_order_from_list",
+    "input": [
+      [
+        0,
+        "zero"
+      ],
+      [
+        1,
+        "one"
+      ],
+      [
+        2,
+        "two"
+      ]
+    ],
+    "keys": [
+      2,
+      0,
+      2
+    ],
+    "expected": [
+      [
+        2,
+        "two"
+      ],
+      [
+        0,
+        "zero"
+      ]
+    ],
+    "input_after": [
+      [
+        0,
+        "zero"
+      ],
+      [
+        1,
+        "one"
+      ],
+      [
+        2,
+        "two"
+      ]
+    ],
+    "keys_after": [
+      2,
+      0,
+      2
+    ]
+  },
+  {
+    "name": "normalized_collision_to_null",
+    "input": [
+      [
+        "1",
+        "before"
+      ],
+      [
+        1,
+        null
+      ],
+      [
+        "01",
+        "leading"
+      ]
+    ],
+    "keys": [
+      1,
+      "1",
+      "01"
+    ],
+    "expected": [
+      [
+        "01",
+        "leading"
+      ]
+    ],
+    "input_after": [
+      [
+        1,
+        null
+      ],
+      [
+        "01",
+        "leading"
+      ]
+    ],
+    "keys_after": [
+      1,
+      "1",
+      "01"
+    ]
+  },
+  {
+    "name": "normalized_replacement_keeps_position",
+    "input": [
+      [
+        "1",
+        "before"
+      ],
+      [
+        "other",
+        true
+      ],
+      [
+        1,
+        -12345
+      ],
+      [
+        "tail",
+        [
+          1,
+          "2",
+          false
+        ]
+      ]
+    ],
+    "keys": [
+      "tail",
+      "1",
+      "other",
+      1
+    ],
+    "expected": [
+      [
+        "tail",
+        [
+          1,
+          "2",
+          false
+        ]
+      ],
+      [
+        1,
+        -12345
+      ],
+      [
+        "other",
+        true
+      ]
+    ],
+    "input_after": [
+      [
+        1,
+        -12345
+      ],
+      [
+        "other",
+        true
+      ],
+      [
+        "tail",
+        [
+          1,
+          "2",
+          false
+        ]
+      ]
+    ],
+    "keys_after": [
+      "tail",
+      "1",
+      "other",
+      1
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "schema": "gossip.wordpress-unit/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "gohp_commit": "4e1b5abfe019ec121e13d85e99e51c206e765533",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "fragments": [
+    {
+      "name": "__return_true",
+      "first_line": 7181,
+      "last_line": 7183
+    },
+    {
+      "name": "__return_false",
+      "first_line": 7196,
+      "last_line": 7198
+    },
+    {
+      "name": "__return_zero",
+      "first_line": 7209,
+      "last_line": 7211
+    },
+    {
+      "name": "__return_empty_array",
+      "first_line": 7222,
+      "last_line": 7224
+    },
+    {
+      "name": "__return_null",
+      "first_line": 7235,
+      "last_line": 7237
+    },
+    {
+      "name": "__return_empty_string",
+      "first_line": 7250,
+      "last_line": 7252
+    }
+  ],
+  "expected_stdout": "true=1\nfalse=\nzero=0\nnull=\nempty-string=\n"
+}

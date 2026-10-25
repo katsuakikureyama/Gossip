@@ -1,0 +1,185 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type bundleCase struct {
+	Name      string `json:"name"`
+	Operation string `json:"operation"`
+	Args      []any  `json:"args"`
+}
+
+type bundleObservation struct {
+	Name  string `json:"name"`
+	Type  string `json:"type"`
+	Value any    `json:"value"`
+}
+
+func bundleNoArgs(args []any, operation string) {
+	if len(args) != 0 {
+		panic(fmt.Sprintf("%s requires no arguments", operation))
+	}
+}
+
+func bundleStringArg(args []any, operation string) string {
+	if len(args) != 1 {
+		panic(fmt.Sprintf("%s requires exactly one string argument", operation))
+	}
+	value, ok := args[0].(string)
+	if !ok {
+		panic(fmt.Sprintf("%s requires exactly one string argument", operation))
+	}
+	return value
+}
+
+func bundleWidth(value any, operation string) int64 {
+	number, ok := value.(json.Number)
+	if !ok {
+		panic(fmt.Sprintf("%s width must be an int in 0..4096", operation))
+	}
+	width, err := number.Int64()
+	if err != nil || width < 0 || width > 4096 {
+		panic(fmt.Sprintf("%s width must be an int in 0..4096", operation))
+	}
+	return width
+}
+
+func bundleValueAndWidth(args []any, operation string) (any, int64) {
+	if len(args) != 2 {
+		panic(fmt.Sprintf("%s requires a string or int value and int width", operation))
+	}
+	var value any
+	switch typed := args[0].(type) {
+	case string:
+		value = typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil {
+			panic(fmt.Sprintf("%s requires a signed integer value: %v", operation, err))
+		}
+		value = integer
+	default:
+		panic(fmt.Sprintf("%s requires a string or int value and int width", operation))
+	}
+	return value, bundleWidth(args[1], operation)
+}
+
+func bundlePathAndWidth(args []any, operation string) (string, int64) {
+	if len(args) != 2 {
+		panic(fmt.Sprintf("%s requires a string path and int width", operation))
+	}
+	path, ok := args[0].(string)
+	if !ok {
+		panic(fmt.Sprintf("%s requires a string path and int width", operation))
+	}
+	return path, bundleWidth(args[1], operation)
+}
+
+func bundleObservationFor(name string, value any) bundleObservation {
+	switch typed := value.(type) {
+	case bool:
+		return bundleObservation{Name: name, Type: "bool", Value: typed}
+	case int64:
+		return bundleObservation{Name: name, Type: "int", Value: typed}
+	case string:
+		return bundleObservation{Name: name, Type: "string", Value: typed}
+	case nil:
+		return bundleObservation{Name: name, Type: "null", Value: nil}
+	case rt.Array:
+		if len(typed.Entries) != 0 {
+			panic("only empty generated array results are in scope")
+		}
+		return bundleObservation{Name: name, Type: "array", Value: []any{}}
+	default:
+		panic(fmt.Sprintf("unsupported generated result type %T", value))
+	}
+}
+
+func bundleCall(testCase bundleCase) any {
+	switch testCase.Operation {
+	case "__return_true":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_true()
+	case "__return_false":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_false()
+	case "__return_zero":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_zero()
+	case "__return_empty_array":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_empty_array()
+	case "__return_null":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_null()
+	case "__return_empty_string":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F___return_empty_string()
+	case "trailingslashit":
+		return F_trailingslashit(bundleStringArg(testCase.Args, testCase.Operation))
+	case "untrailingslashit":
+		return F_untrailingslashit(bundleStringArg(testCase.Args, testCase.Operation))
+	case "wp_validate_boolean":
+		return F_wp_validate_boolean(bundleStringArg(testCase.Args, testCase.Operation))
+	case "zeroise":
+		value, width := bundleValueAndWidth(testCase.Args, testCase.Operation)
+		return F_zeroise(value, width)
+	case "gossip_path_pad":
+		path, width := bundlePathAndWidth(testCase.Args, testCase.Operation)
+		return F_gossip_path_pad(path, width)
+	case "gossip_empty_array_boolean":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F_gossip_empty_array_boolean()
+	case "gossip_zero_pad":
+		if len(testCase.Args) != 1 {
+			panic("gossip_zero_pad requires exactly one int width")
+		}
+		return F_gossip_zero_pad(bundleWidth(testCase.Args[0], testCase.Operation))
+	case "gossip_false_boolean":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F_gossip_false_boolean()
+	case "gossip_empty_string_path":
+		bundleNoArgs(testCase.Args, testCase.Operation)
+		return F_gossip_empty_string_path()
+	default:
+		panic(fmt.Sprintf("unknown operation: %s", testCase.Operation))
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It dispatches only to
+// exact generated functions and does not reproduce their implementations.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []bundleCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("bundle fixture has trailing JSON values")
+	}
+
+	observations := make([]bundleObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" || testCase.Operation == "" {
+			panic("bundle fixture case needs nonempty name and operation")
+		}
+		observations = append(observations, bundleObservationFor(testCase.Name, bundleCall(testCase)))
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

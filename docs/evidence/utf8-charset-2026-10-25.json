@@ -1,0 +1,419 @@
+{
+  "binary_sha256": "a74ae7e33f27637e02e436102db61be6beb146ab4ffd02c938c2da313097c574",
+  "bundle_sha256": "82041dc5d04560c3f79d2a8d8f64b14c1ba238a562d2b533eecce55937d56bda",
+  "case_count": 28,
+  "cases_sha256": "965499039635c4bae2c0a83452078b476cc43d910eb3cfa3e6f9af39c3e78428",
+  "compiler_sha256": "272fafe67cfcb535de94715cad2b27c5b931fac4f36b02c3314d09cf31b036e7",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "_is_utf8_charset",
+    "original_first_line": 102,
+    "original_last_line": 111,
+    "sha256": "241a7691e4461f13f8656fb12b8275fb4eaa71e34b983ef63301965286df5739"
+  },
+  "generated_sha256": "bc7eec314b2f15d2615f37c529b5d162dbdf60d764173d8da07e91ec03403b4d",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "a11255f6c6f274ae88c4e97e85f1138c858f9d273110601fdb7f224ef8647fab",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "08d37074315afe4837fc1e586faea2b4d5277cfb503021231c67f105d3c2a73e",
+  "gohp_commit": "d9f6c7b4f288ef816c4ee3cb6a3458d2226e00d5",
+  "input_after_call_count": 28,
+  "manifest_sha256": "636f2239b25a37e4b720afb7dc91cbf21ba1b09a4572e22c805f54b5991a8b84",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "0ebfa8d070afab923e0a54f90ae87b2afe5ac37817852924dc74dea989145bc2",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "91ad7922760afe87d2ac776bffb8f89d227b01c496db5d855d91cb36382c4131",
+  "schema": "gossip.utf8-charset-observation/v1",
+  "scope": "one byte-unchanged WordPress compat.php UTF-8 charset predicate; twenty-eight JSON-transported inputs limited to null, bool, modest signed integer, string and nested sequential lists; observes actual bool returns and unchanged caller input after every call; PHP executes with LC_ALL=C and asserts LC_CTYPE=C; no floats, JSON objects, references, cycles, whole compat file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/compat.php",
+  "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 28,
+  "typed_observations": [
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UTF-8"
+      },
+      "input_type": "string",
+      "name": "upper_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf-8"
+      },
+      "input_type": "string",
+      "name": "lower_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UtF-8"
+      },
+      "input_type": "string",
+      "name": "mixed_hyphen",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UTF8"
+      },
+      "input_type": "string",
+      "name": "upper_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf8"
+      },
+      "input_type": "string",
+      "name": "lower_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "uTf8"
+      },
+      "input_type": "string",
+      "name": "mixed_compact",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": ""
+      },
+      "input_type": "string",
+      "name": "empty",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf"
+      },
+      "input_type": "string",
+      "name": "prefix_only",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf-80"
+      },
+      "input_type": "string",
+      "name": "extra_digit",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf8x"
+      },
+      "input_type": "string",
+      "name": "extra_suffix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": " utf8"
+      },
+      "input_type": "string",
+      "name": "leading_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf8 "
+      },
+      "input_type": "string",
+      "name": "trailing_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf 8"
+      },
+      "input_type": "string",
+      "name": "internal_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf_8"
+      },
+      "input_type": "string",
+      "name": "underscore",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "utf–8"
+      },
+      "input_type": "string",
+      "name": "unicode_dash",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "ＵＴＦ８"
+      },
+      "input_type": "string",
+      "name": "fullwidth",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UTF-8\u0000"
+      },
+      "input_type": "string",
+      "name": "trailing_nul",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UTF\u0000-8"
+      },
+      "input_type": "string",
+      "name": "internal_nul",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "latin1"
+      },
+      "input_type": "string",
+      "name": "latin1",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "UTF-16"
+      },
+      "input_type": "string",
+      "name": "utf16",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "null",
+        "value": null
+      },
+      "input_type": "null",
+      "name": "null",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": true
+      },
+      "input_type": "bool",
+      "name": "true",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": false
+      },
+      "input_type": "bool",
+      "name": "false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": 0
+      },
+      "input_type": "int",
+      "name": "zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": -1
+      },
+      "input_type": "int",
+      "name": "negative",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": []
+      },
+      "input_type": "array",
+      "name": "empty_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          "UTF-8"
+        ]
+      },
+      "input_type": "array",
+      "name": "string_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "utf8"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "name": "nested_array",
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "test_commit": "fccd38e47c4f23ed0bb8b35a0cc974c9486f4d2f",
+    "test_tree": "64499078c9dd73381ba28bce7c3cb889392981cc",
+    "host_go": "go version go1.22.1 darwin/arm64",
+    "directory": "gossip",
+    "commands": [
+      "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressUTF8CharsetHelper$'",
+      "go vet ./tests/gohp"
+    ],
+    "status": "pass",
+    "test_seconds": 37.69,
+    "package_seconds": 37.898,
+    "vet": "pass",
+    "comparison_attempts": 1,
+    "post_pass_change": "Documentation/evidence only; no code or configuration changes, no rerun.",
+    "scope": "Local isolated Docker comparison, not Gossip CI."
+  },
+  "compiler_ci": {
+    "overall": "pass",
+    "metadata": {
+      "commit": "d9f6c7b4f288ef816c4ee3cb6a3458d2226e00d5",
+      "tree": "8acaff0e9073db725edd95652a1fc9dd9442c4f0",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40158737961",
+      "run_id": "40158737961",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T03:35:25.937383747Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "96e529ee6149f77724c28340fe7ffd0a45cc48584067a398346ec58518eab092",
+      "test_exit": 0
+    },
+    "catalog_sha256": "c64cacaa9c418da53eb86b34fe12180ba999d0844ea4a8876b1ff9c78f1bfaa3",
+    "event_sha256": "c3f9c782a58f1b6db71890c6014834c5548c966152627fc5e343c939f010649d",
+    "feature_count": 49,
+    "case_count": 296,
+    "new_case": [
+      {
+        "id": "diff.strcasecmp",
+        "test": "TestDifferential/strcasecmp",
+        "package": "github.com/katsuakikureyama/GoHP/tests",
+        "kind": "differential",
+        "fixture": "tests/fixtures/strcasecmp.php",
+        "fixture_sha256": "d7d1f1b7d2e93e0072869bf79e3a45b3d297c48579fdbccf8ee0150b8f1ac57e",
+        "generated_sha256": "9b21dffd21daa07f38fb322c833734519fda1c2ab7d0efce7de2e1caf1bbf85b",
+        "status": "pass",
+        "phase": {
+          "parse": "pass",
+          "codegen": "pass",
+          "go_build": "pass",
+          "go_execute": "pass",
+          "differential": "pass",
+          "stdout": "pass",
+          "exit": "pass",
+          "stderr": "not-checked",
+          "exceptions": "not-checked",
+          "side_effects": "not-checked"
+        }
+      }
+    ],
+    "reused": false,
+    "artifact": {
+      "id": 12584808556,
+      "name": "compatibility-php8.3-40158737961-1",
+      "digest": "sha256:914d01bcc33d0993c533e9fd9b897763e8ca7463683020e955b7b83224dee2a0",
+      "expires_at": "2026-11-24T03:35:38Z",
+      "local_directory": "/private/tmp/gohp-strcasecmp-ci.evz7ac"
+    },
+    "local": {
+      "go": "go1.23.0 darwin/arm64",
+      "prefix": "GOCACHE=/tmp/gohp-go-cache GOPROXY=off GOTOOLCHAIN=go1.23.0",
+      "commands": [
+        "go test -count=1 ./runtime ./internal/codegen ./internal/compat",
+        "go test -count=1 ./tests -run '^(TestUnsupported/strcasecmp_|TestStrCaseCmpRuntimeTypeGuards)$'",
+        "go vet ./..."
+      ],
+      "status": "pass",
+      "runtime_seconds": 0.251,
+      "codegen_seconds": 0.39,
+      "compat_seconds": 0.592,
+      "generated_guards_seconds": 1.866,
+      "selection_note": "The second selector covers generated runtime guards; static TestUnsupported/strcasecmp_* checks are established by the full CI run, not inferred from this local selector."
+    }
+  }
+}

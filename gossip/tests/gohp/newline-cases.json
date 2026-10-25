@@ -1,0 +1,18 @@
+[
+  {"name":"empty_capture","input":[""],"expected":""},
+  {"name":"no_newline","input":["plain text"],"expected":"plain text"},
+  {"name":"single_newline","input":["left\nright"],"expected":"left<WPPreserveNewline />right"},
+  {"name":"multiple_newlines","input":["\n\n"],"expected":"<WPPreserveNewline /><WPPreserveNewline />"},
+  {"name":"leading_newline","input":["\nstart"],"expected":"<WPPreserveNewline />start"},
+  {"name":"trailing_newline","input":["end\n"],"expected":"end<WPPreserveNewline />"},
+  {"name":"carriage_return_only","input":["left\rright"],"expected":"left\rright"},
+  {"name":"crlf","input":["left\r\nright"],"expected":"left\r<WPPreserveNewline />right"},
+  {"name":"mixed_line_endings","input":["a\nb\r\nc\rd"],"expected":"a<WPPreserveNewline />b\r<WPPreserveNewline />c\rd"},
+  {"name":"tab_preserved","input":["a\t\nb"],"expected":"a\t<WPPreserveNewline />b"},
+  {"name":"literal_backslash_n","input":["a\\nb"],"expected":"a\\nb"},
+  {"name":"japanese","input":["猫\n犬"],"expected":"猫<WPPreserveNewline />犬"},
+  {"name":"emoji","input":["🦊\n🐱"],"expected":"🦊<WPPreserveNewline />🐱"},
+  {"name":"nul_preserved","input":["A\u0000\nB"],"expected":"A\u0000<WPPreserveNewline />B"},
+  {"name":"placeholder_text_then_newline","input":["<WPPreserveNewline />\nend"],"expected":"<WPPreserveNewline /><WPPreserveNewline />end"},
+  {"name":"extra_ignored_capture","input":["first\nline","ignored\nvalue"],"expected":"first<WPPreserveNewline />line"}
+]

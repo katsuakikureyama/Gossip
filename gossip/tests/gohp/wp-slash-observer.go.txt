@@ -1,0 +1,139 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type wpSlashCase struct {
+	Name         string `json:"name"`
+	InputType    string `json:"input_type"`
+	Input        any    `json:"input"`
+	ExpectedType string `json:"expected_type"`
+	Expected     any    `json:"expected"`
+	InputAfter   any    `json:"input_after"`
+}
+
+type wpSlashValueObservation struct {
+	Type  string `json:"type"`
+	Value any    `json:"value"`
+}
+
+type wpSlashObservation struct {
+	Name       string                  `json:"name"`
+	InputType  string                  `json:"input_type"`
+	Type       string                  `json:"type"`
+	Value      any                     `json:"value"`
+	InputAfter wpSlashValueObservation `json:"input_after"`
+}
+
+func wpSlashFixtureValue(value any) any {
+	switch typed := value.(type) {
+	case nil, bool, string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil {
+			panic(fmt.Sprintf("wp_slash fixture only transports signed integer JSON numbers: %v", err))
+		}
+		return integer
+	case []any:
+		entries := make([]rt.Entry, 0, len(typed))
+		for _, item := range typed {
+			entries = append(entries, rt.Entry{Value: wpSlashFixtureValue(item)})
+		}
+		return rt.NewArray(entries...)
+	case map[string]any:
+		panic("wp_slash fixture does not transport PHP objects/maps")
+	default:
+		panic(fmt.Sprintf("wp_slash fixture unsupported JSON value type %T", value))
+	}
+}
+
+func wpSlashFixtureType(value any) string {
+	switch value.(type) {
+	case nil:
+		return "null"
+	case bool:
+		return "bool"
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	case rt.Array:
+		return "array"
+	default:
+		panic(fmt.Sprintf("wp_slash fixture unexpected translated value type %T", value))
+	}
+}
+
+func normalizeWpSlashFixtureValue(value any) any {
+	switch typed := value.(type) {
+	case nil, bool, int64, string:
+		return typed
+	case rt.Array:
+		out := make([]any, len(typed.Entries))
+		for index, entry := range typed.Entries {
+			key, ok := entry.Key.(int64)
+			if !ok || key != int64(index) {
+				panic("wp_slash fixture output array must retain sequential integer keys")
+			}
+			out[index] = normalizeWpSlashFixtureValue(entry.Value)
+		}
+		return out
+	default:
+		panic(fmt.Sprintf("wp_slash fixture cannot normalize translated output type %T", value))
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It dispatches only to the
+// generated WordPress helper and observes the caller value after invocation.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []wpSlashCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("wp_slash fixture has trailing JSON values")
+	}
+
+	observations := make([]wpSlashObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" {
+			panic("wp_slash fixture case name is required")
+		}
+		input := wpSlashFixtureValue(testCase.Input)
+		if actualType := wpSlashFixtureType(input); actualType != testCase.InputType {
+			panic(fmt.Sprintf("case input type did not survive JSON transport: %s: got %s want %s", testCase.Name, actualType, testCase.InputType))
+		}
+		expected := wpSlashFixtureValue(testCase.Expected)
+		if actualType := wpSlashFixtureType(expected); actualType != testCase.ExpectedType {
+			panic(fmt.Sprintf("case expected type is outside the fixture contract: %s: got %s want %s", testCase.Name, actualType, testCase.ExpectedType))
+		}
+		inputAfter := wpSlashFixtureValue(testCase.InputAfter)
+		if actualType := wpSlashFixtureType(inputAfter); actualType != testCase.InputType {
+			panic(fmt.Sprintf("case input-after type is outside the fixture contract: %s: got %s want %s", testCase.Name, actualType, testCase.InputType))
+		}
+		value := F_wp_slash(input)
+		observations = append(observations, wpSlashObservation{
+			Name: testCase.Name, InputType: testCase.InputType, Type: wpSlashFixtureType(value), Value: normalizeWpSlashFixtureValue(value),
+			InputAfter: wpSlashValueObservation{Type: wpSlashFixtureType(input), Value: normalizeWpSlashFixtureValue(input)},
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

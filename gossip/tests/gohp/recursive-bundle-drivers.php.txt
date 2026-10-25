@@ -1,0 +1,56 @@
+function gossip_capture_newline_unslash( $captures ) {
+
+	return stripslashes_from_strings_only( _autop_newline_preservation_helper( array_values( $captures ) ) );
+}
+
+function gossip_unslash_array_keys( $value ) {
+
+	return array_keys( stripslashes_from_strings_only( $value ) );
+}
+
+function gossip_unslash_array_shape( $value ) {
+
+	$kept = stripslashes_from_strings_only( $value );
+	return array( array_is_list( $kept ), array_values( $kept ) );
+}
+
+function gossip_path_pad( $value, $width ) {
+
+	return zeroise( trailingslashit( $value ), $width );
+}
+
+function gossip_zero_pad( $width ) {
+
+	return zeroise( __return_zero(), $width );
+}
+
+function gossip_false_boolean() {
+
+	return wp_validate_boolean( __return_false() );
+}
+
+function gossip_empty_string_path() {
+
+	return trailingslashit( __return_empty_string() );
+}
+
+function gossip_slash_scalar_roundtrip( $value ) {
+
+	return stripslashes_from_strings_only( wp_slash( $value ) );
+}
+
+function gossip_slash_list_shallow_roundtrip( $value ) {
+
+	return array_map( 'stripslashes_from_strings_only', wp_slash( $value ) );
+}
+
+function gossip_slash_capture_newline_unslash( $captures ) {
+
+	return stripslashes_from_strings_only( _autop_newline_preservation_helper( wp_slash( array_values( $captures ) ) ) );
+}
+
+function gossip_slash_array_shape( $value ) {
+
+	$slashed = wp_slash( $value );
+	return array( array_is_list( $slashed ), array_keys( $slashed ), array_values( $slashed ) );
+}

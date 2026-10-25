@@ -1,0 +1,199 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type arraySliceAssocCase struct {
+	Name       string `json:"name"`
+	Input      []any  `json:"input"`
+	Keys       []any  `json:"keys"`
+	Expected   []any  `json:"expected"`
+	InputAfter []any  `json:"input_after"`
+	KeysAfter  []any  `json:"keys_after"`
+}
+
+type arraySliceAssocValueObservation struct {
+	Type  string `json:"type"`
+	Value any    `json:"value"`
+}
+
+type arraySliceAssocArrayObservation struct {
+	Type    string  `json:"type"`
+	Entries [][]any `json:"entries"`
+}
+
+type arraySliceAssocObservation struct {
+	Name       string                          `json:"name"`
+	Type       string                          `json:"type"`
+	Entries    [][]any                         `json:"entries"`
+	InputAfter arraySliceAssocArrayObservation `json:"input_after"`
+	KeysAfter  arraySliceAssocValueObservation `json:"keys_after"`
+}
+
+func arraySliceAssocFixtureKey(value any) any {
+	switch typed := value.(type) {
+	case string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("array-slice-assoc fixture key must be a bounded signed integer or string: %v", value))
+		}
+		return integer
+	default:
+		panic(fmt.Sprintf("array-slice-assoc fixture key must be a signed integer or string, got %T", value))
+	}
+}
+
+func arraySliceAssocFixtureValue(value any, depth int) any {
+	if depth > 8 {
+		panic("array-slice-assoc fixture values are limited to depth eight")
+	}
+	switch typed := value.(type) {
+	case nil, bool, string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("array-slice-assoc fixture value must be a modest signed integer: %v", value))
+		}
+		return integer
+	case []any:
+		entries := make([]rt.Entry, 0, len(typed))
+		for _, item := range typed {
+			entries = append(entries, rt.Entry{Value: arraySliceAssocFixtureValue(item, depth+1)})
+		}
+		return rt.NewArray(entries...)
+	case map[string]any:
+		panic("array-slice-assoc fixture does not transport PHP objects or maps")
+	default:
+		panic(fmt.Sprintf("array-slice-assoc fixture unsupported JSON value type %T", value))
+	}
+}
+
+func arraySliceAssocFixturePairs(value []any, field string) rt.Array {
+	entries := make([]rt.Entry, 0, len(value))
+	for index, rawPair := range value {
+		pair, ok := rawPair.([]any)
+		if !ok || len(pair) != 2 {
+			panic(fmt.Sprintf("array-slice-assoc fixture %s pair %d must contain exactly key and value", field, index))
+		}
+		entries = append(entries, rt.Entry{Key: arraySliceAssocFixtureKey(pair[0]), Value: arraySliceAssocFixtureValue(pair[1], 0)})
+	}
+	return rt.NewArray(entries...)
+}
+
+func arraySliceAssocFixtureSelectors(value []any) rt.Array {
+	entries := make([]rt.Entry, 0, len(value))
+	for _, key := range value {
+		entries = append(entries, rt.Entry{Value: arraySliceAssocFixtureKey(key)})
+	}
+	return rt.NewArray(entries...)
+}
+
+func arraySliceAssocFixtureType(value any) string {
+	switch value.(type) {
+	case nil:
+		return "null"
+	case bool:
+		return "bool"
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	case rt.Array:
+		return "array"
+	default:
+		panic(fmt.Sprintf("array-slice-assoc fixture unexpected translated value type %T", value))
+	}
+}
+
+func normalizeArraySliceAssocValue(value any, depth int) any {
+	if depth > 8 {
+		panic("array-slice-assoc fixture output exceeds depth eight")
+	}
+	switch typed := value.(type) {
+	case nil, bool, int64, string:
+		return typed
+	case rt.Array:
+		out := make([]any, len(typed.Entries))
+		for index, entry := range typed.Entries {
+			key, ok := entry.Key.(int64)
+			if !ok || key != int64(index) {
+				panic("array-slice-assoc fixture nested output must retain sequential integer keys")
+			}
+			out[index] = normalizeArraySliceAssocValue(entry.Value, depth+1)
+		}
+		return out
+	default:
+		panic(fmt.Sprintf("array-slice-assoc fixture cannot normalize output type %T", value))
+	}
+}
+
+func normalizeArraySliceAssocEntries(value any) [][]any {
+	array, ok := value.(rt.Array)
+	if !ok {
+		panic("array-slice-assoc fixture root output must be an array")
+	}
+	out := make([][]any, 0, len(array.Entries))
+	for _, entry := range array.Entries {
+		_, ok := entry.Key.(int64)
+		if !ok {
+			if _, ok := entry.Key.(string); !ok {
+				panic(fmt.Sprintf("array-slice-assoc fixture output has unsupported key type %T", entry.Key))
+			}
+		}
+		out = append(out, []any{entry.Key, normalizeArraySliceAssocValue(entry.Value, 0)})
+	}
+	return out
+}
+
+// init is compiled beside GoHP's generated main.go. It invokes only the
+// generated original helper; expected values remain host-side assertions.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []arraySliceAssocCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("array-slice-assoc fixture has trailing JSON values")
+	}
+
+	observations := make([]arraySliceAssocObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" {
+			panic("array-slice-assoc fixture case name is required")
+		}
+		input := arraySliceAssocFixturePairs(testCase.Input, "input")
+		keys := arraySliceAssocFixtureSelectors(testCase.Keys)
+		// Parse all owned expectation fields as part of the bounded transport
+		// contract, but never use them to compute the observed helper result.
+		_ = arraySliceAssocFixturePairs(testCase.Expected, "expected")
+		_ = arraySliceAssocFixturePairs(testCase.InputAfter, "input_after")
+		_ = arraySliceAssocFixtureSelectors(testCase.KeysAfter)
+		value := F_wp_array_slice_assoc(input, keys)
+		observations = append(observations, arraySliceAssocObservation{
+			Name: testCase.Name, Type: arraySliceAssocFixtureType(value), Entries: normalizeArraySliceAssocEntries(value),
+			InputAfter: arraySliceAssocArrayObservation{Type: arraySliceAssocFixtureType(input), Entries: normalizeArraySliceAssocEntries(input)},
+			KeysAfter:  arraySliceAssocValueObservation{Type: arraySliceAssocFixtureType(keys), Value: normalizeArraySliceAssocValue(keys, 0)},
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

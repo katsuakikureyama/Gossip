@@ -1,0 +1,68 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+)
+
+type slashCase struct {
+	Name       string `json:"name"`
+	Input      string `json:"input"`
+	Untrailing string `json:"untrailing"`
+	Trailing   string `json:"trailing"`
+}
+
+type slashValueObservation struct {
+	Type  string `json:"type"`
+	Value string `json:"value"`
+}
+
+type slashObservation struct {
+	Name       string                `json:"name"`
+	Input      string                `json:"input"`
+	Untrailing slashValueObservation `json:"untrailing"`
+	Trailing   slashValueObservation `json:"trailing"`
+}
+
+// init is compiled beside GoHP's generated main.go. It observes the exact
+// generated functions without replacing their implementation.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+
+	var cases []slashCase
+	if err := json.Unmarshal(data, &cases); err != nil {
+		panic(err)
+	}
+
+	observations := make([]slashObservation, 0, len(cases))
+	for _, testCase := range cases {
+		untrailing, ok := F_untrailingslashit(testCase.Input).(string)
+		if !ok {
+			panic("untrailingslashit did not return a string")
+		}
+		trailing, ok := F_trailingslashit(testCase.Input).(string)
+		if !ok {
+			panic("trailingslashit did not return a string")
+		}
+		observations = append(observations, slashObservation{
+			Name:  testCase.Name,
+			Input: testCase.Input,
+			Untrailing: slashValueObservation{
+				Type:  "string",
+				Value: untrailing,
+			},
+			Trailing: slashValueObservation{
+				Type:  "string",
+				Value: trailing,
+			},
+		})
+	}
+
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

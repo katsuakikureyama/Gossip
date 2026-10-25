@@ -1,0 +1,30 @@
+// Owned composition calls into the unchanged WordPress helpers; this does not
+// replace any original helper body.
+function gossip_numeric_slice_shape( $input, $keys ): array {
+	$selected = wp_array_slice_assoc( $input, $keys );
+	return [
+		wp_is_numeric_array( $selected ),
+		array_is_list( $selected ),
+		wp_validate_boolean( $selected ),
+		wp_is_numeric_array( wp_slash( $selected ) ),
+	];
+}
+
+function gossip_numeric_values( $input, $keys ): array {
+	$selected = wp_array_slice_assoc( $input, $keys );
+	$values   = array_values( $selected );
+	return [
+		wp_is_numeric_array( $selected ),
+		wp_is_numeric_array( $values ),
+		array_all( $values, fn( $value, $key ) => is_string( $value ) ),
+	];
+}
+
+function gossip_numeric_yn_all( $input, $keys ): array {
+	$flags = array_map( 'bool_from_yn', wp_array_slice_assoc( $input, $keys ) );
+	return [
+		wp_is_numeric_array( $flags ),
+		array_all( $flags, fn( $value, $key ) => $value ),
+		wp_validate_boolean( $flags ),
+	];
+}

@@ -1,0 +1,686 @@
+{
+  "binary_sha256": "4f1e1893cfaefb88fd02ef026a3049c54b7fb95a34f82f210eb5b88d7b72bc7c",
+  "bundle_sha256": "d08a4a3fadb8a8005b389ad5d51ebf926da7554b57100c6d72ecc975f19aa1f1",
+  "case_count": 14,
+  "cases_sha256": "23bddfaaf6d1a9e8f6f7fa9cae5ff321527327c10ec9d7c0efb1fdd069c62812",
+  "compiler_sha256": "b7a37030bf03879b78879d5e63aa47caac17f9586d9fb133fe5fa5efaf488f60",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "wp_array_slice_assoc",
+    "original_first_line": 5173,
+    "original_last_line": 5183,
+    "sha256": "887f2bc5b08b05075261d1b5ff38dfbe90c9de9a08efd86f3a03f5fd6367a213"
+  },
+  "generated_sha256": "fae76fad8b5a879d7e86864750bd66d17af2d30b5b9d3bd1e9a022bfcafead57",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "5707c84ffcabfecc5db511f0334eb604fc057ff4da324f150f51900d107cf1ad",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "90473cd56131b779cffc4e38b6a32512e3f58e8522810583e4bfa15d99d4ce2b",
+  "gohp_commit": "db3051f8a179078e2227c5d97f50a2f1611d1451",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "3843934511ae7098012cd7259db520469b1a1dd9c3bdb2bd0620a76f8b363e51",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "9c50bbf2747d9e75a0241d8b47285339a3bb208ef5ba86dc33a170525b4b6252",
+  "schema": "gossip.array-slice-assoc-observation/v1",
+  "scope": "one unchanged WordPress associative array-slice helper; fourteen JSON-transported ordered key/value inputs and selector lists limited to bounded integer/string keys plus null, bool, modest signed integer, string and nested sequential list values; records ordered return entries and caller input/selectors after invocation; no floats, JSON objects, nested associative values, references, cycles, whole-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 14,
+  "typed_observations": [
+    {
+      "entries": [],
+      "input_after": {
+        "entries": [],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": []
+      },
+      "name": "empty",
+      "type": "array"
+    },
+    {
+      "entries": [],
+      "input_after": {
+        "entries": [],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "missing",
+          0
+        ]
+      },
+      "name": "empty_input",
+      "type": "array"
+    },
+    {
+      "entries": [],
+      "input_after": {
+        "entries": [
+          [
+            "x",
+            "keep"
+          ],
+          [
+            "n",
+            null
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": []
+      },
+      "name": "empty_selectors",
+      "type": "array"
+    },
+    {
+      "entries": [],
+      "input_after": {
+        "entries": [
+          [
+            "x",
+            "keep"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "absent",
+          "absent",
+          9
+        ]
+      },
+      "name": "missing_only",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "ok",
+          "yes"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            "null",
+            null
+          ],
+          [
+            "ok",
+            "yes"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "null",
+          "missing",
+          "ok"
+        ]
+      },
+      "name": "null_is_excluded",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "empty_array",
+          []
+        ],
+        [
+          "empty",
+          ""
+        ],
+        [
+          "false",
+          false
+        ],
+        [
+          "zero",
+          0
+        ],
+        [
+          "string_zero",
+          "0"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            "false",
+            false
+          ],
+          [
+            "zero",
+            0
+          ],
+          [
+            "empty",
+            ""
+          ],
+          [
+            "string_zero",
+            "0"
+          ],
+          [
+            "empty_array",
+            []
+          ],
+          [
+            "null",
+            null
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "empty_array",
+          "empty",
+          "false",
+          "zero",
+          "string_zero",
+          "null"
+        ]
+      },
+      "name": "falsy_values_are_set",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "c",
+          "C"
+        ],
+        [
+          "a",
+          "A"
+        ],
+        [
+          "b",
+          "B"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            "a",
+            "A"
+          ],
+          [
+            "b",
+            "B"
+          ],
+          [
+            "c",
+            "C"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "c",
+          "a",
+          "c",
+          "b",
+          "a"
+        ]
+      },
+      "name": "request_order_and_duplicates",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "02",
+          "leading"
+        ],
+        [
+          2,
+          "two"
+        ],
+        [
+          "+2",
+          "plus"
+        ],
+        [
+          "-0",
+          "negative_zero"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            2,
+            "two"
+          ],
+          [
+            "02",
+            "leading"
+          ],
+          [
+            "+2",
+            "plus"
+          ],
+          [
+            "-0",
+            "negative_zero"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "02",
+          2,
+          "+2",
+          "-0",
+          "0",
+          "2"
+        ]
+      },
+      "name": "numeric_key_distinctions",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          -7,
+          "minus_seven"
+        ],
+        [
+          -5,
+          "minus_five"
+        ],
+        [
+          "-05",
+          "leading"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            -5,
+            "minus_five"
+          ],
+          [
+            -7,
+            "minus_seven"
+          ],
+          [
+            "-05",
+            "leading"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "-7",
+          -5,
+          "-05",
+          -7
+        ]
+      },
+      "name": "negative_keys",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "a\u0000b",
+          "x\u0000y"
+        ],
+        [
+          "",
+          "empty-key"
+        ],
+        [
+          "日本語",
+          "雪"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            "日本語",
+            "雪"
+          ],
+          [
+            "a\u0000b",
+            "x\u0000y"
+          ],
+          [
+            "",
+            "empty-key"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "a\u0000b",
+          "",
+          "日本語",
+          "不存在"
+        ]
+      },
+      "name": "unicode_nul_and_empty_keys",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "deep",
+          [
+            null,
+            false,
+            0,
+            "",
+            [
+              "a",
+              [],
+              [
+                "日本語",
+                "\u0000"
+              ]
+            ]
+          ]
+        ],
+        [
+          "empty",
+          []
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            "deep",
+            [
+              null,
+              false,
+              0,
+              "",
+              [
+                "a",
+                [],
+                [
+                  "日本語",
+                  "\u0000"
+                ]
+              ]
+            ]
+          ],
+          [
+            "empty",
+            []
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "deep",
+          "empty"
+        ]
+      },
+      "name": "nested_list_values",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          2,
+          "two"
+        ],
+        [
+          0,
+          "zero"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            "one"
+          ],
+          [
+            2,
+            "two"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          2,
+          0,
+          2
+        ]
+      },
+      "name": "sparse_order_from_list",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "01",
+          "leading"
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            1,
+            null
+          ],
+          [
+            "01",
+            "leading"
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          1,
+          "1",
+          "01"
+        ]
+      },
+      "name": "normalized_collision_to_null",
+      "type": "array"
+    },
+    {
+      "entries": [
+        [
+          "tail",
+          [
+            1,
+            "2",
+            false
+          ]
+        ],
+        [
+          1,
+          -12345
+        ],
+        [
+          "other",
+          true
+        ]
+      ],
+      "input_after": {
+        "entries": [
+          [
+            1,
+            -12345
+          ],
+          [
+            "other",
+            true
+          ],
+          [
+            "tail",
+            [
+              1,
+              "2",
+              false
+            ]
+          ]
+        ],
+        "type": "array"
+      },
+      "keys_after": {
+        "type": "array",
+        "value": [
+          "tail",
+          "1",
+          "other",
+          1
+        ]
+      },
+      "name": "normalized_replacement_keeps_position",
+      "type": "array"
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "date": "2026-10-25",
+    "kind": "local-isolated-docker",
+    "gossip_test_commit": "1b191a17b574f174e04249b6420e893ec57750c5",
+    "gossip_test_tree": "c0b85668909beca251efceb4d56351af08c3538e",
+    "branch": "codex/gohp-array-slice-assoc",
+    "host_go": "go version go1.22.1 darwin/arm64",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressArraySliceAssocHelper$'",
+    "test_seconds": 8.42,
+    "package_seconds": 8.619,
+    "vet": {
+      "command": "go vet ./tests/gohp",
+      "status": "pass"
+    },
+    "post_pass_code_changes": false,
+    "earlier_setup_failure": {
+      "command": "go test ./tests/gohp -run '^TestOriginalWordPressArraySliceAssocHelper$'",
+      "revision": "uncommitted worktree before parent review",
+      "status": "setup failed",
+      "reason": "Go build cache open: operation not permitted",
+      "test_body_executed": false,
+      "docker_executed": false,
+      "php_executed": false
+    },
+    "boundaries": "New eighth standalone unit; previous seven units and ten/twelve/thirteen-function bundles not repinned or rerun"
+  },
+  "compiler_ci": {
+    "overall": "pass",
+    "metadata": {
+      "commit": "db3051f8a179078e2227c5d97f50a2f1611d1451",
+      "tree": "3155927445663c82c783c5d062b009b7d1a13648",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40156201018",
+      "run_id": "40156201018",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T02:54:35.437021502Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "9166f68e1cf5e3d6428a3f63d49f52a9a03813d2991aae64494193b0c7eee2f0",
+      "test_exit": 0
+    },
+    "catalog_sha256": "79e51b25ff8c9f1e36819974c1824267b22f056f5d2a6d90e9d2611ec9ecbf0c",
+    "event_sha256": "2d511b3a3e4dfe7ad2d0035974d9f24ec314b6511e02d933ebc76962224fadb4",
+    "feature_count": 46,
+    "case_count": 238,
+    "new_case": [
+      {
+        "id": "diff.array_return",
+        "test": "TestDifferential/array_return",
+        "package": "github.com/katsuakikureyama/GoHP/tests",
+        "kind": "differential",
+        "fixture": "tests/fixtures/array_return.php",
+        "fixture_sha256": "bc8b150f26e6cf6f20e023139b760eea65e550191c73a2f4f7b21aac0cfa29a8",
+        "generated_sha256": "ecdd89806e17cadcfcacd0c96568da0d6be16b6249030c390a00107fa1490d26",
+        "status": "pass",
+        "phase": {
+          "parse": "pass",
+          "codegen": "pass",
+          "go_build": "pass",
+          "go_execute": "pass",
+          "differential": "pass",
+          "stdout": "pass",
+          "exit": "pass",
+          "stderr": "not-checked",
+          "exceptions": "not-checked",
+          "side_effects": "not-checked"
+        }
+      }
+    ],
+    "reused": false,
+    "artifact": {
+      "id": 12585095049,
+      "name": "compatibility-php8.3-40156201018-1",
+      "digest": "sha256:81ba128c07a3da3116d725b69cf3d17971934d0f8de25ee769b7f9031fc3e5e3",
+      "expires_at": "2026-11-24T02:54:46Z",
+      "local_directory": "/private/tmp/gohp-array-return-ci.CoMkuY"
+    },
+    "local": {
+      "go": "go1.23.0 darwin/arm64",
+      "prefix": "GOCACHE=/tmp/gohp-go-cache GOPROXY=off GOTOOLCHAIN=go1.23.0",
+      "commands": [
+        "go test -count=1 ./runtime ./internal/frontend ./internal/codegen ./internal/compat",
+        "go test -count=1 ./tests -run '^TestArrayReturnRuntimeGuards$'",
+        "go vet ./..."
+      ],
+      "status": "pass",
+      "runtime_seconds": 0.602,
+      "codegen_seconds": 0.788,
+      "compat_seconds": 0.987,
+      "generated_guards_seconds": 1.622,
+      "frontend": "no test files"
+    }
+  }
+}

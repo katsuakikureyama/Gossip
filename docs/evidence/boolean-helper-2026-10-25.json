@@ -1,0 +1,175 @@
+{
+  "binary_sha256": "a23e4431225a27aed9c391d229b78026190b521706350c198523bdaaea14c9b6",
+  "bundle_sha256": "feafd030eb2f9981c1abddd7513721293f78234e646f166b788668877c2255ce",
+  "case_count": 23,
+  "cases_sha256": "301bd265763b4b480d52d3b434cf2eec69d2cd88807b8b7bfc91f0888862e87a",
+  "compiler_sha256": "60b3502b6b45fe7aa3dde321757908f1647bc4471dbd28054c1501b32f4e72e1",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "wp_validate_boolean",
+    "original_first_line": 7932,
+    "original_last_line": 7942,
+    "sha256": "5dbcedd52adf3a516887a312cee7d9c620a8173c60b98852f23ba994ad557e87"
+  },
+  "generated_sha256": "18d88c4904703fd1eafa9a14de1237219d5cfce20e99b3521b216675213226cb",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "c4fdfd3703a1dac0385cfd8bcff3f5608e1bf8a529523f702d336a6af07da7f5",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "33c0efcf3baba0af3ed3248582bbb6f178eedab9205a324b5bb40f54e64bfe03",
+  "gohp_commit": "14bb01053947f1bf2fb32edaff8085feb7227f48",
+  "php_image": "wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a",
+  "php_lc_ctype": "C",
+  "php_observer_sha256": "c77142c3b4aee1d159471d753c13d1d15ca6850a4923599997a43fa4cbd49b01",
+  "php_target": "8.3",
+  "report_sha256": "786147bc61592eb2564ee5698dbb49395e0c6bbe225f71233c8e5de756a333f8",
+  "schema": "gossip.boolean-observation/v1",
+  "scope": "one unchanged WordPress Boolean helper, twenty-three JSON-transported inputs limited to null, bool, signed integer, string and array values; PHP executes with LC_ALL=C and asserts LC_CTYPE=C; no floats, objects/maps, whole-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 23,
+  "typed_observations": [
+    {
+      "input_type": "bool",
+      "name": "bool_true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "bool",
+      "name": "bool_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "null",
+      "name": "null",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "int",
+      "name": "int_zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "int",
+      "name": "int_one",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "int",
+      "name": "int_negative_one",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "empty_string",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "string",
+      "name": "string_zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "string",
+      "name": "string_double_zero",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "string",
+      "name": "string_false_upper",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "string",
+      "name": "string_false_mixed",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "string",
+      "name": "string_false_leading_space",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_false_trailing_space",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_true",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_off",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_no",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_japanese",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "string",
+      "name": "string_nul",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "array",
+      "name": "empty_array",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_type": "array",
+      "name": "array_false",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "array",
+      "name": "array_zero",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_type": "array",
+      "name": "nested_empty_array",
+      "type": "bool",
+      "value": true
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

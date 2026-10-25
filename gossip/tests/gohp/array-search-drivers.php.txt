@@ -1,0 +1,36 @@
+// Owned calls into the unchanged WordPress compatibility helpers.
+function gossip_search_any_match( array $items ) {
+	return array_any( $items, fn( $value, $key ) => $value === $key );
+}
+
+function gossip_search_any_stop( array $items ) {
+	return array_any( $items, fn( $value, $key ) => $value === 'stop' || ( $value + 0 === 1 ) );
+}
+
+function gossip_search_any_truth( array $items ) {
+	return array_any( $items, fn( $value, $key ) => $value );
+}
+
+function gossip_search_find_match( array $items ) {
+	return array_find( $items, fn( $value, $key ) => $value === $key );
+}
+
+function gossip_search_find_stop( array $items ) {
+	return array_find( $items, fn( $value, $key ) => $value === 'stop' || ( $value + 0 === 1 ) );
+}
+
+function gossip_search_find_truth( array $items ) {
+	return array_find( $items, fn( $value, $key ) => $value );
+}
+
+function gossip_search_key_match( array $items ) {
+	return array_find_key( $items, fn( $value, $key ) => $value === $key );
+}
+
+function gossip_search_key_stop( array $items ) {
+	return array_find_key( $items, fn( $value, $key ) => $value === 'stop' || ( $value + 0 === 1 ) );
+}
+
+function gossip_search_key_truth( array $items ) {
+	return array_find_key( $items, fn( $value, $key ) => $value );
+}

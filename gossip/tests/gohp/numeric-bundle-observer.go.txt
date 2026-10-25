@@ -1,0 +1,66 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type numericBundleCase struct {
+	Name       string          `json:"name"`
+	Operation  string          `json:"operation"`
+	Input      []any           `json:"input"`
+	Keys       []any           `json:"keys"`
+	Expected   json.RawMessage `json:"expected"`
+	InputAfter json.RawMessage `json:"input_after"`
+	KeysAfter  json.RawMessage `json:"keys_after"`
+}
+
+// One process observes both retained corpora and new cross-helper compositions.
+func init() {
+	legacy := observeYNBundle()
+	numeric := observeNumericArray()
+	var cases []numericBundleCase
+	decodeNumericArrayFixture("/input/composition-cases.json", &cases)
+	observations := make([]ynBundleObservation, 0, len(cases))
+	seen := map[string]bool{}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid composition case name")
+		}
+		seen[c.Name] = true
+		input := numericArrayPairs(c.Input, "composition input")
+		for _, entry := range input.Entries {
+			if _, ok := entry.Value.(string); !ok {
+				panic("composition values must be strings")
+			}
+		}
+		keys := ynBundleFixtureSelectors(c.Keys, c.Operation)
+		var result any
+		switch c.Operation {
+		case "gossip_numeric_slice_shape":
+			result = F_gossip_numeric_slice_shape(input, keys)
+		case "gossip_numeric_values":
+			result = F_gossip_numeric_values(input, keys)
+		case "gossip_numeric_yn_all":
+			result = F_gossip_numeric_yn_all(input, keys)
+		default:
+			panic("unknown numeric composition")
+		}
+		array, ok := result.(rt.Array)
+		if !ok {
+			panic("composition must return an actual array")
+		}
+		for _, entry := range array.Entries {
+			if _, ok := entry.Value.(bool); !ok {
+				panic("composition must return actual boolean values")
+			}
+		}
+		observations = append(observations, ynBundleObservation{Name: c.Name, Type: "array", Value: normalizeYnBundleValue(array, 0), ArgsAfter: []any{numericArrayEntries(input), normalizeYnBundleValue(keys, 0)}})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(map[string]any{"legacy": legacy, "numeric": numeric, "composition": observations}); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

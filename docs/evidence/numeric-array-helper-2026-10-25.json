@@ -1,0 +1,652 @@
+{
+  "binary_sha256": "0b2bb461992ee7c2cf448ebc61207ecdb64dad5b3eaf5d5a043986ec043c169e",
+  "case_count": 31,
+  "cases_sha256": "9806417cf73c2d67e7ddfbef8309ad9dbfbafefc83298d026c0310798c3e9ffb",
+  "compiled_bundle_sha256": "95807b6dc8d1888c17dfca4d0751fa8e40b72898c8edb1cb6894d46c50a4860a",
+  "compiler_sha256": "8881bc6e79134563deb3b712662d24b10df2e376fab8deaab9c53b8b02a38131",
+  "compiler_version": "0.1.0-dev",
+  "drivers_sha256": "8431a1c97307301d19d9ded8280e32baf4c9069494d87fb45ccdb3caea20e0db",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 5448,
+      "last_line": 5454,
+      "name": "wp_is_numeric_array",
+      "sha256": "d5f563a1f457c6b810024682dcff05f5d460ce0668b71fca5722ad4bf46535ac",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "first_line": 623,
+      "last_line": 644,
+      "name": "array_all_guard",
+      "sha256": "93ee0c873730791c3ae0a7d4dbcf46028727bb1320a0c056551a1ff37f07cb30",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "first_line": 635,
+      "last_line": 643,
+      "name": "array_all",
+      "sha256": "6c38df7c094a954d8e34ff358ea3e2fd9eb46a33a009256206badc46bbd59dfb",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    }
+  ],
+  "generated_sha256": "21e1eb85a6fa3fad7b0479e383a6f58870802b0e4cdb86ce79c17210c217841c",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "949a73763c8f3e63207f7d12416707905999239b46f14b5b3b1bbc38c7fdbd64",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "2dbec5baf3cf37e90ec4adc577eb7a7f907b8a216c7ef52b97c311ab2f613389",
+  "gohp_commit": "bd419a2c6c72e645f0f0d7d09aa01eea15f70913",
+  "loading_guard": "native executes unchanged guard and verifies user-defined polyfill; compiler extracts unchanged declarations only",
+  "manifest_sha256": "c348d0f2c86e6b0e5976f889a8dbec90490ce928d536cca9d69019d07210acba",
+  "native_bundle_sha256": "cfbb41d590db943895284a265965ca75aa0aa511943461030fb8a208b5331545",
+  "original_declaration_count": 2,
+  "owned_driver_count": 5,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "1498ba59b5a64bba64dbb77c15787612bf288f976c60fa8e24f922cad668863b",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "polyfill_case_count": 7,
+  "polyfill_cases_sha256": "a57aaa77efd06c73fac6e0c99728efd28711d7b686ae38e3d179e3a2347e2f30",
+  "predicate_case_count": 24,
+  "reference_observer_sha256": "ab53d02be0edb31d0bacaaab91c4cd0088940db639f9fe1a8248b2b9b737c804",
+  "report_sha256": "9cddc0c898d1a02b26b38b3f79453ab26d6184e70569adcd0825ae672f3f7e43",
+  "schema": "gossip.numeric-array-observation/v1",
+  "scope": "two unchanged original declarations;24 predicate and7 direct-polyfill cases; actual bool/list/ordered typed caller input; flat scalars only; no bootstrap/conditional declarations/general callable/full-core compatibility; not a new combined17-original integration",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": {
+    "polyfill": [
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              -2,
+              -2
+            ],
+            [
+              "label",
+              "label"
+            ],
+            [
+              3,
+              3
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "key_value_match",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              0
+            ],
+            [
+              "label",
+              "other"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "key_value_mismatch",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              "stop"
+            ],
+            [
+              1,
+              "poison"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": true,
+        "name": "stop_first_skips_poison",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              -2,
+              1
+            ],
+            [
+              "end",
+              "stop"
+            ],
+            [
+              4,
+              "poison"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "stop_middle_skips_poison",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              2,
+              1
+            ],
+            [
+              "x",
+              "1"
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "all_true_mixed_key_order",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": []
+        },
+        "input_type": "array",
+        "is_list": true,
+        "name": "empty_no_callback",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "label",
+              null
+            ],
+            [
+              -3,
+              false
+            ],
+            [
+              0,
+              "value"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "callback_locals_preserve_input",
+        "type": "bool",
+        "value": true
+      }
+    ],
+    "predicate": [
+      {
+        "input_after": {
+          "type": "null",
+          "value": null
+        },
+        "input_type": "null",
+        "is_list": null,
+        "name": "null",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "bool",
+          "value": true
+        },
+        "input_type": "bool",
+        "is_list": null,
+        "name": "bool_true",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "bool",
+          "value": false
+        },
+        "input_type": "bool",
+        "is_list": null,
+        "name": "bool_false",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "int",
+          "value": 0
+        },
+        "input_type": "int",
+        "is_list": null,
+        "name": "int_zero",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "int",
+          "value": -7
+        },
+        "input_type": "int",
+        "is_list": null,
+        "name": "int_negative",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "string",
+          "value": ""
+        },
+        "input_type": "string",
+        "is_list": null,
+        "name": "string_empty",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "string",
+          "value": "0"
+        },
+        "input_type": "string",
+        "is_list": null,
+        "name": "string_numeric",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": []
+        },
+        "input_type": "array",
+        "is_list": true,
+        "name": "empty_array",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              "zero"
+            ],
+            [
+              1,
+              "one"
+            ],
+            [
+              2,
+              "two"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": true,
+        "name": "sequential_list",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              "zero"
+            ],
+            [
+              2,
+              "two"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "sparse_integer_keys",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              -2,
+              "minus two"
+            ],
+            [
+              -1,
+              "minus one"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "negative_integer_keys",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              2,
+              "two"
+            ],
+            [
+              0,
+              "zero"
+            ],
+            [
+              1,
+              "one"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "out_of_order_integer_keys",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              "zero"
+            ],
+            [
+              1,
+              "one"
+            ],
+            [
+              -2,
+              "minus two"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "canonical_decimal_string_keys_normalize",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "01",
+              "leading"
+            ],
+            [
+              1,
+              "one"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "leading_zero_string_key",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "+1",
+              "plus"
+            ],
+            [
+              0,
+              "zero"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "plus_prefixed_string_key",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "-0",
+              "negative zero"
+            ],
+            [
+              -1,
+              "minus one"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "negative_zero_string_key",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "",
+              "empty key"
+            ],
+            [
+              0,
+              "zero"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "empty_string_key",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              2,
+              null
+            ],
+            [
+              "meta",
+              false
+            ],
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              ""
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "mixed_integer_string_key_order",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              0,
+              null
+            ],
+            [
+              1,
+              false
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              ""
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": true,
+        "name": "null_false_zero_empty_string_values",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              -1000000,
+              -1000000
+            ],
+            [
+              1000000,
+              1000000
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "bounded_integer_keys_and_values",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              "name",
+              "value"
+            ],
+            [
+              0,
+              "zero"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "ordinary_string_then_integer_key",
+        "type": "bool",
+        "value": false
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              -2,
+              "minus two"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "canonical_negative_string_key_normalizes",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              1,
+              "one"
+            ],
+            [
+              0,
+              "zero"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "canonical_string_then_integer_order",
+        "type": "bool",
+        "value": true
+      },
+      {
+        "input_after": {
+          "type": "array",
+          "value": [
+            [
+              1,
+              "one"
+            ],
+            [
+              "01",
+              "leading"
+            ],
+            [
+              2,
+              "two"
+            ]
+          ]
+        },
+        "input_type": "array",
+        "is_list": false,
+        "name": "integer_before_noncanonical_string_key",
+        "type": "bool",
+        "value": false
+      }
+    ]
+  },
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

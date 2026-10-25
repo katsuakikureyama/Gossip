@@ -1,0 +1,90 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+)
+
+type zeroiseCase struct {
+	Name      string `json:"name"`
+	InputType string `json:"input_type"`
+	Input     any    `json:"input"`
+	Threshold int64  `json:"threshold"`
+}
+
+type zeroiseObservation struct {
+	Name      string `json:"name"`
+	InputType string `json:"input_type"`
+	Type      string `json:"type"`
+	Value     string `json:"value"`
+}
+
+func zeroiseInput(value any) any {
+	switch typed := value.(type) {
+	case string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil {
+			panic(fmt.Sprintf("zeroise fixture only transports signed integer JSON numbers: %v", err))
+		}
+		return integer
+	default:
+		panic(fmt.Sprintf("zeroise fixture unsupported JSON input type %T", value))
+	}
+}
+
+func zeroiseInputType(value any) string {
+	switch value.(type) {
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	default:
+		panic(fmt.Sprintf("zeroise fixture unexpected translated input type %T", value))
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It observes the exact
+// generated zeroise function without replacing its implementation.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []zeroiseCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("zeroise fixture has trailing JSON values")
+	}
+
+	observations := make([]zeroiseObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Threshold < 0 || testCase.Threshold > 4096 {
+			panic("zeroise fixture threshold must be in 0..4096")
+		}
+		input := zeroiseInput(testCase.Input)
+		if actualType := zeroiseInputType(input); actualType != testCase.InputType {
+			panic(fmt.Sprintf("case input type did not survive JSON transport: %s: got %s want %s", testCase.Name, actualType, testCase.InputType))
+		}
+		value, ok := F_zeroise(input, testCase.Threshold).(string)
+		if !ok {
+			panic("zeroise did not return string")
+		}
+		observations = append(observations, zeroiseObservation{
+			Name: testCase.Name, InputType: testCase.InputType, Type: "string", Value: value,
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

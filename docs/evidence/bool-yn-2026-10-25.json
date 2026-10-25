@@ -1,0 +1,428 @@
+{
+  "binary_sha256": "0e197c0c7120aced4387c4b4cab0655ea69536e17d23c60e757f6c9c3df344dd",
+  "bundle_sha256": "3baf346ab159d352e8958486c82771214efacc4edc8de4d781434ed80bb119a0",
+  "case_count": 24,
+  "cases_sha256": "1751e1dbd8267523edde3d59ff462bdd821ed4a2f8d1ee913b1a0b89a2547039",
+  "compiler_sha256": "b8aa23f81022077bd0d4053495c1dc36e86eeab2a7c5e8d431df7a6f9d0a747d",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "bool_from_yn",
+    "original_first_line": 1621,
+    "original_last_line": 1623,
+    "sha256": "2fb383818a5529a24fc26b6b9960cd6140872a1aa86347c27741255cfa2c72f3"
+  },
+  "generated_sha256": "9710b029487a1770de6412271bcc9c4f231cccdd2f49da042d0635a9b2e8911d",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "87808b0733f3c08d45c0c0a2d987562cbb38b9a3ef56eefa5914ed3f27d61a1f",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "69605e70b40471fb63e52fda73353b2c73655227bd8489ee9f99fa8fd2a9f08e",
+  "gohp_commit": "49a302e44464623dc4912bafbcf44192759d7878",
+  "input_after_call_count": 24,
+  "manifest_sha256": "bf1955126c7c4160dcca967a1b55c86f6bb25f5d161b3cd987f5867a274b3119",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "93733b4d2eddfaa834c0e1206440ba1a07adf3261d7431a71a1ef20f45dc2ab2",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "f8228b6bd5ce49bca27002aac3eefa9400cef7e52360bc40880a6cd9198bd4dc",
+  "schema": "gossip.bool-yn-observation/v1",
+  "scope": "one byte-unchanged WordPress yes/no string predicate; twenty-four JSON-transported string inputs; observes actual bool returns and unchanged caller input after every call; PHP executes with LC_CTYPE=C and asserts LC_CTYPE=C; no scalar coercion, general boolean parsing, whole functions.php/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/functions.php",
+  "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 24,
+  "typed_observations": [
+    {
+      "input_after": {
+        "type": "string",
+        "value": "y"
+      },
+      "input_type": "string",
+      "name": "lower_y",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "Y"
+      },
+      "input_type": "string",
+      "name": "upper_y",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "n"
+      },
+      "input_type": "string",
+      "name": "lower_n",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "N"
+      },
+      "input_type": "string",
+      "name": "upper_n",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "yes"
+      },
+      "input_type": "string",
+      "name": "word_yes",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "YES"
+      },
+      "input_type": "string",
+      "name": "upper_yes",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "true"
+      },
+      "input_type": "string",
+      "name": "word_true",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "false"
+      },
+      "input_type": "string",
+      "name": "word_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "1"
+      },
+      "input_type": "string",
+      "name": "digit_one",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "0"
+      },
+      "input_type": "string",
+      "name": "digit_zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": ""
+      },
+      "input_type": "string",
+      "name": "empty",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": " "
+      },
+      "input_type": "string",
+      "name": "space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": " y"
+      },
+      "input_type": "string",
+      "name": "leading_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "y "
+      },
+      "input_type": "string",
+      "name": "trailing_space",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "y\n"
+      },
+      "input_type": "string",
+      "name": "newline_suffix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "y\t"
+      },
+      "input_type": "string",
+      "name": "tab_suffix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "y\u0000"
+      },
+      "input_type": "string",
+      "name": "nul_suffix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "\u0000y"
+      },
+      "input_type": "string",
+      "name": "nul_prefix",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "ÿ"
+      },
+      "input_type": "string",
+      "name": "latin_diaeresis",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "Ｙ"
+      },
+      "input_type": "string",
+      "name": "fullwidth_y",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "Υ"
+      },
+      "input_type": "string",
+      "name": "greek_upsilon",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "はい"
+      },
+      "input_type": "string",
+      "name": "japanese",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "yy"
+      },
+      "input_type": "string",
+      "name": "repeated_y",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "no"
+      },
+      "input_type": "string",
+      "name": "word_no",
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "commit": "0f236704a0fcb3140dd7f8c3699ed3aa8abfa615",
+    "tree": "98c7d07b8844a25eba9aa885ea235175670a8491",
+    "branch": "codex/gohp-bool-yn",
+    "committed_before_execution": true,
+    "working_directory": "gossip",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressBoolFromYNHelper$' && go vet ./tests/gohp",
+    "host": "go version go1.22.1 darwin/arm64",
+    "result": "PASS",
+    "test_seconds": 13.23,
+    "package_seconds": 13.483,
+    "vet": "PASS",
+    "runtime_attempts": 1,
+    "post_pass_changes": "documentation/evidence only; no code/config changes or repeated runtime verification"
+  },
+  "compiler_validation": {
+    "reused": true,
+    "source_record": "heic-mime-2026-10-25.json",
+    "reason": "Exact unchanged GoHP commit/tree; no compiler source/config changes or compiler test/CI rerun in this change.",
+    "local": {
+      "commit": "49a302e44464623dc4912bafbcf44192759d7878",
+      "tree": "dc2046b28420a9f7a9da7447052a5e70d6543279",
+      "prefix": "GOCACHE=/tmp/gohp-go-cache GOPROXY=off GOTOOLCHAIN=go1.23.0",
+      "host": "Go1.23.0 darwin/arm64",
+      "commands": [
+        {
+          "command": "go test -count=1 ./runtime ./internal/codegen ./internal/compat",
+          "result": "PASS",
+          "package_seconds": [
+            0.209,
+            0.374,
+            0.581
+          ]
+        },
+        {
+          "command": "go test -count=1 ./tests -run '^TestInArrayStrictRuntimeGuards$|^TestUnsupported$/^in_array_'",
+          "result": "PASS",
+          "package_seconds": 2.291,
+          "note": "Slash filter selects the fourteen in_array static negatives, but excludes generated guard subtests; no guard evidence claimed from this invocation."
+        },
+        {
+          "command": "go test -count=1 -v ./tests -run '^TestInArrayStrictRuntimeGuards$'",
+          "result": "PASS",
+          "test_seconds": 1.87,
+          "package_seconds": 2.061,
+          "note": "All five generated guard subtests explicitly ran and passed."
+        },
+        {
+          "command": "go vet ./...",
+          "result": "PASS"
+        }
+      ]
+    },
+    "ci": {
+      "commit": "49a302e44464623dc4912bafbcf44192759d7878",
+      "tree": "dc2046b28420a9f7a9da7447052a5e70d6543279",
+      "dirty": "clean",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "goos": "linux",
+      "goarch": "amd64",
+      "php_target": "8.3",
+      "php_version": "8.3.36",
+      "php_image": "php:8.3.36-cli@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "go_image": "golang:1.23.12@sha256:60deed95d3888cc5e4d9ff8a10c54e5edc008c6ae3fba6187be6fb592e19e8c0",
+      "run_url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40159749575",
+      "run_id": "40159749575",
+      "attempt": "1",
+      "command": "go test -count=1 -json ./cmd/... ./internal/... ./runtime ./tests",
+      "started_at": "2026-10-25T03:52:04.041304033Z",
+      "build_flags": "CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS=",
+      "provenance": "ci-checkout-env",
+      "source_sha256": "8f7e82072b36d7c7c69284e18d70f4dfb798c0f5c1eb74b1959a7bf1f7e2abf2",
+      "test_exit": 0,
+      "overall": "pass",
+      "catalog_sha256": "d061e5c8ca2b9d8edf4131d4f69f48152f607814333a8e7b7c11b3b1ab1da9cb",
+      "event_sha256": "290d866622cef8f267ebd2bb86e70de4ed16ab70d5408aa97faaff845400aadf",
+      "case_count": 336,
+      "feature_count": 52,
+      "all_cases_pass": true,
+      "job_conclusion": "success",
+      "artifact": {
+        "id": 12586340125,
+        "node_id": "MDg6QXJ0aWZhY3QxMjU4NjM0MDEyNQ==",
+        "name": "compatibility-php8.3-40159749575-1",
+        "size_in_bytes": 101915,
+        "url": "https://api.github.com/repos/katsuakikureyama/GoHP/actions/artifacts/12586340125",
+        "archive_download_url": "https://api.github.com/repos/katsuakikureyama/GoHP/actions/artifacts/12586340125/zip",
+        "expired": false,
+        "digest": "sha256:4391dd90f542b6a2a9a5bbe5ff62f4cd63284e07406ce7f6662eaad0f5aa95e2",
+        "created_at": "2026-10-25T03:52:19Z",
+        "updated_at": "2026-10-25T03:52:19Z",
+        "expires_at": "2026-11-24T03:52:18Z",
+        "workflow_run": {
+          "id": 40159749575,
+          "repository_id": 1432085405,
+          "head_repository_id": 1432085405,
+          "head_branch": "feat/in-array-strict-scalar",
+          "head_sha": "49a302e44464623dc4912bafbcf44192759d7878"
+        }
+      },
+      "retrieved_to": "/private/tmp/gohp-in-array-ci.Gn0dnf",
+      "new_feature": {
+        "id": "php.builtin.in-array-strict-scalar",
+        "target": "8.3",
+        "kind": "builtin",
+        "name": "Strict scalar array membership",
+        "implementation": "partial",
+        "contract": "Exactly three arguments with literal true strictness; null/bool/int64/string needle and all array values; type-and-value equality, keys ignored, bool result. Entire domain validated before search.",
+        "limitations": [
+          "No loose/default/dynamic strictness, floats, array/object needles or non-scalar haystack values",
+          "Complete domain guard rejects unsupported values even after an early matching scalar; not general PHP mixed-array behavior",
+          "Native oracle observes stdout/normal exit, not general stderr/exception/side-effect equivalence"
+        ],
+        "checks": [
+          "compiler.in_array_lowering",
+          "diff.in_array_strict",
+          "negative.in_array_array_needle",
+          "negative.in_array_dead_branch",
+          "negative.in_array_dynamic_strict",
+          "negative.in_array_expression_strict",
+          "negative.in_array_extra_args",
+          "negative.in_array_false_strict",
+          "negative.in_array_missing_strict",
+          "negative.in_array_nested_haystack",
+          "negative.in_array_no_args",
+          "negative.in_array_nonarray_haystack",
+          "negative.in_array_object_haystack",
+          "negative.in_array_object_needle",
+          "negative.in_array_redeclare",
+          "negative.in_array_result_not_string",
+          "negative.in_array_runtime_array_needle_empty",
+          "negative.in_array_runtime_invalid_after_match",
+          "negative.in_array_runtime_invalid_before_match",
+          "negative.in_array_runtime_nonarray_haystack",
+          "negative.in_array_runtime_object_needle",
+          "unit.runtime.in_array_domain",
+          "unit.runtime.in_array_strict"
+        ],
+        "status": "differential-pass (case-limited)"
+      },
+      "automatic_pr_run": {
+        "id": 40159752113,
+        "conclusion": "success"
+      },
+      "scope": "native compiler schema observes stdout/normal exit, not general stderr/exception/side-effect equivalence"
+    }
+  }
+}

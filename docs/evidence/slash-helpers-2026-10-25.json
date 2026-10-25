@@ -1,0 +1,201 @@
+{
+  "binary_sha256": "c1b8060dfc8198dfcdb4604d219b0401994a438681b02e56f5d9c2d3e8d94de1",
+  "bundle_sha256": "df8b2b192844f3c7d285cb7f14cdc9189437dce6fc4a7670d49e4e4305fe7ad7",
+  "case_count": 13,
+  "cases_sha256": "d8676891ac023e36ce45351d317eca5f03c09b0d136c75fc04ff4ba69bae06ba",
+  "compiler_sha256": "5d6b900a17083aa97d49f6264f500378524a5fb3c8a854874d71f9fac5836bda",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "bundle_first_line": 2,
+      "name": "trailingslashit",
+      "original_first_line": 2883,
+      "original_last_line": 2885,
+      "sha256": "3242c532f0668f82ada2b0bafb1aefa17a522b860498a8de47ed47d3d694d938"
+    },
+    {
+      "bundle_first_line": 6,
+      "name": "untrailingslashit",
+      "original_first_line": 2898,
+      "original_last_line": 2900,
+      "sha256": "9e10b72e9db3d08ba4eabafb88e3682c6ac61d13a89c5ac8da9e24494d2ee596"
+    }
+  ],
+  "generated_sha256": "191f62f64364061603cf85450e5eba57218b1707f63ab1555624952d30e09c19",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "95f6885121e74b668282d73cd596e49e1ed1d1558f018e9a3b5635c7fed4c5a8",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "fe51c94e4d701f1ed1f1660574c24beb4d6025c4d677ec27b5d12a2afb58f86a",
+  "gohp_commit": "ceee0fc71e1e7947f1c78f1dd18875236b9a180b",
+  "php_image": "wordpress@sha256:04be81de853887fca707742785b32bf93fb4a692246dd1bc90b3790105071a9a",
+  "php_observer_sha256": "8d1c833dd0de10ac23fde8feb3c14e333ec97e03abceee89b5492d23bf22dc25",
+  "php_target": "8.3",
+  "report_sha256": "6ba77379c8eba418cf4f02f178ecec0a2068b07fd3ffc0cf3d0b6b338658f5b0",
+  "schema": "gossip.slash-observation/v1",
+  "scope": "two unchanged dependent WordPress helpers, thirteen string inputs, twenty-six typed returns; no nonstring coercion, full-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 26,
+  "typed_observations": [
+    {
+      "input": "",
+      "name": "empty",
+      "trailing": {
+        "type": "string",
+        "value": "/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": ""
+      }
+    },
+    {
+      "input": "/",
+      "name": "slash_only",
+      "trailing": {
+        "type": "string",
+        "value": "/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": ""
+      }
+    },
+    {
+      "input": "\\",
+      "name": "backslash_only",
+      "trailing": {
+        "type": "string",
+        "value": "/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": ""
+      }
+    },
+    {
+      "input": "/\\/\\",
+      "name": "mixed_only",
+      "trailing": {
+        "type": "string",
+        "value": "/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": ""
+      }
+    },
+    {
+      "input": "plain",
+      "name": "no_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "plain/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "plain"
+      }
+    },
+    {
+      "input": "/leading///\\/",
+      "name": "leading_and_repeated_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "/leading/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "/leading"
+      }
+    },
+    {
+      "input": "C:\\path\\to\\folder\\",
+      "name": "windows_path",
+      "trailing": {
+        "type": "string",
+        "value": "C:\\path\\to\\folder/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "C:\\path\\to\\folder"
+      }
+    },
+    {
+      "input": "a/b\\c/d\\e",
+      "name": "internal_slashes",
+      "trailing": {
+        "type": "string",
+        "value": "a/b\\c/d\\e/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "a/b\\c/d\\e"
+      }
+    },
+    {
+      "input": "keep/\\ \t",
+      "name": "trailing_space_and_tab",
+      "trailing": {
+        "type": "string",
+        "value": "keep/\\ \t/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "keep/\\ \t"
+      }
+    },
+    {
+      "input": "こんにちは/\\",
+      "name": "japanese_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "こんにちは/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "こんにちは"
+      }
+    },
+    {
+      "input": "https://example.test/a/b/?q=x/\\",
+      "name": "url_looking_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "https://example.test/a/b/?q=x/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "https://example.test/a/b/?q=x"
+      }
+    },
+    {
+      "input": "nul\u0000value/\\",
+      "name": "embedded_nul_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "nul\u0000value/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "nul\u0000value"
+      }
+    },
+    {
+      "input": "line1\nline2/\\",
+      "name": "embedded_lf_suffix",
+      "trailing": {
+        "type": "string",
+        "value": "line1\nline2/"
+      },
+      "untrailing": {
+        "type": "string",
+        "value": "line1\nline2"
+      }
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

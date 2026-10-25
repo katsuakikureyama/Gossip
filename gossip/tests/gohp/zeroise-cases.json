@@ -1,0 +1,20 @@
+[
+  {"name":"zero_width_int","input_type":"int","input":42,"threshold":0,"expected":"42"},
+  {"name":"exact_width_int","input_type":"int","input":42,"threshold":2,"expected":"42"},
+  {"name":"smaller_width_int","input_type":"int","input":42,"threshold":1,"expected":"42"},
+  {"name":"padded_int","input_type":"int","input":42,"threshold":5,"expected":"00042"},
+  {"name":"empty_width_zero","input_type":"string","input":"","threshold":0,"expected":""},
+  {"name":"empty_padded","input_type":"string","input":"","threshold":4,"expected":"0000"},
+  {"name":"negative_padded","input_type":"int","input":-42,"threshold":5,"expected":"00-42"},
+  {"name":"negative_exact","input_type":"int","input":-42,"threshold":3,"expected":"-42"},
+  {"name":"zero_padded","input_type":"int","input":0,"threshold":4,"expected":"0000"},
+  {"name":"leading_zero_string","input_type":"string","input":"0042","threshold":6,"expected":"000042"},
+  {"name":"already_wide","input_type":"string","input":"012345","threshold":2,"expected":"012345"},
+  {"name":"ascii_padded","input_type":"string","input":"go","threshold":4,"expected":"00go"},
+  {"name":"whitespace_preserved","input_type":"string","input":" hi","threshold":5,"expected":"00 hi"},
+  {"name":"multibyte_three_bytes","input_type":"string","input":"猫","threshold":6,"expected":"000猫"},
+  {"name":"emoji_four_bytes","input_type":"string","input":"🦊","threshold":6,"expected":"00🦊"},
+  {"name":"nul_preserved","input_type":"string","input":"A\u0000B","threshold":5,"expected":"00A\u0000B"},
+  {"name":"int64_max_padded","input_type":"int","input":9223372036854775807,"threshold":20,"expected":"09223372036854775807"},
+  {"name":"int64_min_padded","input_type":"int","input":-9223372036854775808,"threshold":22,"expected":"00-9223372036854775808"}
+]

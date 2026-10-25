@@ -1,0 +1,176 @@
+[
+  {
+    "name": "upper_hyphen",
+    "input_type": "string",
+    "input": "UTF-8",
+    "expected": true
+  },
+  {
+    "name": "lower_hyphen",
+    "input_type": "string",
+    "input": "utf-8",
+    "expected": true
+  },
+  {
+    "name": "mixed_hyphen",
+    "input_type": "string",
+    "input": "UtF-8",
+    "expected": true
+  },
+  {
+    "name": "upper_compact",
+    "input_type": "string",
+    "input": "UTF8",
+    "expected": true
+  },
+  {
+    "name": "lower_compact",
+    "input_type": "string",
+    "input": "utf8",
+    "expected": true
+  },
+  {
+    "name": "mixed_compact",
+    "input_type": "string",
+    "input": "uTf8",
+    "expected": true
+  },
+  {
+    "name": "empty",
+    "input_type": "string",
+    "input": "",
+    "expected": false
+  },
+  {
+    "name": "prefix_only",
+    "input_type": "string",
+    "input": "utf",
+    "expected": false
+  },
+  {
+    "name": "extra_digit",
+    "input_type": "string",
+    "input": "utf-80",
+    "expected": false
+  },
+  {
+    "name": "extra_suffix",
+    "input_type": "string",
+    "input": "utf8x",
+    "expected": false
+  },
+  {
+    "name": "leading_space",
+    "input_type": "string",
+    "input": " utf8",
+    "expected": false
+  },
+  {
+    "name": "trailing_space",
+    "input_type": "string",
+    "input": "utf8 ",
+    "expected": false
+  },
+  {
+    "name": "internal_space",
+    "input_type": "string",
+    "input": "utf 8",
+    "expected": false
+  },
+  {
+    "name": "underscore",
+    "input_type": "string",
+    "input": "utf_8",
+    "expected": false
+  },
+  {
+    "name": "unicode_dash",
+    "input_type": "string",
+    "input": "utf–8",
+    "expected": false
+  },
+  {
+    "name": "fullwidth",
+    "input_type": "string",
+    "input": "ＵＴＦ８",
+    "expected": false
+  },
+  {
+    "name": "trailing_nul",
+    "input_type": "string",
+    "input": "UTF-8\u0000",
+    "expected": false
+  },
+  {
+    "name": "internal_nul",
+    "input_type": "string",
+    "input": "UTF\u0000-8",
+    "expected": false
+  },
+  {
+    "name": "latin1",
+    "input_type": "string",
+    "input": "latin1",
+    "expected": false
+  },
+  {
+    "name": "utf16",
+    "input_type": "string",
+    "input": "UTF-16",
+    "expected": false
+  },
+  {
+    "name": "null",
+    "input_type": "null",
+    "input": null,
+    "expected": false
+  },
+  {
+    "name": "true",
+    "input_type": "bool",
+    "input": true,
+    "expected": false
+  },
+  {
+    "name": "false",
+    "input_type": "bool",
+    "input": false,
+    "expected": false
+  },
+  {
+    "name": "zero",
+    "input_type": "int",
+    "input": 0,
+    "expected": false
+  },
+  {
+    "name": "negative",
+    "input_type": "int",
+    "input": -1,
+    "expected": false
+  },
+  {
+    "name": "empty_array",
+    "input_type": "array",
+    "input": [],
+    "expected": false
+  },
+  {
+    "name": "string_array",
+    "input_type": "array",
+    "input": [
+      "UTF-8"
+    ],
+    "expected": false
+  },
+  {
+    "name": "nested_array",
+    "input_type": "array",
+    "input": [
+      [
+        "utf8"
+      ]
+    ],
+    "expected": false
+  }
+]

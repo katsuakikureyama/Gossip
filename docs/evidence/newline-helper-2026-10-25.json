@@ -1,0 +1,118 @@
+{
+  "binary_sha256": "a39306cde3e285a2d43296e6d592f6e69997c0774ded27169fd1e32af8d471cd",
+  "bundle_sha256": "e130609b2bb362ca4215db0511828678cd51ef0157a5af1220583ecdd916f7a7",
+  "case_count": 16,
+  "cases_sha256": "7ee98d65ae64edbb527343b6f345903f810bde02f61b7f5f4e1e85c16004b6f2",
+  "compiler_sha256": "475443cffd39df73f488c01ff5c2bfef3316e0e81d09724505971cfc48774e4f",
+  "compiler_version": "0.1.0-dev",
+  "exit_code": 0,
+  "fragment": {
+    "bundle_first_line": 2,
+    "name": "_autop_newline_preservation_helper",
+    "original_first_line": 811,
+    "original_last_line": 813,
+    "sha256": "2b21ce4ab89fcfb42f77b870f51da73de3062f541a0393b52497265edeb76829"
+  },
+  "generated_sha256": "7ef5a5b2f88e9142afa6e3e87807802322c46286130b3a1ab48f7b79d8a9702c",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "b788258b5e34e6cab91aad92279be8293d2eb8f7896f3486c62764b459d3f4be",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "a1cc7a10b5c0cc2ae81ad1d9fbee52b5ac82b34074b701b2d2c938c20c378924",
+  "gohp_commit": "dcb72c64d029c7a08a0e94256723ff4076209758",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "97939d1bab6a8a94c625916f2f6ac107157d2e696346dd639d1d7b1b2b1f3c70",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "e690eeb0f052a0181a512eefdf9a0bbf36c3612ee438e68092cf1830bc5aff67",
+  "schema": "gossip.autop-newline-observation/v1",
+  "scope": "one unchanged WordPress callback helper; sixteen JSON-transported non-empty PHP list inputs containing only strings, with the helper's index-zero contract and ignored extra capture entries observed; byte-oriented LF replacement including NUL and UTF-8 bytes; no maps, objects, non-list keys, empty inputs, whole-file/core, HTTP or filesystem behavior",
+  "source_path": "wp-includes/formatting.php",
+  "source_sha256": "d44aa1329df2fc38bf2670ad6de570e6b9eb65db9ed5507f26c683e569b2919e",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_call_count": 16,
+  "typed_observations": [
+    {
+      "name": "empty_capture",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "name": "no_newline",
+      "type": "string",
+      "value": "plain text"
+    },
+    {
+      "name": "single_newline",
+      "type": "string",
+      "value": "left<WPPreserveNewline />right"
+    },
+    {
+      "name": "multiple_newlines",
+      "type": "string",
+      "value": "<WPPreserveNewline /><WPPreserveNewline />"
+    },
+    {
+      "name": "leading_newline",
+      "type": "string",
+      "value": "<WPPreserveNewline />start"
+    },
+    {
+      "name": "trailing_newline",
+      "type": "string",
+      "value": "end<WPPreserveNewline />"
+    },
+    {
+      "name": "carriage_return_only",
+      "type": "string",
+      "value": "left\rright"
+    },
+    {
+      "name": "crlf",
+      "type": "string",
+      "value": "left\r<WPPreserveNewline />right"
+    },
+    {
+      "name": "mixed_line_endings",
+      "type": "string",
+      "value": "a<WPPreserveNewline />b\r<WPPreserveNewline />c\rd"
+    },
+    {
+      "name": "tab_preserved",
+      "type": "string",
+      "value": "a\t<WPPreserveNewline />b"
+    },
+    {
+      "name": "literal_backslash_n",
+      "type": "string",
+      "value": "a\\nb"
+    },
+    {
+      "name": "japanese",
+      "type": "string",
+      "value": "猫<WPPreserveNewline />犬"
+    },
+    {
+      "name": "emoji",
+      "type": "string",
+      "value": "🦊<WPPreserveNewline />🐱"
+    },
+    {
+      "name": "nul_preserved",
+      "type": "string",
+      "value": "A\u0000<WPPreserveNewline />B"
+    },
+    {
+      "name": "placeholder_text_then_newline",
+      "type": "string",
+      "value": "<WPPreserveNewline /><WPPreserveNewline />end"
+    },
+    {
+      "name": "extra_ignored_capture",
+      "type": "string",
+      "value": "first<WPPreserveNewline />line"
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c"
+}

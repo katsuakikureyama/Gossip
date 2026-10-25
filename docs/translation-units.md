@@ -1,0 +1,133 @@
+# Original WordPress translation units
+
+The first GoHP experiment translates **unchanged excerpts of actual WordPress
+functions**, not a handwritten Go equivalent or a rewritten PHP approximation.
+It does not translate or execute all of `functions.php` or WordPress.
+
+## Pinned unit
+
+The manifest is
+[`gossip/tests/gohp/return-helpers.json`](../gossip/tests/gohp/return-helpers.json).
+It pins the original WordPress commit and entire `wp-includes/functions.php`
+SHA-256 before selecting these complete functions:
+
+| Function | Original lines (inclusive) | Echo observation / typed return |
+| --- | --- | --- |
+| `__return_true` | 7181–7183 | `true=1` / bool `true` |
+| `__return_false` | 7196–7198 | `false=` / bool `false` |
+| `__return_zero` | 7209–7211 | `zero=0` / int `0` |
+| `__return_empty_array` | 7222–7224 | not in scalar echo oracle / array `[]` |
+| `__return_null` | 7235–7237 | `null=` / null |
+| `__return_empty_string` | 7250–7252 | `empty-string=` / string `""` |
+
+Each observation is newline-terminated. Original function text, indentation and
+inline comments are copied byte-for-byte. The bundle adds only a PHP opening
+tag, separator newlines and the owned call suffix `calls.php`. No WordPress
+function is changed to satisfy GoHP. Each excerpt hash and its original/bundle
+line location are recorded in the result. Upstream files remain untouched.
+
+`__return_empty_array` (7222–7224) is now part of the positive unit. Its
+original `array()` expression is copied byte-for-byte and is not rewritten to
+`[]`. The scalar echo oracle intentionally omits it because PHP array coercion
+is not a type-preserving observation; the typed probe compares its PHP `array`
+value `[]` against the generated Go return instead. The Go probe accepts only
+an `rt.Array` with zero entries and emits `[]`, failing for a nonempty array.
+This does not establish general array equivalence, array writes or mutation.
+Dynamic callbacks, plugin APIs, global state, references, includes, side
+effects and full WordPress startup are also outside it. Successful conversion
+of these literal-return helpers does not remove the original hook engine's
+GoHP blockers.
+
+## Execution boundary
+
+1. Require the pinned complete WordPress source hash and matching fork baseline.
+2. Export the pinned GoHP commit with `git archive`; do not build a caller's
+   modified working tree. Stage regular files/directories only, not `.git`,
+   credentials or symlinks. No remote fetch is performed by the test.
+3. In a network-disabled, non-root, read-only-root container, build GoHP and
+   generate a fresh Go file/report. Mount only staged sources/input read-only
+   and a test-owned candidate directory writable. Never invoke Composer or
+   repository shell scripts from the compiler source.
+4. Require successful generation, recognize `gohp.build/v0.1`, and verify both
+   source/generated hashes before using the generated source. Ignore additive
+   report fields; never use report-supplied paths as filesystem authority.
+5. Build against the **same pinned GoHP runtime**, with network/toolchain
+   downloads disabled. Record `compiled` separately from `generated`.
+6. Run the resulting binary and the PHP bundle in separate isolated containers.
+   Require exit 0, empty stderr and exactly matching stdout, also matching the
+   owned expected observation.
+7. Compile a separate Go observer beside the unchanged generated file. Its
+   `init()` calls the actual generated functions, records their return types and
+   values as JSON, then exits before the echo-based main. Independently observe
+   the unchanged PHP definitions. Require both parsed records to match each other
+   and `typed-expected.json`, with empty stderr and exit 0.
+8. Require the typed probe to match the original empty-array PHP observation
+   alongside the five scalar helpers. Only then report `differential_pass` for
+   this six-function unit; the scalar echo output remains a five-function,
+   deliberately non-array observation.
+
+The current shared GoHP commit is
+[`4e1b5abfe019ec121e13d85e99e51c206e765533`](https://github.com/katsuakikureyama/GoHP/tree/4e1b5abfe019ec121e13d85e99e51c206e765533),
+with Gossip test commit `e943cbce1f74c93b5ca990de7a544caabb274aa5`. The source
+is exported from that exact commit; the checked-out branch does not select it.
+This unit remains one six-function comparison, separate from the slash and
+Boolean units despite sharing the compiler. Its current PHP 8.3.36 execution is
+recorded only in [unified-compiler evidence](evidence/unified-compiler-2026-10-25.md),
+not inferred from generation or from another unit.
+
+The previous `c67fbefe34b1b098c0a9f475504d06bd014de23c` pin and its Draft PR #8
+CI are retained as historical compiler evidence. They do not select the current
+unit or establish a current-policy result.
+Go and PHP runner images are immutable digests in the unit manifest. GoHP needs
+Go 1.23+, so the existing cached Go 1.25 image is used inside the builder; the
+host can continue running the Gossip test driver with Go 1.22.
+
+Every container uses no network, no added capabilities, no-new-privileges,
+non-root host UID/GID, 768 MiB memory, 256 PIDs, two CPUs and a 90-second stage
+timeout. Builder `/tmp` is a 256 MiB noexec tmpfs. Compiler caches/artifacts live
+only in the test's temporary candidate directory. On timeout the harness removes
+only its exact randomly named container. Successful containers use `--rm`; Go
+cleans the test directories. There are no persistent services or host ports.
+
+## Reproduction
+
+Obtain the pinned GoHP source and runner images deliberately; the test itself
+will neither pull images nor download a compiler/dependency. From `gossip/`:
+
+```sh
+GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP \
+  go test -count=1 -v ./tests/gohp
+```
+
+The clone must contain the manifest's commit object; the checked-out branch
+does not select the compiler version. Without `GOSSIP_GOHP_SOURCE` this test
+explicitly skips. A skipped test is not translation evidence.
+
+The JSON observation printed by a successful run records original source and
+excerpts, source bundle, GoHP commit/archive/compiler binary, generated source,
+compiler report, candidate binary, runner images, toolchain and compared output.
+The compiler's own report remains `generated`; the independent observation is
+the narrow differential result. Neither status activates a plugin or release.
+
+The v3 observation records typed observations and observer/definitions/
+typed-binary hashes for all six functions. The historical v2 rejection result
+is retained as prior evidence and is not overwritten. The observers are test instrumentation:
+PHP `get_debug_type`/`json_encode` and dynamic calls are executed only by PHP, not
+translated. Go's `F___return_*` symbols are a private convention of the pinned
+compiler, not a stable integration API. The adapter accepts only bool, int64,
+string and nil plus an `rt.Array` with exactly zero entries, mapping them to PHP
+type labels; unexpected types and nonempty arrays fail.
+
+The typed probe distinguishes false, null and empty string and observes one
+exact empty-array return for these six actual returns. It does not prove general
+return-type equivalence, PHP warnings/exception behavior, arbitrary inputs,
+array mutation or complete language semantics. It is a narrow original-source
+translation path, not production compatibility.
+
+## Capability exclusion
+
+`gossip.dev.wordpress-unit.translate-compare` is explicitly **excluded** from
+WebMCP: it is an opt-in local developer integration test, not a browser, MCP or
+S2S operation. It adds no auth/session/cookie routing, UI callsite, auto-submit,
+publication, install/activation, audit API or production migration operation.
+Generated artifacts are temporary test outputs, not a supported deployment API.

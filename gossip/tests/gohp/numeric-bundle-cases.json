@@ -1,0 +1,110 @@
+[
+  {
+    "name": "shape_empty_selection",
+    "operation": "gossip_numeric_slice_shape",
+    "input": [[0, "zero"], ["name", "word"]],
+    "keys": ["missing"],
+    "expected": [true, true, false, true],
+    "input_after": [[0, "zero"], ["name", "word"]],
+    "keys_after": ["missing"]
+  },
+  {
+    "name": "shape_sparse_negative_selector_order",
+    "operation": "gossip_numeric_slice_shape",
+    "input": [[-2, "minus two"], [3, "three"], [8, "eight"]],
+    "keys": [3, -2],
+    "expected": [true, false, true, true],
+    "input_after": [[-2, "minus two"], [3, "three"], [8, "eight"]],
+    "keys_after": [3, -2]
+  },
+  {
+    "name": "shape_mixed_string_key",
+    "operation": "gossip_numeric_slice_shape",
+    "input": [[0, "zero"], ["name", "word"], [2, "two"]],
+    "keys": [2, "name", 0],
+    "expected": [false, false, true, false],
+    "input_after": [[0, "zero"], ["name", "word"], [2, "two"]],
+    "keys_after": [2, "name", 0]
+  },
+  {
+    "name": "shape_selector_dedup_missing",
+    "operation": "gossip_numeric_slice_shape",
+    "input": [[0, "zero"], [1, "one"], [2, "two"]],
+    "keys": [2, 0, 2, 999999, "absent", 1],
+    "expected": [true, false, true, true],
+    "input_after": [[0, "zero"], [1, "one"], [2, "two"]],
+    "keys_after": [2, 0, 2, 999999, "absent", 1]
+  },
+  {
+    "name": "values_empty_selection",
+    "operation": "gossip_numeric_values",
+    "input": [[0, "zero"], ["name", "word"]],
+    "keys": [-1000000],
+    "expected": [true, true, true],
+    "input_after": [[0, "zero"], ["name", "word"]],
+    "keys_after": [-1000000]
+  },
+  {
+    "name": "values_sparse_negative_integer_keys",
+    "operation": "gossip_numeric_values",
+    "input": [[-7, "minus seven"], [4, "four"]],
+    "keys": [-7, 4],
+    "expected": [true, true, true],
+    "input_after": [[-7, "minus seven"], [4, "four"]],
+    "keys_after": [-7, 4]
+  },
+  {
+    "name": "values_mixed_string_key",
+    "operation": "gossip_numeric_values",
+    "input": [[0, "zero"], ["meta", "word"], [2, "two"]],
+    "keys": ["meta", 0],
+    "expected": [false, true, true],
+    "input_after": [[0, "zero"], ["meta", "word"], [2, "two"]],
+    "keys_after": ["meta", 0]
+  },
+  {
+    "name": "values_normalized_key_selector_order_missing",
+    "operation": "gossip_numeric_values",
+    "input": [["4", "four"], [0, "zero"], ["meta", "word"]],
+    "keys": [0, "4", "missing"],
+    "expected": [true, true, true],
+    "input_after": [[4, "four"], [0, "zero"], ["meta", "word"]],
+    "keys_after": [0, "4", "missing"]
+  },
+  {
+    "name": "yn_empty_selection",
+    "operation": "gossip_numeric_yn_all",
+    "input": [[0, "y"], [1, "Y"]],
+    "keys": ["missing"],
+    "expected": [true, true, false],
+    "input_after": [[0, "y"], [1, "Y"]],
+    "keys_after": ["missing"]
+  },
+  {
+    "name": "yn_sparse_negative_y_and_upper_y",
+    "operation": "gossip_numeric_yn_all",
+    "input": [[-1, "y"], [3, "Y"], [8, "n"]],
+    "keys": [3, -1],
+    "expected": [true, true, true],
+    "input_after": [[-1, "y"], [3, "Y"], [8, "n"]],
+    "keys_after": [3, -1]
+  },
+  {
+    "name": "yn_mixed_string_key_false_value",
+    "operation": "gossip_numeric_yn_all",
+    "input": [[0, "y"], ["mode", "false"], [2, "Y"]],
+    "keys": ["mode", 0],
+    "expected": [false, false, true],
+    "input_after": [[0, "y"], ["mode", "false"], [2, "Y"]],
+    "keys_after": ["mode", 0]
+  },
+  {
+    "name": "yn_selector_dedup_missing_mixed_values",
+    "operation": "gossip_numeric_yn_all",
+    "input": [[0, "Y"], [1, "false"], [2, "y"]],
+    "keys": [2, 1, 2, 1000000, "absent"],
+    "expected": [true, false, true],
+    "input_after": [[0, "Y"], [1, "false"], [2, "y"]],
+    "keys_after": [2, 1, 2, 1000000, "absent"]
+  }
+]

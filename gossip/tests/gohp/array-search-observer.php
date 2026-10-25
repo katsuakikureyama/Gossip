@@ -1,0 +1,41 @@
+<?php
+
+require '/input/helpers.php';
+require '/input/transport.php';
+if (PHP_VERSION_ID >= 80400 || setlocale(LC_CTYPE,'C') !== 'C') {
+    throw new RuntimeException('requires PHP8.3 and C locale');
+}
+foreach (['array_any','array_find','array_find_key'] as $name) {
+    $function = new ReflectionFunction($name);
+    if (!$function->isUserDefined() || $function->isInternal()) {
+        throw new RuntimeException('requires original user-defined polyfill');
+    }
+}
+$cases = json_decode(file_get_contents('/input/cases.json'),true,512,JSON_THROW_ON_ERROR);
+$observations = [];
+$seen = [];
+foreach ($cases as $case) {
+    if (!is_string($case['name']) || isset($seen[$case['name']])) { throw new RuntimeException('invalid search case name'); }
+    $seen[$case['name']] = true;
+    $input = numeric_array_fixture_pairs($case['input'],'search input');
+    $value = match ($case['operation']) {
+        'gossip_search_any_match' => gossip_search_any_match($input),
+        'gossip_search_any_stop' => gossip_search_any_stop($input),
+        'gossip_search_any_truth' => gossip_search_any_truth($input),
+        'gossip_search_find_match' => gossip_search_find_match($input),
+        'gossip_search_find_stop' => gossip_search_find_stop($input),
+        'gossip_search_find_truth' => gossip_search_find_truth($input),
+        'gossip_search_key_match' => gossip_search_key_match($input),
+        'gossip_search_key_stop' => gossip_search_key_stop($input),
+        'gossip_search_key_truth' => gossip_search_key_truth($input),
+        default => throw new RuntimeException('unknown search operation'),
+    };
+    numeric_array_fixture_scalar($value,'observed search result');
+    $type = get_debug_type($value);
+    $after = numeric_array_fixture_entries($input);
+    if ($type !== $case['expected']['type'] || $value !== $case['expected']['value'] || $after !== $case['input_after']) {
+        throw new RuntimeException('search expectation mismatch: ' . $case['name']);
+    }
+    $observations[] = ['name'=>$case['name'],'type'=>$type,'value'=>$value,'input_after'=>$after];
+}
+echo json_encode($observations,JSON_THROW_ON_ERROR), "\n";

@@ -1,0 +1,73 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type newlineCase struct {
+	Name  string `json:"name"`
+	Input []any  `json:"input"`
+}
+
+type newlineObservation struct {
+	Name  string `json:"name"`
+	Type  string `json:"type"`
+	Value string `json:"value"`
+}
+
+func newlineInput(entries []any, name string) rt.Array {
+	if len(entries) == 0 {
+		panic(fmt.Sprintf("newline fixture input must be a non-empty list: %s", name))
+	}
+	values := make([]rt.Entry, 0, len(entries))
+	for _, entry := range entries {
+		value, ok := entry.(string)
+		if !ok {
+			panic(fmt.Sprintf("newline fixture captures must be strings: %s", name))
+		}
+		values = append(values, rt.Entry{Value: value})
+	}
+	return rt.NewArray(values...)
+}
+
+// init is compiled beside GoHP's generated main.go. It observes the exact
+// generated helper while retaining the PHP list shape as an rt.Array.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	var cases []newlineCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("newline fixture has trailing JSON values")
+	}
+
+	observations := make([]newlineObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" {
+			panic("newline fixture case name is required")
+		}
+		value, ok := F__autop_newline_preservation_helper(newlineInput(testCase.Input, testCase.Name)).(string)
+		if !ok {
+			panic("_autop_newline_preservation_helper did not return string")
+		}
+		observations = append(observations, newlineObservation{
+			Name: testCase.Name, Type: "string", Value: value,
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

@@ -1,0 +1,304 @@
+[
+  {
+    "name": "null",
+    "input_type": "null",
+    "input": null,
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": null
+  },
+  {
+    "name": "bool_true",
+    "input_type": "bool",
+    "input": true,
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": true
+  },
+  {
+    "name": "bool_false",
+    "input_type": "bool",
+    "input": false,
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": false
+  },
+  {
+    "name": "int_zero",
+    "input_type": "int",
+    "input": 0,
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": 0
+  },
+  {
+    "name": "int_negative",
+    "input_type": "int",
+    "input": -7,
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": -7
+  },
+  {
+    "name": "string_empty",
+    "input_type": "string",
+    "input": "",
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": ""
+  },
+  {
+    "name": "string_numeric",
+    "input_type": "string",
+    "input": "0",
+    "expected": false,
+    "expected_is_list": null,
+    "input_after": "0"
+  },
+  {
+    "name": "empty_array",
+    "input_type": "array",
+    "input": [],
+    "expected": true,
+    "expected_is_list": true,
+    "input_after": []
+  },
+  {
+    "name": "sequential_list",
+    "input_type": "array",
+    "input": [
+      [0, "zero"],
+      [1, "one"],
+      [2, "two"]
+    ],
+    "expected": true,
+    "expected_is_list": true,
+    "input_after": [
+      [0, "zero"],
+      [1, "one"],
+      [2, "two"]
+    ]
+  },
+  {
+    "name": "sparse_integer_keys",
+    "input_type": "array",
+    "input": [
+      [0, "zero"],
+      [2, "two"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [0, "zero"],
+      [2, "two"]
+    ]
+  },
+  {
+    "name": "negative_integer_keys",
+    "input_type": "array",
+    "input": [
+      [-2, "minus two"],
+      [-1, "minus one"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [-2, "minus two"],
+      [-1, "minus one"]
+    ]
+  },
+  {
+    "name": "out_of_order_integer_keys",
+    "input_type": "array",
+    "input": [
+      [2, "two"],
+      [0, "zero"],
+      [1, "one"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [2, "two"],
+      [0, "zero"],
+      [1, "one"]
+    ]
+  },
+  {
+    "name": "canonical_decimal_string_keys_normalize",
+    "input_type": "array",
+    "input": [
+      ["0", "zero"],
+      ["1", "one"],
+      ["-2", "minus two"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [0, "zero"],
+      [1, "one"],
+      [-2, "minus two"]
+    ]
+  },
+  {
+    "name": "leading_zero_string_key",
+    "input_type": "array",
+    "input": [
+      ["01", "leading"],
+      [1, "one"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      ["01", "leading"],
+      [1, "one"]
+    ]
+  },
+  {
+    "name": "plus_prefixed_string_key",
+    "input_type": "array",
+    "input": [
+      ["+1", "plus"],
+      [0, "zero"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      ["+1", "plus"],
+      [0, "zero"]
+    ]
+  },
+  {
+    "name": "negative_zero_string_key",
+    "input_type": "array",
+    "input": [
+      ["-0", "negative zero"],
+      [-1, "minus one"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      ["-0", "negative zero"],
+      [-1, "minus one"]
+    ]
+  },
+  {
+    "name": "empty_string_key",
+    "input_type": "array",
+    "input": [
+      ["", "empty key"],
+      [0, "zero"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      ["", "empty key"],
+      [0, "zero"]
+    ]
+  },
+  {
+    "name": "mixed_integer_string_key_order",
+    "input_type": "array",
+    "input": [
+      [2, null],
+      ["meta", false],
+      [-1, 0],
+      [0, ""]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      [2, null],
+      ["meta", false],
+      [-1, 0],
+      [0, ""]
+    ]
+  },
+  {
+    "name": "null_false_zero_empty_string_values",
+    "input_type": "array",
+    "input": [
+      [0, null],
+      [1, false],
+      [2, 0],
+      [3, ""]
+    ],
+    "expected": true,
+    "expected_is_list": true,
+    "input_after": [
+      [0, null],
+      [1, false],
+      [2, 0],
+      [3, ""]
+    ]
+  },
+  {
+    "name": "bounded_integer_keys_and_values",
+    "input_type": "array",
+    "input": [
+      [-1000000, -1000000],
+      [1000000, 1000000]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [-1000000, -1000000],
+      [1000000, 1000000]
+    ]
+  },
+  {
+    "name": "ordinary_string_then_integer_key",
+    "input_type": "array",
+    "input": [
+      ["name", "value"],
+      [0, "zero"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      ["name", "value"],
+      [0, "zero"]
+    ]
+  },
+  {
+    "name": "canonical_negative_string_key_normalizes",
+    "input_type": "array",
+    "input": [
+      ["-2", "minus two"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [-2, "minus two"]
+    ]
+  },
+  {
+    "name": "canonical_string_then_integer_order",
+    "input_type": "array",
+    "input": [
+      ["1", "one"],
+      [0, "zero"]
+    ],
+    "expected": true,
+    "expected_is_list": false,
+    "input_after": [
+      [1, "one"],
+      [0, "zero"]
+    ]
+  },
+  {
+    "name": "integer_before_noncanonical_string_key",
+    "input_type": "array",
+    "input": [
+      [1, "one"],
+      ["01", "leading"],
+      [2, "two"]
+    ],
+    "expected": false,
+    "expected_is_list": false,
+    "input_after": [
+      [1, "one"],
+      ["01", "leading"],
+      [2, "two"]
+    ]
+  }
+]

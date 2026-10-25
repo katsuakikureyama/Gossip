@@ -2,7 +2,34 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: fourteen-original associative bundle
+## Latest: original UTF-8 charset-name predicate
+
+- Branch `codex/gohp-utf8-charset`, stacked on #18. Test commit
+  `fccd38e47c4f23ed0bb8b35a0cc974c9486f4d2f`, tree
+  `64499078c9dd73381ba28bce7c3cb889392981cc`, committed before execution.
+- Unchanged `_is_utf8_charset`, compat.php102–111, executes on GoHP
+  `d9f6c7b4f288ef816c4ee3cb6a3458d2226e00d5` (Draft #40 on #38).
+  New guarded string-only strcasecmp plus existing !/||/is_string/===.
+  Original source is neither rewritten nor replaced with an owned algorithm.
+- All28 cases match actual bool returns and post-call inputs against PHP8.3.36
+  and authored expectations; empty stderr/exit0. First local comparison
+  PASS37.69s/package37.898s, vetPASS. No failure/retry. Post-PASS docs only.
+- Compiler native CI40158737961, clean exact head/tree, PHP8.3.36 and Go1.23.12,
+  passes all296 checks/49 features plus vet/CLI smoke/artifacts. Parent local
+  runtime/codegen/compat and generated guard tests/vet also PASS. Exact
+  [contract](utf8-charset-unit.md) and [evidence](evidence/utf8-charset-2026-10-25.md).
+- Ninth separate unit, not a fifteen-original bundle. The #36 array-return/
+  isset stack is absent from this compiler pin; earlier eight units and all
+  bundles remain pinned and unchanged. Original files/SDK/hooks/PHP admission
+  and master README-only publication are unchanged.
+- Next: integrate the published compiler stacks in a separate change before
+  a new fifteen-original bundle. Public is_utf8_charset/defaults/coalescing/
+  get_option, _canonical_charset, text encoding conversion and full core/
+  HTTP/DB/theme/plugin execution remain unverified. No merge/release/deploy
+  or license decision. Local capability remains WebMCP-excluded; auth routes
+  unchanged. Devboard unidentified/unsynchronized, not Done.
+
+## Previous: fourteen-original associative bundle
 
 - Branch `codex/gohp-associative-helper-bundle`, stacked on #17. Tested
   snapshot `9c14ce515c266d9db6d1f125a889c9e93cfc3dd1`, tree

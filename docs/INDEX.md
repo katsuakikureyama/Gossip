@@ -7,6 +7,8 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [UTF-8 charset-name unit](utf8-charset-unit.md) | Ninth standalone unit: unchanged _is_utf8_charset with guarded ASCII comparison; not UTF-8 text validation |
+| [UTF-8 charset evidence](evidence/utf8-charset-2026-10-25.md) | 28-case bool/input-after PASS; exact pins and new compiler CI296-check result |
 | [Fourteen-original associative bundle](associative-helper-bundle-unit.md) | One generated binary with fourteen unchanged originals and sixteen owned drivers; bounded ordered-key transport |
 | [Fourteen-original bundle evidence](evidence/associative-helper-bundle-2026-10-25.md) | 55-case direct/composed PASS, exact tested tree, actual caller arguments and reused compiler CI238-check evidence |
 | [Associative slice unit](array-slice-assoc-unit.md) | Eighth standalone unit: unchanged wp_array_slice_assoc including typed return; ordered key/value transport |

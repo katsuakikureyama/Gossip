@@ -70,6 +70,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   Its [55-case PASS](docs/evidence/associative-helper-bundle-2026-10-25.md)
   covers direct calls and compositions with ordered keys and caller arguments;
   it does not establish full-core or recursive unescaping compatibility.
+  A ninth standalone [charset-name unit](docs/utf8-charset-unit.md) executes
+  unchanged `_is_utf8_charset()` using ASCII case-insensitive comparison.
+  Its [28-case result](docs/evidence/utf8-charset-2026-10-25.md) observes actual
+  bool returns and unchanged inputs. This recognizes charset names, not valid
+  UTF-8 text, and does not execute the option-dependent public wrapper.
+  Its separate compiler pin has not joined the fourteen-original bundle.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -122,6 +128,9 @@ The associative slice unit uses its own pin in
 [`array-slice-assoc-helper.json`](gossip/tests/gohp/array-slice-assoc-helper.json).
 The fourteen-original bundle selects its configuration in
 [`associative-helper-bundle.json`](gossip/tests/gohp/associative-helper-bundle.json).
+The charset-name unit uses
+[`utf8-charset-helper.json`](gossip/tests/gohp/utf8-charset-helper.json), based on
+the separate logical/comparison compiler stack; earlier pins stay unchanged.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

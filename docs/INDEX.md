@@ -6,7 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | _wp_array_get native24-case reference and three compiler gaps; retained24-original262-case integration |
+| [Current state](current-state-fork-baseline.md) | _wp_array_get24-case Go/PHP PASS;25th original separately, retained24-original262-case integration |
+| [Nested settings lookup unit](array-get-unit.md) | Unchanged original, retained24 cases, GoHP #64 pin; bounded recursive node transport |
+| [Nested settings lookup evidence](evidence/array-get-unit-2026-10-26.md) | Actual typed return/caller states PASS; initial runtime failure and compiler correction retained |
 | [Nested settings lookup boundary](array-get-boundary.md) | Original helper used by Theme JSON/global styles; default/isset/continue prerequisites |
 | [Nested settings reference evidence](evidence/array-get-boundary-2026-10-26.md) | Native24 PASS, five parser rejections, exact snapshots/commands/hashes; Go/PHP not-run |
 | [Twenty-four-original integration](edge-helper-bundle-unit.md) | All24 originals/46 drivers;230 retained +24 edges +8 new composed cases |

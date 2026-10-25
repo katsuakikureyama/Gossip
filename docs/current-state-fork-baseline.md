@@ -2,7 +2,27 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: original array_first comparison PASS
+## Latest: original array_first/array_last24-case comparison PASS
+
+Both originals now translate on GoHP main
+`440308c77da07cbcdce403fed7fff3945e0d2078` (#58) and execute in one binary.
+All24 retained cases (12 each) match PHP8.3.36/C, actual scalar return types/
+values and ordered caller inputs. First PASS11.16s/package11.364s, empty stderr/
+exit0; vet PASS with a writable cache after the default-cache sandbox denial.
+Test commit `ecb89beed327dd14cd3772bfdb9e752074816a0f`, tree
+`ed72977216cb8b70747b14a8c88804db74124507`. Original source/cases/PHP observer/
+transports unchanged. No compiler change or repeated comparison.
+[Contract](array-edge-unit.md), [record](evidence/array-edge-unit-2026-10-26.md).
+
+The old rejected boundary and first-only configuration remain historical
+evidence for their exact pins. This new two-original configuration does not
+extend the22-original230-case integration automatically. A larger single-binary
+integration is the next step. Full WordPress startup/HTTP/DB/themes/plugins
+and broader value domains remain unverified. Developer capability remains
+WebMCP-excluded, route/auth unchanged. PR/current-state tracks this work;
+devboard card remains unidentified.
+
+## Previous: original array_first comparison PASS
 
 Original array_first now translates and matches PHP for all12 retained cases
 using GoHP main `4a4fffb995e57daf592785b6626e45a7babe08da` (#57).

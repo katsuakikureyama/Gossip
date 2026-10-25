@@ -8,6 +8,7 @@ support or compatibility promise.
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
 | [Thirteen-original recursive bundle](recursive-helper-bundle-unit.md) | One generated binary,33 direct/composed observations with caller-argument preservation; no recursive unescaping claim |
+| [Thirteen-original bundle evidence](evidence/recursive-helper-bundle-2026-10-25.md) | Initial33-case PASS, exact source/test/compiler pins and reused compiler CI181-check evidence |
 | [Recursive wp_slash unit](wp-slash-unit.md) | Seventh standalone original-source unit; literal self-callback and nested-list input preservation |
 | [Recursive wp_slash evidence](evidence/wp-slash-2026-10-25.md) | 22 actual return/input-after comparisons; exact pins and compiler CI181-check result |
 | [Integrated twelve-helper bundle](integrated-helper-bundle-unit.md) | One generated executable using the combined conditional/string/array compiler; separate direct/composed corpus |

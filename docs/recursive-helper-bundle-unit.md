@@ -36,6 +36,9 @@ separate evidence).
 
 ## Exact source and execution boundary
 
+The [execution record](evidence/recursive-helper-bundle-2026-10-25.md) records
+the initial33-case PASS, exact revisions/commands and all observed values/hashes.
+
 The new manifest binds the WordPress baseline, entire original-file hashes,
 function ranges and compiler/runtime commit. Extraction records each excerpt's
 hash and bundle line offset. Driver/case/observer/generated/report/binary hashes

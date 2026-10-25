@@ -2,7 +2,34 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: original recursive wp_slash
+## Latest: thirteen-original recursive helper bundle
+
+- Branch `codex/gohp-recursive-helper-bundle`, [Draft #15](https://github.com/katsuakikureyama/Gossip/pull/15)
+  on #14; test commit `97ed80c3db187ce9ffb2a73c27dd5207f8594192`,
+  tree `baef43b9bed5efd39b256d7fe705d93a133fafbf`.
+- Previous twelve originals plus unchanged wp_slash and eleven owned PHP
+  composition drivers translated/built once into one executable. New33-case
+  configuration (direct13/composed20) includes string roundtrips, shallow list
+  stripping, capture/newline and shape/keys/values compositions. Every actual
+  observation also checks caller arguments after invocation remain unchanged.
+- Initial local isolated comparison PASS8.19s/package8.387s, all33 actual
+  return types/values/arguments match PHP8.3.36 and explicit expectations;
+  empty stderr/exit0, LC_CTYPE=C, affected-package vetPASS. No failure/retry
+  or implementation change after PASS. Exact [evidence](evidence/recursive-helper-bundle-2026-10-25.md)
+  and [contract](recursive-helper-bundle-unit.md) retain all hashes/boundaries.
+- Compiler/runtime unchanged at03d433e73503e32a84f310f023fc0f65c9b188cd
+  (GoHP #27), existing exact-tree CI40152066817 PASS181 checks reused, not rerun.
+  Earlier seven standalone units and ten-/twelve-function bundles retain their
+  pins/corpora/results. Their complete earlier inputs are not relabelled as
+  verified in this new combined configuration.
+- wp_unslash/map_deep needs element/property mutation, object traversal and
+  dynamic call_user_func; none is implemented here. Next: isolate a missing
+  compiler contract such as array writes before claiming map_deep support.
+  Full-core startup/HTTP/DB/themes/plugins remain unverified. Draft only,
+  no merge/deploy/release/license decision. WebMCP-excluded local tooling,
+  no auth changes; devboard unidentified/unsynced, not Done.
+
+## Previous: original recursive wp_slash
 
 - Branch `codex/gohp-wp-slash`, [Draft #14](https://github.com/katsuakikureyama/Gossip/pull/14)
   on #13; test commit `d3f02dc3625d331a477cd5fb8655f4d28e864432`,

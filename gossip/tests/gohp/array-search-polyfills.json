@@ -1,0 +1,46 @@
+{
+  "schema": "gossip.array-search-polyfills/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "gohp_commit": "36191c57003408d001d9f7217805a3549fdd9f98",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "sources": [
+    {
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487",
+      "fragments": [
+        {
+          "name": "array_find",
+          "first_line": 566,
+          "last_line": 574
+        },
+        {
+          "name": "array_find_guard",
+          "first_line": 554,
+          "last_line": 575
+        },
+        {
+          "name": "array_find_key",
+          "first_line": 589,
+          "last_line": 597
+        },
+        {
+          "name": "array_find_key_guard",
+          "first_line": 577,
+          "last_line": 598
+        },
+        {
+          "name": "array_any",
+          "first_line": 612,
+          "last_line": 620
+        },
+        {
+          "name": "array_any_guard",
+          "first_line": 600,
+          "last_line": 621
+        }
+      ]
+    }
+  ]
+}

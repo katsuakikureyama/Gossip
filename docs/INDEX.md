@@ -7,7 +7,12 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
-| [Next numeric-array boundary](numeric-array-boundary.md) | Original predicate/polyfill dependencies and24-case PHP-only reference; Go translation remains rejected |
+| [Array search polyfills](array-search-polyfills-unit.md) | Separate three-original search unit;30 bounded cases, exact evidence pending |
+| [Nineteen-original numeric bundle](numeric-helper-bundle-unit.md) | GoHP #54,19 originals/33 drivers, single-binary192-case integration |
+| [Nineteen-original bundle evidence](evidence/numeric-helper-bundle-2026-10-25.md) | 192 actual comparisons and vet PASS; Draft #27, not full WordPress bootstrap |
+| [Numeric-array helper unit](numeric-array-helper-unit.md) | Two originals on GoHP #53 with31 cases; previous rejection remains historical |
+| [Numeric-array helper evidence](evidence/numeric-array-helper-2026-10-25.md) | 31 actual comparisons PASS, separate from integrated bundle |
+| [Historical numeric-array boundary](numeric-array-boundary.md) | Original predicate/polyfill dependencies and24-case PHP-only reference; old GoHP #44 translation rejected |
 | [Numeric-array boundary evidence](evidence/numeric-array-boundary-2026-10-25.md) | Native reference PASS and two actual compiler rejections; explicitly not differential PASS |
 | [Seventeen-original yes/no bundle](yn-helper-bundle-unit.md) | One binary,17 unchanged originals/25 owned drivers/149 cases; separate input domains and Boolean contracts |
 | [Seventeen-original bundle evidence](evidence/yn-helper-bundle-2026-10-25.md) | 149-call typed/input-after PASS; exact pre-execution commit and reused compiler336-check evidence |

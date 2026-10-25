@@ -1,0 +1,57 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+)
+
+type searchCase struct {
+	Name       string          `json:"name"`
+	Operation  string          `json:"operation"`
+	Input      []any           `json:"input"`
+	Expected   json.RawMessage `json:"expected"`
+	InputAfter json.RawMessage `json:"input_after"`
+}
+
+func init() {
+	var cases []searchCase
+	decodeNumericArrayFixture("/input/cases.json", &cases)
+	observations := make([]map[string]any, 0, len(cases))
+	seen := map[string]bool{}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid search case name")
+		}
+		seen[c.Name] = true
+		input := numericArrayPairs(c.Input, "search input")
+		var value any
+		switch c.Operation {
+		case "gossip_search_any_match":
+			value = F_gossip_search_any_match(input)
+		case "gossip_search_any_stop":
+			value = F_gossip_search_any_stop(input)
+		case "gossip_search_any_truth":
+			value = F_gossip_search_any_truth(input)
+		case "gossip_search_find_match":
+			value = F_gossip_search_find_match(input)
+		case "gossip_search_find_stop":
+			value = F_gossip_search_find_stop(input)
+		case "gossip_search_find_truth":
+			value = F_gossip_search_find_truth(input)
+		case "gossip_search_key_match":
+			value = F_gossip_search_key_match(input)
+		case "gossip_search_key_stop":
+			value = F_gossip_search_key_stop(input)
+		case "gossip_search_key_truth":
+			value = F_gossip_search_key_truth(input)
+		default:
+			panic("unknown search operation")
+		}
+		scalar := numericArrayScalar(value, "observed search result")
+		observations = append(observations, map[string]any{"name": c.Name, "type": numericArrayType(scalar), "value": scalar, "input_after": numericArrayEntries(input)})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

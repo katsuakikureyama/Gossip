@@ -1,8 +1,27 @@
 # Current state — WordPress fork baseline
 
-Last updated: 2026-10-25 (JST).
+Last updated: 2026-10-26 (JST).
 
-## Latest: next numeric-array reference and rejected compiler boundary
+## Latest: nineteen-original integration published; next search unit in progress
+
+- [Draft #27](https://github.com/katsuakikureyama/Gossip/pull/27) publishes the
+  nineteen-original/192-case single-binary integration on GoHP #54.
+  Test commit `9972a6f92ad3d3e889d8d71b128d893966d65682`, evidence head
+  `baaac5474d751fc38fa55875ab862ffdb9564585`. All192 cases and vet PASS;
+  [exact record](evidence/numeric-helper-bundle-2026-10-25.md). Published with
+  owner approval on 2026-10-26, not merged. No retest on publication.
+- The earlier two-original/31-case #53 unit also passed; see its
+  [record](evidence/numeric-array-helper-2026-10-25.md). The rejected #44 boundary
+  below is historical, not the current compiler result.
+- Next branch `codex/gohp-array-search-polyfills` adds a separate three-original
+  search unit on the same #54 pin. It is not a22-original integrated PASS.
+  [Contract](array-search-polyfills-unit.md); execution evidence is pending.
+- WordPress originals, previous settings/evidence, SDK/hooks, oracle policy,
+  prototype and master unchanged. General callback/capture/bootstrap/core/HTTP/
+  DB/theme/plugin compatibility is not established. Local capability remains
+  WebMCP-excluded; devboard unidentified/unsynchronized.
+
+## Previous: numeric-array reference and rejected compiler boundary
 
 - Branch `codex/gohp-numeric-array-boundary` on #24. Test commit
   `90870c68d01c9d399dcd6060b85ce38363096373`, tree

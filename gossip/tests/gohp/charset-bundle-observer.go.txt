@@ -1,0 +1,426 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type charsetBundleCase struct {
+	Name      string `json:"name"`
+	Operation string `json:"operation"`
+	Args      []any  `json:"args"`
+}
+
+type charsetBundleObservation struct {
+	Name      string `json:"name"`
+	Type      string `json:"type"`
+	Value     any    `json:"value"`
+	ArgsAfter []any  `json:"args_after"`
+}
+
+func charsetBundleFixtureKey(value any) any {
+	switch typed := value.(type) {
+	case string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("charset bundle fixture key must be a bounded signed integer or string: %v", value))
+		}
+		return integer
+	default:
+		panic(fmt.Sprintf("charset bundle fixture key must be a signed integer or string, got %T", value))
+	}
+}
+
+func charsetBundleFixtureValue(value any, depth int) any {
+	if depth > 8 {
+		panic("charset bundle fixture values are limited to depth eight")
+	}
+	switch typed := value.(type) {
+	case nil, bool, string:
+		return typed
+	case json.Number:
+		integer, err := typed.Int64()
+		if err != nil || integer < -1_000_000 || integer > 1_000_000 {
+			panic(fmt.Sprintf("charset bundle only transports modest signed integer JSON numbers: %v", err))
+		}
+		return integer
+	case []any:
+		entries := make([]rt.Entry, 0, len(typed))
+		for _, item := range typed {
+			entries = append(entries, rt.Entry{Value: charsetBundleFixtureValue(item, depth+1)})
+		}
+		return rt.NewArray(entries...)
+	case map[string]any:
+		panic("charset bundle does not transport PHP objects/maps")
+	default:
+		panic(fmt.Sprintf("charset bundle unsupported JSON value type %T", value))
+	}
+}
+
+func charsetBundleFixturePairs(value []any, field string) rt.Array {
+	entries := make([]rt.Entry, 0, len(value))
+	for index, rawPair := range value {
+		pair, ok := rawPair.([]any)
+		if !ok || len(pair) != 2 {
+			panic(fmt.Sprintf("charset bundle fixture %s pair %d must contain exactly key and value", field, index))
+		}
+		entries = append(entries, rt.Entry{Key: charsetBundleFixtureKey(pair[0]), Value: charsetBundleFixtureValue(pair[1], 0)})
+	}
+	return rt.NewArray(entries...)
+}
+
+func charsetBundleFixtureSelectors(value []any, operation string) rt.Array {
+	entries := make([]rt.Entry, 0, len(value))
+	for _, key := range value {
+		entries = append(entries, rt.Entry{Value: charsetBundleFixtureKey(key)})
+	}
+	return rt.NewArray(entries...)
+}
+
+func charsetBundleType(value any) string {
+	switch value.(type) {
+	case nil:
+		return "null"
+	case bool:
+		return "bool"
+	case int64:
+		return "int"
+	case string:
+		return "string"
+	case rt.Array:
+		return "array"
+	default:
+		panic(fmt.Sprintf("charset bundle unexpected translated value type %T", value))
+	}
+}
+
+func normalizeCharsetBundleValue(value any, depth int) any {
+	if depth > 8 {
+		panic("charset bundle fixture output exceeds depth eight")
+	}
+	switch typed := value.(type) {
+	case nil, bool, int64, string:
+		return typed
+	case rt.Array:
+		out := make([]any, len(typed.Entries))
+		for index, entry := range typed.Entries {
+			key, ok := entry.Key.(int64)
+			if !ok || key != int64(index) {
+				panic("charset bundle output array must retain sequential integer keys")
+			}
+			out[index] = normalizeCharsetBundleValue(entry.Value, depth+1)
+		}
+		return out
+	default:
+		panic(fmt.Sprintf("charset bundle cannot normalize translated output type %T", value))
+	}
+}
+
+func normalizeCharsetBundleEntries(value any) [][]any {
+	array, ok := value.(rt.Array)
+	if !ok {
+		panic("charset bundle associative root must be an array")
+	}
+	out := make([][]any, 0, len(array.Entries))
+	for _, entry := range array.Entries {
+		switch key := entry.Key.(type) {
+		case int64:
+			if key < -1_000_000 || key > 1_000_000 {
+				panic("charset bundle output integer key is outside the fixture bounds")
+			}
+		case string:
+		default:
+			panic(fmt.Sprintf("charset bundle output has unsupported key type %T", entry.Key))
+		}
+		out = append(out, []any{entry.Key, normalizeCharsetBundleValue(entry.Value, 0)})
+	}
+	return out
+}
+
+func charsetBundlePairOperation(operation string) bool {
+	switch operation {
+	case "wp_array_slice_assoc", "gossip_slice_slash", "gossip_slash_slice", "gossip_slice_shallow_roundtrip", "gossip_slice_shape", "gossip_slice_boolean", "gossip_slice_charset", "gossip_slice_unescape_charset":
+		return true
+	default:
+		return false
+	}
+}
+
+func charsetBundlePairsResult(operation string) bool {
+	switch operation {
+	case "wp_array_slice_assoc", "gossip_slice_slash", "gossip_slash_slice", "gossip_slice_shallow_roundtrip", "gossip_slice_charset", "gossip_slice_unescape_charset":
+		return true
+	default:
+		return false
+	}
+}
+
+func charsetBundlePairArgs(args []any, operation string) ([]any, rt.Array, rt.Array) {
+	if len(args) != 2 {
+		panic(fmt.Sprintf("%s requires exactly an ordered-pairs array and a selector list", operation))
+	}
+	rawPairs, pairsOK := args[0].([]any)
+	rawSelectors, selectorsOK := args[1].([]any)
+	if !pairsOK || !selectorsOK {
+		panic(fmt.Sprintf("%s requires exactly an ordered-pairs array and a selector list", operation))
+	}
+	input := charsetBundleFixturePairs(rawPairs, operation+" input")
+	selectors := charsetBundleFixtureSelectors(rawSelectors, operation)
+	return []any{input, selectors}, input, selectors
+}
+
+func charsetBundlePairRuntimeArgs(args []any, operation string) (rt.Array, rt.Array) {
+	if len(args) != 2 {
+		panic(fmt.Sprintf("%s requires exactly an ordered-pairs array and a selector list", operation))
+	}
+	input, inputOK := args[0].(rt.Array)
+	selectors, selectorsOK := args[1].(rt.Array)
+	if !inputOK || !selectorsOK {
+		panic(fmt.Sprintf("%s requires exactly an ordered-pairs array and a selector list", operation))
+	}
+	return input, selectors
+}
+
+func charsetBundleFixtureArgs(testCase charsetBundleCase) []any {
+	if charsetBundlePairOperation(testCase.Operation) {
+		args, _, _ := charsetBundlePairArgs(testCase.Args, testCase.Operation)
+		return args
+	}
+	args := make([]any, len(testCase.Args))
+	for index, arg := range testCase.Args {
+		args[index] = charsetBundleFixtureValue(arg, 0)
+	}
+	return args
+}
+
+func charsetBundleObservedValue(operation string, value any) any {
+	if charsetBundlePairsResult(operation) {
+		return normalizeCharsetBundleEntries(value)
+	}
+	return normalizeCharsetBundleValue(value, 0)
+}
+
+func charsetBundleObservedArgs(operation string, args []any) []any {
+	out := make([]any, len(args))
+	for index, arg := range args {
+		if charsetBundlePairOperation(operation) && index == 0 {
+			out[index] = normalizeCharsetBundleEntries(arg)
+			continue
+		}
+		out[index] = normalizeCharsetBundleValue(arg, 0)
+	}
+	return out
+}
+
+func charsetBundleNoArgs(args []any, operation string) {
+	if len(args) != 0 {
+		panic(fmt.Sprintf("%s requires no arguments", operation))
+	}
+}
+func charsetBundleString(args []any, operation string) string {
+	if len(args) != 1 {
+		panic(fmt.Sprintf("%s requires exactly one string argument", operation))
+	}
+	value, ok := args[0].(string)
+	if !ok {
+		panic(fmt.Sprintf("%s requires exactly one string argument", operation))
+	}
+	return value
+}
+func charsetBundleAny(args []any, operation string) any {
+	if len(args) != 1 {
+		panic(fmt.Sprintf("%s requires exactly one fixture value", operation))
+	}
+	switch args[0].(type) {
+	case nil, bool, int64, string, rt.Array:
+		return args[0]
+	default:
+		panic(fmt.Sprintf("%s requires exactly one fixture value", operation))
+	}
+}
+func charsetBundleWidth(value any, operation string) int64 {
+	width, ok := value.(int64)
+	if !ok || width < 0 || width > 4096 {
+		panic(fmt.Sprintf("%s width must be an int in 0..4096", operation))
+	}
+	return width
+}
+func charsetBundleValueAndWidth(args []any, operation string) (any, int64) {
+	if len(args) != 2 {
+		panic(fmt.Sprintf("%s requires a string or int value and int width", operation))
+	}
+	switch args[0].(type) {
+	case string, int64:
+		return args[0], charsetBundleWidth(args[1], operation)
+	default:
+		panic(fmt.Sprintf("%s requires a string or int value and int width", operation))
+	}
+}
+func charsetBundleCaptures(args []any, operation string) rt.Array {
+	if len(args) != 1 {
+		panic(fmt.Sprintf("%s requires one non-empty list of string captures", operation))
+	}
+	captures, ok := args[0].(rt.Array)
+	if !ok || len(captures.Entries) == 0 {
+		panic(fmt.Sprintf("%s requires one non-empty list of string captures", operation))
+	}
+	for index, entry := range captures.Entries {
+		key, keyOK := entry.Key.(int64)
+		if !keyOK || key != int64(index) {
+			panic(fmt.Sprintf("%s captures must retain sequential integer keys", operation))
+		}
+		if _, ok := entry.Value.(string); !ok {
+			panic(fmt.Sprintf("%s captures must all be strings", operation))
+		}
+	}
+	return captures
+}
+func charsetBundleArray(args []any, operation string) rt.Array {
+	if len(args) != 1 {
+		panic(fmt.Sprintf("%s requires exactly one list array", operation))
+	}
+	value, ok := args[0].(rt.Array)
+	if !ok {
+		panic(fmt.Sprintf("%s requires exactly one list array", operation))
+	}
+	return value
+}
+
+func charsetBundleCall(testCase charsetBundleCase, args []any) any {
+	switch testCase.Operation {
+	case "__return_true":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_true()
+	case "__return_false":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_false()
+	case "__return_zero":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_zero()
+	case "__return_empty_array":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_empty_array()
+	case "__return_null":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_null()
+	case "__return_empty_string":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F___return_empty_string()
+	case "wp_validate_boolean":
+		return F_wp_validate_boolean(charsetBundleString(args, testCase.Operation))
+	case "_autop_newline_preservation_helper":
+		return F__autop_newline_preservation_helper(charsetBundleCaptures(args, testCase.Operation))
+	case "zeroise":
+		value, width := charsetBundleValueAndWidth(args, testCase.Operation)
+		return F_zeroise(value, width)
+	case "trailingslashit":
+		return F_trailingslashit(charsetBundleString(args, testCase.Operation))
+	case "untrailingslashit":
+		return F_untrailingslashit(charsetBundleString(args, testCase.Operation))
+	case "stripslashes_from_strings_only":
+		return F_stripslashes_from_strings_only(charsetBundleAny(args, testCase.Operation))
+	case "wp_slash":
+		return F_wp_slash(charsetBundleAny(args, testCase.Operation))
+	case "gossip_capture_newline_unslash":
+		return F_gossip_capture_newline_unslash(charsetBundleCaptures(args, testCase.Operation))
+	case "gossip_unslash_array_keys":
+		return F_gossip_unslash_array_keys(charsetBundleArray(args, testCase.Operation))
+	case "gossip_unslash_array_shape":
+		return F_gossip_unslash_array_shape(charsetBundleArray(args, testCase.Operation))
+	case "gossip_path_pad":
+		value, width := charsetBundleValueAndWidth(args, testCase.Operation)
+		path, ok := value.(string)
+		if !ok {
+			panic("gossip_path_pad requires a string path")
+		}
+		return F_gossip_path_pad(path, width)
+	case "gossip_zero_pad":
+		if len(args) != 1 {
+			panic("gossip_zero_pad requires one width")
+		}
+		return F_gossip_zero_pad(charsetBundleWidth(args[0], testCase.Operation))
+	case "gossip_false_boolean":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F_gossip_false_boolean()
+	case "gossip_empty_string_path":
+		charsetBundleNoArgs(args, testCase.Operation)
+		return F_gossip_empty_string_path()
+	case "gossip_slash_scalar_roundtrip":
+		return F_gossip_slash_scalar_roundtrip(charsetBundleString(args, testCase.Operation))
+	case "gossip_slash_list_shallow_roundtrip":
+		return F_gossip_slash_list_shallow_roundtrip(charsetBundleArray(args, testCase.Operation))
+	case "gossip_slash_capture_newline_unslash":
+		return F_gossip_slash_capture_newline_unslash(charsetBundleCaptures(args, testCase.Operation))
+	case "gossip_slash_array_shape":
+		return F_gossip_slash_array_shape(charsetBundleArray(args, testCase.Operation))
+	case "wp_array_slice_assoc":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_wp_array_slice_assoc(input, selectors)
+	case "gossip_slice_slash":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_slash(input, selectors)
+	case "gossip_slash_slice":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slash_slice(input, selectors)
+	case "gossip_slice_shallow_roundtrip":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_shallow_roundtrip(input, selectors)
+	case "gossip_slice_shape":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_shape(input, selectors)
+	case "gossip_slice_boolean":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_boolean(input, selectors)
+	case "_is_utf8_charset":
+		return F__is_utf8_charset(charsetBundleAny(args, testCase.Operation))
+	case "gossip_slice_charset":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_charset(input, selectors)
+	case "gossip_slice_unescape_charset":
+		input, selectors := charsetBundlePairRuntimeArgs(args, testCase.Operation)
+		return F_gossip_slice_unescape_charset(input, selectors)
+	case "gossip_charset_boolean":
+		return F_gossip_charset_boolean(charsetBundleString(args, testCase.Operation))
+	default:
+		panic(fmt.Sprintf("unknown operation: %s", testCase.Operation))
+	}
+}
+
+// init is compiled beside GoHP's generated main.go. It dispatches only to
+// exact generated functions and observes the caller arguments after each call.
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	var cases []charsetBundleCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("charset bundle fixture has trailing JSON values")
+	}
+	observations := make([]charsetBundleObservation, 0, len(cases))
+	for _, testCase := range cases {
+		if testCase.Name == "" || testCase.Operation == "" {
+			panic("charset bundle case needs nonempty name and operation")
+		}
+		args := charsetBundleFixtureArgs(testCase)
+		value := charsetBundleCall(testCase, args)
+		observations = append(observations, charsetBundleObservation{Name: testCase.Name, Type: charsetBundleType(value), Value: charsetBundleObservedValue(testCase.Operation, value), ArgsAfter: charsetBundleObservedArgs(testCase.Operation, args)})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

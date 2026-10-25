@@ -7,6 +7,8 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Twenty-two-original search bundle](search-helper-bundle-unit.md) | One binary,22 unchanged originals/44 drivers/230 cases; retained settings unchanged |
+| [Twenty-two-original bundle evidence](evidence/search-helper-bundle-2026-10-26.md) | 230 typed/input-after comparisons and vet PASS on exact committed configuration |
 | [Array search polyfills](array-search-polyfills-unit.md) | Separate three-original search unit;30 bounded cases PASS, not an expanded integrated bundle |
 | [Array search evidence](evidence/array-search-polyfills-2026-10-26.md) | 30 actual type/value/input-after comparisons and vet PASS, exact snapshot and limits |
 | [Nineteen-original numeric bundle](numeric-helper-bundle-unit.md) | GoHP #54,19 originals/33 drivers, single-binary192-case integration |

@@ -124,6 +124,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   [30 passing cases](docs/evidence/array-search-polyfills-2026-10-26.md).
   It checks actual scalar return types, first-match behavior and caller inputs;
   it is not yet a larger integrated bundle.
+  A new [twenty-two-original bundle](docs/search-helper-bundle-unit.md) now
+  integrates all of those declarations in one binary with44 owned drivers.
+  Its [230-case result](docs/evidence/search-helper-bundle-2026-10-26.md) includes
+  the retained192 and30 cases plus8 new selection/Boolean/search compositions,
+  distinguishing matched false, no-match null and integer key0. This does not
+  establish WordPress bootstrap, HTTP, database, theme or plugin compatibility.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

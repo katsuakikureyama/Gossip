@@ -6,6 +6,9 @@ three-original array-search unit on GoHP #54
 Their old manifests, corpora, observer files and evidence remain unchanged.
 Previous independent PASS counts are not proof of this configuration.
 
+The [execution record](evidence/search-helper-bundle-2026-10-26.md) reports
+230/230 actual comparisons and vet PASS on this exact integrated configuration.
+
 ## What runs together
 
 The manifest checks the WordPress baseline, three whole-source SHA-256 values

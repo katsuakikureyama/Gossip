@@ -2,7 +2,31 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: three-original search unit PASS; nineteen-original integration retained
+## Latest: twenty-two-original integration PASS
+
+- Branch `codex/gohp-search-helper-bundle`, based on Draft #28 head
+  `cdbc55b8eb80363935dfca5a7d519066bfaf138c`; GoHP #54 pin unchanged.
+  Test commit `97b264cfb7bf17d61bfec31c4103ecb9d67b17b8`, tree
+  `037353ebeee9884f336fe9b8f151eba39bad7054`. Clean commit before execution.
+- Twenty-two byte-unchanged original declarations/44 owned drivers translate
+  together into one binary. All230 cases (192 retained numeric-bundle,30 search,
+  8 new composed) match actual types/values and caller input-after against PHP.
+  New selection/Boolean/search compositions distinguish matched false, no-match
+  null and key0. All previous corpora/settings/evidence remain unchanged.
+- First PASS20.52s/package20.766s, vetPASS, actualPHP8.3.36, C locale,
+  empty stderr/exit0; no failures/retries. Only docs/evidence afterward;
+  no repeated old configurations/compiler tests/new CI dispatch.
+  [Contract](search-helper-bundle-unit.md) and
+  [record](evidence/search-helper-bundle-2026-10-26.md) contain scope and hashes.
+- Declaration extraction retains annotations/bodies; native executes complete
+  original guarded polyfills. Conditional loading/full bootstrap remains outside
+  the compiled unit. No general callbacks/captures/errors, HTTP/DB/theme/plugin
+  compatibility or release readiness. WordPress originals/SDK/hooks/oracle policy/
+  prototype/master unchanged. Local capability WebMCP-excluded; devboard unsynced.
+- Next: select a concrete unsupported original-source dependency for a separate
+  bounded change; retain this PASS without repeated verification.
+
+## Previous: three-original search unit PASS; nineteen-original integration retained
 
 - [Draft #27](https://github.com/katsuakikureyama/Gossip/pull/27) publishes the
   nineteen-original/192-case single-binary integration on GoHP #54.

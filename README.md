@@ -60,6 +60,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   Its 33-case corpus checks actual direct/composed returns and caller arguments;
   earlier standalone and bundle evidence remains separate. Shallow stripping of
   escaped lists is explicitly distinguished from unsupported `wp_unslash`.
+  An eighth standalone [associative slice unit](docs/array-slice-assoc-unit.md)
+  executes unchanged `wp_array_slice_assoc()`, including its `: array` return
+  declaration. Fourteen cases observe ordered integer/string keys, null
+  exclusion and caller-input preservation. Its [evidence](docs/evidence/array-slice-assoc-2026-10-25.md)
+  is separate; the fourteenth original has not joined the combined bundle yet.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -108,6 +113,8 @@ The string-only stripslashes unit uses its additional pin in
 [`stripslashes-helper.json`](gossip/tests/gohp/stripslashes-helper.json).
 The recursive wp_slash unit uses the additional pin in
 [`wp-slash-helper.json`](gossip/tests/gohp/wp-slash-helper.json).
+The associative slice unit uses its own pin in
+[`array-slice-assoc-helper.json`](gossip/tests/gohp/array-slice-assoc-helper.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

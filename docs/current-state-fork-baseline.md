@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: thirteen-original recursive helper bundle
+## Latest: original associative array slice
+
+- Branch `codex/gohp-array-slice-assoc`, based on #15. Test commit
+  `1b191a17b574f174e04249b6420e893ec57750c5`, tree
+  `c0b85668909beca251efceb4d56351af08c3538e`.
+- Exact original wp_array_slice_assoc, functions.php5173–5183 including
+  `: array`, translates/builds/executes through pinned GoHP
+  `db3051f8a179078e2227c5d97f50a2f1611d1451` ([Draft #36](https://github.com/katsuakikureyama/GoHP/pull/36)
+  on #34). Compiler enforces global array returns including fallthrough,
+  inherits one-level isset and indexed writes. Separate #33/#35 not included.
+- Fourteen explicit cases use ordered root key/value pairs and selector lists.
+  Missing/null versus falsy values, key normalization/order/collisions,
+  duplicates, negative/NUL/UTF-8 keys, nested lists and both caller arguments
+  after invocation are observed. Actual Go/PHP/expected comparisons all PASS,
+  empty stderr/exit0, local8.42s/package8.619s/vetPASS. One earlier worker
+  invocation failed at host cache setup before any test/Docker/PHP execution;
+  first actual comparison passed. No post-PASS code/config change or rerun.
+- Exact [contract](array-slice-assoc-unit.md) and
+  [evidence](evidence/array-slice-assoc-2026-10-25.md) bind test/compiler/source/
+  observer/corpus/report/binary hashes. Compiler local tests/vet and fixed
+  CI40156201018 PASS238 checks/46 entries; actualPHP8.3.36/Go1.23.12,
+  clean checkout equals pinned commit/tree.
+- Eighth independent unit. Earlier seven standalone units and ten/twelve/
+  thirteen-original bundles keep their pins/corpora/results; no combined
+  fourteen-original test yet. Next: new pinned combined integration.
+- Original files, SDK/hooks and PHP admission unchanged. Approved README-only
+  master publication from #16 remains intact; implementation is Draft only,
+  no merge/release/deployment/license decision. Core/HTTP/DB/themes/plugins,
+  general object/reference/callback/map_deep/wp_unslash remain unverified.
+  WebMCP-excluded local tooling, no auth changes; devboard unidentified/unsynced.
+
+## Previous: thirteen-original recursive helper bundle
 
 - Branch `codex/gohp-recursive-helper-bundle`, [Draft #15](https://github.com/katsuakikureyama/Gossip/pull/15)
   on #14; test commit `97ed80c3db187ce9ffb2a73c27dd5207f8594192`,

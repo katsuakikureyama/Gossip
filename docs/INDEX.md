@@ -7,6 +7,8 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Associative slice unit](array-slice-assoc-unit.md) | Eighth standalone unit: unchanged wp_array_slice_assoc including typed return; ordered key/value transport |
+| [Associative slice evidence](evidence/array-slice-assoc-2026-10-25.md) | 14-case original-source PASS, actual return and both caller arguments; compiler CI238-check evidence |
 | [Thirteen-original recursive bundle](recursive-helper-bundle-unit.md) | One generated binary,33 direct/composed observations with caller-argument preservation; no recursive unescaping claim |
 | [Thirteen-original bundle evidence](evidence/recursive-helper-bundle-2026-10-25.md) | Initial33-case PASS, exact source/test/compiler pins and reused compiler CI181-check evidence |
 | [Recursive wp_slash unit](wp-slash-unit.md) | Seventh standalone original-source unit; literal self-callback and nested-list input preservation |

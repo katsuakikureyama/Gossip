@@ -91,8 +91,9 @@ go vet ./tests/gohp
 Absent opt-in means skip, not PASS. Existing image admission, same-process
 PHP8.3.36 floor, C locale, non-root/read-only/network-disabled and resource-limited
 containers are retained. Only the new boundary test runs; old successful
-configurations are not repinned or rerun. The execution record will distinguish
-native reference status from expected compiler rejection.
+configurations are not repinned or rerun. The
+[execution record](evidence/numeric-array-boundary-2026-10-25.md) records24 native
+reference matches and two expected compiler rejections, not differential PASS.
 
 Local capability `gossip.dev.wordpress-unit.translate-compare` remains explicitly
 **WebMCP-excluded**: this adds an opt-in developer boundary/reference fixture,

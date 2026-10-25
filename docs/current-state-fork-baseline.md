@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: seventeen-original yes/no integration
+## Latest: next numeric-array reference and rejected compiler boundary
+
+- Branch `codex/gohp-numeric-array-boundary` on #24. Test commit
+  `90870c68d01c9d399dcd6060b85ce38363096373`, tree
+  `3d5e6e11af8f839beb373c916f683f1ea92c4011`; staged diff check and clean
+  commit completed before the first execution.
+- Selected unchanged `wp_is_numeric_array()` and the complete original guarded
+  `array_all` polyfill for PHP8.3. All24 native reference cases match authored
+  actual return/list/input-after expectations. Sparse integer-key arrays qualify
+  despite not being lists; canonical numeric-string keys normalize first.
+- GoHP unchanged at #44 `49a302e44464623dc4912bafbcf44192759d7878`.
+  Separate unchanged declarations reject at the Boolean return type and typed
+  parameter, both exit1 with no generated Go or report. Source review also
+  identifies arrow/callable/dynamic-invocation dependencies. No candidate binary
+  or Go/PHP differential run exists; this is NOT an eighteenth translated helper.
+- First boundary test PASS7.60s/package7.839s; vetPASS, actualPHP8.3.36.
+  Native stderr empty/exit0; compiler rejection stderr/exit1 recorded separately.
+  No failure/retry. Post-PASS docs only. Existing oracle isolation/policy retained.
+  [Contract](numeric-array-boundary.md) and
+  [evidence](evidence/numeric-array-boundary-2026-10-25.md) retain exact commands,
+  hashes, all24 native observations and the distinct rejected/not-run statuses.
+- Next: implement bounded Boolean return declarations, then the typed-parameter
+  and callback dependency chain with compiler-native evidence before attempting
+  this unchanged original-source differential unit. No polyfill stub, source
+  rewrite or PHP-series bypass. Survey was bounded, not an all-core inventory.
+- Prior17-original/149-case integration is still the latest successful combined
+  result. Older configurations/evidence, compiler source, WordPress originals,
+  SDK/hooks, prototype and master unchanged; no old tests or CI rerun. No merge/
+  deploy/release/license decision. Local developer capability WebMCP-excluded,
+  auth routes unchanged; devboard unidentified/unsynchronized, not Done.
+
+## Previous: seventeen-original yes/no integration
 
 - Branch `codex/gohp-yn-helper-bundle` on #23. Test commit
   `22a5a4d9ab9dac84402e3c22d4d7a91ffa9963f3`, tree

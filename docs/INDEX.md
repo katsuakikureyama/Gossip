@@ -7,6 +7,8 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [Current state](current-state-fork-baseline.md) | Implemented, tested, unverified and next steps |
+| [Next numeric-array boundary](numeric-array-boundary.md) | Original predicate/polyfill dependencies and24-case PHP-only reference; Go translation remains rejected |
+| [Numeric-array boundary evidence](evidence/numeric-array-boundary-2026-10-25.md) | Native reference PASS and two actual compiler rejections; explicitly not differential PASS |
 | [Seventeen-original yes/no bundle](yn-helper-bundle-unit.md) | One binary,17 unchanged originals/25 owned drivers/149 cases; separate input domains and Boolean contracts |
 | [Seventeen-original bundle evidence](evidence/yn-helper-bundle-2026-10-25.md) | 149-call typed/input-after PASS; exact pre-execution commit and reused compiler336-check evidence |
 | [Yes/no-label unit](bool-yn-unit.md) | Eleventh standalone unit: unchanged bool_from_yn, string-only y/Y recognition; no general Boolean coercion |

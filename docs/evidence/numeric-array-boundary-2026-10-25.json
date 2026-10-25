@@ -1,0 +1,539 @@
+{
+  "case_count": 24,
+  "cases_sha256": "9806417cf73c2d67e7ddfbef8309ad9dbfbafefc83298d026c0310798c3e9ffb",
+  "compiler_rejections": [
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "wp_is_numeric_array",
+      "report_present": false,
+      "source_sha256": "813e31c5c38b5e819a970734447a8e612b7061c795534a4e1e15bd681779a6f6",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: only array return declarations are supported (at \"{\")\n",
+      "stdout": ""
+    },
+    {
+      "exit_code": 1,
+      "generated_present": false,
+      "name": "array_all",
+      "report_present": false,
+      "source_sha256": "90715c03299a364291eb57c8c7421e98ce171768697271831a33f4c07cffdd17",
+      "status": "rejected",
+      "stderr": "PHP002 line 2: expected var (at \"array\")\n",
+      "stdout": ""
+    }
+  ],
+  "compiler_sha256": "b8aa23f81022077bd0d4053495c1dc36e86eeab2a7c5e8d431df7a6f9d0a747d",
+  "differential_status": "not-run",
+  "fragments": [
+    {
+      "first_line": 5448,
+      "last_line": 5454,
+      "name": "wp_is_numeric_array",
+      "sha256": "d5f563a1f457c6b810024682dcff05f5d460ce0668b71fca5722ad4bf46535ac",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "first_line": 623,
+      "last_line": 644,
+      "name": "array_all_guard",
+      "sha256": "93ee0c873730791c3ae0a7d4dbcf46028727bb1320a0c056551a1ff37f07cb30",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "first_line": 635,
+      "last_line": 643,
+      "name": "array_all",
+      "sha256": "6c38df7c094a954d8e34ff358ea3e2fd9eb46a33a009256206badc46bbd59dfb",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    }
+  ],
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "69605e70b40471fb63e52fda73353b2c73655227bd8489ee9f99fa8fd2a9f08e",
+  "gohp_commit": "49a302e44464623dc4912bafbcf44192759d7878",
+  "manifest_sha256": "57f58f9c41f321606a53661aa78f37a5f0c0a61b7782a4814b788247cc60357a",
+  "native_bundle_sha256": "6e52af5174ca82939264dea583dbab6eef1e74f2108b70a243a1a8bcb75a9cc6",
+  "native_exit_code": 0,
+  "native_stderr": "",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "ab53d02be0edb31d0bacaaab91c4cd0088940db639f9fe1a8248b2b9b737c804",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "schema": "gossip.numeric-array-boundary/v1",
+  "scope": "native reference only using complete unchanged WordPress helper and guarded array_all polyfill; flat scalar-valued arrays and scalars; isolated compiler declarations rejected without generated/report artifacts; no generated candidate binary or Go/PHP behavior comparison",
+  "status": "native_reference_pass_candidate_rejected",
+  "typed_native_observations": [
+    {
+      "input_after": {
+        "type": "null",
+        "value": null
+      },
+      "input_type": "null",
+      "is_list": null,
+      "name": "null",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": true
+      },
+      "input_type": "bool",
+      "is_list": null,
+      "name": "bool_true",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "bool",
+        "value": false
+      },
+      "input_type": "bool",
+      "is_list": null,
+      "name": "bool_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": 0
+      },
+      "input_type": "int",
+      "is_list": null,
+      "name": "int_zero",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "int",
+        "value": -7
+      },
+      "input_type": "int",
+      "is_list": null,
+      "name": "int_negative",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": ""
+      },
+      "input_type": "string",
+      "is_list": null,
+      "name": "string_empty",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "string",
+        "value": "0"
+      },
+      "input_type": "string",
+      "is_list": null,
+      "name": "string_numeric",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": []
+      },
+      "input_type": "array",
+      "is_list": true,
+      "name": "empty_array",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            "one"
+          ],
+          [
+            2,
+            "two"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": true,
+      "name": "sequential_list",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            0,
+            "zero"
+          ],
+          [
+            2,
+            "two"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "sparse_integer_keys",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            -2,
+            "minus two"
+          ],
+          [
+            -1,
+            "minus one"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "negative_integer_keys",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            2,
+            "two"
+          ],
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            "one"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "out_of_order_integer_keys",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            0,
+            "zero"
+          ],
+          [
+            1,
+            "one"
+          ],
+          [
+            -2,
+            "minus two"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "canonical_decimal_string_keys_normalize",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "01",
+            "leading"
+          ],
+          [
+            1,
+            "one"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "leading_zero_string_key",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "+1",
+            "plus"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "plus_prefixed_string_key",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "-0",
+            "negative zero"
+          ],
+          [
+            -1,
+            "minus one"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "negative_zero_string_key",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "",
+            "empty key"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "empty_string_key",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            2,
+            null
+          ],
+          [
+            "meta",
+            false
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            ""
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "mixed_integer_string_key_order",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            false
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            ""
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": true,
+      "name": "null_false_zero_empty_string_values",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            -1000000,
+            -1000000
+          ],
+          [
+            1000000,
+            1000000
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "bounded_integer_keys_and_values",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            "name",
+            "value"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "ordinary_string_then_integer_key",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            -2,
+            "minus two"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "canonical_negative_string_key_normalizes",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            1,
+            "one"
+          ],
+          [
+            0,
+            "zero"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "canonical_string_then_integer_order",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": {
+        "type": "array",
+        "value": [
+          [
+            1,
+            "one"
+          ],
+          [
+            "01",
+            "leading"
+          ],
+          [
+            2,
+            "two"
+          ]
+        ]
+      },
+      "input_type": "array",
+      "is_list": false,
+      "name": "integer_before_noncanonical_string_key",
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "execution": {
+    "date": "2026-10-25",
+    "gossip_branch": "codex/gohp-numeric-array-boundary",
+    "gossip_test_commit": "90870c68d01c9d399dcd6060b85ce38363096373",
+    "gossip_test_tree": "3d5e6e11af8f839beb373c916f683f1ea92c4011",
+    "snapshot_timing": "Staged diff check and clean commit completed before the first execution.",
+    "workdir": "gossip/",
+    "host_go": "go version go1.22.1 darwin/arm64",
+    "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-legacy-array.eU8sLU/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressNumericArrayBoundary$' && go vet ./tests/gohp",
+    "test_status": "PASS: native reference and expected rejection contract only",
+    "test_seconds": 7.6,
+    "package_seconds": 7.839,
+    "vet_status": "PASS",
+    "command_exit_code": 0,
+    "retries": 0,
+    "post_pass_changes": "Documentation and evidence only; no runtime/config changes or repeated validation.",
+    "gohp_tree": "dc2046b28420a9f7a9da7447052a5e70d6543279",
+    "compiler_modification": "none; existing compiler built once for the two original declaration rejection probes, no compiler tests or CI rerun",
+    "prior_compiler_evidence": "heic-mime-2026-10-25.json (same GoHP #44 pin; historical existing CI40159749575 result, not a new run)",
+    "unverified": [
+      "Go generation/execution for wp_is_numeric_array and array_all",
+      "Go/PHP differential behavior",
+      "general callback side effects, copy semantics and short-circuit trace",
+      "nested transport, objects, floats, references",
+      "WordPress core/HTTP/DB/themes/plugins",
+      "merge/deploy/release/license resolution",
+      "devboard card unidentified and unsynchronized"
+    ]
+  }
+}

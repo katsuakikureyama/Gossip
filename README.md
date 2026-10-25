@@ -104,6 +104,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   `bool_from_yn()` and `wp_validate_boolean()` on the same input string.
   Its [149-case result](docs/evidence/yn-helper-bundle-2026-10-25.md) matches
   actual types/values, ordered keys and caller arguments against PHP.
+  The next [numeric-array boundary](docs/numeric-array-boundary.md) establishes
+  a24-case PHP-only reference using the original `array_all` polyfill. Both
+  selected declarations are still rejected by GoHP; its
+  [boundary record](docs/evidence/numeric-array-boundary-2026-10-25.md) is
+  explicitly not an additional Go-compatible helper or integrated result.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

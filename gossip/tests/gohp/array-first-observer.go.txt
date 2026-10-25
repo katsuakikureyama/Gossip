@@ -1,0 +1,38 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+)
+
+type arrayFirstCase struct {
+	Name       string          `json:"name"`
+	Operation  string          `json:"operation"`
+	Input      []any           `json:"input"`
+	Expected   json.RawMessage `json:"expected"`
+	InputAfter json.RawMessage `json:"input_after"`
+}
+
+func init() {
+	var cases []arrayFirstCase
+	decodeNumericArrayFixture("/input/cases.json", &cases)
+	observations := make([]map[string]any, 0, len(cases))
+	seen := map[string]bool{}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid array_first case name")
+		}
+		seen[c.Name] = true
+		input := numericArrayPairs(c.Input, "array_first input")
+		if c.Operation != "array_first" {
+			panic("unknown array_first operation")
+		}
+		value := F_array_first(input)
+		scalar := numericArrayScalar(value, "observed array_first result")
+		observations = append(observations, map[string]any{"name": c.Name, "type": numericArrayType(scalar), "value": scalar, "input_after": numericArrayEntries(input)})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

@@ -1,0 +1,411 @@
+{
+  "test_commit": "ecb89beed327dd14cd3772bfdb9e752074816a0f",
+  "test_tree": "ed72977216cb8b70747b14a8c88804db74124507",
+  "schema": "gossip.array-edge-unit/v1",
+  "status": "differential_pass",
+  "date_jst": "2026-10-26",
+  "case_count": 24,
+  "original_declaration_count": 2,
+  "owned_driver_count": 0,
+  "gohp_commit": "440308c77da07cbcdce403fed7fff3945e0d2078",
+  "gohp_archive_sha256": "ecea2b37b8011b6381a89768566e68fc22cdd2b500d5939d7486bd1f664036f1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "compiler_version": "0.1.0-dev",
+  "compiler_sha256": "276848b36dae868ea514572853715386a19be5f5c0d2659f064d5ea482c3c5f6",
+  "compiled_bundle_sha256": "8c750f668975ee31b6d42107809e972f29c5136a5e413d5c25ced75f8e996709",
+  "native_bundle_sha256": "845ee129e82cd53eb4e052b102ea2b2fa22b14787e7c5ce2b7ff80ac8f88261d",
+  "generated_sha256": "13022943e1f5ae8331a44e256186d9c0f1eb322b455742af7ff02c4a7e3e3f31",
+  "report_sha256": "3c58511089b71ee29d71e68c3fa653919b19ef6e62f76759b331fb98da7d6d6b",
+  "binary_sha256": "d69477652b59bdb1e041eb060758a4a23401e427210fd35244c590c53053c719",
+  "manifest_sha256": "76f9961c0d7ce1b083c9f470194296ed78656c6a8f0254c6724147bc51597455",
+  "cases_sha256": "f6108f0abfc56c533df2992568a6d3e011ef1e1db97c89af8e10164e0da0bd2e",
+  "go_observer_sha256": "c91b5f7b6ecd4387e39109ab71657e97f0c8ee4e193f5dbdea102882b9a6dd7a",
+  "php_observer_sha256": "fabfaad5b33e6f351e8c7f7f63f6993cefa43544e5007dbc14419c25bcff4b6c",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_version": "8.3.36",
+  "php_minimum": "8.3.36",
+  "php_target": "8.3",
+  "php_lc_ctype": "C",
+  "stderr": "",
+  "exit_code": 0,
+  "test_seconds": 11.16,
+  "package_seconds": 11.364,
+  "attempts": 1,
+  "location": "local Docker",
+  "test_command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-empty-array.nKn0kC/GoHP go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressArrayEdgeUnit$'",
+  "vet_command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+  "vet_status": "pass",
+  "vet_initial_result": "Default cache access blocked by sandbox; rerun only vet with writable GOCACHE",
+  "typed_observations": [
+    {
+      "input_after": [],
+      "name": "first_empty",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          null
+        ]
+      ],
+      "name": "first_singleton_null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          false
+        ]
+      ],
+      "name": "first_singleton_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": [
+        [
+          0,
+          0
+        ]
+      ],
+      "name": "first_singleton_zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "input_after": [
+        [
+          0,
+          "0"
+        ]
+      ],
+      "name": "first_singleton_string_zero",
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "input_after": [
+        [
+          0,
+          ""
+        ]
+      ],
+      "name": "first_singleton_empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "input_after": [
+        [
+          1000000,
+          "high-first"
+        ],
+        [
+          -1000000,
+          "low-later"
+        ],
+        [
+          0,
+          "zero-later"
+        ]
+      ],
+      "name": "first_insertion_order_not_numeric_order",
+      "type": "string",
+      "value": "high-first"
+    },
+    {
+      "input_after": [
+        [
+          -1000000,
+          "negative-first"
+        ],
+        [
+          42,
+          "middle"
+        ],
+        [
+          1000000,
+          "positive-last"
+        ]
+      ],
+      "name": "first_sparse_negative_boundaries",
+      "type": "string",
+      "value": "negative-first"
+    },
+    {
+      "input_after": [
+        [
+          7,
+          "seven"
+        ],
+        [
+          "later",
+          "later"
+        ]
+      ],
+      "name": "first_numeric_string_key_normalizes",
+      "type": "string",
+      "value": "seven"
+    },
+    {
+      "input_after": [
+        [
+          "\u0000雪",
+          "\u0000値雪"
+        ],
+        [
+          "later",
+          "later"
+        ]
+      ],
+      "name": "first_unicode_nul_key_and_value",
+      "type": "string",
+      "value": "\u0000値雪"
+    },
+    {
+      "input_after": [
+        [
+          "bool",
+          true
+        ],
+        [
+          "int",
+          1
+        ],
+        [
+          "string",
+          "tail"
+        ]
+      ],
+      "name": "first_mixed_scalar_value_domain",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "input_after": [
+        [
+          "alpha",
+          "left"
+        ],
+        [
+          1,
+          "right"
+        ]
+      ],
+      "name": "first_string_key_precedes_integer_key",
+      "type": "string",
+      "value": "left"
+    },
+    {
+      "input_after": [],
+      "name": "last_empty",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          null
+        ]
+      ],
+      "name": "last_singleton_null",
+      "type": "null",
+      "value": null
+    },
+    {
+      "input_after": [
+        [
+          0,
+          false
+        ]
+      ],
+      "name": "last_singleton_false",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "input_after": [
+        [
+          0,
+          0
+        ]
+      ],
+      "name": "last_singleton_zero",
+      "type": "int",
+      "value": 0
+    },
+    {
+      "input_after": [
+        [
+          0,
+          "0"
+        ]
+      ],
+      "name": "last_singleton_string_zero",
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "input_after": [
+        [
+          0,
+          ""
+        ]
+      ],
+      "name": "last_singleton_empty_string",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "input_after": [
+        [
+          1000000,
+          "high-first"
+        ],
+        [
+          -1000000,
+          "low-second"
+        ],
+        [
+          0,
+          "zero-last"
+        ]
+      ],
+      "name": "last_insertion_order_not_numeric_order",
+      "type": "string",
+      "value": "zero-last"
+    },
+    {
+      "input_after": [
+        [
+          -1000000,
+          "negative-first"
+        ],
+        [
+          42,
+          "middle"
+        ],
+        [
+          1000000,
+          "positive-last"
+        ]
+      ],
+      "name": "last_sparse_negative_boundaries",
+      "type": "string",
+      "value": "positive-last"
+    },
+    {
+      "input_after": [
+        [
+          -7,
+          "negative-seven"
+        ],
+        [
+          "later",
+          "last"
+        ]
+      ],
+      "name": "last_numeric_string_key_normalizes",
+      "type": "string",
+      "value": "last"
+    },
+    {
+      "input_after": [
+        [
+          "first",
+          "first"
+        ],
+        [
+          "雪\u0000",
+          "値\u0000雪"
+        ]
+      ],
+      "name": "last_unicode_nul_key_and_value",
+      "type": "string",
+      "value": "値\u0000雪"
+    },
+    {
+      "input_after": [
+        [
+          "bool",
+          true
+        ],
+        [
+          "int",
+          1
+        ],
+        [
+          "string",
+          "tail"
+        ]
+      ],
+      "name": "last_mixed_scalar_value_domain",
+      "type": "string",
+      "value": "tail"
+    },
+    {
+      "input_after": [
+        [
+          "alpha",
+          "left"
+        ],
+        [
+          1,
+          "right"
+        ]
+      ],
+      "name": "last_integer_key_follows_string_key",
+      "type": "string",
+      "value": "right"
+    }
+  ],
+  "transport_hashes": {
+    "go_selected": "947cb552c45e89840ed40fd8209b0caaa181ba79f73cc47b28b0e4b0f2944c3c",
+    "go_source": "949a73763c8f3e63207f7d12416707905999239b46f14b5b3b1bbc38c7fdbd64",
+    "php_selected": "c7436331547debf2421d44b52a48465406c6d92b8a66aba861455177c498b81a",
+    "php_source": "ab53d02be0edb31d0bacaaab91c4cd0088940db639f9fe1a8248b2b9b737c804"
+  },
+  "scope": "Two unchanged original edge polyfills;24 retained flat-scalar cases; separate from22-original230-case integration",
+  "loading_guard": "Native complete original guards; compiled declarations only",
+  "fragments": [
+    {
+      "name": "array_first",
+      "first_line": 657,
+      "last_line": 665,
+      "sha256": "7bc3b36b44e564e4a01b400449d0faba5fb55525bc7ba7df14bc0add1c145961",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "name": "array_first_guard",
+      "first_line": 646,
+      "last_line": 666,
+      "sha256": "41f6ef93e2355135adeea05f8fcb86cd2ce1b42604d85044586a581a499bb430",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "name": "array_last",
+      "first_line": 679,
+      "last_line": 685,
+      "sha256": "58c7f6683f261a707c10ac05e8aab2a9e32ed3fb4976879d5bdca7061edd81cf",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    },
+    {
+      "name": "array_last_guard",
+      "first_line": 668,
+      "last_line": 686,
+      "sha256": "b18bd6e70415a681bd1d68882648088d99b6cc7f51101bb7aca9b48ed863f022",
+      "source_path": "wp-includes/compat.php",
+      "source_sha256": "368f9b3ac117582698fd6df40b99f802479b26ddfc4a5f012f7ebd486df92487"
+    }
+  ]
+}

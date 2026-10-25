@@ -5,6 +5,9 @@ which provides bounded empty and insertion-order array_key_last. Its fixed
 PHP8.3.36 CI433-check PASS is compiler evidence; this unit separately measures
 the unchanged WordPress originals in one generated executable.
 
+The [execution record](evidence/array-edge-unit-2026-10-26.md) reports24/24
+comparisons and vet PASS on the exact committed configuration.
+
 The manifest `gossip/tests/gohp/array-edge-unit.json` fixes the WordPress baseline,
 whole compat.php SHA-256, compiler commit and immutable runner images.
 Declarations array_first657–665 and array_last679–685 retain their exact bytes,

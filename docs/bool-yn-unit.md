@@ -42,8 +42,9 @@ go vet ./tests/gohp
 Opt-in absent means skip, not PASS. The existing immutable-image admission,
 same-process PHP8.3.36 guard and non-root/read-only/network-disabled/resource
 limits remain. Source/report/generated hashes must match before building.
-Generating/building alone is not compatibility evidence; results are recorded
-separately after execution.
+Generating/building alone is not compatibility evidence; the
+[execution record](evidence/bool-yn-2026-10-25.md) separately records24-case
+PASS, exact pre-execution snapshot and reused compiler evidence.
 
 ## Selection and separation
 

@@ -2,7 +2,33 @@
 
 Last updated: 2026-10-25 (JST).
 
-## Latest: sixteen-original HEIC/charset/array integration
+## Latest: original yes/no-label predicate
+
+- Branch `codex/gohp-bool-yn` on #22. Test commit
+  `0f236704a0fcb3140dd7f8c3699ed3aa8abfa615`, tree
+  `98c7d07b8844a25eba9aa885ea235175670a8491`; committed before execution.
+- Unchanged `bool_from_yn()`, functions.php1621–1623, runs using existing
+  string-only strtolower and strict equality. All24 strings match actual bool
+  returns and unchanged caller input against PHP8.3.36 and authored expectations.
+  y/Y are true; words, digits, whitespace, NUL and non-ASCII cases are false.
+  First run PASS13.23s/package13.483s, empty stderr/exit0, vetPASS. No retry;
+  post-PASS docs only. [Contract](bool-yn-unit.md) and
+  [evidence](evidence/bool-yn-2026-10-25.md) record exact hashes and observations.
+- Compiler unchanged at GoHP `49a302e44464623dc4912bafbcf44192759d7878`
+  (#44), tree `dc2046b28420a9f7a9da7447052a5e70d6543279`. Prior native
+  CI40159749575 PASS336 checks/52 features reused without compiler test/CI rerun.
+  Separate control-flow compiler integration is not adopted.
+- Eleventh standalone unit/seventeenth distinct original helper, not a17-original
+  integrated run. Earlier ten units and16-original119-case bundle remain
+  unchanged and not rerun; original WordPress/SDK/hooks/oracle policy/prototype/
+  master unchanged. No merge/deploy/release/license decision.
+- Next: separately pin a17-original integration with the existing helpers.
+  Non-string Boolean coercion, public option-dependent charset wrappers,
+  array_all/arrow closures and full core/HTTP/DB/themes/plugins remain unverified.
+  Local developer capability WebMCP-excluded, auth routes unchanged;
+  devboard unidentified/unsynchronized, not Done.
+
+## Previous: sixteen-original HEIC/charset/array integration
 
 - Branch `codex/gohp-heic-helper-bundle` on #21. Tested tree
   `eabbffa481c23c04ed1c29380c2b2845ae8d1171`, recorded unchanged in commit

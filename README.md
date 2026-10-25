@@ -96,6 +96,8 @@ project, and it is **not yet a Go replacement for WordPress**.
   unchanged `bool_from_yn()` with24 actual-string inputs. It distinguishes
   the exact labels `y`/`Y` from words, digit strings, whitespace and non-ASCII
   text; this is not general Boolean parsing or a17-original integrated run.
+  Its [24-case result](docs/evidence/bool-yn-2026-10-25.md) matches actual
+  Boolean returns and unchanged inputs against PHP8.3.36.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

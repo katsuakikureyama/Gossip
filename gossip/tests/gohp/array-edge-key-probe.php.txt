@@ -1,0 +1,1 @@
+function gossip_probe_array_key_last(array $items) { return array_key_last($items); }

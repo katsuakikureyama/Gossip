@@ -7,6 +7,10 @@ evidence remain unchanged. Compiler CI is provenance, not proof of this unit.
 PR #52's additional composition fixture is not included in this exact compiler
 revision; no combined #52/#53 coverage is claimed.
 
+The [execution record](evidence/numeric-array-helper-2026-10-25.md) reports
+31/31 Go/PHP matches on the committed configuration, including actual Boolean
+type/value, list status and caller input-after. This does not promote old pins.
+
 ## Extraction boundary
 
 The original `wp_is_numeric_array` declaration is extracted byte-for-byte from

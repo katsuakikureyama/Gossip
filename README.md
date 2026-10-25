@@ -106,9 +106,14 @@ project, and it is **not yet a Go replacement for WordPress**.
   actual types/values, ordered keys and caller arguments against PHP.
   The next [numeric-array boundary](docs/numeric-array-boundary.md) establishes
   a24-case PHP-only reference using the original `array_all` polyfill. Both
-  selected declarations are still rejected by GoHP; its
+  selected declarations are rejected by its older pinned GoHP; its
   [boundary record](docs/evidence/numeric-array-boundary-2026-10-25.md) is
   explicitly not an additional Go-compatible helper or integrated result.
+  A separate [numeric-array helper unit](docs/numeric-array-helper-unit.md) now
+  pins the arrow/callable compiler and translates both unchanged original
+  declarations. Its [31-case comparison](docs/evidence/numeric-array-helper-2026-10-25.md)
+  passes against PHP8.3.36 (24 predicate +7 direct polyfill cases), without
+  changing the earlier17-original integrated result or claiming bootstrap support.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

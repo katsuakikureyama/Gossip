@@ -49,7 +49,7 @@ func TestOriginalWordPressArrayGetBoundary(t *testing.T) {
 	}
 	part := pin.Fragments[0]
 	lines := bytes.SplitAfter(original, []byte("\n"))
-	if part.Name != "_wp_array_get" || part.First != 5233 || part.Last != 5271 || len(lines) < part.Last {
+	if part.Name != "_wp_array_get" || part.First != 5233 || part.Last != 5272 || len(lines) < part.Last {
 		t.Fatal("unexpected fragment")
 	}
 	declaration := bytes.Join(lines[part.First-1:part.Last], nil)

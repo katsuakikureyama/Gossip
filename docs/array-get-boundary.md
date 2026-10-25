@@ -15,7 +15,7 @@ Examples at the fixed source revision:
 ## Original and native reference
 
 The manifest pins the WordPress baseline, whole functions.php hash and the exact
-declaration5233–5271, including `$default_value = null`. Native PHP loads those
+declaration5233–5272, including `$default_value = null`. Native PHP loads those
 bytes without rewriting. Reflection verifies user-defined origin.
 The compiler pin is GoHP #59 main `c3420d8644642c2fee56d62a08c88a2dcedc45ac`.
 

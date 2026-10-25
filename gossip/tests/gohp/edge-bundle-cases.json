@@ -1,0 +1,74 @@
+[
+  {
+    "name": "yn_empty_missing_and_null_excluded",
+    "operation": "gossip_slice_edge_yn",
+    "input": [[0, "y"], ["unset", null]],
+    "keys": ["unset", "missing"],
+    "expected": [null, null, false, null, null, true],
+    "input_after": [[0, "y"], ["unset", null]],
+    "keys_after": ["unset", "missing"]
+  },
+  {
+    "name": "yn_single_false_is_not_empty",
+    "operation": "gossip_slice_edge_yn",
+    "input": [[0, "n"], ["other", "y"]],
+    "keys": [0],
+    "expected": [false, false, false, null, null, true],
+    "input_after": [[0, "n"], ["other", "y"]],
+    "keys_after": [0]
+  },
+  {
+    "name": "yn_selector_order_dedup_normalized_mixed_keys",
+    "operation": "gossip_slice_edge_yn",
+    "input": [["2", "Y"], ["mode", "y"], [0, "y"], [5, "n"]],
+    "keys": [5, "2", 0, "2", "mode", 1000000],
+    "expected": [false, true, true, true, 2, false],
+    "input_after": [[2, "Y"], ["mode", "y"], [0, "y"], [5, "n"]],
+    "keys_after": [5, "2", 0, "2", "mode", 1000000]
+  },
+  {
+    "name": "yn_first_match_key_zero_with_boundary_keys",
+    "operation": "gossip_slice_edge_yn",
+    "input": [[0, "y"], [-1000000, "n"], [1000000, "Y"], ["name", "n"]],
+    "keys": [0, 1000000, -1000000, "name", 0],
+    "expected": [true, false, true, true, 0, false],
+    "input_after": [[0, "y"], [-1000000, "n"], [1000000, "Y"], ["name", "n"]],
+    "keys_after": [0, 1000000, -1000000, "name", 0]
+  },
+  {
+    "name": "falsy_empty_missing_and_null_excluded",
+    "operation": "gossip_slice_edge_falsy",
+    "input": [[0, null], ["other", "Y"]],
+    "keys": ["absent", 0],
+    "expected": [null, null, false, null, null],
+    "input_after": [[0, null], ["other", "Y"]],
+    "keys_after": ["absent", 0]
+  },
+  {
+    "name": "falsy_single_false_is_not_empty_key_zero",
+    "operation": "gossip_slice_edge_falsy",
+    "input": [[0, "false"], ["other", "Y"]],
+    "keys": [0],
+    "expected": [false, false, true, false, 0],
+    "input_after": [[0, "false"], ["other", "Y"]],
+    "keys_after": [0]
+  },
+  {
+    "name": "falsy_selector_order_dedup_normalized_mixed_keys",
+    "operation": "gossip_slice_edge_falsy",
+    "input": [["7", "false"], ["mode", "Y"], [0, "0"], [-1, "0"]],
+    "keys": ["mode", "7", 0, "7", -1, 1000000],
+    "expected": [true, false, true, false, 7],
+    "input_after": [[7, "false"], ["mode", "Y"], [0, "0"], [-1, "0"]],
+    "keys_after": ["mode", "7", 0, "7", -1, 1000000]
+  },
+  {
+    "name": "falsy_no_match_with_boundary_keys",
+    "operation": "gossip_slice_edge_falsy",
+    "input": [[-1000000, "Y"], ["name", "1"], [1000000, "y"]],
+    "keys": [1000000, "name", -1000000, 1000000],
+    "expected": [true, true, false, null, null],
+    "input_after": [[-1000000, "Y"], ["name", "1"], [1000000, "y"]],
+    "keys_after": [1000000, "name", -1000000, 1000000]
+  }
+]

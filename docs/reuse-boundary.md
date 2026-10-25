@@ -42,6 +42,13 @@ formatting compatibility. Original source remains unchanged.
 
 ## GoHP readiness check — 2026-10-25 JST
 
+The [recursive wp_slash unit](wp-slash-unit.md) selects a descendant compiler
+with literal one-argument global callbacks, a single array input, `is_array`
+and string-only `addslashes`. Its 22-case contract includes finite nested lists
+and caller-input preservation. It is a seventh independent unit, not a new
+thirteen-function bundle; general callbacks, object traversal, `wp_unslash`
+and core startup remain outside this result.
+
 The [integrated twelve-helper bundle](integrated-helper-bundle-unit.md) adopts
 the combined conditional/string/array compiler in a new single-executable
 configuration. It includes all twelve selected original functions plus owned

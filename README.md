@@ -51,6 +51,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   brings all twelve selected originals and owned composition drivers into one
   executable on the combined conditional/string/array compiler. Its new corpus
   does not replace the independent unit or earlier ten-helper results.
+  A seventh standalone [recursive wp_slash unit](docs/wp-slash-unit.md) targets
+  the unchanged original through literal single-array callbacks and string-only
+  `addslashes`. It observes nested lists and caller-input preservation, not a
+  thirteen-function bundle or general callback/object traversal support.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -97,6 +101,8 @@ The newline-preservation unit additionally needs the pin in
 and combined-unit pins remain separate and unchanged.
 The string-only stripslashes unit uses its additional pin in
 [`stripslashes-helper.json`](gossip/tests/gohp/stripslashes-helper.json).
+The recursive wp_slash unit uses the additional pin in
+[`wp-slash-helper.json`](gossip/tests/gohp/wp-slash-helper.json).
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

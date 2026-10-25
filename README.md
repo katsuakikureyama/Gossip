@@ -86,6 +86,10 @@ project, and it is **not yet a Go replacement for WordPress**.
   Its [24-case result](docs/evidence/heic-mime-2026-10-25.md) compares actual
   bool returns and unchanged inputs. This recognizes exact MIME labels only;
   it does not inspect, decode or convert image contents.
+  The next [sixteen-original bundle](docs/heic-helper-bundle-unit.md) combines
+  the HEIC predicate with the earlier helpers and22 owned drivers in one
+  binary. Its separate119-case configuration covers direct calls and
+  slice/unescape/Boolean compositions without changing earlier pins.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's
@@ -146,6 +150,9 @@ The new merged-stack bundle uses
 without repinning the older standalone or combined experiments.
 The HEIC MIME-label unit separately pins its strict-membership compiler in
 [`heic-mime-helper.json`](gossip/tests/gohp/heic-mime-helper.json).
+The sixteen-original integration has its own
+[`heic-helper-bundle.json`](gossip/tests/gohp/heic-helper-bundle.json), using
+the same published strict-membership compiler without changing that compiler.
 
 The official PHP image provides the interpreter, not a bundled WordPress
 checkout. Only verified source bytes from this checkout are staged into it. The

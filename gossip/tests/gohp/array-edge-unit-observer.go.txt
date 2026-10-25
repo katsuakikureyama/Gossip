@@ -1,0 +1,48 @@
+package main
+
+import (
+	"encoding/json"
+	"os"
+)
+
+type arrayEdgeCase struct {
+	Name       string          `json:"name"`
+	Operation  string          `json:"operation"`
+	Input      []any           `json:"input"`
+	Expected   json.RawMessage `json:"expected"`
+	InputAfter json.RawMessage `json:"input_after"`
+}
+
+func init() {
+	var cases []arrayEdgeCase
+	decodeNumericArrayFixture("/input/cases.json", &cases)
+	observations := make([]map[string]any, 0, len(cases))
+	seen := map[string]bool{}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid array edge case name")
+		}
+		seen[c.Name] = true
+		input := numericArrayPairs(c.Input, "array edge input")
+		var value any
+		switch c.Operation {
+		case "array_first":
+			value = F_array_first(input)
+		case "array_last":
+			value = F_array_last(input)
+		default:
+			panic("unknown array edge operation")
+		}
+		scalar := numericArrayScalar(value, "observed array edge result")
+		observations = append(observations, map[string]any{
+			"name":        c.Name,
+			"type":        numericArrayType(scalar),
+			"value":       scalar,
+			"input_after": numericArrayEntries(input),
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

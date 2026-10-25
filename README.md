@@ -114,6 +114,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   declarations. Its [31-case comparison](docs/evidence/numeric-array-helper-2026-10-25.md)
   passes against PHP8.3.36 (24 predicate +7 direct polyfill cases), without
   changing the earlier17-original integrated result or claiming bootstrap support.
+  A new [nineteen-original bundle](docs/numeric-helper-bundle-unit.md) integrates
+  both on the combined GoHP compiler stack. Its
+  [192-case result](docs/evidence/numeric-helper-bundle-2026-10-25.md) passes in
+  one binary:149 retained legacy,31 numeric/polyfill and12 cross-helper cases.
+  This is bounded declaration-level integration, not full WordPress startup.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

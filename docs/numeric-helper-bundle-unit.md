@@ -7,6 +7,10 @@ This separate configuration pins GoHP PR #54 at
 Old manifests, corpora, rejection records and evidence remain unchanged.
 Compiler CI and the previous independent results are not proof of this bundle.
 
+The [execution record](evidence/numeric-helper-bundle-2026-10-25.md) reports
+192/192 matches in this exact integrated configuration, with empty stderr,
+exit0 and vet PASS. This does not promote or replace previous pins.
+
 ## Extraction and observation
 
 The manifest pins the WordPress baseline, whole-source hashes and exact ranges.

@@ -85,7 +85,7 @@ remains off and the CGO-disabled build/reference-storage boundaries are preserve
 
 The new [generated regex consumer](docs/parser-preg83-generated.md) connects a
 Gossip-owned PHP driver to that pinned compiler/runtime using the unchanged
-original pattern bytes. Its denominator is 23 fixed-limit cases; the separate
+original pattern bytes: **23/23 fixed-limit comparisons passed**; the separate
 limit=1 case is explicitly excluded. This is not an additional original WordPress
 function or a translation of `next_token()`, and earlier fixture pins stay unchanged.
 

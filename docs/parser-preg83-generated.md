@@ -5,6 +5,10 @@ It does **not** transpile `WP_Block_Parser::next_token()` or the complete parser
 It compiles a Gossip-owned PHP driver using the exact original regex bytes, then
 observes the resulting Go executable against retained native PHP evidence.
 
+Measured result: **23/23 selected cases PASS**, one explicit limit-profile
+exclusion. See the [execution evidence](evidence/parser-preg83-generated-2026-10-27.md)
+for the clean source commit, actual generated binary, toolchain and hashes.
+
 ## Inputs, pins and denominator
 
 - WordPress baseline: `54106f6c545fc8b881f6b39b7963002bece6c28c`.

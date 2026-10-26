@@ -1,0 +1,1338 @@
+{
+  "binary_sha256": "2d3252ae63e821539ee49f4874d7dcd4b91baf3de3cb8eacc333bb467d6569bc",
+  "case_count": 24,
+  "cases_sha256": "607f7027238bf74f2f92fc5dd6d8ff99a5734644397e889748de1eec67e752b4",
+  "compiled_bundle_sha256": "39f7ecc75c7e3907a428ba6f7b5ef2ee54d412736994fe4b7c959be4da23d1a1",
+  "compiler_sha256": "567cd85ca7b242705ff01aa4070c5f318152ca43a54a82083dc6ae2aa934c5e5",
+  "compiler_version": "0.1.0-dev",
+  "composition_case_count": 8,
+  "direct_case_count": 16,
+  "drivers_sha256": "23ce7a39c546e13af639a879bfe9f35589f2a6734f10670434222abe2eaf7bc3",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 5233,
+      "last_line": 5272,
+      "name": "_wp_array_get",
+      "sha256": "8d677dc7ea1dc16014ec2edd3ea1c75d6d11b61c8b37304d3e0d37277306a080",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "first_line": 22,
+      "last_line": 35,
+      "name": "wp_should_skip_block_supports_serialization",
+      "sha256": "c3188fbf0cc4185c24305a27d2eb7dc29ffac87601a03c9c1b0e6dd8bcf5ba2e",
+      "source_path": "wp-includes/block-supports/utils.php",
+      "source_sha256": "eb0f87a722d4b5265bd896ee47eaa601e99d500073c15c12a20588fcfc7f67f3"
+    },
+    {
+      "first_line": 33,
+      "last_line": 97,
+      "name": "wp_should_add_elements_class_name",
+      "sha256": "b89730256dff097121d6ad5ea238de6a3d36d2563bae149df38562e620fc0033",
+      "source_path": "wp-includes/block-supports/elements.php",
+      "source_sha256": "43bd39bc1929b68da39f1fc82df38e3c3718d275603934a6307ab7453171c0a2"
+    }
+  ],
+  "generated_sha256": "4b20a1cbd1caa8e268f8f5465a0e40234c00a32f18d51b3fd4b79edea8cbb345",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "4f7bcde6b10b89e5b312d26b5aad8fab81e66fbd577703e1467deed77c024123",
+  "go_transport": {
+    "adapted_sha256": "898adf3edb5e35e2c73315c8cd0909da87faf60ce062f889d19c77abd92ee7c2",
+    "original_sha256": "95afd5957d92059f915d586138e38ff83502ec76cee9c5b4fd573c2197850933"
+  },
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "7b3ca1cfe51dfdca3058ebe1e94d19ada27195e557fb8994e03796097fdfbe81",
+  "gohp_commit": "ce38319b4245ccea0a7ae627f53b4396acabfce6",
+  "manifest_sha256": "b3c0ff4e2e71f52e37e13aee6a2afe2c425c5f168407158fb287fe4e7c960c5a",
+  "native_bundle_sha256": "39f7ecc75c7e3907a428ba6f7b5ef2ee54d412736994fe4b7c959be4da23d1a1",
+  "original_declaration_count": 3,
+  "owned_driver_count": 2,
+  "owned_input_class_count": 1,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "af02eaad67aa89d86d1574a1f6dcc72780e5e1a1d8e893ddcb6166c3e5e28248",
+  "php_target": "8.3",
+  "php_transport": {
+    "adapted_sha256": "0090e6a83bfb32e4c1c1d883d9e1181c1c2b0b0eb40c89afa47fb84204c73fae",
+    "original_sha256": "ce4754d62c17bbd5fb493ae8271caef42a7a190c14755ec91943fb005ed0870a"
+  },
+  "php_version": "8.3.36",
+  "report_sha256": "e4ab4a682a45a249eb463d5aec0fed81b356c35eafa52697bb84d24d360afe9e",
+  "schema": "gossip.elements-source-input/v1",
+  "scope": "three unchanged originals, two owned functions and one input-data class; object construction/assignment in translated PHP, no host field injection;16 direct and8 composed retained cases; old24/334 configurations unchanged/not rerun; no original WP class/registry/render/CSS/HTML/bootstrap compatibility claim",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": null,
+      "name": "direct_nonobject_null",
+      "source_input_after": null,
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": "not-a-block-type",
+      "name": "direct_nonobject_scalar",
+      "source_input_after": "not-a-block-type",
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": []
+      },
+      "name": "direct_nonobject_array",
+      "source_input_after": {
+        "array": []
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_empty_feature_set_short_circuits",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": null,
+      "name": "direct_supports_null",
+      "source_input_after": null,
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": []
+      },
+      "name": "direct_supports_empty",
+      "source_input_after": {
+        "array": []
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "other",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_supports_missing_feature_set",
+      "source_input_after": {
+        "array": [
+          [
+            "other",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_true",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  true
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  false
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_false",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  false
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_raw_null",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "null",
+      "value": null
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "0"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_raw_string_zero",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "0"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "0"
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "false"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_raw_string_false",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "false"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "string",
+      "value": "false"
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "button",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  0
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_skip_raw_zero",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  0
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "int",
+      "value": 0
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "1",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        1
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_strict_list_int_not_string",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        1
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": "1",
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "1"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_strict_list_string_matches",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "1"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": []
+      },
+      "feature_after": 1,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        1
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "direct_strict_list_int_matches",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        1
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "false"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "composition_button_truthy_string_skip",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "false"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "link"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "composition_link_skip_list",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "link"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "h6",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "0"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "composition_heading_h6_falsy_string_skip",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  "0"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    ":hover",
+                                    {
+                                      "array": [
+                                        [
+                                          "color",
+                                          {
+                                            "array": [
+                                              [
+                                                "text",
+                                                "hover"
+                                              ]
+                                            ]
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": []
+      },
+      "name": "composition_link_hover",
+      "source_input_after": {
+        "array": []
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          false
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": []
+      },
+      "name": "composition_button_false_leaf",
+      "source_input_after": {
+        "array": []
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "button"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "link"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            [
+                              "heading",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "heading"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "button"
+                      ],
+                      [
+                        1,
+                        "link"
+                      ],
+                      [
+                        2,
+                        "heading"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "composition_all_skipped",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "button"
+                      ],
+                      [
+                        1,
+                        "link"
+                      ],
+                      [
+                        2,
+                        "heading"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": false
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "button"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "link"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "button"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "name": "composition_partial_skip_link_remains",
+      "source_input_after": {
+        "array": [
+          [
+            "color",
+            {
+              "array": [
+                [
+                  "__experimentalSkipSerialization",
+                  {
+                    "array": [
+                      [
+                        0,
+                        "button"
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "bool",
+      "value": true
+    },
+    {
+      "block_after": {
+        "array": [
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "feature_after": null,
+      "feature_set_after": "color",
+      "input_after": {
+        "array": []
+      },
+      "name": "composition_no_style",
+      "source_input_after": {
+        "array": []
+      },
+      "type": "bool",
+      "value": false
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "verification": {
+    "snapshot": {
+      "commit": "7b58f064d7f5da4ad7389eff17245ce3c376a99c",
+      "tree": "55cc0b8ef7bcc29424e640046d9754cc9a4459df",
+      "dirty": "clean"
+    },
+    "commands": [
+      {
+        "cwd": "gossip",
+        "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-public-property-write GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressElementsSourceInput$'",
+        "result": "PASS",
+        "test_seconds": 80.09,
+        "package_seconds": 80.475,
+        "raw_log": "/private/tmp/gossip-elements-source-input-output.log"
+      },
+      {
+        "cwd": "gossip",
+        "command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+        "result": "PASS"
+      }
+    ],
+    "first_committed_snapshot_passed": true,
+    "no_successful_rerun": true,
+    "input_boundary": "Observers call the generated/original owned PHP factory, never a concrete Go constructor or exported field assignment. Factory construction/property assignment execute in translated PHP; no WP_Block_Type/registry/service behavior is substituted.",
+    "new_observation": "source_input_after is measured independently from supports/nonobject input_after; both match original input without mutation.",
+    "retained_corpus": {
+      "file": "gossip/tests/gohp/elements-serialization-cases.json",
+      "sha256": "607f7027238bf74f2f92fc5dd6d8ff99a5734644397e889748de1eec67e752b4",
+      "unchanged": true,
+      "prior_configuration_not_rerun": true
+    },
+    "compiler": {
+      "pull_request": "https://github.com/katsuakikureyama/GoHP/pull/71",
+      "main_commit": "ce38319b4245ccea0a7ae627f53b4396acabfce6",
+      "feature_head": "af3905f7880155da220b7787f884e5698954dc0b",
+      "tree": "0e7c3a7706235f32de040adc956c2d6fec1aca5d",
+      "feature_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40268629352",
+      "pr_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40268633712",
+      "main_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40268804500",
+      "checks": 509,
+      "features": 70,
+      "status": "PASS",
+      "parallel_feature_preserved": "GoHP #70 str_starts_with",
+      "local_correction": "Initial c92a53e codegen package failed because the new raw-IR test default lacked canonical null Text. Fixed only that test in69be5bd; reran only TestPublicPropertyWriteMalformedIR PASS0.207s. Other local PASS checks and native fixture retained; full combined CI verifies final exact clean tree.",
+      "local_commands_record": "GoHP PR71 body/comments",
+      "native_comparison_limits": "Compiler's own differential checks stdout/normal exit, not stderr/exceptions/other side effects."
+    },
+    "unverified": [
+      "original WP_Block_Type class, registry and constructors",
+      "unknown/foreign receiver or dynamic/nested/array-property writes",
+      "original full render hook, CSS/HTML/unique IDs",
+      "WordPress bootstrap, HTTP, DB, themes/plugins",
+      "general PHP errors/coercions/references",
+      "production deployment (no target configured or created)",
+      "devboard status (unidentified/not synced)"
+    ],
+    "historical_configurations": "Earlier source corpus/pins/evidence and24/334 configurations unchanged; not rerun or added to the new single-binary count."
+  }
+}

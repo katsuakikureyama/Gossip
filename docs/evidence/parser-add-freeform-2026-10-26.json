@@ -1,0 +1,1041 @@
+{
+  "add_freeform_calls": 16,
+  "binary_sha256": "c7d3f4f9d377a506a7bc8c798f302d935245915789a6aa4608d446c50cfc0497",
+  "block_constructions": 13,
+  "case_count": 16,
+  "cases_sha256": "5557e540dc340daf242681a5d659abdf63cbf8b81ec06a2747b2d42245b2e69a",
+  "compiled_bundle_sha256": "c305b35c2fae5b7fde4676d0a332eb1626289e3d9e884468dab2e6537e78c146",
+  "compiler_sha256": "ab95d8722143033f201cae7862d395816156f504f4c03417569c42c791e79159",
+  "compiler_version": "0.1.0-dev",
+  "complete_original_class_count": 1,
+  "drivers_sha256": "f0518a60e9e252e9c8baecf9c712404548f338160ace965f2ea3dcaf14db783e",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 15,
+      "last_line": 90,
+      "name": "WP_Block_Parser_Block",
+      "sha256": "4a3d9629bae4dd309bc1e3f16fc1ff8ca985a1778c2b15ac25dc1a9db13cf0ad",
+      "source_path": "wp-includes/class-wp-block-parser-block.php"
+    },
+    {
+      "first_line": 16,
+      "last_line": 50,
+      "name": "WP_Block_Parser.prefix",
+      "sha256": "521019b184442935da88f07bd47e3d4c2e20a81a1bfdbfff220ec84d935a8cbb",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    },
+    {
+      "first_line": 314,
+      "last_line": 316,
+      "name": "WP_Block_Parser.freeform",
+      "sha256": "b54693c7de89a75c8dfa4139ecbc512533eba115be8f85ca5bcd5d438023830c",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    },
+    {
+      "first_line": 327,
+      "last_line": 335,
+      "name": "WP_Block_Parser.add_freeform",
+      "sha256": "ab0d7b9e06b9189e5d919d1ae0d44b84fcb7e14282c15d1d5e29412658d9e8cc",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    },
+    {
+      "first_line": 396,
+      "last_line": 396,
+      "name": "WP_Block_Parser.close",
+      "sha256": "412ca345ccf75bf9c0806bce695be8de808b79984251a7a54d202cf6101dd451",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    }
+  ],
+  "freeform_calls": 13,
+  "generated_sha256": "2f99a467eca1729e321f5be5e87c74c712c9b5fc906d26f0a726da498d0e6f2c",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "66e666aa7ae93311f283ac0acabd2580cf4e106f894c30725ac351a4064ea541",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "ed44b4f3851290473445fc2e44d36697e0e9effb6a15b8191aa2419150eb2d06",
+  "gohp_commit": "565e65e6c9d8e211b06779739bfba76b07c4d92d",
+  "manifest_sha256": "7270b24de32d0eddf059c2888fe6be263324554f1a1b1ec77a7905b1e3ca83ab",
+  "method_calls": 29,
+  "native_drivers_sha256": "8e45ce7cc37737484ed15754262d6895ec0056a0f3de1cb64985913ca5c05d3e",
+  "native_source_files_sha256": {
+    "class-wp-block-parser-block.php": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e",
+    "class-wp-block-parser-frame.php": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105",
+    "class-wp-block-parser.php": "8563621090de5e307431b1d29b78a9f75fd9ee238a0137b563a7db7b2e1f8d3b"
+  },
+  "original_constructor_count": 1,
+  "original_function_count": 0,
+  "original_method_count": 2,
+  "owned_driver_count": 1,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "d90a733aa45bce1cd00a3847c9d98685206777e83f8a83ac334a27d2329b06df",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "518dcb0ad193bbd7ea2e78e15d418f876d3de0e9870cac1b312058d2aa6aec20",
+  "schema": "gossip.parser-add-freeform/v1",
+  "scope": "Go: complete original Block plus selected original Parser prefix/freeform/add_freeform/closing; PHP: complete original parser/Block/Frame files; one owned state-initializing source driver;16 cases, actual ordered array output/return/state/input-after and raw byte slices; no parse/proceed/tokenizer/stack/render/bootstrap claim; historical configurations unchanged/not rerun",
+  "selected_original_class_count": 1,
+  "skip_cases": 3,
+  "sources": [
+    {
+      "role": "complete_class_and_native_file",
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e"
+    },
+    {
+      "role": "selected_class_methods_and_complete_native_file",
+      "source_path": "wp-includes/class-wp-block-parser.php",
+      "source_sha256": "8563621090de5e307431b1d29b78a9f75fd9ee238a0137b563a7db7b2e1f8d3b"
+    },
+    {
+      "role": "native_require_once_dependency",
+      "source_path": "wp-includes/class-wp-block-parser-frame.php",
+      "source_sha256": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105"
+    }
+  ],
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "arguments_after": {
+        "document_base64": "cGxhaW4=",
+        "length": null,
+        "mode": "omitted",
+        "offset": 0,
+        "seed_base64": []
+      },
+      "name": "omitted_full",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "cGxhaW4=",
+        "offset": 0,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "cGxhaW4=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "cGxhaW4=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "bnVsbA==",
+        "length": null,
+        "mode": "explicit",
+        "offset": 0,
+        "seed_base64": [
+          "c2VlZA=="
+        ]
+      },
+      "name": "explicit_null_full",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "bnVsbA==",
+        "offset": 0,
+        "output": [
+          {
+            "base64": "c2VlZA==",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "bnVsbA==",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "bnVsbA==",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "aGVsbG8=",
+        "length": 0,
+        "mode": "explicit",
+        "offset": 2,
+        "seed_base64": [
+          "YmVmb3Jl",
+          "AA=="
+        ]
+      },
+      "name": "explicit_zero_skips",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "aGVsbG8=",
+        "offset": 2,
+        "output": [
+          {
+            "base64": "YmVmb3Jl",
+            "type": "string"
+          },
+          {
+            "base64": "AA==",
+            "type": "string"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJjZGVm",
+        "length": 3,
+        "mode": "explicit",
+        "offset": 1,
+        "seed_base64": []
+      },
+      "name": "positive_slice",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJjZGVm",
+        "offset": 1,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "YmNk",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "YmNk",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJjZGVm",
+        "length": -2,
+        "mode": "explicit",
+        "offset": 1,
+        "seed_base64": [
+          "cHJlZml4"
+        ]
+      },
+      "name": "negative_length",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJjZGVm",
+        "offset": 1,
+        "output": [
+          {
+            "base64": "cHJlZml4",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "YmNk",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "YmNk",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJjZGVm",
+        "length": 2,
+        "mode": "explicit",
+        "offset": 3,
+        "seed_base64": []
+      },
+      "name": "positive_offset",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJjZGVm",
+        "offset": 3,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "ZGU=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "ZGU=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJjZGVm",
+        "length": 2,
+        "mode": "explicit",
+        "offset": -3,
+        "seed_base64": [
+          "a2VlcA=="
+        ]
+      },
+      "name": "negative_offset",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJjZGVm",
+        "offset": -3,
+        "output": [
+          {
+            "base64": "a2VlcA==",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "ZGU=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "ZGU=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJj",
+        "length": 2,
+        "mode": "explicit",
+        "offset": 99,
+        "seed_base64": []
+      },
+      "name": "overshoot_offset_appends_empty",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJj",
+        "offset": 99,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJj",
+        "length": null,
+        "mode": "omitted",
+        "offset": 3,
+        "seed_base64": [
+          "ZW5k"
+        ]
+      },
+      "name": "offset_at_end_omitted_skips",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJj",
+        "offset": 3,
+        "output": [
+          {
+            "base64": "ZW5k",
+            "type": "string"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "QQBCQw==",
+        "length": 2,
+        "mode": "explicit",
+        "offset": 1,
+        "seed_base64": [
+          "c2VlZAA="
+        ]
+      },
+      "name": "nul_bytes",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "QQBCQw==",
+        "offset": 1,
+        "output": [
+          {
+            "base64": "c2VlZAA=",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "AEI=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "AEI=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "6Zuq4piD",
+        "length": 3,
+        "mode": "explicit",
+        "offset": 3,
+        "seed_base64": []
+      },
+      "name": "utf8_aligned",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "6Zuq4piD",
+        "offset": 3,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "4piD",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "4piD",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "w6la",
+        "length": 2,
+        "mode": "explicit",
+        "offset": 1,
+        "seed_base64": [
+          "w6k="
+        ]
+      },
+      "name": "utf8_split_bytes",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "w6la",
+        "offset": 1,
+        "output": [
+          {
+            "base64": "w6k=",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "qVo=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "qVo=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJj",
+        "length": null,
+        "mode": "omitted",
+        "offset": -1,
+        "seed_base64": []
+      },
+      "name": "omitted_negative_offset",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJj",
+        "offset": -1,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "Yw==",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "Yw==",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJj",
+        "length": 999,
+        "mode": "explicit",
+        "offset": 1,
+        "seed_base64": [
+          "b25l",
+          "dHdv"
+        ]
+      },
+      "name": "oversize_length",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJj",
+        "offset": 1,
+        "output": [
+          {
+            "base64": "b25l",
+            "type": "string"
+          },
+          {
+            "base64": "dHdv",
+            "type": "string"
+          },
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "YmM=",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "YmM=",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "YWJjZGVm",
+        "length": -2,
+        "mode": "explicit",
+        "offset": -5,
+        "seed_base64": []
+      },
+      "name": "negative_offset_negative_length",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "YWJjZGVm",
+        "offset": -5,
+        "output": [
+          {
+            "properties": [
+              [
+                "blockName",
+                null
+              ],
+              [
+                "attrs",
+                []
+              ],
+              [
+                "innerBlocks",
+                []
+              ],
+              [
+                "innerHTML",
+                {
+                  "base64": "YmNk",
+                  "type": "string"
+                }
+              ],
+              [
+                "innerContent",
+                [
+                  {
+                    "base64": "YmNk",
+                    "type": "string"
+                  }
+                ]
+              ]
+            ],
+            "type": "array"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    },
+    {
+      "arguments_after": {
+        "document_base64": "",
+        "length": null,
+        "mode": "omitted",
+        "offset": 0,
+        "seed_base64": [
+          "cmV0YWluZWQ="
+        ]
+      },
+      "name": "empty_source_omitted_skips",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "document_base64": "",
+        "offset": 0,
+        "output": [
+          {
+            "base64": "cmV0YWluZWQ=",
+            "type": "string"
+          }
+        ],
+        "stack": [],
+        "type": "object"
+      },
+      "return_type": "null",
+      "return_value": null
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "verification": {
+    "gossip": {
+      "success_commit": "43ebeba5710e4e4859109401b85ae48783839c06",
+      "success_tree": "5f17710e413b4a8a654a13b124c634b5d31e5bd3",
+      "dirty": "clean",
+      "branch": "codex/gohp-parser-add-freeform",
+      "worktree": "/private/tmp/gossip-parser-add-freeform",
+      "base": "4b8f55ae1d7fd0cc72be5a140390c301be49a0f1",
+      "attempts": [
+        {
+          "commit": "538abb9b16dc1ebfdc93750ea9958c20ba3321b4",
+          "tree": "e393e19aba827e2c849e9d8e54830d37760450b7",
+          "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-parser-output GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserAddFreeform$'",
+          "status": "fail",
+          "phase": "generation",
+          "error": "PHP002 line 117: expected ; (at \"-\")",
+          "test_seconds": 10.22,
+          "package_seconds": 10.469,
+          "compiler_pin": "4df47e00cae2dfd25e4cc5bde299ef51cc56c4c5",
+          "not_run": [
+            "candidate build",
+            "candidate execute",
+            "PHP oracle comparison"
+          ],
+          "raw_log": "/private/tmp/gossip-parser-add-freeform-output.log"
+        },
+        {
+          "commit": "43ebeba5710e4e4859109401b85ae48783839c06",
+          "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-integer-subtraction GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserAddFreeform$'",
+          "status": "pass",
+          "test_seconds": 10.48,
+          "package_seconds": 10.69,
+          "raw_log": "/private/tmp/gossip-parser-add-freeform-success-output.log"
+        }
+      ],
+      "vet": {
+        "command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+        "status": "pass",
+        "commit": "538abb9b16dc1ebfdc93750ea9958c20ba3321b4",
+        "reused_for_unchanged_go_harness": true,
+        "changes_before_success": "only compiler JSON pin and boundary documentation"
+      },
+      "rerun_after_success": false,
+      "after_pass_changes": "documentation/evidence only"
+    },
+    "compiler_pr80": {
+      "pr": "https://github.com/katsuakikureyama/GoHP/pull/80",
+      "initial_code": "12021af8b52f81f9086e5a3c3eb204cc315bcafa",
+      "initial_tree": "589475fd14320f1284419d7d562742442d992f83",
+      "feature": "05314c59ccc6af5177e53fe1ddf114cf95432fe7",
+      "main": "4df47e00cae2dfd25e4cc5bde299ef51cc56c4c5",
+      "tree": "83cc11e72f83675b5a6ab606bbd6782b8bfd2d57",
+      "parallel_main_retained": "e653160596eae7f417d5dd695871fb0910008385",
+      "new_checks": 7,
+      "local": "unit/vet/native PASS; one old property-append negative updated to nested form then affected test PASS0.219s; no product-code fix or successful rerun",
+      "ci": {
+        "feature": 40274408258,
+        "pull_request": 40274414594,
+        "main": 40274575307,
+        "status": "pass",
+        "checks": 564,
+        "features": 79,
+        "php": "8.3.36",
+        "go": "go version go1.23.12 linux/amd64",
+        "exact_clean_sha_tree_verified": true
+      }
+    },
+    "compiler_pr81": {
+      "pr": "https://github.com/katsuakikureyama/GoHP/pull/81",
+      "initial_code": "d54a85dee1dc0eed668bf6703c7c76e23f947520",
+      "initial_tree": "126f0467f4fd837c048797d4aff6f6921db65374",
+      "feature": "ca5c6150444838960b78138430db6c66ba16c379",
+      "main": "565e65e6c9d8e211b06779739bfba76b07c4d92d",
+      "tree": "3b509a251cb2ab3d037c089c1ab0295a1e0a0d60",
+      "new_checks": 5,
+      "local": "unit/vet/native PASS; one old 1-2 negative updated to noninteger operand then affected test PASS0.201s; no product-code fix or successful rerun",
+      "ci": {
+        "feature": 40274995512,
+        "pull_request": 40275002284,
+        "main": 40275173481,
+        "feature_and_pr_status": "pass",
+        "main_status": "pass",
+        "main_exact_clean_sha_tree_verified": true,
+        "checks": 569,
+        "features": 80,
+        "php": "8.3.36",
+        "go": "go version go1.23.12 linux/amd64",
+        "feature_exact_clean_sha_tree_verified": true
+      }
+    },
+    "limitations": {
+      "go": "selected original Parser prefix/freeform/add_freeform/closing plus complete original Block, not complete Parser",
+      "native": "complete original Parser/Block/Frame files; Frame loaded only",
+      "historical_configurations": "unchanged/not rerun or summed",
+      "unverified": [
+        "other five Parser methods/parse/proceed/tokenizer/stack",
+        "registry/render/CSS/HTML/ThemeJSON/bootstrap/HTTP/DB/themes/plugins",
+        "general PHP casts/errors/coercions/references"
+      ],
+      "source_audit_correction": "coalesce left operand at328 is local length, not a property; no property-left coalesce extension",
+      "production_target": "not configured/not created",
+      "devboard": "unidentified/not synced; PR/current-state tracking",
+      "webmcp": {
+        "capability": "gossip.dev.wordpress-unit.translate-compare",
+        "status": "excluded",
+        "reason": "local developer fixture"
+      },
+      "route_auth": "unchanged"
+    }
+  }
+}

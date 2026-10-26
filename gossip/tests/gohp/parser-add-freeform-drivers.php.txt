@@ -1,0 +1,17 @@
+// Owned composition only: initialise the actual original parser state, then
+// invoke its unchanged add_freeform method. No parser field is injected by an
+// observer and no original method or class is replaced.
+function gossip_parser_add_freeform( $document, $offset, $length, $mode, $seed ) {
+	$parser           = new WP_Block_Parser();
+	$parser->document = $document;
+	$parser->offset   = $offset;
+	$parser->output   = $seed;
+	$parser->stack    = array();
+	$result           = null;
+	if ( 'omitted' === $mode ) {
+		$result = $parser->add_freeform();
+	} else {
+		$result = $parser->add_freeform( $length );
+	}
+	return array( 'parser' => $parser, 'return' => $result );
+}

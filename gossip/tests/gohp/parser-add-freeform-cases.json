@@ -1,0 +1,18 @@
+[
+  {"name":"omitted_full","document":"plain","offset":0,"length":null,"mode":"omitted","seed":[],"expected_html":"cGxhaW4="},
+  {"name":"explicit_null_full","document":"null","offset":0,"length":null,"mode":"explicit","seed":["seed"],"expected_html":"bnVsbA=="},
+  {"name":"explicit_zero_skips","document":"hello","offset":2,"length":0,"mode":"explicit","seed":["before","\u0000"],"expected_html":null},
+  {"name":"positive_slice","document":"abcdef","offset":1,"length":3,"mode":"explicit","seed":[],"expected_html":"YmNk"},
+  {"name":"negative_length","document":"abcdef","offset":1,"length":-2,"mode":"explicit","seed":["prefix"],"expected_html":"YmNk"},
+  {"name":"positive_offset","document":"abcdef","offset":3,"length":2,"mode":"explicit","seed":[],"expected_html":"ZGU="},
+  {"name":"negative_offset","document":"abcdef","offset":-3,"length":2,"mode":"explicit","seed":["keep"],"expected_html":"ZGU="},
+  {"name":"overshoot_offset_appends_empty","document":"abc","offset":99,"length":2,"mode":"explicit","seed":[],"expected_html":""},
+  {"name":"offset_at_end_omitted_skips","document":"abc","offset":3,"length":null,"mode":"omitted","seed":["end"],"expected_html":null},
+  {"name":"nul_bytes","document":"A\u0000BC","offset":1,"length":2,"mode":"explicit","seed":["seed\u0000"],"expected_html":"AEI="},
+  {"name":"utf8_aligned","document":"雪☃","offset":3,"length":3,"mode":"explicit","seed":[],"expected_html":"4piD"},
+  {"name":"utf8_split_bytes","document":"éZ","offset":1,"length":2,"mode":"explicit","seed":["é"],"expected_html":"qVo="},
+  {"name":"omitted_negative_offset","document":"abc","offset":-1,"length":null,"mode":"omitted","seed":[],"expected_html":"Yw=="},
+  {"name":"oversize_length","document":"abc","offset":1,"length":999,"mode":"explicit","seed":["one","two"],"expected_html":"YmM="},
+  {"name":"negative_offset_negative_length","document":"abcdef","offset":-5,"length":-2,"mode":"explicit","seed":[],"expected_html":"YmNk"},
+  {"name":"empty_source_omitted_skips","document":"","offset":0,"length":null,"mode":"omitted","seed":["retained"],"expected_html":null}
+]

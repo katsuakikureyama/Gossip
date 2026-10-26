@@ -1,5 +1,8 @@
 # Original parser freeform method / selected-source unit
 
+[Execution record](evidence/parser-freeform-2026-10-26.md): all12 pair cases
+and vet PASS on the first committed snapshot, both exits0/stderr empty.
+
 This configuration advances from original data classes into one actual original
 parser method: WP_Block_Parser::freeform314–316. It creates an original
 WP_Block_Parser_Block with null blockName, empty attrs/innerBlocks, unchanged
@@ -52,7 +55,7 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP GOCACHE=/private/tmp/gossip-go-cache g
 GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp
 ```
 
-Record executed results before claiming PASS. Fixed PHP8.3.36/C and Go images,
+Fixed PHP8.3.36/C and Go images,
 same-process oracle admission, readonly/nonroot/network-none containers and
 resource/time limits remain unchanged.
 

@@ -1,0 +1,1214 @@
+{
+  "binary_sha256": "42a886372c73aab8a69d193e825ff780f98605f40cc9e016700e1b1cb85a46ff",
+  "block_constructions": 24,
+  "case_count": 12,
+  "cases_sha256": "23bf6bd18581421a6161398d0a83fbfd56694982e9d55f7a2b2af04c4f10163e",
+  "compiled_bundle_sha256": "5d8ac2b3a5fb531fabff45a350132c252f1e4e30929720f16df2efdc668b9fbd",
+  "compiler_sha256": "f51e1355665eca1df5b69b743a547d16c86be555d53c7216c471c2597f57cc38",
+  "compiler_version": "0.1.0-dev",
+  "complete_original_class_count": 1,
+  "drivers_sha256": "8e38e694fcb8898f7d795f27086eb5e08673e3ea233504c6cae2907eb3ba5f88",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 15,
+      "last_line": 90,
+      "name": "WP_Block_Parser_Block",
+      "sha256": "4a3d9629bae4dd309bc1e3f16fc1ff8ca985a1778c2b15ac25dc1a9db13cf0ad",
+      "source_path": "wp-includes/class-wp-block-parser-block.php"
+    },
+    {
+      "first_line": 16,
+      "last_line": 50,
+      "name": "WP_Block_Parser.prefix",
+      "sha256": "521019b184442935da88f07bd47e3d4c2e20a81a1bfdbfff220ec84d935a8cbb",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    },
+    {
+      "first_line": 314,
+      "last_line": 316,
+      "name": "WP_Block_Parser.freeform",
+      "sha256": "b54693c7de89a75c8dfa4139ecbc512533eba115be8f85ca5bcd5d438023830c",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    },
+    {
+      "first_line": 396,
+      "last_line": 396,
+      "name": "WP_Block_Parser.close",
+      "sha256": "412ca345ccf75bf9c0806bce695be8de808b79984251a7a54d202cf6101dd451",
+      "source_path": "wp-includes/class-wp-block-parser.php"
+    }
+  ],
+  "generated_sha256": "9f140a2e56e790f9ef0063620fa9c0af1e98ae775c1ed2814c82d6575e3407f2",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "c07be3d5dc4862dff52ae27447ad1d30b6f5e309eaef7710655314aaec1636ec",
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "efc32de6a5bbd43811bb5f33c1577bdf714d48d90d9fbaadec2faad2f4d33899",
+  "gohp_commit": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+  "manifest_sha256": "34599e24bf0fa8b54995c95d68b0592b146eec8fc59e0d1ac1922170f19a1ec8",
+  "method_calls": 24,
+  "native_drivers_sha256": "79abc55efc4fdf9fab70161d8323cf54694ed103fac349f3fb4c32f5ce4f783b",
+  "native_source_files_sha256": {
+    "class-wp-block-parser-block.php": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e",
+    "class-wp-block-parser-frame.php": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105",
+    "class-wp-block-parser.php": "8563621090de5e307431b1d29b78a9f75fd9ee238a0137b563a7db7b2e1f8d3b"
+  },
+  "original_constructor_count": 1,
+  "original_function_count": 0,
+  "original_method_count": 1,
+  "owned_driver_count": 1,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "2343596d5df319b4c1f4db97dc44e333a6f89d69bdd7e5d7f64a05776bd5e8f8",
+  "php_target": "8.3",
+  "php_version": "8.3.36",
+  "report_sha256": "9b53bd29520d2470119df7d7c416ab2a499de5ce5572c8663041d2ae48fab570",
+  "schema": "gossip.parser-freeform/v1",
+  "scope": "Go: unchanged original Block class plus selected original parser class prefix/freeform/closing brace; PHP: complete original parser/Block/Frame files; one owned driver;12 cases,24 real freeform calls/new Blocks; no parse/proceed/tokenizer/stack/render/bootstrap claim; historical configurations unchanged/not rerun",
+  "selected_original_class_count": 1,
+  "sources": [
+    {
+      "role": "complete_class_and_native_file",
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e"
+    },
+    {
+      "role": "selected_class_method_and_complete_native_file",
+      "source_path": "wp-includes/class-wp-block-parser.php",
+      "source_sha256": "8563621090de5e307431b1d29b78a9f75fd9ee238a0137b563a7db7b2e1f8d3b"
+    },
+    {
+      "role": "native_require_once_dependency",
+      "source_path": "wp-includes/class-wp-block-parser-frame.php",
+      "source_sha256": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105"
+    }
+  ],
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "arguments_after": {
+        "first": "",
+        "second": ""
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            ""
+          ],
+          [
+            "innerContent",
+            [
+              ""
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "empty_pair",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            ""
+          ],
+          [
+            "innerContent",
+            [
+              ""
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "0",
+        "second": "00"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "0"
+          ],
+          [
+            "innerContent",
+            [
+              "0"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "zero_strings",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "00"
+          ],
+          [
+            "innerContent",
+            [
+              "00"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "plain text",
+        "second": "second plain text"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "plain text"
+          ],
+          [
+            "innerContent",
+            [
+              "plain text"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "plain_text",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "second plain text"
+          ],
+          [
+            "innerContent",
+            [
+              "second plain text"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "<p>Hello <em>world</em></p>",
+        "second": "<div data-x=\"1\">second</div>"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "<p>Hello <em>world</em></p>"
+          ],
+          [
+            "innerContent",
+            [
+              "<p>Hello <em>world</em></p>"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "html_markup",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "<div data-x=\"1\">second</div>"
+          ],
+          [
+            "innerContent",
+            [
+              "<div data-x=\"1\">second</div>"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "<!-- wp:paragraph -->literal<!-- /wp:paragraph -->",
+        "second": "before<!-- wp:separator /-->after"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "<!-- wp:paragraph -->literal<!-- /wp:paragraph -->"
+          ],
+          [
+            "innerContent",
+            [
+              "<!-- wp:paragraph -->literal<!-- /wp:paragraph -->"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "literal_block_comments",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "before<!-- wp:separator /-->after"
+          ],
+          [
+            "innerContent",
+            [
+              "before<!-- wp:separator /-->after"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "first\r\nsecond\r\n",
+        "second": "\r\nthird\r\n"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "first\r\nsecond\r\n"
+          ],
+          [
+            "innerContent",
+            [
+              "first\r\nsecond\r\n"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "crlf_lines",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "\r\nthird\r\n"
+          ],
+          [
+            "innerContent",
+            [
+              "\r\nthird\r\n"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "\tleading\tmiddle\t",
+        "second": "one\ttwo\tthree"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "\tleading\tmiddle\t"
+          ],
+          [
+            "innerContent",
+            [
+              "\tleading\tmiddle\t"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "tabs",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "one\ttwo\tthree"
+          ],
+          [
+            "innerContent",
+            [
+              "one\ttwo\tthree"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "\"double\" 'single' \\\\ slash",
+        "second": "C:\\\\path\\\\\"quoted\""
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "\"double\" 'single' \\\\ slash"
+          ],
+          [
+            "innerContent",
+            [
+              "\"double\" 'single' \\\\ slash"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "quotes_backslash",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "C:\\\\path\\\\\"quoted\""
+          ],
+          [
+            "innerContent",
+            [
+              "C:\\\\path\\\\\"quoted\""
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "left\u0000right",
+        "second": "\u0000"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "left\u0000right"
+          ],
+          [
+            "innerContent",
+            [
+              "left\u0000right"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "nul_bytes",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "\u0000"
+          ],
+          [
+            "innerContent",
+            [
+              "\u0000"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "雪だるま ☃",
+        "second": "東京😀é"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "雪だるま ☃"
+          ],
+          [
+            "innerContent",
+            [
+              "雪だるま ☃"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "unicode",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "東京😀é"
+          ],
+          [
+            "innerContent",
+            [
+              "東京😀é"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "second": "boundary-second"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          ],
+          [
+            "innerContent",
+            [
+              "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "boundary_4096_bytes",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "boundary-second"
+          ],
+          [
+            "innerContent",
+            [
+              "boundary-second"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "arguments_after": {
+        "first": "<span class=\"same\">same</span>",
+        "second": "<span class=\"same\">same</span>"
+      },
+      "distinct_blocks": true,
+      "first": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "<span class=\"same\">same</span>"
+          ],
+          [
+            "innerContent",
+            [
+              "<span class=\"same\">same</span>"
+            ]
+          ]
+        ],
+        "type": "object"
+      },
+      "name": "same_html_pair",
+      "parser": {
+        "class": "WP_Block_Parser",
+        "properties": [
+          [
+            "document",
+            null
+          ],
+          [
+            "offset",
+            null
+          ],
+          [
+            "output",
+            null
+          ],
+          [
+            "stack",
+            null
+          ]
+        ],
+        "type": "object"
+      },
+      "second": {
+        "class": "WP_Block_Parser_Block",
+        "properties": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            []
+          ],
+          [
+            "innerBlocks",
+            []
+          ],
+          [
+            "innerHTML",
+            "<span class=\"same\">same</span>"
+          ],
+          [
+            "innerContent",
+            [
+              "<span class=\"same\">same</span>"
+            ]
+          ]
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "verification": {
+    "gossip": {
+      "commit": "d218319afdf7327cd5001f1cd9ac0cd085e802b6",
+      "tree": "0ece4798b033d6bbb56ba665746166e116e7df00",
+      "dirty": "clean",
+      "base": "72e9ad56045bfcf3d03923e9c751cf14ef29ad9c",
+      "branch": "codex/gohp-parser-freeform",
+      "worktree": "/private/tmp/gossip-parser-freeform",
+      "commands": [
+        {
+          "cwd": "gossip/",
+          "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-constructor-null-defaults GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserFreeform$'",
+          "status": "pass",
+          "test_seconds": 12.29,
+          "package_seconds": 12.498
+        },
+        {
+          "cwd": "gossip/",
+          "command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+          "status": "pass"
+        }
+      ],
+      "raw_log": "/private/tmp/gossip-parser-freeform-output.log",
+      "first_committed_snapshot": "pass",
+      "after_pass_changes": "documentation/evidence only",
+      "rerun_after_pass": false
+    },
+    "compiler": {
+      "pin": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+      "tree": "773422be588abc30b748a742c2162cc460e76e12",
+      "pr_url": "https://github.com/katsuakikureyama/GoHP/pull/76",
+      "changes_this_turn": "none",
+      "verification_reused": true,
+      "feature_ci": {
+        "run": 40271821016,
+        "url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40271821016",
+        "commit": "e4ac8e60bd4364acc7248005c030e6288fe739e1",
+        "tree": "773422be588abc30b748a742c2162cc460e76e12",
+        "dirty": "clean",
+        "status": "pass",
+        "checks": 543,
+        "features": 75
+      },
+      "main_ci": {
+        "run": 40271997777,
+        "url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40271997777",
+        "commit": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+        "tree": "773422be588abc30b748a742c2162cc460e76e12",
+        "dirty": "clean",
+        "status": "pass",
+        "checks": 543,
+        "features": 75
+      },
+      "php_version": "8.3.36",
+      "go_version": "go version go1.23.12 linux/amd64",
+      "evidence_source": "retained downloaded feature/main artifacts and docs/evidence/parser-frame-2026-10-26.json; no compiler rerun",
+      "parallel_main": {
+        "commit": "0e736a366117a860b6e0cca7526477cfaca78230",
+        "pr": 77,
+        "change": "standalone call statements",
+        "adopted_by_this_configuration": false
+      }
+    },
+    "source_boundary": {
+      "go": "one complete original Block class/constructor plus selected original Parser prefix16-50/freeform314-316/closing396; no other Parser methods",
+      "php": "complete original class-wp-block-parser.php with its original require_once Block and Frame files; no reconstructed Parser",
+      "native_frame": "loaded only, not exercised",
+      "owned_driver": "creates Parser and calls freeform twice; no direct Block creation or field injection",
+      "original_methods_rewritten": false,
+      "generic_object_or_array_casts": "not tested"
+    },
+    "scope": {
+      "historical_configurations": "12/16/24/334 configurations/pins/corpora/evidence unchanged/not rerun or summed",
+      "unverified": [
+        "full parse/proceed/tokenizer/stack algorithms",
+        "other six Parser methods",
+        "WP_Block_Type/registry/render/IDs/CSS/HTML/ThemeJSON/bootstrap/HTTP/DB/themes/plugins",
+        "general PHP casts/errors/coercions/references"
+      ],
+      "production_target": "not configured/not created",
+      "devboard": "unidentified/not synced; tracked in PR/current-state",
+      "capability": {
+        "id": "gossip.dev.wordpress-unit.translate-compare",
+        "webmcp": "excluded",
+        "reason": "local developer test, not a browser/server operation"
+      },
+      "route_auth": "unchanged",
+      "next_dependency_audit": "source/subset contract reading only, not observed compiler rejections"
+    }
+  }
+}

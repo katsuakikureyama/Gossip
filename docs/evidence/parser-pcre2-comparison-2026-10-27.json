@@ -1,0 +1,6449 @@
+{
+  "arch": "arm64",
+  "cases": [
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "",
+      "name": "empty_document",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "b3JkaW5hcnkgdGV4dCBvbmx5",
+      "name": "plain_text",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+      "name": "core_opener",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 21,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "46ceb3c7320eddbdfab51c3ea9d46074ad2111ea4245a36bbf2167a0681ca670"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSAvd3A6cGFyYWdyYXBoIC0tPg==",
+      "name": "core_closer",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSAvd3A6cGFyYWdyYXBoIC0tPg==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Lw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 5
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Lw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 5
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 22,
+            "hex": "3c212d2d202f77703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": 5,
+            "end": 6,
+            "hex": "2f"
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 9,
+            "end": 18,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "5c184d8617fb523f5bbfcf0afd619f85e7cc2b9da7a7a63319a44c4302b747cb"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpzZXBhcmF0b3IgLy0tPg==",
+      "name": "core_void",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpzZXBhcmF0b3IgLy0tPg==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "c2VwYXJhdG9y",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "c2VwYXJhdG9y",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "dm9pZA==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Lw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 5
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Lw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": true
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 6,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 22,
+            "hex": "3c212d2d2077703a736570617261746f72202f2d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "736570617261746f72"
+          },
+          {
+            "number": 4,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 5,
+            "start": 18,
+            "end": 19,
+            "hex": "2f"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "5bb09e2e2745ba31e42182b0c27658235a2c9c50a1ac99d8c8418445ca17e21c"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDphY21lL3dpZGdldCAtLT4=",
+      "name": "namespaced_opener",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDphY21lL3dpZGdldCAtLT4=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "YWNtZS8=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "YWNtZS8=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "d2lkZ2V0",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 13
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "d2lkZ2V0",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 13
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 23,
+            "hex": "3c212d2d2077703a61636d652f776964676574202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": 8,
+            "end": 13,
+            "hex": "61636d652f"
+          },
+          {
+            "number": 3,
+            "start": 13,
+            "end": 19,
+            "hex": "776964676574"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "1101cf3d1acc8fa7f6e5310898e03e066c57186b76eda9f62d49042829c52ced"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJhbGlnbiI6IndpZGUifSAtLT4=",
+      "name": "nonempty_json_attributes",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJhbGlnbiI6IndpZGUifSAtLT4=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJhbGlnbiI6IndpZGUifSA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJhbGlnbiI6IndpZGUifSA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 38,
+            "hex": "3c212d2d2077703a706172616772617068207b22616c69676e223a2277696465227d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 35,
+            "hex": "7b22616c69676e223a2277696465227d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "c46d6b765b80a5c3ca3c155745946380deff80459789b974595dedf1c4d025f7"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGgge30gLS0+",
+      "name": "empty_json_attributes",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGgge30gLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "e30g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "e30g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 24,
+            "hex": "3c212d2d2077703a706172616772617068207b7d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 21,
+            "hex": "7b7d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "7e859881091471274322ab96aad8bc88758e455f1b7fcc4b773dfc390dad1b92"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpncm91cCB7InRpdGxlIjoi54yrIiwiaXRlbXMiOlt7ImlkIjoxfV19IC0tPg==",
+      "name": "nested_unicode_attributes",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpncm91cCB7InRpdGxlIjoi54yrIiwiaXRlbXMiOlt7ImlkIjoxfV19IC0tPg==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Z3JvdXA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "Z3JvdXA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ0aXRsZSI6IueMqyIsIml0ZW1zIjpbeyJpZCI6MX1dfSA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 14
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ0aXRsZSI6IueMqyIsIml0ZW1zIjpbeyJpZCI6MX1dfSA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 14
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 52,
+            "hex": "3c212d2d2077703a67726f7570207b227469746c65223a22e78cab222c226974656d73223a5b7b226964223a317d5d7d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 13,
+            "hex": "67726f7570"
+          },
+          {
+            "number": 4,
+            "start": 14,
+            "end": 49,
+            "hex": "7b227469746c65223a22e78cab222c226974656d73223a5b7b226964223a317d5d7d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "c93ebd378471446ef6a3ceb103967e0eacce526215fffd9f3db73f5bda57ecd8"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJicm9rZW4iOn0gLS0+",
+      "name": "invalid_json_attributes",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJicm9rZW4iOn0gLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJicm9rZW4iOn0g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJicm9rZW4iOn0g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 33,
+            "hex": "3c212d2d2077703a706172616772617068207b2262726f6b656e223a7d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 30,
+            "hex": "7b2262726f6b656e223a7d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "fc13b29a25b9ed008de323c94aa17af16c7f1c2c1900e10ac18bb18c0ec8fe87"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ0ZXh0IjoiYX1iIn0gLS0+",
+      "name": "brace_inside_json_string",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ0ZXh0IjoiYX1iIn0gLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ0ZXh0IjoiYX1iIn0g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ0ZXh0IjoiYX1iIn0g",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 36,
+            "hex": "3c212d2d2077703a706172616772617068207b2274657874223a22617d62227d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 33,
+            "hex": "7b2274657874223a22617d62227d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "9861626ca3b2d973462d0f1c6664dc32151408c1d2753ed76cc1d8b02b45c08b"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLQp3cDpwYXJhZ3JhcGgKeyJ4IjoxfQotLT4=",
+      "name": "multiline_comment",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLQp3cDpwYXJhZ3JhcGgKeyJ4IjoxfQotLT4=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ4IjoxfQo=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ4IjoxfQo=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 29,
+            "hex": "3c212d2d0a77703a7061726167726170680a7b2278223a317d0a2d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 26,
+            "hex": "7b2278223a317d0a"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "14345ffc2897334f9620a362054252fbed48b858e81e80afab3cd07066578204"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLXdwOnBhcmFncmFwaCAtLT4=",
+      "name": "missing_space_after_comment_open",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGg=",
+      "name": "unterminated_comment",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4Ijoi/yJ9IC0tPg==",
+      "name": "invalid_utf8_attributes",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4Ijoi/yJ9IC0tPg==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "YXR0cnM=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ4Ijoi/yJ9IA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 4
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "eyJ4Ijoi/yJ9IA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 18
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": true,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 5,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 31,
+            "hex": "3c212d2d2077703a706172616772617068207b2278223a22ff227d202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          },
+          {
+            "number": 4,
+            "start": 18,
+            "end": 28,
+            "hex": "7b2278223a22ff227d20"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "f5d23bcfd1ea40b85e68b556a24270268f78403c54b5039f5070bbf01d7d300b"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpmaXJzdCAtLT48IS0tIHdwOnNlY29uZCAtLT4=",
+      "name": "adjacent_comments_second_offset",
+      "normalized_offset": 17,
+      "php_offset": 17,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpzZWNvbmQgLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 17
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "c2Vjb25k",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 25
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "c2Vjb25k",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 25
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 17,
+            "end": 35,
+            "hex": "3c212d2d2077703a7365636f6e64202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 25,
+            "end": 31,
+            "hex": "7365636f6e64"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "d06ef6d556c998a997663c75303f3c7b8f52f9deb43d1128bce66e3b167fe2f6"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "54yrPCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+      "name": "multibyte_prefix",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 3
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 11
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 11
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 3,
+            "end": 24,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 11,
+            "end": 20,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "455d710cf10a3e292494a9bf24dec6b79ca25b133ac97eaa27b8868ef062122d"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "ADwhLS0gd3A6cGFyYWdyYXBoIC0tPg==",
+      "name": "nul_prefix",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 1,
+            "end": 22,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 9,
+            "end": 18,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "f88c4239064bdc010dc592c656f7d48b82cce8d52f230ba4dff60c46e8870c3d"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "/zwhLS0gd3A6cGFyYWdyYXBoIC0tPg==",
+      "name": "invalid_utf8_prefix",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 9
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 1,
+            "end": 22,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 9,
+            "end": 18,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "f88c4239064bdc010dc592c656f7d48b82cce8d52f230ba4dff60c46e8870c3d"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+      "name": "at_end_offset",
+      "normalized_offset": 21,
+      "php_offset": 21,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+      "name": "negative_document_start_offset",
+      "normalized_offset": 0,
+      "php_offset": -21,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 8
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 0,
+            "end": 21,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 8,
+            "end": 17,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "46ceb3c7320eddbdfab51c3ea9d46074ad2111ea4245a36bbf2167a0681ca670"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "54yrPCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+      "name": "offset_inside_utf8_prefix",
+      "normalized_offset": 1,
+      "php_offset": 1,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 3
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "Y2xvc2Vy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZXNwYWNl",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": -1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmFtZQ==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 11
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "base64": "cGFyYWdyYXBo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 11
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": true,
+          "name": true,
+          "namespace": true,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 1
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": 4,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": [
+          {
+            "number": 0,
+            "start": 3,
+            "end": 24,
+            "hex": "3c212d2d2077703a706172616772617068202d2d3e"
+          },
+          {
+            "number": 1,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 2,
+            "start": -1,
+            "end": -1,
+            "hex": ""
+          },
+          {
+            "number": 3,
+            "start": 11,
+            "end": 20,
+            "hex": "706172616772617068"
+          }
+        ]
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "455d710cf10a3e292494a9bf24dec6b79ca25b133ac97eaa27b8868ef062122d"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWE=",
+      "name": "long_unterminated_json_attribute",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 0,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "int",
+          "value": 0
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 100000,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -1,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "24bcf606fda5a5ed313deee909ec95d59916edc33dc84ccb51ac0e2015e59c07"
+    },
+    {
+      "equal_to_retained_preg_match": true,
+      "exit_code": 0,
+      "input_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4IjoiYWJjIn0gLS0+",
+      "name": "backtrack_limit_one",
+      "normalized_offset": 0,
+      "php_offset": 0,
+      "php_shaped": {
+        "error_code": 2,
+        "matches_after": {
+          "entries": [],
+          "type": "array"
+        },
+        "matches_before": {
+          "type": "null",
+          "value": null
+        },
+        "named_capture_presence": {
+          "attrs": false,
+          "closer": false,
+          "name": false,
+          "namespace": false,
+          "void": false
+        },
+        "return": {
+          "type": "bool",
+          "value": false
+        }
+      },
+      "raw": {
+        "version": "10.47 2025-10-21",
+        "header_version": "10.47",
+        "jit": false,
+        "match_limit": 1,
+        "depth_limit": 10000,
+        "heap_limit_kib": 131072,
+        "compile_options": 32,
+        "newline": 2,
+        "bsr": 1,
+        "return_code": -47,
+        "capture_count": 5,
+        "names": [
+          {
+            "number": 4,
+            "name": "attrs"
+          },
+          {
+            "number": 1,
+            "name": "closer"
+          },
+          {
+            "number": 3,
+            "name": "name"
+          },
+          {
+            "number": 2,
+            "name": "namespace"
+          },
+          {
+            "number": 5,
+            "name": "void"
+          }
+        ],
+        "captures": []
+      },
+      "stderr_bytes": 0,
+      "stdout_sha256": "55a4a2831d5875fd627ea93254804a51ec960125e15d578b21a7df213aaaf650"
+    }
+  ],
+  "cases_sha256": "ac92d6eb7cbf2fef591d73749e13c8110fe00934cb96a7e825dc7e5727ff83ef",
+  "cgo_status": "not-run",
+  "compile_arguments": [
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I<PCRE2_PREFIX>/include",
+    "<INPUT>/probe.c",
+    "<PCRE2_PREFIX>/lib/libpcre2-8.a",
+    "-o",
+    "<OUTPUT>/probe"
+  ],
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)",
+  "compiler_sha256": "bed335fb48472e4ee3c2c3a38517b208326f37865bd57792df88b42669ec9603",
+  "executable_sha256": "9ddc487a06799992daba2ccc7f9846ca4fbacdf904da2e3837bc2b386f00b66f",
+  "go_version": "go1.22.1",
+  "gohp_status": "not-run",
+  "harness_sha256": "7b9304a58527c1b76e2caddd619ed3c60135120c03fb12d3c06dd85b4742f6f1",
+  "header_sha256": "058462dc030e845ee627e19ac36347f561f5cc44d89eaf1c0010f2b363ab68d5",
+  "locale": "C",
+  "matches": 24,
+  "mismatches": 0,
+  "next_token_status": "not-run",
+  "os": "darwin",
+  "pattern_body_sha256": "b25801e7cea22f1635132d088e0292dcaeab141e9b036dbcdee6969166503473",
+  "pattern_sha256": "3394500101eae41893b0978b3003f891dfafab54e7d7ebcbf820422753d8446e",
+  "php84_status": "not-run",
+  "php_reference_pcre": "10.42 2022-12-12",
+  "php_reference_version": "8.3.36",
+  "probe_source_sha256": "c87a609aaf119276f78f906b32371421318341660fd984f4d66c556c3c89c35e",
+  "reference_reused": true,
+  "reference_sha256": "5cbf560247afcd2c5f1462cab2f95f16bb822ac2d4d1756be16221cffdc6dc60",
+  "regexp2_status": "not-run",
+  "schema": "gossip.parser-pcre2-comparison/v1",
+  "static_archive_sha256": "ce40246eba1dfdd99e43142cfc33264610d7c965fab3062f386c68a6636a4a54",
+  "status": "bounded-engine-comparison-pass",
+  "execution_snapshot": {
+    "commit": "c6d82db2faaad12592e3274d677c27c379dea9ac",
+    "tree": "c8bba02deadacc981a306ee6fbe33e43c26c342f",
+    "dirty": "clean",
+    "date_jst": "2026-10-27",
+    "test_command": "go test -count=1 -v ./tests/gohp -run '^TestParserPCRE2Comparison$'",
+    "environment": {
+      "GOSSIP_PCRE2_PREFIX": "<installed PCRE2 10.47 prefix>",
+      "GOPROXY": "off",
+      "GOTOOLCHAIN": "local",
+      "GOCACHE": "<local cache>"
+    },
+    "test_seconds": 0.73,
+    "package_seconds": 0.916,
+    "initial_attempt": {
+      "status": "infrastructure-failed-before-comparison",
+      "phase": "clang --version",
+      "reason": "macOS compiler shim emitted sandbox FSEvents/cache diagnostics; stderr rejected",
+      "test_seconds": 3.32,
+      "package_seconds": 3.541
+    },
+    "successful_retry": "same code/config, sandbox escalation for local compiler access; no native PHP rerun",
+    "vet": "PASS on same commit",
+    "execution_isolation": "host process, minimal environment, per-command deadline; not Docker or network-isolated",
+    "license_metadata": {
+      "installed_package": "Homebrew pcre2 10.47_1, arm64 bottle",
+      "spdx": "BSD-3-Clause WITH PCRE2-exception",
+      "source_or_binary_vendored": false,
+      "license_sha256": "197d8a73ffee0d6b09adba2f9c677b5f5aede24edf89258a68e48248d010d811"
+    }
+  }
+}

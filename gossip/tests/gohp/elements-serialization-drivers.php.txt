@@ -1,0 +1,15 @@
+// Owned input data holder, not WP_Block_Type or a replacement registry/service.
+// Observers inject supports data after no-arg construction, outside translation.
+class GossipBlockSupportsInput {
+	public $supports = null;
+}
+
+// Owned composition of actual unchanged helpers, not the original render hook.
+function gossip_elements_serialization_decision( $block, $block_type ) {
+	$options = array(
+		'button' => array( 'skip' => wp_should_skip_block_supports_serialization( $block_type, 'color', 'button' ) ),
+		'link' => array( 'skip' => wp_should_skip_block_supports_serialization( $block_type, 'color', 'link' ) ),
+		'heading' => array( 'skip' => wp_should_skip_block_supports_serialization( $block_type, 'color', 'heading' ) ),
+	);
+	return wp_should_add_elements_class_name( $block, $options );
+}

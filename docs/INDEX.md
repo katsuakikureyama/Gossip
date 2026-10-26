@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Serialization utility → class decision](elements-serialization-path.md) | Three unchanged originals, explicit input-object boundary,16 direct +8 owned composition cases |
+| [Serialization decision evidence](evidence/elements-serialization-path-2026-10-26.md) |24 typed/caller-state comparisons and vet PASS; initial extraction failure retained; old334 configuration unchanged |
 | [Current state](current-state-fork-baseline.md) | 26 unchanged originals,334-case single-binary PASS including a real block element-class caller |
 | [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
 | [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |

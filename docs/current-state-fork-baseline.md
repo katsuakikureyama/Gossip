@@ -2,7 +2,36 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: real block element-class decision /26 originals334 cases PASS
+## Latest: real serialization utility → class decision / separate24-case PASS
+
+Three unchanged originals now run together: wp_should_skip_block_supports_serialization,
+_wp_array_get and wp_should_add_elements_class_name. One owned data class and
+one owned driver connect actual skip options to actual class necessity. All24
+fresh Go/PHP8.3.36/C observations match (16 direct/8 composed), including20 bool,
+1 null,1 int and2 string returns; measured caller data stays unchanged.
+[Contract](elements-serialization-path.md), [record](evidence/elements-serialization-path-2026-10-26.md).
+
+Clean snapshot60624d1f6b2ad5a219b09f80e66bb1ecb86c33fa, tree
+d283e538c2da65134939f074d375c598072e0e86: PASS8.82s/package9.030s, vet PASS,
+both exits0/stderr empty. Initial9d0c05c68 failed before translation because the
+utils.php range ended at38 rather than35; corrected range only, original source
+unchanged. Failure log retained; no rerun after successful snapshot.
+
+GoHP #69 is_object is merged main731ef251ac907326f060aac5f1b5b994ac8615bb,
+tree145b905f1f7c5ea2c00a2ab3825ecfcd1069b2b8, exact clean feature CI498-check/
+68-feature PASS; PR/main CI also PASS. Parallel #68 str_contains preserved.
+Existing26-original334-case configuration stays unchanged/not rerun. This is
+not a27-original358-case single-binary result.
+
+Observers supply supports data to the owned generated class outside translation;
+the class provides no WordPress service logic. Original WP_Block_Type/registry,
+source property writes/array defaults, render hooks/IDs/CSS/HTML and full bootstrap/
+HTTP/DB/themes/plugins remain unverified. No production target configured/created;
+WebMCP excluded, route/auth unchanged. Devboard unidentified/not synced, tracked
+in PR/current-state. Next choose another concrete render dependency, without
+replacing original services or repeating successful configurations.
+
+## Previous: real block element-class decision /26 originals334 cases PASS
 
 Unchanged `wp_should_add_elements_class_name` now executes with its actual
 unchanged `_wp_array_get` dependency, without resolver/class/service stubs.

@@ -1,8 +1,28 @@
 # Current state — WordPress fork baseline
 
-Last updated: 2026-10-26 (JST).
+Last updated: 2026-10-27 (JST).
 
-## Latest: project overview and responsibility map
+## Latest: original next_token / preg_match native reference
+
+The [24-case native reference](parser-token-reference.md) passes its predeclared
+PHP expectations at clean commit `29e6d2637e68cbc3a8d5764ba825e6e6600ddf74`:
+17 matches, 6 non-matches, 1 backtracking-limit failure. PHP 8.3.36 / PCRE 10.42,
+JIT explicitly off; full original Parser/Block/Frame loaded unchanged. Separate
+direct preg_match and original next_token calls retain capture bytes/order/offsets,
+error types and parser/caller state. Invalid UTF-8 attributes match the regex but
+fail JSON decoding. [Execution record](evidence/parser-token-reference-2026-10-27.md)
+includes complete machine-readable observations and hashes. Targeted native test
+and vet PASS once; documentation-only additions reuse that code/corpus evidence.
+
+This is not generated Go, a backend comparison, PHP 8.4, or full parse evidence.
+GoHP code, prior compiler pins and original WordPress bytes are unchanged. GoHP
+#105 source-token inventory is separate work, not duplicated here. Next: evaluate
+the exact pattern/captures against PCRE2 first, then regexp2; out-of-range offsets,
+JIT-on and other failure modes still need separate evidence. No backend adopted,
+production target, route/auth or user operation added; WebMCP excluded. Progress
+uses GoHP Issue1; devboard remains unidentified/not synced.
+
+## Previous: project overview and responsibility map
 
 Documentation-only follow-up to PR44, based on master
 `ae218d3f78cc649e4f2884ceb24870e0fe2d76b7`, branch `docs/project-boundaries`.

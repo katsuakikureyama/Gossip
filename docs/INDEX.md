@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Parser-token native reference](parser-token-reference.md) | Fixed original next_token and direct preg_match contract; 24 PHP-only cases, no Go/backend claim |
+| [Parser-token reference evidence](evidence/parser-token-reference-2026-10-27.md) | Clean committed snapshot, 24 native expectations PASS, full typed capture/state observations and execution profile |
 | [Current responsibility map](reuse-boundary.md) | Original translation, native Go integration candidates and unsupported surfaces; current owner operating policy |
 | [Parser backend assessment](parser-backend-assessment.md) | Fixed original next_token requirements, PCRE2/regexp2 comparison gates; no backend adopted or measured |
 | [Historical README](history/readme-through-pr44.md) | Prior long narrative through PR44, preserved with rebased links; not current commands or policy |

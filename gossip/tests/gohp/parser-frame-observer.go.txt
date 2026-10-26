@@ -1,0 +1,211 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type parserFrameCase struct {
+	Name         string          `json:"name"`
+	Arity        int             `json:"arity"`
+	BlockName    json.RawMessage `json:"block_name"`
+	Attrs        json.RawMessage `json:"attrs"`
+	InnerHTML    json.RawMessage `json:"inner_html"`
+	InnerContent json.RawMessage `json:"inner_content"`
+	Start        json.RawMessage `json:"start"`
+	Length       json.RawMessage `json:"length"`
+	Prev         json.RawMessage `json:"prev"`
+	Leading      json.RawMessage `json:"leading"`
+	AfterHTML    json.RawMessage `json:"after_html"`
+	ExpectedPrev json.RawMessage `json:"expected_prev"`
+}
+
+func parserFrameNode(raw json.RawMessage, field string) any {
+	entries := 0
+	value := arrayGetDecodeNode(arrayGetDecodeRaw(raw, field), field, 0, &entries)
+	canonicalEntries := 0
+	canonical := arrayGetCanonicalNode(arrayGetDecodeRaw(raw, field), field, 0, &canonicalEntries)
+	if !reflect.DeepEqual(arrayGetObserve(value, field), canonical) {
+		panic(field + " is not canonical")
+	}
+	return value
+}
+
+func parserFrameBlockObservation(block *C_wp_block_parser_block, field string) map[string]any {
+	if block == nil || !rt.IsObject(block) {
+		panic(field + " requires actual generated Block")
+	}
+	getter := any(block).(interface{ Get(string) any })
+	names := []string{"blockName", "attrs", "innerBlocks", "innerHTML", "innerContent"}
+	entries := make([]rt.Entry, 0, len(names))
+	for _, name := range names {
+		entries = append(entries, rt.Entry{Key: name, Value: getter.Get(name)})
+	}
+	return map[string]any{"type": "object", "class": "WP_Block_Parser_Block", "properties": arrayGetObserve(rt.NewArray(entries...), field+" properties")}
+}
+
+func parserFrameScalarObservation(frame *C_wp_block_parser_frame, field string) map[string]any {
+	if frame == nil || !rt.IsObject(frame) {
+		panic(field + " requires actual generated Frame")
+	}
+	getter := any(frame).(interface{ Get(string) any })
+	names := []string{"token_start", "token_length", "prev_offset", "leading_html_start"}
+	entries := make([]rt.Entry, 0, len(names))
+	for _, name := range names {
+		entries = append(entries, rt.Entry{Key: name, Value: getter.Get(name)})
+	}
+	return map[string]any{"type": "object", "class": "WP_Block_Parser_Frame", "scalar_properties": arrayGetObserve(rt.NewArray(entries...), field+" scalar properties")}
+}
+
+func init() {
+	data, err := os.ReadFile("/input/parser-frame-cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	var cases []parserFrameCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing corpus data")
+	}
+	if len(cases) != 12 {
+		panic("expected12 parser-frame cases")
+	}
+	seen := map[string]bool{}
+	observations := make([]map[string]any, 0, len(cases))
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] || c.Arity < 3 || c.Arity > 5 {
+			panic("invalid parser-frame case")
+		}
+		seen[c.Name] = true
+		args := []any{
+			parserFrameNode(c.BlockName, c.Name+" block_name"), parserFrameNode(c.Attrs, c.Name+" attrs"),
+			parserFrameNode(c.InnerHTML, c.Name+" inner_html"), parserFrameNode(c.InnerContent, c.Name+" inner_content"),
+			parserFrameNode(c.Start, c.Name+" start"), parserFrameNode(c.Length, c.Name+" length"),
+			parserFrameNode(c.Prev, c.Name+" prev"), parserFrameNode(c.Leading, c.Name+" leading"), parserFrameNode(c.AfterHTML, c.Name+" after_html"),
+		}
+		if args[0] != nil {
+			if _, ok := args[0].(string); !ok {
+				panic("block_name requires string/null")
+			}
+		}
+		if args[1] != nil {
+			if _, ok := args[1].(rt.Array); !ok {
+				panic("attrs requires array/null")
+			}
+		}
+		for _, index := range []int{2, 8} {
+			if _, ok := args[index].(string); !ok {
+				panic("html requires string")
+			}
+		}
+		content, ok := args[3].(rt.Array)
+		if !ok {
+			panic("inner_content requires array")
+		}
+		for _, entry := range content.Entries {
+			if entry.Value != nil {
+				if _, ok := entry.Value.(string); !ok {
+					panic("inner_content requires string/null fragments")
+				}
+			}
+		}
+		for _, index := range []int{4, 5} {
+			if _, ok := args[index].(int64); !ok {
+				panic("offset requires int")
+			}
+		}
+		if args[6] != nil {
+			if _, ok := args[6].(int64); !ok {
+				panic("prev requires int/null")
+			}
+		}
+		if args[7] != nil {
+			if _, ok := args[7].(int64); !ok {
+				panic("leading requires int/null")
+			}
+		}
+		before := make([]any, len(args))
+		for i, arg := range args {
+			before[i] = rt.Clone(arg)
+		}
+		var result any
+		switch c.Arity {
+		case 3:
+			result = F_gossip_parser_frame_3(args...)
+		case 4:
+			result = F_gossip_parser_frame_4(args...)
+		case 5:
+			result = F_gossip_parser_frame_5(args...)
+		}
+		frame, ok := rt.Get(result, "frame").(*C_wp_block_parser_frame)
+		if !ok || !rt.IsObject(frame) {
+			panic("expected actual generated original Frame")
+		}
+		block, ok := rt.Get(result, "block").(*C_wp_block_parser_block)
+		if !ok || !rt.IsObject(block) {
+			panic("expected actual generated original Block")
+		}
+		snapshot, ok := rt.Get(result, "snapshot").(rt.Array)
+		if !ok {
+			panic("expected Frame array snapshot")
+		}
+		propertyOrder := []string{}
+		for _, entry := range snapshot.Entries {
+			name, ok := entry.Key.(string)
+			if !ok {
+				panic("snapshot requires string keys")
+			}
+			propertyOrder = append(propertyOrder, name)
+		}
+		if !reflect.DeepEqual(propertyOrder, []string{"block", "token_start", "token_length", "prev_offset", "leading_html_start"}) {
+			panic("snapshot property order mismatch")
+		}
+		frameGetter := any(frame).(interface{ Get(string) any })
+		frameBlock, ok := frameGetter.Get("block").(*C_wp_block_parser_block)
+		if !ok || frameBlock != block {
+			panic("Frame block identity mismatch")
+		}
+		snapshotBlock, ok := rt.Get(snapshot, "block").(*C_wp_block_parser_block)
+		if !ok || snapshotBlock != block {
+			panic("snapshot block identity mismatch")
+		}
+		expectedPrev := parserFrameNode(c.ExpectedPrev, c.Name+" expected_prev")
+		if !reflect.DeepEqual(frameGetter.Get("prev_offset"), expectedPrev) || !reflect.DeepEqual(args, before) ||
+			!reflect.DeepEqual(frameGetter.Get("token_start"), args[4]) || !reflect.DeepEqual(frameGetter.Get("token_length"), args[5]) ||
+			!reflect.DeepEqual(frameGetter.Get("leading_html_start"), func() any {
+				if c.Arity == 5 {
+					return args[7]
+				}
+				return nil
+			}()) {
+			panic("parser-frame constructor/default or argument mismatch: " + c.Name)
+		}
+		frameSummary := parserFrameScalarObservation(frame, c.Name+" frame")
+		snapshotEntries := []rt.Entry{
+			{Key: "token_start", Value: rt.Get(snapshot, "token_start")}, {Key: "token_length", Value: rt.Get(snapshot, "token_length")},
+			{Key: "prev_offset", Value: rt.Get(snapshot, "prev_offset")}, {Key: "leading_html_start", Value: rt.Get(snapshot, "leading_html_start")},
+		}
+		snapshotSummary := map[string]any{"type": "array", "source_class": "WP_Block_Parser_Frame", "property_order": propertyOrder, "scalar_properties": arrayGetObserve(rt.NewArray(snapshotEntries...), c.Name+" snapshot scalar properties")}
+		argumentsAfter := map[string]any{}
+		for i, name := range []string{"block_name", "attrs", "inner_html", "inner_content", "start", "length", "prev", "leading", "after_html"} {
+			argumentsAfter[name] = arrayGetObserve(args[i], c.Name+" "+name+" after")
+		}
+		observations = append(observations, map[string]any{"name": c.Name, "arity": c.Arity, "frame": frameSummary,
+			"snapshot": snapshotSummary, "block": parserFrameBlockObservation(block, c.Name+" block"), "object_identity": true, "arguments_after": argumentsAfter})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

@@ -6,13 +6,15 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Original Frame + Block](parser-frame.md) | Two complete unchanged classes/constructors, Frame3/4/5 arguments and nested object identity after snapshot |
+| [Frame evidence](evidence/parser-frame-2026-10-26.md) |12 actual typed/default/offset/identity/caller-state comparisons and vet PASS; GoHP #76 pin/main543-check CI PASS |
 | [Original parser-block data class](parser-block-data.md) | Complete original class/constructor → array snapshot → real class decision, no substitute class |
 | [Parser-block data evidence](evidence/parser-block-data-2026-10-26.md) |16 actual class/property/snapshot/decision/argument-state comparisons and vet PASS; GoHP #74 pin |
 | [Source-built block input](elements-source-input.md) | Object creation/property assignment inside translated PHP, no observer field injection, same24-case corpus |
 | [Source-built input evidence](evidence/elements-source-input-2026-10-26.md) |24 actual typed/factory-input/supports/caller-state comparisons and vet PASS; GoHP #71 pin |
 | [Serialization utility → class decision](elements-serialization-path.md) | Three unchanged originals, explicit input-object boundary,16 direct +8 owned composition cases |
 | [Serialization decision evidence](evidence/elements-serialization-path-2026-10-26.md) |24 typed/caller-state comparisons and vet PASS; initial extraction failure retained; old334 configuration unchanged |
-| [Current state](current-state-fork-baseline.md) | Original data class +2-original-helper16-case PASS; prior24/334 configurations retained unchanged |
+| [Current state](current-state-fork-baseline.md) | Original Frame+Block12-case PASS; prior16/24/334 configurations retained unchanged |
 | [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
 | [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |
 | [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |

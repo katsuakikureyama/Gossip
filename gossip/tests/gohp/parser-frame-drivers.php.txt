@@ -1,0 +1,25 @@
+// Owned glue: construct unchanged original Block and Frame classes, then
+// mutate the local Block only after the Frame array snapshot has been made.
+function gossip_parser_frame_3( $block_name, $attrs, $inner_html, $inner_content, $start, $length, $prev, $leading, $after_html ) {
+	$block = new WP_Block_Parser_Block( $block_name, $attrs, array(), $inner_html, $inner_content );
+	$frame = new WP_Block_Parser_Frame( $block, $start, $length );
+	$snapshot = (array) $frame;
+	$block->innerHTML = $after_html;
+	return array( 'frame' => $frame, 'block' => $block, 'snapshot' => $snapshot );
+}
+
+function gossip_parser_frame_4( $block_name, $attrs, $inner_html, $inner_content, $start, $length, $prev, $leading, $after_html ) {
+	$block = new WP_Block_Parser_Block( $block_name, $attrs, array(), $inner_html, $inner_content );
+	$frame = new WP_Block_Parser_Frame( $block, $start, $length, $prev );
+	$snapshot = (array) $frame;
+	$block->innerHTML = $after_html;
+	return array( 'frame' => $frame, 'block' => $block, 'snapshot' => $snapshot );
+}
+
+function gossip_parser_frame_5( $block_name, $attrs, $inner_html, $inner_content, $start, $length, $prev, $leading, $after_html ) {
+	$block = new WP_Block_Parser_Block( $block_name, $attrs, array(), $inner_html, $inner_content );
+	$frame = new WP_Block_Parser_Frame( $block, $start, $length, $prev, $leading );
+	$snapshot = (array) $frame;
+	$block->innerHTML = $after_html;
+	return array( 'frame' => $frame, 'block' => $block, 'snapshot' => $snapshot );
+}

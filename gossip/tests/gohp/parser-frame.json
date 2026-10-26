@@ -1,0 +1,21 @@
+{
+  "schema": "gossip.parser-frame/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "gohp_commit": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "cases_sha256": "55ec7334da0d8de3898f741b80ef9942547b0e1977e3eb16867323c8e3e5654f",
+  "sources": [
+    {
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e",
+      "fragments": [{"name":"WP_Block_Parser_Block","first_line":15,"last_line":90}]
+    },
+    {
+      "source_path": "wp-includes/class-wp-block-parser-frame.php",
+      "source_sha256": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105",
+      "fragments": [{"name":"WP_Block_Parser_Frame","first_line":16,"last_line":79}]
+    }
+  ]
+}

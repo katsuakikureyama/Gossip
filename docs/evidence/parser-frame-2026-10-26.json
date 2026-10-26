@@ -1,0 +1,1787 @@
+{
+  "binary_sha256": "d8cbd2ef4c8a6df66931c973650f1b1803ce1894739e456eda66fd4e9029a5a6",
+  "case_count": 12,
+  "cases_sha256": "55ec7334da0d8de3898f741b80ef9942547b0e1977e3eb16867323c8e3e5654f",
+  "compiled_bundle_sha256": "c9936fa6317ad28e57df5fc62e4733aba57a4e6a7d5cbd7903edb48df25fcfea",
+  "compiler_sha256": "f51e1355665eca1df5b69b743a547d16c86be555d53c7216c471c2597f57cc38",
+  "compiler_version": "0.1.0-dev",
+  "drivers_sha256": "04a09fbf1ae6d8c49d3b2baa058d8292f02766d1c28a2251c2521f11a3210cf8",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 15,
+      "last_line": 90,
+      "name": "WP_Block_Parser_Block",
+      "sha256": "4a3d9629bae4dd309bc1e3f16fc1ff8ca985a1778c2b15ac25dc1a9db13cf0ad",
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e"
+    },
+    {
+      "first_line": 16,
+      "last_line": 79,
+      "name": "WP_Block_Parser_Frame",
+      "sha256": "32c9c3d1d5dea106941e5e13a22216b7a9bef293fd315ced3b6bf207db577a24",
+      "source_path": "wp-includes/class-wp-block-parser-frame.php",
+      "source_sha256": "e5883d82dff099a4b1a23786e9a53b7e29aa73654db83e7ddc444ba17df5e105"
+    }
+  ],
+  "generated_sha256": "a3fc4c50e600d77745169a4526bd3d32793cf828ed441dcfaf5f2c9bc2c9fc49",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "d13ae2f0dd7711e89b9fcc025948a5a8d9ecc9769474d33433c8e3aeaecfe950",
+  "go_transport": {
+    "adapted_sha256": "898adf3edb5e35e2c73315c8cd0909da87faf60ce062f889d19c77abd92ee7c2",
+    "original_sha256": "95afd5957d92059f915d586138e38ff83502ec76cee9c5b4fd573c2197850933"
+  },
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "efc32de6a5bbd43811bb5f33c1577bdf714d48d90d9fbaadec2faad2f4d33899",
+  "gohp_commit": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+  "manifest_sha256": "a2bb5e2c57c776dc1300d10aefd5bc098e1107274cb4b8fc857a54c162e9d576",
+  "native_bundle_sha256": "c9936fa6317ad28e57df5fc62e4733aba57a4e6a7d5cbd7903edb48df25fcfea",
+  "original_class_count": 2,
+  "original_constructor_count": 2,
+  "original_function_count": 0,
+  "owned_driver_count": 3,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "36c9a824ca346fdd467d66eb6a2107a5f837a8228ebee78cbd3a1d983b73fa04",
+  "php_target": "8.3",
+  "php_transport": {
+    "adapted_sha256": "0090e6a83bfb32e4c1c1d883d9e1181c1c2b0b0eb40c89afa47fb84204c73fae",
+    "original_sha256": "ce4754d62c17bbd5fb493ae8271caef42a7a190c14755ec91943fb005ed0870a"
+  },
+  "php_version": "8.3.36",
+  "report_sha256": "bd3e4af7417b006198914342b0fa10b4905ea9b25d85d6e2776c2cedf5af2c98",
+  "schema": "gossip.parser-frame/v1",
+  "scope": "two complete unchanged original WordPress data classes and constructors; three owned source drivers cover Frame arities3/4/5 and nested Block identity after snapshot;12 typed comparisons; no full parser/stack/registry/render/CSS/HTML/bootstrap claim; historical configurations unchanged/not rerun",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "arguments_after": {
+        "after_html": "雪-after",
+        "attrs": {
+          "array": [
+            [
+              "align",
+              "wide"
+            ]
+          ]
+        },
+        "block_name": "core/paragraph",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "雪"
+            ]
+          ]
+        },
+        "inner_html": "雪",
+        "leading": 88,
+        "length": 7,
+        "prev": 99,
+        "start": 5
+      },
+      "arity": 3,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/paragraph"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "align",
+                    "wide"
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "雪-after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "雪"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              5
+            ],
+            [
+              "token_length",
+              7
+            ],
+            [
+              "prev_offset",
+              12
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity3_unicode_sum",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              5
+            ],
+            [
+              "token_length",
+              7
+            ],
+            [
+              "prev_offset",
+              12
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "zero-after",
+        "attrs": null,
+        "block_name": null,
+        "inner_content": {
+          "array": []
+        },
+        "inner_html": "",
+        "leading": 0,
+        "length": 0,
+        "prev": 0,
+        "start": 0
+      },
+      "arity": 3,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              null
+            ],
+            [
+              "attrs",
+              null
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "zero-after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": []
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              0
+            ],
+            [
+              "token_length",
+              0
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity3_zero_offsets",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              0
+            ],
+            [
+              "token_length",
+              0
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<i>after</i>",
+        "attrs": {
+          "array": []
+        },
+        "block_name": "core/freeform",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<i>"
+            ],
+            [
+              1,
+              "x"
+            ],
+            [
+              2,
+              "</i>"
+            ]
+          ]
+        },
+        "inner_html": "<i>x</i>",
+        "leading": -9,
+        "length": 3,
+        "prev": null,
+        "start": -8
+      },
+      "arity": 3,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/freeform"
+            ],
+            [
+              "attrs",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<i>after</i>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "<i>"
+                  ],
+                  [
+                    1,
+                    "x"
+                  ],
+                  [
+                    2,
+                    "</i>"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -8
+            ],
+            [
+              "token_length",
+              3
+            ],
+            [
+              "prev_offset",
+              -5
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity3_negative_sum",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -8
+            ],
+            [
+              "token_length",
+              3
+            ],
+            [
+              "prev_offset",
+              -5
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "\u0000after",
+        "attrs": {
+          "array": [
+            [
+              "meta",
+              {
+                "array": [
+                  [
+                    "flag",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/html",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "\u0000"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "before"
+            ]
+          ]
+        },
+        "inner_html": "\u0000before",
+        "leading": null,
+        "length": -10,
+        "prev": -1,
+        "start": 7
+      },
+      "arity": 3,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/html"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "meta",
+                    {
+                      "array": [
+                        [
+                          "flag",
+                          true
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "\u0000after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "\u0000"
+                  ],
+                  [
+                    1,
+                    null
+                  ],
+                  [
+                    2,
+                    "before"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              7
+            ],
+            [
+              "token_length",
+              -10
+            ],
+            [
+              "prev_offset",
+              -3
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity3_nul_html",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              7
+            ],
+            [
+              "token_length",
+              -10
+            ],
+            [
+              "prev_offset",
+              -3
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<div>after</div>",
+        "attrs": {
+          "array": []
+        },
+        "block_name": "core/group",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<div>"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "</div>"
+            ]
+          ]
+        },
+        "inner_html": "<div>before</div>",
+        "leading": 777,
+        "length": 9,
+        "prev": null,
+        "start": 4
+      },
+      "arity": 4,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/group"
+            ],
+            [
+              "attrs",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<div>after</div>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "<div>"
+                  ],
+                  [
+                    1,
+                    null
+                  ],
+                  [
+                    2,
+                    "</div>"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              4
+            ],
+            [
+              "token_length",
+              9
+            ],
+            [
+              "prev_offset",
+              13
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity4_null_defaults",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              4
+            ],
+            [
+              "token_length",
+              9
+            ],
+            [
+              "prev_offset",
+              13
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "quote-after",
+        "attrs": null,
+        "block_name": "core/quote",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "quote"
+            ]
+          ]
+        },
+        "inner_html": "quote",
+        "leading": null,
+        "length": 4,
+        "prev": 0,
+        "start": -4
+      },
+      "arity": 4,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/quote"
+            ],
+            [
+              "attrs",
+              null
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "quote-after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "quote"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -4
+            ],
+            [
+              "token_length",
+              4
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity4_zero_override",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -4
+            ],
+            [
+              "token_length",
+              4
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<?php after",
+        "attrs": {
+          "array": [
+            [
+              "language",
+              "php"
+            ]
+          ]
+        },
+        "block_name": "core/code",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<?php"
+            ]
+          ]
+        },
+        "inner_html": "<?php",
+        "leading": 0,
+        "length": -1,
+        "prev": -99,
+        "start": 0
+      },
+      "arity": 4,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/code"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "language",
+                    "php"
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<?php after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "<?php"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              0
+            ],
+            [
+              "token_length",
+              -1
+            ],
+            [
+              "prev_offset",
+              -99
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity4_nonzero_override",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              0
+            ],
+            [
+              "token_length",
+              -1
+            ],
+            [
+              "prev_offset",
+              -99
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<ol>after</ol>",
+        "attrs": {
+          "array": [
+            [
+              "ordered",
+              false
+            ]
+          ]
+        },
+        "block_name": "core/list",
+        "inner_content": {
+          "array": []
+        },
+        "inner_html": "<ol/>",
+        "leading": -2,
+        "length": -1000000,
+        "prev": null,
+        "start": 1000000
+      },
+      "arity": 4,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/list"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "ordered",
+                    false
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<ol>after</ol>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": []
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              1000000
+            ],
+            [
+              "token_length",
+              -1000000
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity4_large_sum",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              1000000
+            ],
+            [
+              "token_length",
+              -1000000
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "null optional after",
+        "attrs": {
+          "array": []
+        },
+        "block_name": null,
+        "inner_content": {
+          "array": [
+            [
+              0,
+              null
+            ]
+          ]
+        },
+        "inner_html": "null optional",
+        "leading": null,
+        "length": -9,
+        "prev": null,
+        "start": 9
+      },
+      "arity": 5,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              null
+            ],
+            [
+              "attrs",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "null optional after"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    null
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              9
+            ],
+            [
+              "token_length",
+              -9
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity5_nulls",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              9
+            ],
+            [
+              "token_length",
+              -9
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              null
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<a>After</a>",
+        "attrs": {
+          "array": [
+            [
+              "text",
+              "Go"
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<a>"
+            ],
+            [
+              1,
+              "Go"
+            ],
+            [
+              2,
+              "</a>"
+            ]
+          ]
+        },
+        "inner_html": "<a>Go</a>",
+        "leading": 0,
+        "length": 2,
+        "prev": 0,
+        "start": 1
+      },
+      "arity": 5,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/button"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "text",
+                    "Go"
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<a>After</a>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "<a>"
+                  ],
+                  [
+                    1,
+                    "Go"
+                  ],
+                  [
+                    2,
+                    "</a>"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              1
+            ],
+            [
+              "token_length",
+              2
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              0
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity5_zeroes",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              1
+            ],
+            [
+              "token_length",
+              2
+            ],
+            [
+              "prev_offset",
+              0
+            ],
+            [
+              "leading_html_start",
+              0
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "<img after>",
+        "attrs": {
+          "array": [
+            [
+              "id",
+              7
+            ],
+            [
+              "sizeSlug",
+              "large"
+            ]
+          ]
+        },
+        "block_name": "core/image",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<img>"
+            ]
+          ]
+        },
+        "inner_html": "<img>",
+        "leading": -2,
+        "length": 6,
+        "prev": 13,
+        "start": -2
+      },
+      "arity": 5,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/image"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "id",
+                    7
+                  ],
+                  [
+                    "sizeSlug",
+                    "large"
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "<img after>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "<img>"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -2
+            ],
+            [
+              "token_length",
+              6
+            ],
+            [
+              "prev_offset",
+              13
+            ],
+            [
+              "leading_html_start",
+              -2
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity5_nonzero_negative_leading",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -2
+            ],
+            [
+              "token_length",
+              6
+            ],
+            [
+              "prev_offset",
+              13
+            ],
+            [
+              "leading_html_start",
+              -2
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    },
+    {
+      "arguments_after": {
+        "after_html": "\u0000<h2>後</h2>",
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "color",
+                    {
+                      "array": [
+                        [
+                          "text",
+                          "雪"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/heading",
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "\u0000<h2>"
+            ],
+            [
+              1,
+              "雪"
+            ],
+            [
+              2,
+              "</h2>"
+            ]
+          ]
+        },
+        "inner_html": "\u0000<h2>雪</h2>",
+        "leading": 777,
+        "length": 1,
+        "prev": null,
+        "start": -10
+      },
+      "arity": 5,
+      "block": {
+        "class": "WP_Block_Parser_Block",
+        "properties": {
+          "array": [
+            [
+              "blockName",
+              "core/heading"
+            ],
+            [
+              "attrs",
+              {
+                "array": [
+                  [
+                    "style",
+                    {
+                      "array": [
+                        [
+                          "color",
+                          {
+                            "array": [
+                              [
+                                "text",
+                                "雪"
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ],
+            [
+              "innerBlocks",
+              {
+                "array": []
+              }
+            ],
+            [
+              "innerHTML",
+              "\u0000<h2>後</h2>"
+            ],
+            [
+              "innerContent",
+              {
+                "array": [
+                  [
+                    0,
+                    "\u0000<h2>"
+                  ],
+                  [
+                    1,
+                    "雪"
+                  ],
+                  [
+                    2,
+                    "</h2>"
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "frame": {
+        "class": "WP_Block_Parser_Frame",
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -10
+            ],
+            [
+              "token_length",
+              1
+            ],
+            [
+              "prev_offset",
+              -9
+            ],
+            [
+              "leading_html_start",
+              777
+            ]
+          ]
+        },
+        "type": "object"
+      },
+      "name": "arity5_unicode_nul",
+      "object_identity": true,
+      "snapshot": {
+        "property_order": [
+          "block",
+          "token_start",
+          "token_length",
+          "prev_offset",
+          "leading_html_start"
+        ],
+        "scalar_properties": {
+          "array": [
+            [
+              "token_start",
+              -10
+            ],
+            [
+              "token_length",
+              1
+            ],
+            [
+              "prev_offset",
+              -9
+            ],
+            [
+              "leading_html_start",
+              777
+            ]
+          ]
+        },
+        "source_class": "WP_Block_Parser_Frame",
+        "type": "array"
+      }
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "verification": {
+    "gossip": {
+      "commit": "3fe02fe966ebdb7f2193ca3a2d4ebb86e0dfd63c",
+      "tree": "d45bddedbac2201f79e99b0754bf1e9e31e9d71f",
+      "worktree": "/private/tmp/gossip-parser-frame",
+      "branch": "codex/gohp-parser-frame",
+      "base": "804c6390be43488dddab8935ccbfa920a436b66c",
+      "dirty": "clean",
+      "commands": [
+        {
+          "cwd": "gossip/",
+          "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-constructor-null-defaults GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserFrame$'",
+          "status": "pass",
+          "test_seconds": 9.72,
+          "package_seconds": 9.96
+        },
+        {
+          "cwd": "gossip/",
+          "command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+          "status": "pass"
+        }
+      ],
+      "raw_log": "/private/tmp/gossip-parser-frame-output.log",
+      "rerun_after_pass": false,
+      "after_pass_changes": "documentation/evidence only"
+    },
+    "compiler": {
+      "repository": "katsuakikureyama/GoHP",
+      "pr": 76,
+      "pr_url": "https://github.com/katsuakikureyama/GoHP/pull/76",
+      "main": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+      "feature_head": "e4ac8e60bd4364acc7248005c030e6288fe739e1",
+      "feature_and_main_tree": "773422be588abc30b748a742c2162cc460e76e12",
+      "merge_status": "MERGED",
+      "merged_at": "2026-10-26T05:00:49Z",
+      "base": "718d0d31ece5a987ee43be47d35ac4d63bf4d7d2",
+      "local_snapshot": "9858318ca359e90bf880eb486b5bef1a16a32b2c",
+      "local_tree": "ffcd8654502a7876f66ff32626acbdbc3de6c75c",
+      "environment": "GOCACHE=/tmp/gohp-go-cache GOPROXY=off GOTOOLCHAIN=go1.23.0; darwin/arm64",
+      "commands": [
+        {
+          "command": "go test -count=1 ./internal/semantic ./internal/codegen ./internal/compat",
+          "status": "pass",
+          "codegen_seconds": 0.518,
+          "compat_seconds": 0.345,
+          "semantic": "no test files"
+        },
+        {
+          "command": "go vet ./internal/semantic ./internal/codegen ./tests",
+          "status": "pass"
+        },
+        {
+          "command": "GOHP_PHP_TARGET=8.3 go test -count=1 ./tests -run '^(TestConstructorNullDefaultsRuntimeGuards|TestUnsupported|TestMalformedIRFailsWithoutPanic)$'",
+          "status": "pass",
+          "package_seconds": 8.316
+        },
+        {
+          "command": "PATH=\"/private/tmp/gohp-block-data-constructor-php:$PATH\" GOHP_PHP_TARGET=8.3 go test -count=1 -v ./tests -run '^TestDifferential/constructor_null_defaults$'",
+          "status": "fail",
+          "reason": "reused local wrapper mounted previous worktree, fixture absent; oracle execution failed before comparison and Go execution not-run; no product/fixture code change"
+        },
+        {
+          "command": "PATH=\"/private/tmp/gohp-constructor-null-defaults-php.emdgIJ:$PATH\" GOHP_PHP_TARGET=8.3 go test -count=1 -v ./tests -run '^TestDifferential/constructor_null_defaults$'",
+          "status": "pass",
+          "fixture_seconds": 0.83,
+          "package_seconds": 1.675,
+          "php_version": "8.3.36",
+          "fixture_sha256": "f6e49624001df685a88dabca16356991b3db955e6636bb9d3a96435079d3f9eb",
+          "generated_sha256": "9ac7091eb89ae76e81932cff66d548dbd0b86b9889577402ced9632eada09f72"
+        }
+      ],
+      "ci": {
+        "feature": {
+          "run_id": 40271821016,
+          "url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40271821016",
+          "status": "pass",
+          "artifact": "compatibility-php8.3-40271821016-1",
+          "commit": "e4ac8e60bd4364acc7248005c030e6288fe739e1",
+          "tree": "773422be588abc30b748a742c2162cc460e76e12",
+          "dirty": "clean",
+          "checks": 543,
+          "features": 75,
+          "php_version": "8.3.36",
+          "go_version": "go version go1.23.12 linux/amd64"
+        },
+        "pull_request": {
+          "run_id": 40271851717,
+          "status": "pass"
+        },
+        "main": {
+          "run_id": 40271997777,
+          "url": "https://github.com/katsuakikureyama/GoHP/actions/runs/40271997777",
+          "status": "pass",
+          "commit": "d6f32d90c686da8da4116d81f00da36ce71506d5",
+          "tree": "773422be588abc30b748a742c2162cc460e76e12",
+          "dirty": "clean",
+          "checks": 543,
+          "features": 75,
+          "php_version": "8.3.36",
+          "go_version": "go version go1.23.12 linux/amd64",
+          "artifact": "compatibility-php8.3-40271997777-1"
+        }
+      },
+      "rerun_successful_local_checks": false,
+      "after_pass_changes": "one historical documentation sentence; CI on published head verifies exact combined tree",
+      "compiler_native_comparison_limit": "stdout and normal exits only; stderr/exceptions/other side effects not checked by existing compiler harness"
+    },
+    "scope": {
+      "historical_configurations": "unchanged/not rerun; do not sum case counts",
+      "unverified": [
+        "full parser/tokenizer/stack algorithm",
+        "WP_Block_Type/registry/render/IDs/CSS/HTML/ThemeJSON",
+        "bootstrap/HTTP/DB/themes/plugins",
+        "general PHP casts/errors/coercions/references"
+      ],
+      "production_target": "not configured/not created",
+      "devboard": "unidentified/not synced; PR/current-state tracking",
+      "capability": {
+        "id": "gossip.dev.wordpress-unit.translate-compare",
+        "webmcp": "excluded",
+        "reason": "local developer fixture; no browser/server operation"
+      },
+      "route_auth": "unchanged"
+    }
+  }
+}

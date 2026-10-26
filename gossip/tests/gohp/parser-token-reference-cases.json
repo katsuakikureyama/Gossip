@@ -1,0 +1,375 @@
+[
+  {
+    "name": "empty_document",
+    "document_base64": "",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "plain_text",
+    "document_base64": "b3JkaW5hcnkgdGV4dCBvbmx5",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "core_opener",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      0,
+      21
+    ]
+  },
+  {
+    "name": "core_closer",
+    "document_base64": "PCEtLSAvd3A6cGFyYWdyYXBoIC0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-closer",
+      "core/paragraph",
+      null,
+      0,
+      22
+    ]
+  },
+  {
+    "name": "core_void",
+    "document_base64": "PCEtLSB3cDpzZXBhcmF0b3IgLy0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "void-block",
+      "core/separator",
+      [],
+      0,
+      22
+    ]
+  },
+  {
+    "name": "namespaced_opener",
+    "document_base64": "PCEtLSB3cDphY21lL3dpZGdldCAtLT4=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "acme/widget",
+      [],
+      0,
+      23
+    ]
+  },
+  {
+    "name": "nonempty_json_attributes",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJhbGlnbiI6IndpZGUifSAtLT4=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      {
+        "align": "wide"
+      },
+      0,
+      38
+    ]
+  },
+  {
+    "name": "empty_json_attributes",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGgge30gLS0+",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      0,
+      24
+    ]
+  },
+  {
+    "name": "nested_unicode_attributes",
+    "document_base64": "PCEtLSB3cDpncm91cCB7InRpdGxlIjoi54yrIiwiaXRlbXMiOlt7ImlkIjoxfV19IC0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/group",
+      {
+        "title": "猫",
+        "items": [
+          {
+            "id": 1
+          }
+        ]
+      },
+      0,
+      52
+    ]
+  },
+  {
+    "name": "invalid_json_attributes",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJicm9rZW4iOn0gLS0+",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      null,
+      0,
+      33
+    ]
+  },
+  {
+    "name": "brace_inside_json_string",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ0ZXh0IjoiYX1iIn0gLS0+",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      {
+        "text": "a}b"
+      },
+      0,
+      36
+    ]
+  },
+  {
+    "name": "multiline_comment",
+    "document_base64": "PCEtLQp3cDpwYXJhZ3JhcGgKeyJ4IjoxfQotLT4=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      {
+        "x": 1
+      },
+      0,
+      29
+    ]
+  },
+  {
+    "name": "missing_space_after_comment_open",
+    "document_base64": "PCEtLXdwOnBhcmFncmFwaCAtLT4=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "unterminated_comment",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGg=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "invalid_utf8_attributes",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4Ijoi/yJ9IC0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      null,
+      0,
+      31
+    ]
+  },
+  {
+    "name": "adjacent_comments_second_offset",
+    "document_base64": "PCEtLSB3cDpmaXJzdCAtLT48IS0tIHdwOnNlY29uZCAtLT4=",
+    "offset": 17,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/second",
+      [],
+      17,
+      18
+    ]
+  },
+  {
+    "name": "multibyte_prefix",
+    "document_base64": "54yrPCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      3,
+      21
+    ]
+  },
+  {
+    "name": "nul_prefix",
+    "document_base64": "ADwhLS0gd3A6cGFyYWdyYXBoIC0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      1,
+      21
+    ]
+  },
+  {
+    "name": "invalid_utf8_prefix",
+    "document_base64": "/zwhLS0gd3A6cGFyYWdyYXBoIC0tPg==",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      1,
+      21
+    ]
+  },
+  {
+    "name": "at_end_offset",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+    "offset": 21,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "negative_document_start_offset",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+    "offset": -21,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      0,
+      21
+    ]
+  },
+  {
+    "name": "offset_inside_utf8_prefix",
+    "document_base64": "54yrPCEtLSB3cDpwYXJhZ3JhcGggLS0+",
+    "offset": 1,
+    "backtrack_limit": 100000,
+    "expected_match": 1,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "block-opener",
+      "core/paragraph",
+      [],
+      3,
+      21
+    ]
+  },
+  {
+    "name": "long_unterminated_json_attribute",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4IjoiYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWE=",
+    "offset": 0,
+    "backtrack_limit": 100000,
+    "expected_match": 0,
+    "expected_pcre_error": 0,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "name": "backtrack_limit_one",
+    "document_base64": "PCEtLSB3cDpwYXJhZ3JhcGggeyJ4IjoiYWJjIn0gLS0+",
+    "offset": 0,
+    "backtrack_limit": 1,
+    "expected_match": false,
+    "expected_pcre_error": 2,
+    "expected_token": [
+      "no-more-tokens",
+      null,
+      null,
+      null,
+      null
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 {
   "schema": "gossip.parser-add-freeform/v1",
   "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
-  "gohp_commit": "4df47e00cae2dfd25e4cc5bde299ef51cc56c4c5",
+  "gohp_commit": "565e65e6c9d8e211b06779739bfba76b07c4d92d",
   "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
   "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
   "php_target": "8.3",

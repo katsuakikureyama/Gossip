@@ -28,7 +28,12 @@ byte instead of silently replacing it. Inputs are bounded UTF-8 strings4096bytes
 offset/length±1e6, seed list<=4strings; these are synthetic data-path cases, not
 claims about valid full-parser offsets/documents.
 
-GoHP [PR80](https://github.com/katsuakikureyama/GoHP/pull/80) merged main
+The compiler pin is [GoHP PR81](https://github.com/katsuakikureyama/GoHP/pull/81)
+merged main565e65e6c9d8e211b06779739bfba76b07c4d92d,
+tree3b509a251cb2ab3d037c089c1ab0295a1e0a0d60. It adds actual-int64 binary subtraction
+at addition precedence, with guarded overflow and no coercion/general unary
+negation. Exact clean feature/PR CI passed569 checks/80 features on fixed versions.
+It retains [PR80](https://github.com/katsuakikureyama/GoHP/pull/80) merged main
 4df47e00cae2dfd25e4cc5bde299ef51cc56c4c5, tree83cc11e72f83675b5a6ab606bbd6782b8bfd2d57,
 provides bounded public method null defaults, bare returns, known declared-array
 property append, sole-return-new method factory knowledge for guarded snapshots,
@@ -37,6 +42,15 @@ exact scalar required constructors from parallel #79 are retained. Feature/
 PR CI passed564 checks/79 features on exact clean head/tree, fixedPHP8.3.36/
 Go1.23.12linuxamd64. No generic cast, autovivification, nested property mutation,
 weak coercion or PHP error equivalence is claimed.
+
+The initial clean consumer snapshot538abb9b16dc1ebfdc93750ea9958c20ba3321b4 on
+the #80 pin failed during generation: PHP002 line117 expected semicolon at minus.
+Build/run/oracle comparison were not-run then. The original's binary subtraction
+was a newly measured dependency, not a PHP output mismatch. #81 corrects that
+compiler gap; only the consumer pin/documentation changes before resuming.
+The initial log remains /private/tmp/gossip-parser-add-freeform-output.log.
+The initial snapshot's vet PASS applies to unchanged Go harness code; it is not
+rerun solely for the JSON pin change. No prior successful comparison is repeated.
 
 Correction to the earlier source audit: the coalesce left operand at328 is the
 local length variable, not a property. Existing coalesce already covers it;

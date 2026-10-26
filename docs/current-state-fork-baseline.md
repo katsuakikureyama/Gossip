@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: unchanged nested settings lookup24-case Go/PHP PASS
+## Latest:25-original294-case integrated Go/PHP PASS
+
+All25 unchanged original declarations and48 owned drivers now translate/build
+together into one executable on GoHP #64 main
+`b8dc1757ed61f459d51362da004aa1d73d024116`. All294 fresh comparisons match
+PHP8.3.36/C and expectations:262 retained edge-bundle cases,24 standalone lookup
+cases and8 new settings compositions. This is not a sum of old PASS counts.
+[Contract](settings-helper-bundle-unit.md),
+[record](evidence/settings-helper-bundle-2026-10-26.md).
+
+Test commit `24c780b361dd4d11f4e18b79cc90d80f5d267872`, tree
+`56b9e3e1cf2938f615d0a4717b3532c31e969d43`; PASS17.62s/package17.816s,
+vet PASS on the same snapshot, exit0 and empty stderr. The first test snapshot
+passed; only documentation/evidence changes follow, with no successful rerun.
+Compiler473-check CI evidence is reused for its identical integrated tree.
+
+All three original source files/31 fragments and nine old corpora are hash-bound
+and unchanged. Exact-once observer adapters retain measured results and distinct
+paths. Lookup expectation bindings include source/fragment/corpus hashes; Go and
+PHP still execute every retained call. New compositions exercise lookup→Boolean
+validation or lookup→slice→first/last/numeric/all, including missing versus null,
+false-like strings, selector order/duplicates/mixed keys and raw scalar values.
+Typed returns and caller arguments match, with new nested arguments unchanged.
+
+Next extend this bounded helper integration toward a concrete caller/dependency
+path. Theme JSON/global-style/block callers, full WordPress bootstrap/HTTP/DB/
+themes/plugins and general PHP value/error semantics remain unverified. No new
+production target. Local capability stays WebMCP-excluded, route/auth unchanged;
+devboard unidentified/not synced, tracked in PR/current-state. Old configurations
+and evidence remain available with their original pins.
+
+## Previous: unchanged nested settings lookup24-case Go/PHP PASS
 
 Original `_wp_array_get` now generates/builds and matches PHP8.3.36/C on all24
 retained cases with GoHP #64 main `b8dc1757ed61f459d51362da004aa1d73d024116`.

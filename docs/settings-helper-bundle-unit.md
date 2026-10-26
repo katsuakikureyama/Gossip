@@ -1,5 +1,8 @@
 # Twenty-five-original settings helper integration
 
+The [execution record](evidence/settings-helper-bundle-2026-10-26.md) reports
+all294 actual comparisons and vet PASS on the exact committed configuration.
+
 This is a new configuration, not a sum of earlier PASS counts. The new manifest
 pins GoHP #64 main `b8dc1757ed61f459d51362da004aa1d73d024116`, whose exact
 feature tree passed473 checks on fixed PHP8.3.36. That compiler result is reused,

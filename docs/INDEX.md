@@ -6,7 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | _wp_array_get24-case Go/PHP PASS;25th original separately, retained24-original262-case integration |
+| [Current state](current-state-fork-baseline.md) | 25 unchanged originals/48 owned drivers,294-case single-binary Go/PHP integration PASS |
+| [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |
+| [Twenty-five-original evidence](evidence/settings-helper-bundle-2026-10-26.md) | All294 actual typed/caller-state observations and vet PASS; exact commands, snapshot and hashes |
 | [Nested settings lookup unit](array-get-unit.md) | Unchanged original, retained24 cases, GoHP #64 pin; bounded recursive node transport |
 | [Nested settings lookup evidence](evidence/array-get-unit-2026-10-26.md) | Actual typed return/caller states PASS; initial runtime failure and compiler correction retained |
 | [Nested settings lookup boundary](array-get-boundary.md) | Original helper used by Theme JSON/global styles; default/isset/continue prerequisites |

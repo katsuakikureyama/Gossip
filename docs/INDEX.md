@@ -6,7 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [Current state](current-state-fork-baseline.md) | 25 unchanged originals/48 owned drivers,294-case single-binary Go/PHP integration PASS |
+| [Current state](current-state-fork-baseline.md) | 26 unchanged originals,334-case single-binary PASS including a real block element-class caller |
+| [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
+| [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |
 | [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |
 | [Twenty-five-original evidence](evidence/settings-helper-bundle-2026-10-26.md) | All294 actual typed/caller-state observations and vet PASS; exact commands, snapshot and hashes |
 | [Nested settings lookup unit](array-get-unit.md) | Unchanged original, retained24 cases, GoHP #64 pin; bounded recursive node transport |

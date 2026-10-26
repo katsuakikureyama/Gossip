@@ -1,0 +1,100 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type elementsClassCase struct {
+	Name     string          `json:"name"`
+	Block    json.RawMessage `json:"block"`
+	Options  json.RawMessage `json:"options"`
+	Expected *bool           `json:"expected"`
+}
+
+type elementsClassObservation struct {
+	Name         string `json:"name"`
+	Type         string `json:"type"`
+	Value        bool   `json:"value"`
+	BlockAfter   any    `json:"block_after"`
+	OptionsAfter any    `json:"options_after"`
+}
+
+func elementsClassCases(path string) []elementsClassCase {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	var cases []elementsClassCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("elements-class cases have trailing JSON values")
+	}
+	if len(cases) != 40 {
+		panic("elements-class cases must be an ordered list of 40 cases")
+	}
+	return cases
+}
+
+func elementsClassNode(raw json.RawMessage, field string) any {
+	entries := 0
+	return arrayGetDecodeNode(arrayGetDecodeRaw(raw, field), field, 0, &entries)
+}
+
+// The original caller's fixture contract requires array roots. The shared
+// decoder already validates scalar/array node types and transport bounds.
+func elementsClassArray(value any, field string) rt.Array {
+	root, ok := value.(rt.Array)
+	if !ok {
+		panic(field + " root must be an array")
+	}
+	return root
+}
+
+// init is compiled beside GoHP's generated main.go and the parent-provided
+// settings adapter. It preserves retained observations and invokes the
+// original generated helper directly; expected values are assertions only.
+func init() {
+	retained := observeSettingsBundle()
+	cases := elementsClassCases("/input/elements-class-cases.json")
+	elements := make([]elementsClassObservation, 0, len(cases))
+	seen := map[string]bool{}
+	for _, testCase := range cases {
+		if testCase.Name == "" || seen[testCase.Name] || testCase.Block == nil || testCase.Options == nil || testCase.Expected == nil {
+			panic("invalid elements-class case")
+		}
+		seen[testCase.Name] = true
+
+		block := elementsClassArray(elementsClassNode(testCase.Block, testCase.Name+" block"), testCase.Name+" block")
+		options := elementsClassArray(elementsClassNode(testCase.Options, testCase.Name+" options"), testCase.Name+" options")
+		blockBefore := rt.Clone(block)
+		optionsBefore := rt.Clone(options)
+		actual, ok := F_wp_should_add_elements_class_name(block, options).(bool)
+		if !ok {
+			panic("wp_should_add_elements_class_name did not return bool")
+		}
+		blockAfter := arrayGetObserve(block, testCase.Name+" block after")
+		optionsAfter := arrayGetObserve(options, testCase.Name+" options after")
+		if actual != *testCase.Expected || !reflect.DeepEqual(block, blockBefore) || !reflect.DeepEqual(options, optionsBefore) {
+			panic("elements-class expectation or mutation mismatch: " + testCase.Name)
+		}
+		elements = append(elements, elementsClassObservation{
+			Name: testCase.Name, Type: "bool", Value: actual, BlockAfter: blockAfter, OptionsAfter: optionsAfter,
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(map[string]any{"retained": retained, "elements": elements}); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

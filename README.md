@@ -5,11 +5,11 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 ## 現在の到達点（2026-10-26）
 
 検証済みの開発スタックを `master` に統合しています。
-選定した **25個の原文関数・294ケース**を一つのGo実行ファイルにまとめ、[PHPとの統合比較に成功](docs/evidence/settings-helper-bundle-2026-10-26.md)しました。
-`_wp_array_get`・`array_first`・`array_last`を含み、設定値取得から真偽値変換・配列選択・先頭末尾取得・検索へつなぐ動作も確認しています。原文・既存ケース・過去の検証記録は保持しています。
+選定した **26個の原文関数・334ケース**を一つのGo実行ファイルにまとめ、[PHPとの統合比較に成功](docs/evidence/elements-class-path-2026-10-26.md)しました。
+実際のブロック要素スタイルのクラス要否判定（`wp_should_add_elements_class_name`）を、依存する`_wp_array_get`と原文のまま実行できています。CSS生成やレンダリング全体の対応ではありません。原文・既存ケース・過去の検証記録は保持しています。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
-[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/settings-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
+[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/elements-class-path-2026-10-26.md) · [資料索引](docs/INDEX.md)
 
 Gossip is an independent, experimental WordPress fork exploring a Go-powered
 runtime and native Go plugins. This repository retains the original WordPress
@@ -173,6 +173,11 @@ project, and it is **not yet a Go replacement for WordPress**.
   pass:262 retained edge-bundle cases,24 lookup cases and8 new settings
   compositions. This replaces neither the earlier pins/evidence nor the original
   WordPress implementation, and does not establish full Theme JSON execution.
+  The [real element-class decision path](docs/elements-class-path.md) adds the
+  unchanged `wp_should_add_elements_class_name`, without resolver/class/service
+  stubs. All [334 integrated cases](docs/evidence/elements-class-path-2026-10-26.md)
+  pass in one binary:294 retained and40 actual caller cases. This measures class
+  necessity only, not CSS/HTML generation or the surrounding WordPress render hook.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

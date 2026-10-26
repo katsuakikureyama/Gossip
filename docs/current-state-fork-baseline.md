@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest:25-original294-case integrated Go/PHP PASS
+## Latest: real block element-class decision /26 originals334 cases PASS
+
+Unchanged `wp_should_add_elements_class_name` now executes with its actual
+unchanged `_wp_array_get` dependency, without resolver/class/service stubs.
+All26 originals and48 retained owned drivers translate/build once into one
+executable;334 fresh comparisons match PHP8.3.36/C and expectations (294
+retained plus40 caller cases).
+[Contract](elements-class-path.md), [record](evidence/elements-class-path-2026-10-26.md).
+
+Clean test commit `32ac5e0060574c2f250c601d8e13d1bbe48cf1e9`, tree
+`71731182f2193e9c997c6519a098aa5464cf7fd9`; PASS9.84s/package10.082s,
+vet PASS, exit0 and empty stderr. First committed snapshot passed; only docs/
+evidence follows. No repeated successful run. GoHP #67 main
+`a3039414cff22689d214a6c90767f13dccf56ddb` adds the bounded nested isset/??
+contracts and retains parallel #66 array_slice; exact combined CI488 checks PASS.
+
+Four original source files/32 fragments and ten retained corpora remain hash-
+bound and unchanged. The40 new cases cover all26 configured color paths and
+missing/null/falsy/empty-array/skip behavior. Actual bool results and both block/
+options argument states match, with inputs unchanged. Class necessity is
+presence-based (non-null), not CSS validity or truthiness.
+
+This does not execute the surrounding render hook or generate CSS/HTML/unique
+class names. Full Theme JSON/resolvers/bootstrap/HTTP/DB/themes/plugins and
+general PHP errors/coercions remain unverified. Parsed inputs are arrays with
+array/null path intermediates; scalar/string/object traversal is excluded.
+No production target created; WebMCP remains excluded and route/auth unchanged.
+Devboard unidentified/not synced, tracked in PR/current-state. Old settings/pins/
+corpora/evidence remain exact historical configurations. Next select a concrete
+dependency in the surrounding render path without substituting WordPress logic.
+
+## Previous:25-original294-case integrated Go/PHP PASS
 
 All25 unchanged original declarations and48 owned drivers now translate/build
 together into one executable on GoHP #64 main

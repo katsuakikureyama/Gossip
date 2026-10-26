@@ -2,7 +2,26 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: regexp2 comparison and explicit incompatibility boundary
+## Latest: staged PCRE2 bridge/output implementation contract
+
+[Contract](pcre2-bridge-contract.md), design-only follow-up to #48. Read-only
+GoHP audit pinned to fd6936a (#107): value-only call IR, no output destination,
+scalar-only Frames/elements versus detached nested runtime.Array, Execution with
+strtok but no regex error state, and default CGO=0 builds. Independently owned
+#108 Slot-array work was in flight; no changes or assumptions about its result.
+
+Next bounded implementation B1 is an optional engine-only Go/C bridge; keep PHP
+builtin admission closed. B2 adds fresh PHP-shaped output/Execution state only
+after its own evidence; B3 requires explicit local-output IR, a reviewed writable
+local/nested-value contract and generated-source comparisons. No duplicate cell
+engine, WordPress-specific compiler shortcut, forced CGO default or silent fallback.
+Broader aliases/locations/flags/versions/JSON/full parser and distribution remain
+separate gates. No new native run, code/corpus/pin change or compatibility count.
+Documentation/source-link/original-preservation checks are the relevant validation;
+reuse existing PASS rather than rerun it. No new capability/route/auth/deployment;
+UI/WebMCP/MCP excluded. Progress uses Issue1; devboard unidentified/not synced.
+
+## Previous: regexp2 comparison and explicit incompatibility boundary
 
 The [isolated regexp2 profile](parser-regexp2-comparison.md) yields 22 equal
 outputs, 1 difference (UTF-8-interior starting offset rejected) and 1 non-comparable

@@ -6,6 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [PCRE2 bridge/output contract](pcre2-bridge-contract.md) | Fixed GoHP seam audit; optional engine bridge → PHP wrapper/Execution → local-output lowering; design only, no builtin admission |
 | [Regexp2 comparison](parser-regexp2-comparison.md) | Pinned isolated string-API profile: 22 equal outputs, 1 difference, 1 non-comparable limit; no adoption |
 | [Regexp2 evidence](evidence/parser-regexp2-comparison-2026-10-27.md) | Full raw groups/bytes/offsets/errors and exact source/build identities; observation PASS is not compatibility |
 | [PCRE2 engine comparison](parser-pcre2-comparison.md) | Independent pinned C probe versus retained PHP direct-regex observations; no GoHP/cgo adoption |

@@ -77,6 +77,11 @@ outputs, 1 UTF-8-interior-offset API difference and 1 non-comparable PCRE-limit
 case. That direct string-API profile is not a drop-in backend; no dependency has
 been adopted. These are engine observations, not additional translated functions.
 
+The [bridge implementation contract](docs/pcre2-bridge-contract.md) separates an
+optional PCRE2 Go/C bridge from PHP output-argument/state semantics and compiler
+admission. Those stages remain unimplemented; the default CGO-disabled GoHP build
+and its ongoing reference/storage work are preserved.
+
 The current work state and links to each immutable execution record are in
 [current state](docs/current-state-fork-baseline.md) and
 [the documentation index](docs/INDEX.md). The extraction, source-byte checks,

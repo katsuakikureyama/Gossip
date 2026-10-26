@@ -6,6 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Generated regex consumer](parser-preg83-generated.md) | GoHP #114 isolated compiler/runtime pin, owned PHP driver with original pattern bytes, 23 selected cases and one explicit limit exclusion; not next_token |
 | [PCRE2 bridge/output contract](pcre2-bridge-contract.md) | Fixed GoHP seam audit; optional engine bridge → PHP wrapper/Execution → local-output lowering; design only, no builtin admission |
 | [Regexp2 comparison](parser-regexp2-comparison.md) | Pinned isolated string-API profile: 22 equal outputs, 1 difference, 1 non-comparable limit; no adoption |
 | [Regexp2 evidence](evidence/parser-regexp2-comparison-2026-10-27.md) | Full raw groups/bytes/offsets/errors and exact source/build identities; observation PASS is not compatibility |

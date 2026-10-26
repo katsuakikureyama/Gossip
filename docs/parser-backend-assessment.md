@@ -1,5 +1,12 @@
 # Block-parser regex backend: evaluation gates
 
+Implementation update, 2026-10-27: the separate
+[generated consumer experiment](parser-preg83-generated.md) now connects the
+bounded GoHP #114 compiler/runtime profile to an owned driver with the original
+pattern bytes. The assessment below records earlier decision gates; claims of
+"no bridge" describe that historical baseline, not current GoHP. Full original
+next_token/parser, broader platforms and distribution remain unestablished.
+
 Status: **design assessment only**, 2026-10-26 JST. No regex library, cgo build,
 source rewrite, benchmark or new PHP compatibility result is introduced. This is
 Gossip's consumer requirement for a general GoHP runtime contract, not a WordPress

@@ -5,6 +5,9 @@ WP_Block_Parser_Block15–90 and WP_Block_Parser_Frame16–79. Both real constru
 and all ten declared public properties are included. It does not execute the
 parser/tokenizer/stack algorithm or any render hook.
 
+[Execution record](evidence/parser-frame-2026-10-26.md):12 comparisons and vet
+PASS on the first committed snapshot; both exits0/stderr empty.
+
 Three small owned source drivers create the real Block, create the real Frame
 with three/four/five arguments, snapshot the Frame using (array), then change
 the known local Block's innerHTML. Both observers invoke this source instead of
@@ -54,7 +57,7 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP GOCACHE=/private/tmp/gossip-go-cache g
 GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp
 ```
 
-Execution must be recorded before claiming PASS. Historical16/24/334
+Historical16/24/334
 configurations, corpora, compiler pins, original source and evidence remain
 unchanged/not rerun; counts are not summed. Full parser/tokenizer/stack,
 WP_Block_Type/registry/render/IDs/CSS/HTML/ThemeJSON/bootstrap/HTTP/DB/themes/plugins

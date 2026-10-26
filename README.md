@@ -5,6 +5,7 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 ## 現在の到達点（2026-10-26）
 
 検証済みの開発スタックを `master` に統合しています。
+原文の **`WP_Block_Parser_Frame` と `WP_Block_Parser_Block` 全体**を一つのGo実行ファイルへ変換し、[別構成12ケースでPHPと一致](docs/evidence/parser-frame-2026-10-26.md)しました。Frameの省略引数・オフセット計算と、配列化後も同じBlockを共有することを確認しました。パーサの解析処理全体を実行した結果ではありません。
 WordPress原文のデータクラス **`WP_Block_Parser_Block` 全体**をGoへ変換し、コンストラクタ→配列化→クラス要否判定まで[16ケースでPHPと一致](docs/evidence/parser-block-data-2026-10-26.md)しました。代用クラスは使っていません。ブロックパーサ全体やHTML/CSS描画の対応ではなく、以下の既存構成とは別の検証です。
 選定した **26個の原文関数・334ケース**を一つのGo実行ファイルにまとめ、[PHPとの統合比較に成功](docs/evidence/elements-class-path-2026-10-26.md)しました。
 実際のブロック要素スタイルのクラス要否判定（`wp_should_add_elements_class_name`）を、依存する`_wp_array_get`と原文のまま実行できています。CSS生成やレンダリング全体の対応ではありません。原文・既存ケース・過去の検証記録は保持しています。
@@ -12,7 +13,7 @@ WordPress原文のデータクラス **`WP_Block_Parser_Block` 全体**をGoへ�
 この入力データ用オブジェクトの生成・代入も[PHP→Go変換内で実行する経路](docs/evidence/elements-source-input-2026-10-26.md)へ進め、同じ24ケースが一致しました。新経路のGo観測コードからは、生成クラスのフィールドへの直接データ注入をなくしています。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
-[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/parser-block-data-2026-10-26.md) · [資料索引](docs/INDEX.md)
+[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/parser-frame-2026-10-26.md) · [資料索引](docs/INDEX.md)
 
 Gossip is an independent, experimental WordPress fork exploring a Go-powered
 runtime and native Go plugins. This repository retains the original WordPress

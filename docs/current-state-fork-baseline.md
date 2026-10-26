@@ -2,7 +2,42 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: original parser-block class → snapshot → decision /16-case PASS
+## Latest: original parser Frame + Block /12-case PASS
+
+Two complete unchanged classes/constructors (Block15–90, Frame16–79) now run in
+one generated binary. Three owned source drivers use actual Frame3/4/5-argument
+new calls, then snapshot Frame to array and change its original nested Block.
+All12 Go/PHP8.3.36/C/expected records match: actual original types, default/sum/
+override offsets, leading-null/zero/value, five snapshot keys in declaration
+order, nested object identity/changed HTML, Block fields and nine unchanged
+caller arguments. No substitute class or observer field injection.
+[Contract](parser-frame.md), [record](evidence/parser-frame-2026-10-26.md).
+
+Clean snapshot3fe02fe966ebdb7f2193ca3a2d4ebb86e0dfd63c, tree
+d45bddedbac2201f79e99b0754bf1e9e31e9d71f: PASS9.72s/package9.960s, vet
+PASS same snapshot, both exits0/stderr empty. First committed snapshot passed;
+only docs/evidence follows, no successful rerun. Reflection confirms original
+public class/constructor shape; Frame's two optional parameters really default null.
+
+GoHP #76 merged maind6f32d90c686da8da4116d81f00da36ce71506d5, tree
+773422be588abc30b748a742c2162cc460e76e12, identical clean feature tree. Both
+feature/main CI543 checks/75 features PASS, PR CI also PASS. Trailing untyped
+null constructor defaults reuse existing NullDefaultArgs and execution dispatch;
+ordinary method/non-null/typed defaults remain rejected. Existing #75 tokenizer/
+Execution and #74 constructors are preserved. Initial local PHP wrapper mounted
+the wrong worktree: only that configuration was corrected and the uncompleted
+comparison resumed; successful checks were not repeated. Details are in evidence.
+
+Historical16/24/334 configurations/pins/corpora/evidence are unchanged/not rerun
+or summed. Block.innerBlocks is empty; Frame containing an actual Block is now
+measured, not full parser/tokenizer/stack/WP_Block_Type/registry/render/IDs/CSS/
+HTML/ThemeJSON/bootstrap/HTTP/DB/themes/plugins. General casts/errors/coercions/
+references remain unverified. No production target configured/created.
+WebMCP excluded, route/auth unchanged. Devboard unidentified/not synced; PR/state
+tracking. Next inspect the actual parser's remaining constructor/stack operations,
+without treating data-class support as parser execution or duplicating tokenizer work.
+
+## Previous: original parser-block class → snapshot → decision /16-case PASS
 
 Complete unchanged WP_Block_Parser_Block15–90, its actual five-argument constructor
 and five public properties now translate with two unchanged original helpers:

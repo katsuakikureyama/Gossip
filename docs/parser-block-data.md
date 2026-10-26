@@ -1,5 +1,9 @@
 # Original parser-block data class → array snapshot → class decision
 
+The [execution record](evidence/parser-block-data-2026-10-26.md) reports16
+actual typed/class/property/snapshot/decision/argument comparisons and vet PASS
+on the first clean committed snapshot, without repeating prior configurations.
+
 This configuration translates the complete unchanged `WP_Block_Parser_Block`
 class (class-wp-block-parser-block.php15–90), including all five untyped public
 properties and its actual five-required-argument constructor. It also translates

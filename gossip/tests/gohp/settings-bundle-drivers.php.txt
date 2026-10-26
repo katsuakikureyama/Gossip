@@ -1,0 +1,17 @@
+// Owned composition calls unchanged WordPress helpers; it does not replace an
+// original helper body.
+function gossip_settings_bool( $settings, $path, $fallback ): bool {
+
+	return wp_validate_boolean( _wp_array_get( $settings, $path, $fallback ) );
+}
+
+function gossip_settings_edges( $settings, $path, array $keys ): array {
+
+	$selected = wp_array_slice_assoc( _wp_array_get( $settings, $path, [] ), $keys );
+	return [
+		'first'   => array_first( $selected ),
+		'last'    => array_last( $selected ),
+		'numeric' => wp_is_numeric_array( $selected ),
+		'all'     => array_all( $selected, fn( $value, $key ) => wp_validate_boolean( $value ) ),
+	];
+}

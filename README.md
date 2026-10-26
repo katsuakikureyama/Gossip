@@ -5,12 +5,11 @@ WordPress の原本と履歴を受け継ぎ、Go による実行環境と Go 製
 ## 現在の到達点（2026-10-26）
 
 検証済みの開発スタックを `master` に統合しています。
-選定した **24個の原文関数・262ケース**を一つのGo実行ファイルにまとめ、PHPとの比較に成功しました。
-`array_first`・`array_last`を含み、配列の選択・真偽値変換・先頭末尾取得・検索を組み合わせた動作も確認しています。
-加えて、テーマ設定などで使われる原文 `_wp_array_get` も、別構成の[24ケースでGo/PHP比較に成功](docs/evidence/array-get-unit-2026-10-26.md)しました。既定引数・isset・continueと、実行時に見つかったnull比較の不足をGoHP側で修正しています。25関数をまとめた統合検証はこれからです。
+選定した **25個の原文関数・294ケース**を一つのGo実行ファイルにまとめ、[PHPとの統合比較に成功](docs/evidence/settings-helper-bundle-2026-10-26.md)しました。
+`_wp_array_get`・`array_first`・`array_last`を含み、設定値取得から真偽値変換・配列選択・先頭末尾取得・検索へつなぐ動作も確認しています。原文・既存ケース・過去の検証記録は保持しています。
 WordPress全体の起動・DB・テーマ・既存プラグインの互換性や本番利用は未確認です。
 
-[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/edge-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
+[現在の状態](docs/current-state-fork-baseline.md) · [検証結果](docs/evidence/settings-helper-bundle-2026-10-26.md) · [資料索引](docs/INDEX.md)
 
 Gossip is an independent, experimental WordPress fork exploring a Go-powered
 runtime and native Go plugins. This repository retains the original WordPress
@@ -168,6 +167,12 @@ project, and it is **not yet a Go replacement for WordPress**.
   defaults/isset and the literal-null fix exposed by the first execution.
   This adds a25th successful original separately, not a25-original integration.
   The earlier [rejection boundary](docs/array-get-boundary.md) keeps its old pin.
+  The new [twenty-five-original integration](docs/settings-helper-bundle-unit.md)
+  combines those originals and48 owned drivers into one executable on GoHP #64.
+  All [294 fresh comparisons](docs/evidence/settings-helper-bundle-2026-10-26.md)
+  pass:262 retained edge-bundle cases,24 lookup cases and8 new settings
+  compositions. This replaces neither the earlier pins/evidence nor the original
+  WordPress implementation, and does not establish full Theme JSON execution.
 - [`Gossip-prototype`](https://github.com/katsuakikureyama/Gossip-prototype) keeps
   the earlier independent CMS prototype, its PRs and historical evidence. Its
   custom editor, JSON store, importer and server have not replaced this fork's

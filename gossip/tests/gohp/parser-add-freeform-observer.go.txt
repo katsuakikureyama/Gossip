@@ -1,0 +1,304 @@
+package main
+
+import (
+	"bytes"
+	"encoding/base64"
+	"encoding/json"
+	"io"
+	"os"
+	"reflect"
+	"unicode/utf8"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type parserAddFreeformCase struct {
+	Name         json.RawMessage `json:"name"`
+	Document     json.RawMessage `json:"document"`
+	Offset       json.RawMessage `json:"offset"`
+	Length       json.RawMessage `json:"length"`
+	Mode         json.RawMessage `json:"mode"`
+	Seed         json.RawMessage `json:"seed"`
+	ExpectedHTML json.RawMessage `json:"expected_html"`
+}
+
+type parserAddFreeformDecodedCase struct {
+	Name         string
+	Document     string
+	Offset       int64
+	Length       any
+	Mode         string
+	Seed         []string
+	ExpectedHTML *string
+}
+
+func parserAddFreeformString(raw json.RawMessage, field string) string {
+	trimmed := bytes.TrimSpace(raw)
+	if len(trimmed) == 0 || trimmed[0] != '"' {
+		panic("requires JSON string: " + field)
+	}
+	var value string
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	if err := decoder.Decode(&value); err != nil {
+		panic("invalid string " + field + ": " + err.Error())
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing string data: " + field)
+	}
+	if !utf8.ValidString(value) || len(value) > 4096 {
+		panic("invalid UTF-8 or byte length: " + field)
+	}
+	return value
+}
+
+func parserAddFreeformInt(raw json.RawMessage, field string) int64 {
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	decoder.UseNumber()
+	var value any
+	if err := decoder.Decode(&value); err != nil {
+		panic("invalid integer " + field + ": " + err.Error())
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing integer data: " + field)
+	}
+	number, ok := value.(json.Number)
+	if !ok {
+		panic("requires JSON integer: " + field)
+	}
+	parsed, err := number.Int64()
+	if err != nil || parsed < -1000000 || parsed > 1000000 {
+		panic("integer out of range: " + field)
+	}
+	return parsed
+}
+
+func parserAddFreeformNullOrInt(raw json.RawMessage, field string) any {
+	if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) {
+		return nil
+	}
+	return parserAddFreeformInt(raw, field)
+}
+
+func parserAddFreeformSeed(raw json.RawMessage, field string) []string {
+	trimmed := bytes.TrimSpace(raw)
+	if len(trimmed) == 0 || trimmed[0] != '[' {
+		panic("seed requires JSON array: " + field)
+	}
+	var values []json.RawMessage
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	if err := decoder.Decode(&values); err != nil {
+		panic("invalid seed " + field + ": " + err.Error())
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing seed data: " + field)
+	}
+	if len(values) > 4 {
+		panic("seed has too many items: " + field)
+	}
+	seed := make([]string, 0, len(values))
+	for index, value := range values {
+		seed = append(seed, parserAddFreeformString(value, field+" item"+string(rune('0'+index))))
+	}
+	return seed
+}
+
+func parserAddFreeformExpected(raw json.RawMessage, field string) *string {
+	if bytes.Equal(bytes.TrimSpace(raw), []byte("null")) {
+		return nil
+	}
+	encoded := parserAddFreeformString(raw, field)
+	decoded, err := base64.StdEncoding.DecodeString(encoded)
+	if err != nil || base64.StdEncoding.EncodeToString(decoded) != encoded {
+		panic("expected_html requires canonical standard base64: " + field)
+	}
+	value := string(decoded)
+	return &value
+}
+
+func parserAddFreeformArray(value any, field string) rt.Array {
+	array, ok := value.(rt.Array)
+	if !ok {
+		panic(field + " requires actual native array")
+	}
+	return array
+}
+
+func parserAddFreeformEmptyArray(value any, field string) []any {
+	array := parserAddFreeformArray(value, field)
+	if len(array.Entries) != 0 {
+		panic(field + " requires empty array")
+	}
+	return []any{}
+}
+
+func parserAddFreeformStringObservation(value string) map[string]any {
+	return map[string]any{"type": "string", "base64": base64.StdEncoding.EncodeToString([]byte(value))}
+}
+
+func parserAddFreeformBlockObservation(value any, html string, field string) map[string]any {
+	block := parserAddFreeformArray(value, field)
+	if len(block.Entries) != 5 {
+		panic(field + " block cast property count mismatch")
+	}
+	names := []string{"blockName", "attrs", "innerBlocks", "innerHTML", "innerContent"}
+	properties := make([][]any, 0, len(names))
+	for index, name := range names {
+		if key, ok := block.Entries[index].Key.(string); !ok || key != name {
+			panic(field + " block cast property order mismatch")
+		}
+		value := block.Entries[index].Value
+		switch name {
+		case "blockName":
+			if value != nil {
+				panic(field + " blockName must be null")
+			}
+			properties = append(properties, []any{name, nil})
+		case "attrs", "innerBlocks":
+			properties = append(properties, []any{name, parserAddFreeformEmptyArray(value, field+" "+name)})
+		case "innerHTML":
+			text, ok := value.(string)
+			if !ok || text != html {
+				panic(field + " innerHTML mismatch")
+			}
+			properties = append(properties, []any{name, parserAddFreeformStringObservation(text)})
+		case "innerContent":
+			content := parserAddFreeformArray(value, field+" innerContent")
+			if len(content.Entries) != 1 {
+				panic(field + " innerContent count mismatch")
+			}
+			if key, ok := content.Entries[0].Key.(int64); !ok || key != 0 {
+				panic(field + " innerContent key mismatch")
+			}
+			text, ok := content.Entries[0].Value.(string)
+			if !ok || text != html {
+				panic(field + " innerContent mismatch")
+			}
+			properties = append(properties, []any{name, []any{parserAddFreeformStringObservation(text)}})
+		}
+	}
+	return map[string]any{"type": "array", "properties": properties}
+}
+
+func parserAddFreeformDecodeCases(data []byte) []parserAddFreeformDecodedCase {
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	var cases []parserAddFreeformCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing corpus data")
+	}
+	if len(cases) != 16 {
+		panic("expected 16 parser-add-freeform cases")
+	}
+	seen := map[string]bool{}
+	decoded := make([]parserAddFreeformDecodedCase, 0, len(cases))
+	for _, raw := range cases {
+		values := []json.RawMessage{raw.Name, raw.Document, raw.Offset, raw.Length, raw.Mode, raw.Seed, raw.ExpectedHTML}
+		for index, value := range values {
+			if len(value) == 0 {
+				panic("missing parser-add-freeform field index " + string(rune('0'+index)))
+			}
+		}
+		name := parserAddFreeformString(raw.Name, "name")
+		if name == "" || seen[name] {
+			panic("invalid parser-add-freeform case name")
+		}
+		seen[name] = true
+		mode := parserAddFreeformString(raw.Mode, name+" mode")
+		if mode != "omitted" && mode != "explicit" {
+			panic("invalid parser-add-freeform mode: " + name)
+		}
+		decoded = append(decoded, parserAddFreeformDecodedCase{
+			Name: name, Document: parserAddFreeformString(raw.Document, name+" document"),
+			Offset: parserAddFreeformInt(raw.Offset, name+" offset"), Length: parserAddFreeformNullOrInt(raw.Length, name+" length"),
+			Mode: mode, Seed: parserAddFreeformSeed(raw.Seed, name+" seed"), ExpectedHTML: parserAddFreeformExpected(raw.ExpectedHTML, name+" expected_html"),
+		})
+	}
+	return decoded
+}
+
+func init() {
+	data, err := os.ReadFile("/input/parser-add-freeform-cases.json")
+	if err != nil {
+		panic(err)
+	}
+	observations := make([]map[string]any, 0, 16)
+	for _, c := range parserAddFreeformDecodeCases(data) {
+		seedEntries := make([]rt.Entry, 0, len(c.Seed))
+		for index, value := range c.Seed {
+			seedEntries = append(seedEntries, rt.Entry{Key: int64(index), Value: value})
+		}
+		seed := rt.NewArray(seedEntries...)
+		seedBefore := rt.Clone(seed)
+		result := F_gossip_parser_add_freeform(c.Document, c.Offset, c.Length, c.Mode, seed)
+		if !reflect.DeepEqual(seed, seedBefore) {
+			panic("caller seed changed: " + c.Name)
+		}
+		parser, ok := rt.Get(result, "parser").(*C_wp_block_parser)
+		if !ok || !rt.IsObject(parser) {
+			panic("requires actual generated WP_Block_Parser: " + c.Name)
+		}
+		if rt.Get(result, "return") != nil {
+			panic("add_freeform must return null: " + c.Name)
+		}
+		getter, ok := any(parser).(interface{ Get(string) any })
+		if !ok {
+			panic("generated parser lacks public getter: " + c.Name)
+		}
+		document, ok := getter.Get("document").(string)
+		if !ok || document != c.Document {
+			panic("parser document mismatch: " + c.Name)
+		}
+		offset, ok := getter.Get("offset").(int64)
+		if !ok || offset != c.Offset {
+			panic("parser offset mismatch: " + c.Name)
+		}
+		stack := parserAddFreeformEmptyArray(getter.Get("stack"), c.Name+" stack")
+		output := parserAddFreeformArray(getter.Get("output"), c.Name+" output")
+		expectedCount := len(c.Seed)
+		if c.ExpectedHTML != nil {
+			expectedCount++
+		}
+		if len(output.Entries) != expectedCount {
+			panic("parser output count mismatch: " + c.Name)
+		}
+		outputObservation := make([]any, 0, len(output.Entries))
+		for index, entry := range output.Entries {
+			if key, ok := entry.Key.(int64); !ok || key != int64(index) {
+				panic("parser output key mismatch: " + c.Name)
+			}
+			if index < len(c.Seed) {
+				text, ok := entry.Value.(string)
+				if !ok || text != c.Seed[index] {
+					panic("parser seed output mismatch: " + c.Name)
+				}
+				outputObservation = append(outputObservation, parserAddFreeformStringObservation(text))
+				continue
+			}
+			outputObservation = append(outputObservation, parserAddFreeformBlockObservation(entry.Value, *c.ExpectedHTML, c.Name+" freeform"))
+		}
+		seedAfter := make([]string, len(c.Seed))
+		copy(seedAfter, c.Seed)
+		observations = append(observations, map[string]any{
+			"name": c.Name, "return_type": "null", "return_value": nil,
+			"parser": map[string]any{"type": "object", "class": "WP_Block_Parser", "document_base64": base64.StdEncoding.EncodeToString([]byte(document)), "offset": offset, "stack": stack, "output": outputObservation},
+			"arguments_after": map[string]any{"document_base64": base64.StdEncoding.EncodeToString([]byte(c.Document)), "offset": c.Offset, "length": c.Length, "mode": c.Mode, "seed_base64": func() []string {
+				values := make([]string, 0, len(seedAfter))
+				for _, value := range seedAfter {
+					values = append(values, base64.StdEncoding.EncodeToString([]byte(value)))
+				}
+				return values
+			}()},
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

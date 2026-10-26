@@ -1,5 +1,9 @@
 # Source-built input → original serialization/class decision
 
+The [execution record](evidence/elements-source-input-2026-10-26.md) reports
+all24 actual typed/caller-state comparisons and vet PASS on the first committed
+snapshot, without repeating earlier successful configurations.
+
 This separate configuration removes the observer field-write bridge from
 [the prior24-case unit](elements-serialization-path.md). All24 corpus bytes and
 the three original WordPress declarations remain unchanged. Only the input

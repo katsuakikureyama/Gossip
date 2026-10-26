@@ -2,7 +2,40 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: real serialization utility → class decision / separate24-case PASS
+## Latest: source-built input → originals / separate24-case PASS
+
+The owned input holder's construction/property assignment now execute in the
+same translated PHP source as the three original utility/class-decision helpers.
+Go/PHP observers call the source factory instead of constructing a concrete
+generated struct and injecting supports through its exported field. All24 retained
+cases match PHP8.3.36/C and expectations, including independently measured factory
+source input and supports/caller data after the call, unchanged.
+[Contract](elements-source-input.md), [record](evidence/elements-source-input-2026-10-26.md).
+
+Clean test commit7b58f064d7f5da4ad7389eff17245ce3c376a99c, tree
+55cc0b8ef7bcc29424e640046d9754cc9a4459df: PASS80.09s/package80.475s, vet
+PASS, both exits0/stderr empty. First committed snapshot passed; no successful
+rerun or code change after PASS. One binary has3 originals,2 owned functions and
+1 input class; the24-case corpus/source bytes stay unchanged. Elapsed time is
+not a controlled performance comparison.
+
+GoHP #71 is merged maince38319b4245ccea0a7ae627f53b4396acabfce6, identical
+tested feature tree0e7c3a7706235f32de040adc956c2d6fec1aca5d. FixedPHP CI all509
+checks/70 features PASS, PR/main CI also PASS; parallel #70 str_starts_with retained.
+The known-class declared-public-property write is bounded; mutable property
+reads retain actual-value runtime guards. Initial compiler test-only raw-IR null
+error/correction is recorded separately in PR71/evidence, not hidden as PASS.
+
+Earlier24/334 configurations/pins/evidence are unchanged/not rerun; do not sum
+their case counts. The holder is still owned data, not original WP_Block_Type/
+registry/constructors. Unknown/foreign receivers, dynamic/nested/array-property
+writes, render/CSS/HTML/IDs and full WordPress runtime remain unverified. No
+production target configured/created; WebMCP excluded, route/auth unchanged.
+Devboard unidentified/not synced, tracked in PR/current-state. Next pick an
+actual remaining dependency or advance the source-only object boundary without
+substituting WordPress services or repeating successful configurations.
+
+## Previous: real serialization utility → class decision / separate24-case PASS
 
 Three unchanged originals now run together: wp_should_skip_block_supports_serialization,
 _wp_array_get and wp_should_add_elements_class_name. One owned data class and

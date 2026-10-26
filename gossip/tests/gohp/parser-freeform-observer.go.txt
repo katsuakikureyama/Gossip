@@ -1,0 +1,192 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"os"
+	"unicode/utf8"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type parserFreeformCase struct {
+	Name   string
+	First  string
+	Second string
+}
+
+func parserFreeformDecodeString(raw json.RawMessage, field string) string {
+	trimmed := bytes.TrimSpace(raw)
+	if len(trimmed) == 0 || trimmed[0] != '"' {
+		panic("requires JSON string: " + field)
+	}
+	var value string
+	decoder := json.NewDecoder(bytes.NewReader(raw))
+	if err := decoder.Decode(&value); err != nil {
+		panic("invalid string " + field + ": " + err.Error())
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing string data: " + field)
+	}
+	if !utf8.ValidString(value) || len(value) > 4096 {
+		panic("invalid UTF-8 or byte length: " + field)
+	}
+	return value
+}
+
+func parserFreeformEmptyArray(value any, field string) []any {
+	array, ok := value.(rt.Array)
+	if !ok || len(array.Entries) != 0 {
+		panic(field + " requires actual empty native array")
+	}
+	return []any{}
+}
+
+func parserFreeformContentArray(value any, html, field string) []any {
+	array, ok := value.(rt.Array)
+	if !ok || len(array.Entries) != 1 {
+		panic(field + " requires actual single-item native array")
+	}
+	key, ok := array.Entries[0].Key.(int64)
+	if !ok || key != 0 {
+		panic(field + " requires numeric zero key")
+	}
+	content, ok := array.Entries[0].Value.(string)
+	if !ok || content != html {
+		panic(field + " requires actual HTML input")
+	}
+	return []any{content}
+}
+
+func parserFreeformParserObservation(parser *C_wp_block_parser, field string) map[string]any {
+	if parser == nil || !rt.IsObject(parser) {
+		panic(field + " requires actual generated WP_Block_Parser")
+	}
+	getter, ok := any(parser).(interface{ Get(string) any })
+	if !ok {
+		panic(field + " lacks generated public getter")
+	}
+	names := []string{"document", "offset", "output", "stack"}
+	properties := make([][]any, 0, len(names))
+	for _, name := range names {
+		value := getter.Get(name)
+		if value != nil {
+			panic(field + " property must remain actual null: " + name)
+		}
+		properties = append(properties, []any{name, value})
+	}
+	return map[string]any{"type": "object", "class": "WP_Block_Parser", "properties": properties}
+}
+
+func parserFreeformBlockObservation(block *C_wp_block_parser_block, html, field string) map[string]any {
+	if block == nil || !rt.IsObject(block) {
+		panic(field + " requires actual generated WP_Block_Parser_Block")
+	}
+	getter, ok := any(block).(interface{ Get(string) any })
+	if !ok {
+		panic(field + " lacks generated public getter")
+	}
+	blockName := getter.Get("blockName")
+	if blockName != nil {
+		panic(field + " blockName must be actual null")
+	}
+	attrs := parserFreeformEmptyArray(getter.Get("attrs"), field+" attrs")
+	innerBlocks := parserFreeformEmptyArray(getter.Get("innerBlocks"), field+" innerBlocks")
+	innerHTML, ok := getter.Get("innerHTML").(string)
+	if !ok || innerHTML != html {
+		panic(field + " innerHTML must be actual input")
+	}
+	innerContent := parserFreeformContentArray(getter.Get("innerContent"), html, field+" innerContent")
+	return map[string]any{
+		"type": "object", "class": "WP_Block_Parser_Block",
+		"properties": [][]any{
+			{"blockName", blockName},
+			{"attrs", attrs},
+			{"innerBlocks", innerBlocks},
+			{"innerHTML", innerHTML},
+			{"innerContent", innerContent},
+		},
+	}
+}
+
+func parserFreeformDecodeCases(data []byte) []parserFreeformCase {
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	var rawCases []map[string]json.RawMessage
+	if err := decoder.Decode(&rawCases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing corpus data")
+	}
+	if len(rawCases) != 12 {
+		panic("expected 12 parser-freeform cases")
+	}
+	cases := make([]parserFreeformCase, 0, len(rawCases))
+	seen := map[string]bool{}
+	for _, raw := range rawCases {
+		if len(raw) != 3 {
+			panic("invalid parser-freeform case fields")
+		}
+		for _, name := range []string{"name", "first", "second"} {
+			if _, ok := raw[name]; !ok {
+				panic("missing parser-freeform case field: " + name)
+			}
+		}
+		c := parserFreeformCase{
+			Name:   parserFreeformDecodeString(raw["name"], "name"),
+			First:  parserFreeformDecodeString(raw["first"], "first"),
+			Second: parserFreeformDecodeString(raw["second"], "second"),
+		}
+		if c.Name == "" || seen[c.Name] {
+			panic("invalid parser-freeform case name")
+		}
+		seen[c.Name] = true
+		cases = append(cases, c)
+	}
+	return cases
+}
+
+func init() {
+	data, err := os.ReadFile("/input/parser-freeform-cases.json")
+	if err != nil {
+		panic(err)
+	}
+	cases := parserFreeformDecodeCases(data)
+	observations := make([]map[string]any, 0, len(cases))
+	for _, c := range cases {
+		first, second := c.First, c.Second
+		firstBefore, secondBefore := first, second
+		result := F_gossip_parser_freeform(first, second)
+		parser, ok := rt.Get(result, "parser").(*C_wp_block_parser)
+		if !ok || !rt.IsObject(parser) {
+			panic("expected actual generated WP_Block_Parser: " + c.Name)
+		}
+		firstBlock, ok := rt.Get(result, "first").(*C_wp_block_parser_block)
+		if !ok || !rt.IsObject(firstBlock) {
+			panic("expected actual generated first WP_Block_Parser_Block: " + c.Name)
+		}
+		secondBlock, ok := rt.Get(result, "second").(*C_wp_block_parser_block)
+		if !ok || !rt.IsObject(secondBlock) {
+			panic("expected actual generated second WP_Block_Parser_Block: " + c.Name)
+		}
+		if first != firstBefore || second != secondBefore || firstBlock == secondBlock {
+			panic("caller argument or block identity mismatch: " + c.Name)
+		}
+		observations = append(observations, map[string]any{
+			"name":            c.Name,
+			"parser":          parserFreeformParserObservation(parser, c.Name+" parser"),
+			"first":           parserFreeformBlockObservation(firstBlock, first, c.Name+" first"),
+			"second":          parserFreeformBlockObservation(secondBlock, second, c.Name+" second"),
+			"distinct_blocks": true,
+			"arguments_after": map[string]any{"first": first, "second": second},
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

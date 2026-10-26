@@ -2,7 +2,45 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: original parser Frame + Block /12-case PASS
+## Latest: selected original freeform method /12 pair-case PASS
+
+The unchanged original WP_Block_Parser::freeform314–316 now executes in Go with
+its complete original Block dependency. Go selects the original Parser class/
+four-property prefix16–50, complete method and closing brace396; other six
+methods are omitted, not stubbed. The PHP oracle loads the complete original
+Parser file and its real require_once Block/Frame files, not a reconstructed
+Parser. Native Reflection confirms its seven-method shape and exact freeform
+signature/lines. No complete Parser translation or parse() execution is claimed.
+[Contract](parser-freeform.md), [record](evidence/parser-freeform-2026-10-26.md).
+
+One owned source driver creates a Parser and calls freeform twice. All12 input
+pairs/24 actual calls and Block constructions match PHP8.3.36/C/expectations:
+five Block properties, distinct object identifiers even for identical HTML,
+four still-null Parser properties and two unchanged caller strings. Empty/'0'/
+HTML/literal block comments/CRLF/tab/quotes/backslash/NUL/Unicode/4096 bytes are
+preserved. Observers neither construct Blocks nor inject generated fields.
+
+Clean snapshotd218319afdf7327cd5001f1cd9ac0cd085e802b6, tree
+0ece4798b033d6bbb56ba665746166e116e7df00: PASS12.29s/package12.498s, vet
+PASS same snapshot, both exits0/stderr empty. First committed snapshot passed;
+only docs/evidence follows, no successful rerun or code/config changes.
+
+GoHP remains pinned to #76 merged maind6f32d90c686da8da4116d81f00da36ce71506d5,
+tree773422be588abc30b748a742c2162cc460e76e12, reusing exact clean feature/main
+543-check/75-feature CI evidence without compiler edits/tests/publish. Parallel
+#77 standalone calls is merged main0e736a3 but is not adopted by this pin.
+Tail-method source audit finds add_freeform327–335 the next smaller candidate,
+still needing method defaults/bare return/property coalesce/substr/append.
+This audit is not a new full-parser translation attempt or observed rejection.
+
+Historical Frame12/data16/24/334 configurations/corpora/pins/evidence are unchanged,
+not rerun or summed. Other Parser methods/tokenizer/stack, WP_Block_Type/registry/
+render/IDs/CSS/HTML/ThemeJSON/bootstrap/HTTP/DB/themes/plugins and general error/
+coercion/reference/cast semantics remain unverified. Frame is native-loaded only
+in this configuration. WebMCP excluded, route/auth unchanged; no production
+target configured/created. Devboard unidentified/not synced; PR/state tracking.
+
+## Previous: original parser Frame + Block /12-case PASS
 
 Two complete unchanged classes/constructors (Block15–90, Frame16–79) now run in
 one generated binary. Three owned source drivers use actual Frame3/4/5-argument

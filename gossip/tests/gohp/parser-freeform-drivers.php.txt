@@ -1,0 +1,8 @@
+// Owned composition only: both Blocks are created by the unchanged original
+// freeform method. No parser algorithm, constructor substitute or field writes.
+function gossip_parser_freeform( $first, $second ) {
+	$parser = new WP_Block_Parser();
+	$one = $parser->freeform( $first );
+	$two = $parser->freeform( $second );
+	return array( 'parser' => $parser, 'first' => $one, 'second' => $two );
+}

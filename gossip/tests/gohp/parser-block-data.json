@@ -1,0 +1,26 @@
+{
+  "schema": "gossip.parser-block-data/v1",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "gohp_commit": "eb3b968d447ab7a11af4efd3b1a1976b2cd277e8",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "cases_sha256": "0b64c6de904cc6b3eb21d2e5581f5355fa972787516d0aa697bbaaaee43d88c9",
+  "sources": [
+    {
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e",
+      "fragments": [{"name":"WP_Block_Parser_Block", "first_line":15, "last_line":90}]
+    },
+    {
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc",
+      "fragments": [{"name":"_wp_array_get", "first_line":5233, "last_line":5272}]
+    },
+    {
+      "source_path": "wp-includes/block-supports/elements.php",
+      "source_sha256": "43bd39bc1929b68da39f1fc82df38e3c3718d275603934a6307ab7453171c0a2",
+      "fragments": [{"name":"wp_should_add_elements_class_name", "first_line":33, "last_line":97}]
+    }
+  ]
+}

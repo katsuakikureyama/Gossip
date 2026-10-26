@@ -1,0 +1,6 @@
+// Owned glue, not a replacement for WordPress's parser or its data class.
+// The complete unchanged original class supplies the actual constructor.
+function gossip_parser_block_data( $name, $attrs, $inner_blocks, $inner_html, $inner_content ) {
+	$block = new WP_Block_Parser_Block( $name, $attrs, $inner_blocks, $inner_html, $inner_content );
+	return array( 'object' => $block, 'snapshot' => (array) $block );
+}

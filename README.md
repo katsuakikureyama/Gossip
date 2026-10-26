@@ -59,6 +59,13 @@ HTTP, themes, or third-party plugins. The freeform unit omits six other parser
 methods; the add_freeform unit includes freeform and omits the remaining five.
 Omitted methods are a declared boundary, not replacement implementations.
 
+Separately, the [parser-token reference](docs/parser-token-reference.md) records
+24 native PHP 8.3.36 cases for the complete original `next_token()` and a direct
+`preg_match()` probe using its unchanged pattern: 17 matches, 6 non-matches and
+1 backtracking-limit failure. Capture bytes/positions, errors and parser state
+are retained. This is **PHP reference evidence only**, not Go compatibility or a
+regex-backend comparison, and is not added to the translation counts above.
+
 The current work state and links to each immutable execution record are in
 [current state](docs/current-state-fork-baseline.md) and
 [the documentation index](docs/INDEX.md). The extraction, source-byte checks,

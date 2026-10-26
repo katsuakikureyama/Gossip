@@ -5,6 +5,11 @@ source rewrite, benchmark or new PHP compatibility result is introduced. This is
 Gossip's consumer requirement for a general GoHP runtime contract, not a WordPress
 special case in the compiler. Follow the [responsibility map](reuse-boundary.md).
 
+Update, 2026-10-27: the [native reference corpus](parser-token-reference.md) now
+has 24 passing PHP 8.3.36 cases with full capture/error/state observations.
+This completes the first bounded reference step only. No candidate backend has
+been measured or adopted; the original assessment below remains the design gate.
+
 ## Fixed original requirement
 
 Upstream WordPress `54106f6c545fc8b881f6b39b7963002bece6c28c`,
@@ -99,8 +104,9 @@ behavior, bounded failures, maintainability, licensing and platform costs preced
 performance claims. If neither meets the contract, retain the blocker; do not
 silently rewrite the source or replace the parser.
 
-Next deliverable: a versioned `next_token`/preg-match reference corpus and a
-backend comparison record with explicit unmeasured cells. No such new corpus or
-candidate measurement has been completed in this documentation change. Work on
-other independently bounded parser/storage dependencies need not wait for a final
-backend decision. No user-facing capability, route or deployment is added.
+Next deliverable: a backend comparison record using the versioned native corpus,
+with explicit unmeasured cells. The first corpus covers in-range byte offsets,
+malformed bytes, capture mutation and one backtracking-limit failure; out-of-range
+offsets, JIT-on and other failure modes remain unmeasured. Work on other independently
+bounded parser/storage dependencies need not wait for a final backend decision.
+No user-facing capability, route or deployment is added.

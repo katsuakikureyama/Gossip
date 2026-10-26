@@ -1,0 +1,139 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type settingsBundleCase struct {
+	Name      string          `json:"name"`
+	Operation string          `json:"operation"`
+	Input     json.RawMessage `json:"input"`
+	Path      json.RawMessage `json:"path"`
+	Default   json.RawMessage `json:"default"`
+	Selector  json.RawMessage `json:"selector"`
+	Expected  json.RawMessage `json:"expected"`
+}
+
+type settingsBundleObservation struct {
+	Name      string `json:"name"`
+	Type      string `json:"type"`
+	Value     any    `json:"value"`
+	ArgsAfter []any  `json:"args_after"`
+}
+
+func settingsBundleCases(path string) []settingsBundleCase {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	var cases []settingsBundleCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("settings composition cases have trailing JSON values")
+	}
+	if cases == nil {
+		panic("settings composition cases must be an ordered list")
+	}
+	return cases
+}
+
+func settingsBundleNode(raw json.RawMessage, field string) any {
+	entries := 0
+	return arrayGetDecodeNode(arrayGetDecodeRaw(raw, field), field, 0, &entries)
+}
+
+func settingsBundleExpected(raw json.RawMessage, field string) (any, any) {
+	expected := settingsBundleNode(raw, field)
+	canonicalEntries := 0
+	canonical := arrayGetCanonicalNode(arrayGetDecodeRaw(raw, field), field, 0, &canonicalEntries)
+	expectedNode := arrayGetObserve(expected, field)
+	if !reflect.DeepEqual(expectedNode, canonical) {
+		panic("settings composition expected node is not canonical: " + field)
+	}
+	return expected, expectedNode
+}
+
+func settingsBundleSelector(value any, field string) rt.Array {
+	selector, ok := value.(rt.Array)
+	if !ok {
+		panic(field + " selector must be an array")
+	}
+	for index, entry := range selector.Entries {
+		switch entry.Value.(type) {
+		case int64, string:
+		default:
+			panic(fmt.Sprintf("%s selector value %d must be int or string", field, index))
+		}
+	}
+	return selector
+}
+
+// init is compiled beside GoHP's generated main.go and the parent-provided
+// adapter. It retains the prior actual observations and invokes generated
+// settings helpers directly; expectations are post-call assertions only.
+func init() {
+	retained := observeEdgeBundle()
+	lookup := observeArrayGetUnit()
+	cases := settingsBundleCases("/input/settings-composition-cases.json")
+	composition := make([]settingsBundleObservation, 0, len(cases))
+	seen := map[string]bool{}
+	for _, testCase := range cases {
+		if testCase.Name == "" || seen[testCase.Name] || testCase.Operation == "" || testCase.Input == nil || testCase.Path == nil || testCase.Default == nil || testCase.Selector == nil || testCase.Expected == nil {
+			panic("invalid settings composition case")
+		}
+		seen[testCase.Name] = true
+
+		input := settingsBundleNode(testCase.Input, testCase.Name+" input")
+		path := settingsBundleNode(testCase.Path, testCase.Name+" path")
+		defaultValue := settingsBundleNode(testCase.Default, testCase.Name+" default")
+		selectorValue := settingsBundleSelector(settingsBundleNode(testCase.Selector, testCase.Name+" selector"), testCase.Name)
+		expected, expectedNode := settingsBundleExpected(testCase.Expected, testCase.Name+" expected")
+
+		inputBefore := rt.Clone(input)
+		pathBefore := rt.Clone(path)
+		defaultBefore := rt.Clone(defaultValue)
+		selectorBefore := rt.Clone(selectorValue)
+		var value any
+		switch testCase.Operation {
+		case "gossip_settings_bool":
+			value = F_gossip_settings_bool(input, path, defaultValue)
+		case "gossip_settings_edges":
+			value = F_gossip_settings_edges(input, path, selectorValue)
+		default:
+			panic("unknown settings composition operation: " + testCase.Operation)
+		}
+
+		valueNode := arrayGetObserve(value, testCase.Name+" observed value")
+		argsAfter := []any{
+			arrayGetObserve(input, testCase.Name+" input after"),
+			arrayGetObserve(path, testCase.Name+" path after"),
+			arrayGetObserve(defaultValue, testCase.Name+" default after"),
+			arrayGetObserve(selectorValue, testCase.Name+" selector after"),
+		}
+		if arrayGetType(value) != arrayGetType(expected) || !reflect.DeepEqual(valueNode, expectedNode) || !reflect.DeepEqual(input, inputBefore) || !reflect.DeepEqual(path, pathBefore) || !reflect.DeepEqual(defaultValue, defaultBefore) || !reflect.DeepEqual(selectorValue, selectorBefore) {
+			panic("settings composition expectation or mutation mismatch: " + testCase.Name)
+		}
+		composition = append(composition, settingsBundleObservation{
+			Name: testCase.Name, Type: arrayGetType(value), Value: valueNode, ArgsAfter: argsAfter,
+		})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(map[string]any{
+		"retained": retained, "lookup": lookup, "composition": composition,
+	}); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

@@ -1,0 +1,121 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type elementsSerializationCase struct {
+	Name       string          `json:"name"`
+	Mode       string          `json:"mode"`
+	Object     *bool           `json:"object"`
+	Input      json.RawMessage `json:"input"`
+	FeatureSet json.RawMessage `json:"feature_set"`
+	Feature    json.RawMessage `json:"feature"`
+	Block      json.RawMessage `json:"block"`
+	Expected   json.RawMessage `json:"expected"`
+}
+
+func serializationNode(raw json.RawMessage, field string, scalar bool) any {
+	entries := 0
+	value := arrayGetDecodeNode(arrayGetDecodeRaw(raw, field), field, 0, &entries)
+	if _, ok := value.(rt.Array); scalar && ok {
+		panic(field + " must be a scalar node")
+	}
+	canonicalEntries := 0
+	canonical := arrayGetCanonicalNode(arrayGetDecodeRaw(raw, field), field, 0, &canonicalEntries)
+	if !reflect.DeepEqual(arrayGetObserve(value, field), canonical) {
+		panic(field + " is not canonical")
+	}
+	return value
+}
+
+func init() {
+	data, err := os.ReadFile("/input/cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	var cases []elementsSerializationCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing corpus data")
+	}
+	if len(cases) != 24 {
+		panic("expected24 serialization cases")
+	}
+	seen := map[string]bool{}
+	direct, composition := 0, 0
+	observations := make([]map[string]any, 0, len(cases))
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] || c.Object == nil {
+			panic("invalid serialization case")
+		}
+		seen[c.Name] = true
+		input := serializationNode(c.Input, c.Name+" input", false)
+		featureSet := serializationNode(c.FeatureSet, c.Name+" feature_set", true)
+		feature := serializationNode(c.Feature, c.Name+" feature", true)
+		block := serializationNode(c.Block, c.Name+" block", false)
+		expected := serializationNode(c.Expected, c.Name+" expected", true)
+		blockArray, ok := block.(rt.Array)
+		if !ok || (c.Mode == "direct" && len(blockArray.Entries) != 0) {
+			panic("invalid block root")
+		}
+		inputBefore, blockBefore := rt.Clone(input), rt.Clone(block)
+		featureSetBefore, featureBefore := rt.Clone(featureSet), rt.Clone(feature)
+		var blockType any = input
+		if *c.Object {
+			// Actual translated PHP constructs and populates the data object.
+			blockType = F_gossip_elements_source_input(input)
+			if !rt.IsObject(blockType) {
+				panic("source factory must return a generated object")
+			}
+		}
+		var value any
+		switch c.Mode {
+		case "direct":
+			direct++
+			value = F_wp_should_skip_block_supports_serialization(blockType, featureSet, feature)
+		case "composition":
+			composition++
+			value = F_gossip_elements_serialization_decision(block, blockType)
+		default:
+			panic("invalid case mode")
+		}
+		inputAfter := blockType
+		if *c.Object {
+			inputAfter = blockType.(interface{ Get(string) any }).Get("supports")
+		}
+		if arrayGetType(value) != arrayGetType(expected) || !reflect.DeepEqual(value, expected) ||
+			!reflect.DeepEqual(input, inputBefore) ||
+			!reflect.DeepEqual(inputAfter, inputBefore) || !reflect.DeepEqual(block, blockBefore) ||
+			!reflect.DeepEqual(featureSet, featureSetBefore) || !reflect.DeepEqual(feature, featureBefore) {
+			panic("serialization expectation or mutation mismatch: " + c.Name)
+		}
+		observations = append(observations, map[string]any{
+			"name": c.Name, "type": arrayGetType(value), "value": arrayGetObserve(value, c.Name+" value"),
+			"source_input_after": arrayGetObserve(input, c.Name+" source input after"),
+			"input_after":        arrayGetObserve(inputAfter, c.Name+" input after"),
+			"feature_set_after":  arrayGetObserve(featureSet, c.Name+" feature_set after"),
+			"feature_after":      arrayGetObserve(feature, c.Name+" feature after"),
+			"block_after":        arrayGetObserve(block, c.Name+" block after"),
+		})
+	}
+	if direct != 16 || composition != 8 {
+		panic("invalid case mode counts")
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

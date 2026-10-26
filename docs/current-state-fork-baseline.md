@@ -2,7 +2,25 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: independent PCRE2 / retained PHP comparison
+## Latest: regexp2 comparison and explicit incompatibility boundary
+
+The [isolated regexp2 profile](parser-regexp2-comparison.md) yields 22 equal
+outputs, 1 difference (UTF-8-interior starting offset rejected) and 1 non-comparable
+PCRE match-count limit. Raw captures retain invalid UTF-8 bytes for this corpus;
+that does not establish general byte semantics. No pattern rewrite or silent
+boundary rounding. Clean code `073e1218292c160a02f6e06ad2a4a83f2ea547e7`;
+observation test PASS6.91s/package7.147s and vet PASS once. [Evidence](evidence/parser-regexp2-comparison-2026-10-27.md).
+
+Official regexp2/v2 commit a6ef7b6 requires Go1.25; a temporary module uses cached
+Go1.25.14 without changing Gossip's module floor or any GoHP pin. Saved PHP and
+PCRE2 results remain unchanged/not rerun. Test PASS means observations collected,
+not compatibility. Do not adopt this direct string-API profile as a drop-in backend.
+PCRE2 remains the better measured baseline for these cases; next scope a GoHP
+bridge/output-argument contract plus build/platform/distribution policy. No runtime
+adoption or full parser/PHP8.4/JSON/performance result. UI/WebMCP/MCP excluded;
+no route/auth/deployment. Progress uses GoHP Issue1; devboard unidentified/not synced.
+
+## Previous: independent PCRE2 / retained PHP comparison
 
 [PCRE2 10.47 C-engine comparison](parser-pcre2-comparison.md) matches all 24
 retained PHP8.3.36/PCRE10.42 direct-regex observations, including ordered typed

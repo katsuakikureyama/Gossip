@@ -9,8 +9,10 @@ Update, 2026-10-27: the [native reference corpus](parser-token-reference.md) now
 has 24 passing PHP 8.3.36 cases with full capture/error/state observations.
 The follow-up [independent PCRE2 10.47 probe](parser-pcre2-comparison.md) matches
 all 24 retained direct-regex observations from PHP/PCRE10.42. Only this bounded
-C-engine profile is measured: no GoHP/cgo adapter or backend adoption. Regexp2
-remains unmeasured; the original assessment below remains the broader design gate.
+C-engine profile is measured: no GoHP/cgo adapter or backend adoption.
+The [regexp2 string-API profile](parser-regexp2-comparison.md) now records 22 equal
+outputs, 1 rune-alignment difference and 1 non-comparable limit case. It is not a
+drop-in backend. The original assessment below remains the broader design gate.
 
 ## Fixed original requirement
 
@@ -106,8 +108,11 @@ behavior, bounded failures, maintainability, licensing and platform costs preced
 performance claims. If neither meets the contract, retain the blocker; do not
 silently rewrite the source or replace the parser.
 
-Next deliverable: regexp2 comparison and the remaining runtime/build-policy gates,
-using the same versioned reference and explicit unmeasured cells. The first corpus covers in-range byte offsets,
+Next deliverable: a bounded PCRE2 GoHP bridge/output-argument contract and remaining
+runtime/build/platform/distribution gates, informed by the measured comparison.
+This is not adoption approval or full parser compatibility. A regexp2 byte adapter
+would need separate evidence, not silently replace the failed string-API profile.
+The first corpus covers in-range byte offsets,
 malformed bytes, capture mutation and one backtracking-limit failure; out-of-range
 offsets, JIT-on and other failure modes remain unmeasured. Work on other independently
 bounded parser/storage dependencies need not wait for a final backend decision.

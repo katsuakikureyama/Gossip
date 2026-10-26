@@ -1,5 +1,15 @@
 # PCRE2 bridge and bounded PHP output contract
 
+Implementation update, 2026-10-27: GoHP implemented bounded B1/B2/B3 in
+[PR #110](https://github.com/katsuakikureyama/GoHP/pull/110),
+[#112](https://github.com/katsuakikureyama/GoHP/pull/112) and
+[#114](https://github.com/katsuakikureyama/GoHP/pull/114). The
+[isolated Gossip consumer](parser-preg83-generated.md) pins #114, with 23 selected
+fixed-limit cases and one explicitly excluded limit=1 case. General references,
+the original next_token, PHP8.4 regex and native distribution remain outside scope.
+The design-only baseline below is retained as historical requirements, not a
+current claim that those three GoHP stages are still unimplemented.
+
 Status: **design / implementation handoff only**, 2026-10-27 JST. No cgo bridge,
 PHP builtin admission, new measurement, dependency adoption or GoHP code change
 is introduced by this document. It specifies the next bounded work, not an

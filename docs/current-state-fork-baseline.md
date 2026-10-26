@@ -2,7 +2,33 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: staged PCRE2 bridge/output implementation contract
+## Latest: generated regex consumer of GoHP #114
+
+[Consumer contract](parser-preg83-generated.md), [evidence](evidence/parser-preg83-generated-2026-10-27.md).
+Clean Gossip code99cb3f86f6c5ad5e55836b7ca7511d2d539a12ab: actual GoHP generation,
+enabled native build and **23/23 retained PHP comparisons PASS** (6.41s). GoHP
+compiler/runtime pin d7650944802a33cfc2dab0006bb410374d828245 (#114), exported
+from its immutable Git archive; previous Gossip pins unchanged. The existing
+24-case native record is reused; backtrack_limit_one is explicitly excluded
+because generated B3 fixes limit100000, not1. No false 24/24 claim.
+
+Original full-source hashes and line251 pattern bytes are verified; an owned
+typed PHP driver re-encodes the literal without changing runtime regex bytes.
+No original WordPress file, GoHP code or general module dependency is modified.
+This is not next_token translation. Observations preserve ordered captures,
+types/raw bytes/byte positions/presence/output-before/after/error codes.
+Darwin ARM64 Go1.23.0/clang17/SDK15.5/PCRE2static10.47 only, explicit opt-in;
+candidate exit0/stderr0, linker duplicate-archive warning retained. No dependency
+installation or PHP rerun. Contract/source-baseline and vet PASS once, original
+WordPress tree diff empty. Complete actual/expected JSON and hashes retained.
+
+Next: original next_token dependency closure (property inputs, destructuring,
+JSON and remaining source constructs), without rewriting the original method.
+Full parser/general references/PHP8.4 regex/enabled Linux/packaging/performance
+remain unmeasured. UI/WebMCP/MCP excluded; no route/auth/release/deployment.
+Progress uses GoHP Issue1; devboard unidentified/not synced.
+
+## Previous: staged PCRE2 bridge/output implementation contract
 
 [Contract](pcre2-bridge-contract.md), design-only follow-up to #48. Read-only
 GoHP audit pinned to fd6936a (#107): value-only call IR, no output destination,

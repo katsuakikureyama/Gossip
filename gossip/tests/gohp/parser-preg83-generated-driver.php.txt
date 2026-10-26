@@ -1,0 +1,9 @@
+<?php
+// Gossip-owned driver, NOT the original WP_Block_Parser::next_token method.
+// The harness substitutes a PHP literal with the exact original pattern bytes.
+function gossip_preg83_probe(string $subject, int $offset): array {
+    $matches = null;
+    $before = $matches;
+    $result = preg_match(@PATTERN_LITERAL@, $subject, $matches, PREG_OFFSET_CAPTURE, $offset);
+    return ['return' => $result, 'matches_before' => $before, 'matches_after' => $matches, 'error_code' => preg_last_error()];
+}

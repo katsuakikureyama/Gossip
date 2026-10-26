@@ -1,0 +1,95 @@
+package main
+
+import (
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"os"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+// Observation only: no regex engine, expected outputs or PHP subprocess.
+func preg83Typed(value any) any {
+	switch value := value.(type) {
+	case nil:
+		return map[string]any{"type": "null", "value": nil}
+	case bool:
+		return map[string]any{"type": "bool", "value": value}
+	case int64:
+		return map[string]any{"type": "int", "value": value}
+	case string:
+		return map[string]any{"type": "string", "base64": base64.StdEncoding.EncodeToString([]byte(value))}
+	case rt.Array:
+		entries := make([]any, 0, len(value.Entries))
+		for _, entry := range value.Entries {
+			entries = append(entries, map[string]any{"key": preg83Typed(entry.Key), "value": preg83Typed(entry.Value)})
+		}
+		return map[string]any{"type": "array", "entries": entries}
+	default:
+		panic(fmt.Sprintf("unsupported observed value type %T", value))
+	}
+}
+
+func preg83Field(array rt.Array, name string) any {
+	for _, entry := range array.Entries {
+		if key, ok := entry.Key.(string); ok && key == name {
+			return entry.Value
+		}
+	}
+	panic("missing generated result field: " + name)
+}
+
+func init() {
+	if len(os.Args) != 2 {
+		panic("requires one candidate-input JSON path")
+	}
+	data, err := os.ReadFile(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
+	var cases []struct {
+		Name     string `json:"name"`
+		Document string `json:"document_base64"`
+		Offset   int64  `json:"offset"`
+		Limit    int    `json:"backtrack_limit"`
+	}
+	if err := json.Unmarshal(data, &cases); err != nil {
+		panic(err)
+	}
+	if len(cases) != 23 {
+		panic("requires exactly 23 fixed-limit inputs")
+	}
+	rows := make([]any, 0, len(cases))
+	for _, c := range cases {
+		document, err := base64.StdEncoding.Strict().DecodeString(c.Document)
+		if err != nil || len(document) > 4096 || c.Offset < -int64(len(document)) || c.Offset > int64(len(document)) || c.Limit != 100000 {
+			panic("input outside compiler consumer profile")
+		}
+		// This is the real generated PHP driver. It owns output publication
+		// and reads error state; the observer only serializes returned values.
+		result := F_gossip_preg83_probe(string(document), c.Offset).(rt.Array)
+		captures := preg83Field(result, "matches_after").(rt.Array)
+		presence := map[string]bool{"closer": false, "namespace": false, "name": false, "attrs": false, "void": false}
+		for _, entry := range captures.Entries {
+			if key, ok := entry.Key.(string); ok {
+				if _, expected := presence[key]; !expected {
+					panic("unexpected capture name")
+				}
+				presence[key] = true
+			}
+		}
+		rows = append(rows, map[string]any{"name": c.Name, "preg_match": map[string]any{
+			"return":                 preg83Typed(preg83Field(result, "return")),
+			"matches_before":         preg83Typed(preg83Field(result, "matches_before")),
+			"matches_after":          preg83Typed(captures),
+			"error_code":             preg83Field(result, "error_code").(int64),
+			"named_capture_presence": presence,
+		}})
+	}
+	output, err := json.Marshal(rows)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(output))
+}

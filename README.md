@@ -79,8 +79,15 @@ been adopted. These are engine observations, not additional translated functions
 
 The [bridge implementation contract](docs/pcre2-bridge-contract.md) separates an
 optional PCRE2 Go/C bridge from PHP output-argument/state semantics and compiler
-admission. Those stages remain unimplemented; the default CGO-disabled GoHP build
-and its ongoing reference/storage work are preserved.
+admission. GoHP has now implemented those bounded experimental stages through
+[PR #114](https://github.com/katsuakikureyama/GoHP/pull/114); default admission
+remains off and the CGO-disabled build/reference-storage boundaries are preserved.
+
+The new [generated regex consumer](docs/parser-preg83-generated.md) connects a
+Gossip-owned PHP driver to that pinned compiler/runtime using the unchanged
+original pattern bytes: **23/23 fixed-limit comparisons passed**; the separate
+limit=1 case is explicitly excluded. This is not an additional original WordPress
+function or a translation of `next_token()`, and earlier fixture pins stay unchanged.
 
 The current work state and links to each immutable execution record are in
 [current state](docs/current-state-fork-baseline.md) and

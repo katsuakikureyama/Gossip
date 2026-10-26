@@ -1,5 +1,9 @@
 # Block style serialization decision → class necessity
 
+The [execution record](evidence/elements-serialization-path-2026-10-26.md)
+reports24 actual Go/PHP comparisons and vet PASS, with the initial extraction
+failure and corrected successful snapshot both retained.
+
 This separate configuration selects three complete unchanged declarations:
 
 - `wp_should_skip_block_supports_serialization`, block-supports/utils.php22–35;

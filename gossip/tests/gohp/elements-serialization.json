@@ -15,7 +15,7 @@
     {
       "source_path": "wp-includes/block-supports/utils.php",
       "source_sha256": "eb0f87a722d4b5265bd896ee47eaa601e99d500073c15c12a20588fcfc7f67f3",
-      "fragments": [{"name":"wp_should_skip_block_supports_serialization", "first_line":22, "last_line":38}]
+      "fragments": [{"name":"wp_should_skip_block_supports_serialization", "first_line":22, "last_line":35}]
     },
     {
       "source_path": "wp-includes/block-supports/elements.php",

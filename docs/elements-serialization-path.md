@@ -2,7 +2,7 @@
 
 This separate configuration selects three complete unchanged declarations:
 
-- `wp_should_skip_block_supports_serialization`, block-supports/utils.php22–38;
+- `wp_should_skip_block_supports_serialization`, block-supports/utils.php22–35;
 - its `_wp_array_get` dependency, functions.php5233–5272;
 - `wp_should_add_elements_class_name`, block-supports/elements.php33–97.
 

@@ -56,7 +56,7 @@ func TestOriginalWordPressElementsSerialization(t *testing.T) {
 	}
 	wanted := map[string]selection{
 		"_wp_array_get": {"wp-includes/functions.php", 5233, 5272},
-		"wp_should_skip_block_supports_serialization": {"wp-includes/block-supports/utils.php", 22, 38},
+		"wp_should_skip_block_supports_serialization": {"wp-includes/block-supports/utils.php", 22, 35},
 		"wp_should_add_elements_class_name":           {"wp-includes/block-supports/elements.php", 33, 97},
 	}
 	definitions := []byte("<?php\n")

@@ -108,8 +108,11 @@ behavior, bounded failures, maintainability, licensing and platform costs preced
 performance claims. If neither meets the contract, retain the blocker; do not
 silently rewrite the source or replace the parser.
 
-Next deliverable: a bounded PCRE2 GoHP bridge/output-argument contract and remaining
-runtime/build/platform/distribution gates, informed by the measured comparison.
+The [bounded PCRE2 bridge/output contract](pcre2-bridge-contract.md) now specifies
+the staged implementation and actual GoHP seams: optional engine-only bridge,
+PHP wrapper/state, then validated local output lowering. Next deliverable is B1's
+Go→C bridge with separate enabled/disabled build evidence; compiler admission stays
+closed until the later storage/output gates pass. No bridge is implemented yet.
 This is not adoption approval or full parser compatibility. A regexp2 byte adapter
 would need separate evidence, not silently replace the failed string-API profile.
 The first corpus covers in-range byte offsets,

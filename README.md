@@ -72,6 +72,11 @@ ordered capture bytes/offsets and the limit failure. This is a bounded C-engine
 comparison against PHP's PCRE 10.42, **not** GoHP/cgo integration, full parser
 execution or a backend adoption decision. It adds no generated-Go count.
 
+The [regexp2 comparison](docs/parser-regexp2-comparison.md) records 22 equal
+outputs, 1 UTF-8-interior-offset API difference and 1 non-comparable PCRE-limit
+case. That direct string-API profile is not a drop-in backend; no dependency has
+been adopted. These are engine observations, not additional translated functions.
+
 The current work state and links to each immutable execution record are in
 [current state](docs/current-state-fork-baseline.md) and
 [the documentation index](docs/INDEX.md). The extraction, source-byte checks,

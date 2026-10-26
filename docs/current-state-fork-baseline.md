@@ -2,7 +2,44 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: selected original freeform method /12 pair-case PASS
+## Latest: original add_freeform output path /16-case PASS
+
+Unchanged add_freeform327–335/freeform314–316 plus complete Block15–90 execute
+in one binary. Go selects original Parser prefix16–50/closing396; other five
+methods are omitted, not stubbed. PHP loads complete original Parser/Block/Frame
+files and verifies exact full class/line/default shapes. Owned source initializes
+actual Parser state and invokes add_freeform; no observer injection/host Block.
+All16 cases match PHP8.3.36/C/expectations:13 appended Block arrays,3 skipped,
+null returns, ordered seed/output/properties, unchanged document/offset/stack/
+caller inputs. NUL and split UTF-8 bytes remain exact via base64 observation.
+[Contract](parser-add-freeform.md), [record](evidence/parser-add-freeform-2026-10-26.md).
+
+Success43ebeba5710e4e4859109401b85ae48783839c06/tree5f17710e413b4a8a654a13b124c634b5d31e5bd3:
+PASS10.48s/package10.690s, both exits0/stderr empty. Initial538abb9 on #80 pin
+failed during generation at binary minus (no candidate build/run/oracle compare).
+Original source/corpus/harness/observers unchanged; only pin/doc updated after
+compiler #81. Initial vet PASS is reused for unchanged Go code, not rerun after
+JSON pin change. Initial/success logs are separate; no successful comparison rerun.
+
+GoHP #80 mergedmain4df47e0/tree83cc11e72f83675b5a6ab606bbd6782b8bfd2d57 adds
+bounded method defaults/bare return/property append/factory snapshots/substr,
+retaining parallel #79 exact scalar constructors. Feature/PR/main CI564checks/
+79features PASS. #81 finalpin565e65e6c9d8e211b06779739bfba76b07c4d92d/
+tree3b509a251cb2ab3d037c089c1ab0295a1e0a0d60 adds actual-int64 subtraction,
+overflow rejection and intact decrement-token rejection; feature/PR/main CI569/
+80 PASS with exact clean identities/fixedPHP8.3.36/Go1.23.12linuxamd64 artifacts.
+Both initial local compiler negatives had one obsolete expectation; test-only
+updates resumed only affected case, with no product-code fix or successful rerun.
+
+The earlier property-left-coalesce audit was incorrect: the left operand is local
+length, already supported. New dependency binary subtraction was found by actual
+generation. Historical configurations/pins/corpora/evidence are unchanged/not
+rerun or summed. Other five methods/parse/proceed/tokenizer/stack/render/CSS/HTML/
+bootstrap/HTTP/DB/themes/plugins and generic PHP semantics remain unverified.
+No production target configured/created; WebMCP excluded, route/auth unchanged.
+Devboard unidentified/not synced. Next inspect actual stack/output dependencies.
+
+## Previous: selected original freeform method /12 pair-case PASS
 
 The unchanged original WP_Block_Parser::freeform314–316 now executes in Go with
 its complete original Block dependency. Go selects the original Parser class/

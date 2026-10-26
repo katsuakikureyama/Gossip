@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Original add_freeform](parser-add-freeform.md) | Two selected original methods/complete Block versus full original PHP Parser; raw-byte output append and skip boundaries |
+| [Add-freeform evidence](evidence/parser-add-freeform-2026-10-26.md) |16 cases,13 appends/3 skips PASS; initial minus generation failure retained, GoHP #80/#81 main CI564/569 checks |
 | [Original parser freeform](parser-freeform.md) | Selected unchanged parser method versus complete original PHP parser; explicit extraction/native boundaries and remaining tail dependencies |
 | [Freeform evidence](evidence/parser-freeform-2026-10-26.md) |12 pair cases/24 actual method calls and vet PASS, typed data/identity/caller state; prior GoHP #76 evidence reused |
 | [Original Frame + Block](parser-frame.md) | Two complete unchanged classes/constructors, Frame3/4/5 arguments and nested object identity after snapshot |
@@ -16,7 +18,7 @@ support or compatibility promise.
 | [Source-built input evidence](evidence/elements-source-input-2026-10-26.md) |24 actual typed/factory-input/supports/caller-state comparisons and vet PASS; GoHP #71 pin |
 | [Serialization utility → class decision](elements-serialization-path.md) | Three unchanged originals, explicit input-object boundary,16 direct +8 owned composition cases |
 | [Serialization decision evidence](evidence/elements-serialization-path-2026-10-26.md) |24 typed/caller-state comparisons and vet PASS; initial extraction failure retained; old334 configuration unchanged |
-| [Current state](current-state-fork-baseline.md) | Original freeform method12-pair PASS against complete PHP parser; prior Frame/data/helper configurations unchanged |
+| [Current state](current-state-fork-baseline.md) | Original add_freeform16-case PASS against complete PHP parser; prior freeform/Frame/data/helper configurations unchanged |
 | [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
 | [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |
 | [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |

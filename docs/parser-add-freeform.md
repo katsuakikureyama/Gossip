@@ -1,5 +1,8 @@
 # Original add_freeform / selected parser output path
 
+[Execution record](evidence/parser-add-freeform-2026-10-26.md):16/16 PASS,
+13 appends/3 skips. Initial generation failure and compiler correction are retained.
+
 This unit executes unchanged WP_Block_Parser::add_freeform327–335 and its
 unchanged freeform314–316 dependency, plus complete original Block15–90.
 Go selects the original Parser class/property prefix16–50 and closing brace396.
@@ -63,7 +66,7 @@ GOSSIP_GOHP_SOURCE=/absolute/path/to/GoHP GOCACHE=/private/tmp/gossip-go-cache g
 GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp
 ```
 
-Executed results must be recorded before PASS. Existing fixed images, nonroot/
+Existing fixed images, nonroot/
 readonly/network-none/resource limits and same-process oracle admission remain.
 Historical freeform/Frame/data/helper configurations/pins/corpora/source/evidence
 are unchanged/not rerun or summed. parse/proceed/tokenizer/stack/other five Parser

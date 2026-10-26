@@ -2,7 +2,41 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: original add_freeform output path /16-case PASS
+## Latest: project overview and responsibility map
+
+Documentation-only follow-up to PR44, based on master
+`ae218d3f78cc649e4f2884ceb24870e0fe2d76b7`, branch `docs/project-boundaries`.
+The README is now an entry point with separate evidence rows, not a running
+history. Prior README and reuse-boundary wording are retained under `history/`
+with explicitly historical status and rebased links. Existing evidence JSON/MD,
+original WordPress files, fixtures, Go code and compiler/oracle pins are unchanged.
+
+The [current responsibility map](reuse-boundary.md) distinguishes GoHP's general
+PHP semantics from Gossip's original-source acceptance and native integrations.
+Original parser/WP_Hook translation remains the target; the native SDK is not a
+substitute proof. DB/HTTP adapters are candidates, not chosen implementations;
+include/autoload/themes are unverified, not implicitly discarded. Standing owner
+authorization covers normal verified PR merges; this is not deployment approval
+for an unspecified destination or a license decision.
+
+[Regex backend evaluation gates](parser-backend-assessment.md) pin the actual
+original next_token requirement and separate pattern syntax from byte offsets,
+matches output, absent captures, errors/resource limits, JSON and parser-state
+dependencies. PCRE2-first evaluation and regexp2 comparison are planned, not
+implemented/measured/adopted. GoHP #103/#104 source-byte verification is not PHP
+or WordPress application acceptance; it does not repin these Gossip fixtures.
+
+Public evidence uses path placeholders instead of personal absolute paths. The
+existing historical records remain unchanged; prior-path cleanup is separate.
+No PHP behavior or compatibility totals are added by this documentation change.
+No new capability/route/auth/SDK/server/deployment changes; WebMCP remains excluded.
+Validation and publication results belong in this change's PR; do not rerun
+successful historical native comparisons for a documentation-only update.
+Devboard remains unidentified/not synced; cross-project progress uses GoHP Issue1.
+Next: a pinned preg-match/next_token reference corpus and backend assessment,
+alongside independently bounded original parser/storage dependencies.
+
+## Previous: original add_freeform output path /16-case PASS
 
 Unchanged add_freeform327–335/freeform314–316 plus complete Block15–90 execute
 in one binary. Go selects original Parser prefix16–50/closing396; other five

@@ -6,6 +6,10 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Current responsibility map](reuse-boundary.md) | Original translation, native Go integration candidates and unsupported surfaces; current owner operating policy |
+| [Parser backend assessment](parser-backend-assessment.md) | Fixed original next_token requirements, PCRE2/regexp2 comparison gates; no backend adopted or measured |
+| [Historical README](history/readme-through-pr44.md) | Prior long narrative through PR44, preserved with rebased links; not current commands or policy |
+| [Historical boundary overview](history/reuse-boundary-through-pr44.md) | Previous boundary/pin/approval wording retained as history, superseded by current map |
 | [Original add_freeform](parser-add-freeform.md) | Two selected original methods/complete Block versus full original PHP Parser; raw-byte output append and skip boundaries |
 | [Add-freeform evidence](evidence/parser-add-freeform-2026-10-26.md) |16 cases,13 appends/3 skips PASS; initial minus generation failure retained, GoHP #80/#81 main CI564/569 checks |
 | [Original parser freeform](parser-freeform.md) | Selected unchanged parser method versus complete original PHP parser; explicit extraction/native boundaries and remaining tail dependencies |
@@ -18,7 +22,7 @@ support or compatibility promise.
 | [Source-built input evidence](evidence/elements-source-input-2026-10-26.md) |24 actual typed/factory-input/supports/caller-state comparisons and vet PASS; GoHP #71 pin |
 | [Serialization utility → class decision](elements-serialization-path.md) | Three unchanged originals, explicit input-object boundary,16 direct +8 owned composition cases |
 | [Serialization decision evidence](evidence/elements-serialization-path-2026-10-26.md) |24 typed/caller-state comparisons and vet PASS; initial extraction failure retained; old334 configuration unchanged |
-| [Current state](current-state-fork-baseline.md) | Original add_freeform16-case PASS against complete PHP parser; prior freeform/Frame/data/helper configurations unchanged |
+| [Current state](current-state-fork-baseline.md) | Current documentation/ownership map plus original add_freeform16-case evidence; prior configurations remain separately pinned |
 | [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
 | [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |
 | [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |
@@ -75,11 +79,10 @@ support or compatibility promise.
 | [Combined helper evidence](evidence/helper-bundle-2026-10-25.md) | Separate integration result; does not replace the four standalone unit records |
 | [Zeroise-helper translation unit](zeroise-helper-unit.md) | Separate unchanged `zeroise()` contract with bounded string/integer zero-padding |
 | [Zeroise-helper translation evidence](evidence/zeroise-helper-2026-10-25.md) | New unit execution record; earlier three-unit compiler pins remain unchanged |
-| [Reuse boundary](reuse-boundary.md) | Original source versus Go experiment and GoHP blockers |
 | [Provenance](provenance.md) | Exact upstream/prototype references and unchanged source policy |
 | [PHP oracle policy](php-oracle-policy.md) | Admission floor for new Docker-oracle runs; not a compatibility conclusion |
 | [PHP 8.3 floor evidence](evidence/php-83-floor-2026-10-25.md) | Previous PHP 8.3.36 execution record, retained with its earlier three compiler pins |
-| [Unified-compiler evidence](evidence/unified-compiler-2026-10-25.md) | Current PHP 8.3.36 execution record for three independent GoHP units under one compiler pin |
+| [Unified-compiler evidence](evidence/unified-compiler-2026-10-25.md) | Historical PHP 8.3.36 execution record for three independent GoHP units under their recorded compiler pin |
 | [Hook comparison evidence](evidence/fork-hooks-2026-10-25.md) | Historical PHP 8.3.13 execution record: commit, runner, source/fixture hashes and exclusions |
 | [Original-source translation units](translation-units.md) | Extraction, isolation, GoHP report verification and comparison contract |
 | [Return-helper translation evidence](evidence/return-helpers-2026-10-25.md) | Historical PHP 8.3.13 record: five original helpers generated/built/compared; exact hashes and limitations |
@@ -92,4 +95,5 @@ support or compatibility promise.
 
 Start each work session with current state and this index. Keep new work in an
 explicit branch/PR in `katsuakikureyama/Gossip`. Do not replace the root tree with
-the prototype or merge to `master` without owner approval.
+the prototype. Ordinary verified merges are covered by the owner's standing
+authorization; see the [current operating policy](reuse-boundary.md#publication-licensing-and-operating-policy).

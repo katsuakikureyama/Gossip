@@ -1,0 +1,142 @@
+package main
+
+import (
+	"bytes"
+	"encoding/json"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+type parserBlockCase struct {
+	Name         string          `json:"name"`
+	BlockName    json.RawMessage `json:"block_name"`
+	Attrs        json.RawMessage `json:"attrs"`
+	InnerBlocks  json.RawMessage `json:"inner_blocks"`
+	InnerHTML    json.RawMessage `json:"inner_html"`
+	InnerContent json.RawMessage `json:"inner_content"`
+	Options      json.RawMessage `json:"options"`
+	Expected     *bool           `json:"expected"`
+}
+
+func parserBlockNode(raw json.RawMessage, field string) any {
+	entries := 0
+	value := arrayGetDecodeNode(arrayGetDecodeRaw(raw, field), field, 0, &entries)
+	canonicalEntries := 0
+	canonical := arrayGetCanonicalNode(arrayGetDecodeRaw(raw, field), field, 0, &canonicalEntries)
+	if !reflect.DeepEqual(arrayGetObserve(value, field), canonical) {
+		panic(field + " is not canonical")
+	}
+	return value
+}
+
+func init() {
+	data, err := os.ReadFile("/input/parser-block-cases.json")
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.UseNumber()
+	decoder.DisallowUnknownFields()
+	var cases []parserBlockCase
+	if err := decoder.Decode(&cases); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		panic("trailing corpus data")
+	}
+	if len(cases) != 16 {
+		panic("expected16 parser-block cases")
+	}
+	seen := map[string]bool{}
+	observations := make([]map[string]any, 0, len(cases))
+	propertyNames := []string{"blockName", "attrs", "innerBlocks", "innerHTML", "innerContent"}
+	for _, c := range cases {
+		if c.Name == "" || seen[c.Name] || c.Expected == nil {
+			panic("invalid parser-block case")
+		}
+		seen[c.Name] = true
+		args := []any{parserBlockNode(c.BlockName, c.Name+" block_name"), parserBlockNode(c.Attrs, c.Name+" attrs"),
+			parserBlockNode(c.InnerBlocks, c.Name+" inner_blocks"), parserBlockNode(c.InnerHTML, c.Name+" inner_html"),
+			parserBlockNode(c.InnerContent, c.Name+" inner_content")}
+		options := parserBlockNode(c.Options, c.Name+" options")
+		if args[0] != nil {
+			if _, ok := args[0].(string); !ok {
+				panic("block_name requires string/null")
+			}
+		}
+		if args[1] != nil {
+			if _, ok := args[1].(rt.Array); !ok {
+				panic("attrs requires array/null")
+			}
+		}
+		children, ok := args[2].(rt.Array)
+		if !ok {
+			panic("inner_blocks requires array")
+		}
+		for _, entry := range children.Entries {
+			if _, ok := entry.Value.(rt.Array); !ok {
+				panic("inner_blocks supports data arrays only")
+			}
+		}
+		if _, ok := args[3].(string); !ok {
+			panic("inner_html requires string")
+		}
+		content, ok := args[4].(rt.Array)
+		if !ok {
+			panic("inner_content requires array")
+		}
+		for _, entry := range content.Entries {
+			if entry.Value != nil {
+				if _, ok := entry.Value.(string); !ok {
+					panic("inner_content requires string/null fragments")
+				}
+			}
+		}
+		if _, ok := options.(rt.Array); !ok {
+			panic("options requires array")
+		}
+		before := make([]any, len(args))
+		for i, arg := range args {
+			before[i] = rt.Clone(arg)
+		}
+		optionsBefore := rt.Clone(options)
+		result := F_gossip_parser_block_data(args...)
+		object := rt.Get(result, "object")
+		if _, ok := object.(*C_wp_block_parser_block); !ok || !rt.IsObject(object) {
+			panic("expected actual generated original class")
+		}
+		getter := object.(interface{ Get(string) any })
+		snapshot := rt.Get(result, "snapshot")
+		snapshotBefore := rt.Clone(snapshot)
+		decision, ok := F_wp_should_add_elements_class_name(snapshot, options).(bool)
+		if !ok {
+			panic("class decision requires bool")
+		}
+		properties, expectedProperties := []rt.Entry{}, []rt.Entry{}
+		for i, name := range propertyNames {
+			properties = append(properties, rt.Entry{Key: name, Value: getter.Get(name)})
+			expectedProperties = append(expectedProperties, rt.Entry{Key: name, Value: before[i]})
+		}
+		propertyValue, expectedValue := rt.NewArray(properties...), rt.NewArray(expectedProperties...)
+		if decision != *c.Expected || !reflect.DeepEqual(propertyValue, expectedValue) || !reflect.DeepEqual(snapshot, expectedValue) ||
+			!reflect.DeepEqual(snapshot, snapshotBefore) || !reflect.DeepEqual(args, before) || !reflect.DeepEqual(options, optionsBefore) {
+			panic("parser-block expectation or mutation mismatch: " + c.Name)
+		}
+		after := map[string]any{}
+		for i, name := range []string{"block_name", "attrs", "inner_blocks", "inner_html", "inner_content"} {
+			after[name] = arrayGetObserve(args[i], c.Name+" "+name+" after")
+		}
+		after["options"] = arrayGetObserve(options, c.Name+" options after")
+		observations = append(observations, map[string]any{"name": c.Name, "type": "object", "class": "WP_Block_Parser_Block",
+			"properties": arrayGetObserve(propertyValue, c.Name+" properties"), "snapshot": arrayGetObserve(snapshot, c.Name+" snapshot"),
+			"decision": decision, "arguments_after": after})
+	}
+	if err := json.NewEncoder(os.Stdout).Encode(observations); err != nil {
+		panic(err)
+	}
+	os.Exit(0)
+}

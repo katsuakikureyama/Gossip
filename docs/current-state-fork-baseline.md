@@ -2,7 +2,42 @@
 
 Last updated: 2026-10-26 (JST).
 
-## Latest: source-built input → originals / separate24-case PASS
+## Latest: original parser-block class → snapshot → decision /16-case PASS
+
+Complete unchanged WP_Block_Parser_Block15–90, its actual five-argument constructor
+and five public properties now translate with two unchanged original helpers:
+wp_should_add_elements_class_name/_wp_array_get. One owned source glue creates
+the real original class and returns object + (array) snapshot; no substitute class
+or observer field injection. All16 actual class/property/snapshot/decision/argument
+records match PHP8.3.36/C and expectations (11true/5false decisions), inputs unchanged.
+[Contract](parser-block-data.md), [record](evidence/parser-block-data-2026-10-26.md).
+
+Clean snapshotba74d40a0cd803fa3212d2a2768bb1cc1e5051b9, tree
+151aa7a02a74a39497bf6f8ce1d3196698bd6f70: PASS9.85s/package10.049s, vet
+PASS on same snapshot; both exits0/stderr empty. First committed snapshot passed;
+only docs/evidence follow and no successful rerun. Source/class and full ranges
+are hash-bound; native Reflection confirms the exact five-public-property class/
+constructor shape and both user-defined original functions.
+
+GoHP #74 merged maineb3b968d447ab7a11af4efd3b1a1976b2cd277e8, exact clean
+tested treeef8060b2e6a32b7da5784ebf13652092208bb059. Feature CI528-check/73-feature
+PASS, PR/main CI also PASS; parallel #73 while preserved. Fixed untyped public
+constructors, implicit-null properties and known-class public snapshots only.
+No typed/defaulted/returning constructors, inheritance, other magic/direct re-entry
+or general casts. Compiler local first snapshot also passed, no manual reruns.
+
+The original parser uses the same creation/array-cast shape at its line149, but
+that parser method/tokenizer/stack algorithm is not executed. innerBlocks admits
+empty/data-array entries only, not nested parser objects. Full parser/WP_Block_Type/
+registry/render/IDs/CSS/HTML/Theme JSON/bootstrap/HTTP/DB/themes/plugins and general
+PHP errors/coercions/references remain unverified. Old24/334 configurations/pins/
+corpora/evidence remain unchanged/not rerun; no summed integration claim.
+No production target configured/created; WebMCP excluded, route/auth unchanged.
+Devboard unidentified/not synced, tracked in PR/current-state. Next choose another
+concrete original dependency/class/caller, coordinating with the separate compiler
+owner's tokenizer work rather than reimplementing it or repeating PASS runs.
+
+## Previous: source-built input → originals / separate24-case PASS
 
 The owned input holder's construction/property assignment now execute in the
 same translated PHP source as the three original utility/class-decision helpers.

@@ -1,0 +1,3713 @@
+{
+  "binary_sha256": "4560d263fb5bf28de65ab8c6288d0034ec5716e734e308ab1b385dd13ea44fbd",
+  "case_count": 16,
+  "cases_sha256": "0b64c6de904cc6b3eb21d2e5581f5355fa972787516d0aa697bbaaaee43d88c9",
+  "compiled_bundle_sha256": "56f7f813cd286eb7b90dd56fd64b7b94c718d3edbb1ab058e9b846d53bed3bc9",
+  "compiler_sha256": "837a39b15ccf4a0465aa80cee535bad95fb3403db4e7a79ca4c023454fbb1936",
+  "compiler_version": "0.1.0-dev",
+  "constructor_argument_count": 5,
+  "drivers_sha256": "ecaea16fc8352ccbc0f894db23bae97ff03ebc3ca30ca2b8d07b0c5b7e8dc041",
+  "exit_code": 0,
+  "fragments": [
+    {
+      "first_line": 15,
+      "last_line": 90,
+      "name": "WP_Block_Parser_Block",
+      "sha256": "4a3d9629bae4dd309bc1e3f16fc1ff8ca985a1778c2b15ac25dc1a9db13cf0ad",
+      "source_path": "wp-includes/class-wp-block-parser-block.php",
+      "source_sha256": "7e21f483cf0c9deddd2144e026842bf906c72983908f7bd163c0716e8f6f325e"
+    },
+    {
+      "first_line": 5233,
+      "last_line": 5272,
+      "name": "_wp_array_get",
+      "sha256": "8d677dc7ea1dc16014ec2edd3ea1c75d6d11b61c8b37304d3e0d37277306a080",
+      "source_path": "wp-includes/functions.php",
+      "source_sha256": "456ab4cc7a6e6f05b061f2b1905f44233f8906774c461f90c5b80b9841303ccc"
+    },
+    {
+      "first_line": 33,
+      "last_line": 97,
+      "name": "wp_should_add_elements_class_name",
+      "sha256": "b89730256dff097121d6ad5ea238de6a3d36d2563bae149df38562e620fc0033",
+      "source_path": "wp-includes/block-supports/elements.php",
+      "source_sha256": "43bd39bc1929b68da39f1fc82df38e3c3718d275603934a6307ab7453171c0a2"
+    }
+  ],
+  "generated_sha256": "d333aefc4e2c0843a49b8d3eadd82af2605a89b855f67e150bfbc1feee0a1205",
+  "go_image": "golang@sha256:699337d620559a59b4a2bb298ad59611e535d2ee755a34cf2d2a98f37578dc80",
+  "go_observer_sha256": "7b4135fcc4ef3d7662838d581668ebfaa539586210c0fae079ef2b8a9b8548a1",
+  "go_transport": {
+    "adapted_sha256": "898adf3edb5e35e2c73315c8cd0909da87faf60ce062f889d19c77abd92ee7c2",
+    "original_sha256": "95afd5957d92059f915d586138e38ff83502ec76cee9c5b4fd573c2197850933"
+  },
+  "go_version": "go version go1.25.14 linux/arm64",
+  "gohp_archive_sha256": "9e84132ff161f96a760f7cc734d1a96f50139a99b0617d7b0d57692f133d8c07",
+  "gohp_commit": "eb3b968d447ab7a11af4efd3b1a1976b2cd277e8",
+  "manifest_sha256": "15d41d3ae1d364cf0534173f0f76d3d6405052039149afca432b1c678d8aaf90",
+  "native_bundle_sha256": "56f7f813cd286eb7b90dd56fd64b7b94c718d3edbb1ab058e9b846d53bed3bc9",
+  "original_class_count": 1,
+  "original_constructor_count": 1,
+  "original_function_count": 2,
+  "owned_driver_count": 1,
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_lc_ctype": "C",
+  "php_minimum": "8.3.36",
+  "php_observer_sha256": "b60be0923dc18cc27114950b26224ac9dd4eb5c4fcc33e45b86076528848e125",
+  "php_target": "8.3",
+  "php_transport": {
+    "adapted_sha256": "0090e6a83bfb32e4c1c1d883d9e1181c1c2b0b0eb40c89afa47fb84204c73fae",
+    "original_sha256": "ce4754d62c17bbd5fb493ae8271caef42a7a190c14755ec91943fb005ed0870a"
+  },
+  "php_version": "8.3.36",
+  "public_property_count": 5,
+  "report_sha256": "facab6f20874eb5405a2e45163cd887c75045708d44567e0464867ef2c7a73fd",
+  "schema": "gossip.parser-block-data/v1",
+  "scope": "one complete original WP_Block_Parser_Block class and constructor, two unchanged original helpers and one owned source glue function;16 typed class/snapshot/decision/argument-state comparisons; data-only inner_blocks, no full parser/registry/render/CSS/HTML/bootstrap claim; historical configurations unchanged/not rerun",
+  "status": "differential_pass",
+  "stderr": "",
+  "typed_observations": [
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": []
+        },
+        "block_name": "core/freeform",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": []
+        },
+        "inner_html": "",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": false,
+      "name": "empty_attrs",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/freeform"
+          ],
+          [
+            "attrs",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            ""
+          ],
+          [
+            "innerContent",
+            {
+              "array": []
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/freeform"
+          ],
+          [
+            "attrs",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            ""
+          ],
+          [
+            "innerContent",
+            {
+              "array": []
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": null,
+        "block_name": null,
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<!--"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "-->"
+            ]
+          ]
+        },
+        "inner_html": "<!-- null attrs -->",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": false,
+      "name": "null_attrs",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            null
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<!-- null attrs -->"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<!--"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "-->"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            null
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<!-- null attrs -->"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<!--"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "-->"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "#111"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": null,
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<div>"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "</div>"
+            ]
+          ]
+        },
+        "inner_html": "<div>freeform</div>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "freeform_name_button_text",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#111"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<div>freeform</div>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<div>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</div>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            null
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#111"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<div>freeform</div>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<div>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</div>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "background",
+                                      "#222"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": [
+            [
+              0,
+              {
+                "array": [
+                  [
+                    "name",
+                    "core/paragraph"
+                  ],
+                  [
+                    "attrs",
+                    {
+                      "array": []
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<a>"
+            ],
+            [
+              1,
+              "background"
+            ],
+            [
+              2,
+              "</a>"
+            ]
+          ]
+        },
+        "inner_html": "<a>background</a>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "button_background",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "background",
+                                          "#222"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  0,
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": []
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "<a>background</a>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<a>"
+                ],
+                [
+                  1,
+                  "background"
+                ],
+                [
+                  2,
+                  "</a>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "background",
+                                          "#222"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  0,
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": []
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "<a>background</a>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<a>"
+                ],
+                [
+                  1,
+                  "background"
+                ],
+                [
+                  2,
+                  "</a>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "gradient",
+                                      "linear-gradient(red,blue)"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "gradient"
+            ]
+          ]
+        },
+        "inner_html": "gradient",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "button_gradient",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "linear-gradient(red,blue)"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "gradient"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "gradient"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "linear-gradient(red,blue)"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "gradient"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "gradient"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "link",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "#333"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/navigation-link",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<a>"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "</a>"
+            ]
+          ]
+        },
+        "inner_html": "<a>link</a>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "link_text",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/navigation-link"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#333"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<a>link</a>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<a>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</a>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/navigation-link"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#333"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<a>link</a>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<a>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</a>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "link",
+                          {
+                            "array": [
+                              [
+                                ":hover",
+                                {
+                                  "array": [
+                                    [
+                                      "color",
+                                      {
+                                        "array": [
+                                          [
+                                            "text",
+                                            "#444"
+                                          ]
+                                        ]
+                                      }
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/navigation-link",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "hover"
+            ]
+          ]
+        },
+        "inner_html": "hover",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "link_hover_text",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/navigation-link"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    ":hover",
+                                    {
+                                      "array": [
+                                        [
+                                          "color",
+                                          {
+                                            "array": [
+                                              [
+                                                "text",
+                                                "#444"
+                                              ]
+                                            ]
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "hover"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "hover"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/navigation-link"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "link",
+                              {
+                                "array": [
+                                  [
+                                    ":hover",
+                                    {
+                                      "array": [
+                                        [
+                                          "color",
+                                          {
+                                            "array": [
+                                              [
+                                                "text",
+                                                "#444"
+                                              ]
+                                            ]
+                                          }
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "hover"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "hover"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "heading",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "#555"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/heading",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<h2>"
+            ],
+            [
+              1,
+              "heading"
+            ],
+            [
+              2,
+              "</h2>"
+            ]
+          ]
+        },
+        "inner_html": "<h2>heading</h2>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "heading_text",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "heading",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#555"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<h2>heading</h2>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<h2>"
+                ],
+                [
+                  1,
+                  "heading"
+                ],
+                [
+                  2,
+                  "</h2>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "heading",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "#555"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<h2>heading</h2>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<h2>"
+                ],
+                [
+                  1,
+                  "heading"
+                ],
+                [
+                  2,
+                  "</h2>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "h6",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "gradient",
+                                      "h6-gradient"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/heading",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "<h6>"
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              2,
+              "</h6>"
+            ]
+          ]
+        },
+        "inner_html": "<h6>six</h6>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "h6_gradient",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "h6",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "h6-gradient"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<h6>six</h6>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<h6>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</h6>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "h6",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "h6-gradient"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "<h6>six</h6>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "<h6>"
+                ],
+                [
+                  1,
+                  null
+                ],
+                [
+                  2,
+                  "</h6>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "set"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "partial"
+            ]
+          ]
+        },
+        "inner_html": "partial",
+        "options": {
+          "array": [
+            [
+              "button",
+              {
+                "array": [
+                  [
+                    "other",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "button_skip_partial_options",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "partial"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "partial"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "partial"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "partial"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "set"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "skip"
+            ]
+          ]
+        },
+        "inner_html": "skip",
+        "options": {
+          "array": [
+            [
+              "button",
+              {
+                "array": [
+                  [
+                    "skip",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": false,
+      "name": "button_skip_all",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "skip"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "skip"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "set"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "skip"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "skip"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      false
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "false"
+            ],
+            [
+              1,
+              null
+            ]
+          ]
+        },
+        "inner_html": "false leaf",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "nonnull_false_leaf",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          false
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "false leaf"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "false"
+                ],
+                [
+                  1,
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          false
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "false leaf"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "false"
+                ],
+                [
+                  1,
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      null
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/button",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              0,
+              "null"
+            ],
+            [
+              1,
+              null
+            ]
+          ]
+        },
+        "inner_html": "null leaf",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": false,
+      "name": "null_leaf",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          null
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "null leaf"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "null"
+                ],
+                [
+                  1,
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/button"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          null
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "null leaf"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  0,
+                  "null"
+                ],
+                [
+                  1,
+                  null
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              -2,
+              "metadata"
+            ],
+            [
+              "07",
+              "leading"
+            ],
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "h1",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "background",
+                                      "雪\u0000blue"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/heading",
+        "inner_blocks": {
+          "array": [
+            [
+              "child",
+              {
+                "array": [
+                  [
+                    "blockName",
+                    "core/paragraph"
+                  ],
+                  [
+                    "attrs",
+                    {
+                      "array": [
+                        [
+                          "align",
+                          "wide"
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "inner_content": {
+          "array": [
+            [
+              10,
+              "\u0000<div>"
+            ],
+            [
+              "slot",
+              null
+            ],
+            [
+              -2,
+              "雪</div>"
+            ]
+          ]
+        },
+        "inner_html": "\u0000<div>雪</div>",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "unicode_nul_html_and_mixed_fragment_keys",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  -2,
+                  "metadata"
+                ],
+                [
+                  "07",
+                  "leading"
+                ],
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "h1",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "background",
+                                          "雪\u0000blue"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  "child",
+                  {
+                    "array": [
+                      [
+                        "blockName",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": [
+                            [
+                              "align",
+                              "wide"
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "\u0000<div>雪</div>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  10,
+                  "\u0000<div>"
+                ],
+                [
+                  "slot",
+                  null
+                ],
+                [
+                  -2,
+                  "雪</div>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/heading"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  -2,
+                  "metadata"
+                ],
+                [
+                  "07",
+                  "leading"
+                ],
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "h1",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "background",
+                                          "雪\u0000blue"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  "child",
+                  {
+                    "array": [
+                      [
+                        "blockName",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": [
+                            [
+                              "align",
+                              "wide"
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "\u0000<div>雪</div>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  10,
+                  "\u0000<div>"
+                ],
+                [
+                  "slot",
+                  null
+                ],
+                [
+                  -2,
+                  "雪</div>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              1000000,
+              "first"
+            ],
+            [
+              "attrs",
+              {
+                "array": []
+              }
+            ],
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "caption",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "ignored"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/group",
+        "inner_blocks": {
+          "array": [
+            [
+              2,
+              {
+                "array": [
+                  [
+                    "name",
+                    "core/image"
+                  ],
+                  [
+                    "attrs",
+                    {
+                      "array": [
+                        [
+                          "id",
+                          7
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ],
+            [
+              "tail",
+              {
+                "array": [
+                  [
+                    "name",
+                    "core/paragraph"
+                  ],
+                  [
+                    "attrs",
+                    {
+                      "array": []
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "inner_content": {
+          "array": [
+            [
+              2,
+              "<p>"
+            ],
+            [
+              "content",
+              null
+            ],
+            [
+              -1,
+              "plain"
+            ],
+            [
+              5,
+              "</p>"
+            ]
+          ]
+        },
+        "inner_html": "<p>plain</p>",
+        "options": {
+          "array": [
+            [
+              "heading",
+              {
+                "array": [
+                  [
+                    "skip",
+                    true
+                  ]
+                ]
+              }
+            ]
+          ]
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": false,
+      "name": "source_key_order_and_fragments_preserved",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/group"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  1000000,
+                  "first"
+                ],
+                [
+                  "attrs",
+                  {
+                    "array": []
+                  }
+                ],
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "caption",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "ignored"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  2,
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/image"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": [
+                            [
+                              "id",
+                              7
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                [
+                  "tail",
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": []
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "<p>plain</p>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  2,
+                  "<p>"
+                ],
+                [
+                  "content",
+                  null
+                ],
+                [
+                  -1,
+                  "plain"
+                ],
+                [
+                  5,
+                  "</p>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/group"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  1000000,
+                  "first"
+                ],
+                [
+                  "attrs",
+                  {
+                    "array": []
+                  }
+                ],
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "caption",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "ignored"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": [
+                [
+                  2,
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/image"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": [
+                            [
+                              "id",
+                              7
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                [
+                  "tail",
+                  {
+                    "array": [
+                      [
+                        "name",
+                        "core/paragraph"
+                      ],
+                      [
+                        "attrs",
+                        {
+                          "array": []
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerHTML",
+            "<p>plain</p>"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  2,
+                  "<p>"
+                ],
+                [
+                  "content",
+                  null
+                ],
+                [
+                  -1,
+                  "plain"
+                ],
+                [
+                  5,
+                  "</p>"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    },
+    {
+      "arguments_after": {
+        "attrs": {
+          "array": [
+            [
+              "style",
+              {
+                "array": [
+                  [
+                    "elements",
+                    {
+                      "array": [
+                        [
+                          "button",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "text",
+                                      "button-first"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ],
+                        [
+                          "h6",
+                          {
+                            "array": [
+                              [
+                                "color",
+                                {
+                                  "array": [
+                                    [
+                                      "gradient",
+                                      "heading-later"
+                                    ]
+                                  ]
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              }
+            ]
+          ]
+        },
+        "block_name": "core/buttons",
+        "inner_blocks": {
+          "array": []
+        },
+        "inner_content": {
+          "array": [
+            [
+              "prefix",
+              "["
+            ],
+            [
+              0,
+              null
+            ],
+            [
+              "suffix",
+              "]"
+            ]
+          ]
+        },
+        "inner_html": "buttons",
+        "options": {
+          "array": []
+        }
+      },
+      "class": "WP_Block_Parser_Block",
+      "decision": true,
+      "name": "mixed_keys_button_early_true",
+      "properties": {
+        "array": [
+          [
+            "blockName",
+            "core/buttons"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "button-first"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            [
+                              "h6",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "heading-later"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "buttons"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  "prefix",
+                  "["
+                ],
+                [
+                  0,
+                  null
+                ],
+                [
+                  "suffix",
+                  "]"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "snapshot": {
+        "array": [
+          [
+            "blockName",
+            "core/buttons"
+          ],
+          [
+            "attrs",
+            {
+              "array": [
+                [
+                  "style",
+                  {
+                    "array": [
+                      [
+                        "elements",
+                        {
+                          "array": [
+                            [
+                              "button",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "text",
+                                          "button-first"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ],
+                            [
+                              "h6",
+                              {
+                                "array": [
+                                  [
+                                    "color",
+                                    {
+                                      "array": [
+                                        [
+                                          "gradient",
+                                          "heading-later"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                ]
+                              }
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          [
+            "innerBlocks",
+            {
+              "array": []
+            }
+          ],
+          [
+            "innerHTML",
+            "buttons"
+          ],
+          [
+            "innerContent",
+            {
+              "array": [
+                [
+                  "prefix",
+                  "["
+                ],
+                [
+                  0,
+                  null
+                ],
+                [
+                  "suffix",
+                  "]"
+                ]
+              ]
+            }
+          ]
+        ]
+      },
+      "type": "object"
+    }
+  ],
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "verification": {
+    "snapshot": {
+      "commit": "ba74d40a0cd803fa3212d2a2768bb1cc1e5051b9",
+      "tree": "151aa7a02a74a39497bf6f8ce1d3196698bd6f70",
+      "dirty": "clean"
+    },
+    "commands": [
+      {
+        "cwd": "gossip",
+        "command": "GOSSIP_GOHP_SOURCE=/private/tmp/gohp-block-data-constructor GOCACHE=/private/tmp/gossip-go-cache go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserBlockData$'",
+        "result": "PASS",
+        "test_seconds": 9.85,
+        "package_seconds": 10.049,
+        "raw_log": "/private/tmp/gossip-parser-block-data-output.log"
+      },
+      {
+        "cwd": "gossip",
+        "command": "GOCACHE=/private/tmp/gossip-go-cache go vet ./tests/gohp",
+        "result": "PASS"
+      }
+    ],
+    "first_committed_snapshot_passed": true,
+    "no_successful_rerun": true,
+    "original_class": "Complete WP_Block_Parser_Block15–90, five untyped public properties and actual five-required-argument constructor; no substitute class or observer field injection.",
+    "dataflow": "Owned source glue constructs the original class and returns its object and actual (array) snapshot. Observers call actual wp_should_add_elements_class_name with the snapshot; original _wp_array_get executes on configured paths.",
+    "actual_observations": "Actual class/type and all five properties, ordered array snapshot, bool decision (11 true/5 false) and all six arguments after the call.",
+    "real_callsite_reference": {
+      "path": "wp-includes/class-wp-block-parser.php",
+      "line": 149,
+      "scope": "Original parser construction/array-cast shape is referenced, but the parser method itself is not compiled/executed."
+    },
+    "compiler": {
+      "pr": "https://github.com/katsuakikureyama/GoHP/pull/74",
+      "main_commit": "eb3b968d447ab7a11af4efd3b1a1976b2cd277e8",
+      "tested_feature_head": "126cfbad6dcdfd213049175615f1a48c8c53ee1a",
+      "tree": "ef8060b2e6a32b7da5784ebf13652092208bb059",
+      "feature_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40270789346",
+      "pr_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40270794585",
+      "main_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/40270977204",
+      "status": "PASS",
+      "checks": 528,
+      "features": 73,
+      "oracle": "8.3.36",
+      "parallel_feature_preserved": "GoHP #73 bounded while",
+      "local_commands": "Recorded in PR74 body/comments. Initial clean6195438/tree923cfd9 passes frontend/codegen/runtime/compat/vet/negative/native fixture; no local successful rerun after union-only merge.",
+      "compiler_differential_limit": "stdout/normal exit only; stderr/exceptions/other side effects are not measured by that existing harness."
+    },
+    "input_limits": {
+      "inner_blocks": "empty or data-array entries only, no nested parser-class objects in this unit",
+      "inner_content": "ordered string/null fragments",
+      "path_intermediates": "array/null only",
+      "codec": "depth12/256 entries/4096-byte strings/int±1e6"
+    },
+    "historical_configurations": "Older24/334 configurations, pins, corpora and evidence unchanged/not rerun; no summed single-binary claim.",
+    "unverified": [
+      "full WordPress block parser/tokenizer/stack algorithm",
+      "WP_Block_Type/registry/full render hooks",
+      "CSS/HTML generation, unique IDs, Theme JSON",
+      "WordPress bootstrap/HTTP/DB/themes/plugins",
+      "general PHP casts, constructors, object/reference/error/coercion semantics",
+      "production deployment (no target configured or created)",
+      "devboard status (unidentified/not synced)"
+    ]
+  }
+}

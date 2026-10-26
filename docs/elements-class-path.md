@@ -1,5 +1,8 @@
 # Real block element-class decision path
 
+The [execution record](evidence/elements-class-path-2026-10-26.md) reports
+all334 fresh comparisons and vet PASS on the exact committed configuration.
+
 This configuration extends the25-original294-case helper bundle with unchanged
 `wp_should_add_elements_class_name`, from
 `wp-includes/block-supports/elements.php:33–97`. It determines whether parsed

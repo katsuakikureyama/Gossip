@@ -2,7 +2,26 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: original next_token / preg_match native reference
+## Latest: independent PCRE2 / retained PHP comparison
+
+[PCRE2 10.47 C-engine comparison](parser-pcre2-comparison.md) matches all 24
+retained PHP8.3.36/PCRE10.42 direct-regex observations, including ordered typed
+captures/raw bytes/byte positions/presence and the backtracking-limit failure.
+Clean code commit `c6d82db2faaad12592e3274d677c27c379dea9ac`; initial sandbox
+attempt failed at the macOS compiler launcher before comparisons; same-code
+retry with compiler access PASS (0.73s/package0.916s). Vet PASS; successful native
+reference and candidate comparisons are not rerun. [Evidence](evidence/parser-pcre2-comparison-2026-10-27.md).
+
+Only existing pinned local header/archive are linked in a temporary host probe;
+no install/vendor/module dependency, GoHP/cgo integration or backend adoption.
+Original WordPress and old pins remain unchanged. Candidate and PHP PCRE versions
+differ explicitly; this is not cross-version general equivalence or full parser
+execution. Next: regexp2 comparison and runtime/output-argument/build-policy gates.
+PHP8.4/JIT-on/out-of-range offsets/other failure profiles remain unmeasured.
+Local fixture is WebMCP/UI excluded; no route/auth/deployment. Progress uses GoHP
+Issue1; devboard unidentified/not synced.
+
+## Previous: original next_token / preg_match native reference
 
 The [24-case native reference](parser-token-reference.md) passes its predeclared
 PHP expectations at clean commit `29e6d2637e68cbc3a8d5764ba825e6e6600ddf74`:

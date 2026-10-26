@@ -66,6 +66,12 @@ Separately, the [parser-token reference](docs/parser-token-reference.md) records
 are retained. This is **PHP reference evidence only**, not Go compatibility or a
 regex-backend comparison, and is not added to the translation counts above.
 
+The follow-up [PCRE2 experiment](docs/parser-pcre2-comparison.md) independently
+links PCRE2 10.47 and matches all 24 retained direct-regex results, including
+ordered capture bytes/offsets and the limit failure. This is a bounded C-engine
+comparison against PHP's PCRE 10.42, **not** GoHP/cgo integration, full parser
+execution or a backend adoption decision. It adds no generated-Go count.
+
 The current work state and links to each immutable execution record are in
 [current state](docs/current-state-fork-baseline.md) and
 [the documentation index](docs/INDEX.md). The extraction, source-byte checks,

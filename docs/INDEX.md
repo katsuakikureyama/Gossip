@@ -6,10 +6,12 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [PCRE2 engine comparison](parser-pcre2-comparison.md) | Independent pinned C probe versus retained PHP direct-regex observations; no GoHP/cgo adoption |
+| [PCRE2 comparison evidence](evidence/parser-pcre2-comparison-2026-10-27.md) | 24/24 ordered capture/error comparisons PASS, exact build identity and initial sandbox failure |
 | [Parser-token native reference](parser-token-reference.md) | Fixed original next_token and direct preg_match contract; 24 PHP-only cases, no Go/backend claim |
 | [Parser-token reference evidence](evidence/parser-token-reference-2026-10-27.md) | Clean committed snapshot, 24 native expectations PASS, full typed capture/state observations and execution profile |
 | [Current responsibility map](reuse-boundary.md) | Original translation, native Go integration candidates and unsupported surfaces; current owner operating policy |
-| [Parser backend assessment](parser-backend-assessment.md) | Fixed original next_token requirements, PCRE2/regexp2 comparison gates; no backend adopted or measured |
+| [Parser backend assessment](parser-backend-assessment.md) | Fixed original next_token requirements, bounded PCRE2 comparison and remaining regexp2/runtime gates; no backend adopted |
 | [Historical README](history/readme-through-pr44.md) | Prior long narrative through PR44, preserved with rebased links; not current commands or policy |
 | [Historical boundary overview](history/reuse-boundary-through-pr44.md) | Previous boundary/pin/approval wording retained as history, superseded by current map |
 | [Original add_freeform](parser-add-freeform.md) | Two selected original methods/complete Block versus full original PHP Parser; raw-byte output append and skip boundaries |

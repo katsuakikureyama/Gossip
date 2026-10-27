@@ -39,6 +39,14 @@ in [source provenance](docs/provenance.md).
 
 ## Measured evidence
 
+Current priority: **make one fixed Gossip source work on PHP 8.3**, starting with
+the complete original block parser. The [application gates and blocker list](docs/php83-application-acceptance.md)
+define the scope and subsequent bootstrap/DB/HTTP/site workflows. **Full parser
+translation is blocked**; native-reference capture is not generated-Go success.
+The [new native full-parser reference](docs/evidence/parser-full-baseline-2026-10-27.md)
+records 12 cases / 24 original calls; it is not added to the Go comparison counts.
+General storage optimization and new PHP-target expansion are deferred.
+
 The following are separate, bounded configurations. Counts must not be added
 together: their fixtures, GoHP revisions, drivers, and retained cases differ.
 Each record states its original source range, compiler revision, PHP oracle,
@@ -117,11 +125,12 @@ configuration.
 
 ## Direction
 
-Gossip uses measured WordPress requirements to prioritize GoHP work. The next
-parser boundary is not merely another builtin: the original parser relies on
-PCRE syntax that Go's standard RE2-based `regexp` does not accept as-is. The
-candidate backend and its unmeasured compatibility risks are documented in
-[the parser backend assessment](docs/parser-backend-assessment.md).
+Gossip uses the active [PHP 8.3 application gate](docs/php83-application-acceptance.md)
+to prioritize GoHP work. The complete original parser currently stops at its
+`>` comparison; remaining work includes destructuring/switch, property-held
+stack mutation, tokenizer/JSON integration and original dependency loading.
+The optional regex experiment alone does not complete that unit. Backend risks
+remain documented in [the parser backend assessment](docs/parser-backend-assessment.md).
 
 The project map distinguishes what remains original-source translation, what
 is a native Go integration layer, and what is intentionally unsupported or

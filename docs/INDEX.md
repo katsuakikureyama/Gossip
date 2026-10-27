@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [PHP 8.3 application acceptance](php83-application-acceptance.md) | Current owner priority: fixed Gossip first; complete parser → bootstrap/hooks → DB → HTTP → bounded site workflow; statuses, blockers and exclusions |
+| [Full-parser baseline evidence](evidence/parser-full-baseline-2026-10-27.md) | Unchanged full-file admission blocked at line 98; new native parse corpus is separate from generated acceptance |
 | [Generated regex consumer](parser-preg83-generated.md) | GoHP #114 isolated compiler/runtime pin, owned PHP driver with original pattern bytes, 23 selected cases and one explicit limit exclusion; not next_token |
 | [Generated regex evidence](evidence/parser-preg83-generated-2026-10-27.md) | Actual PHP→Go generation/build and 23/23 retained PHP comparisons PASS; source preservation, exact native toolchain, raw observations and exclusions |
 | [PCRE2 bridge/output contract](pcre2-bridge-contract.md) | Fixed GoHP seam audit; optional engine bridge → PHP wrapper/Execution → local-output lowering; design only, no builtin admission |

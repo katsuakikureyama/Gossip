@@ -2,7 +2,37 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: generated regex consumer of GoHP #114
+## Latest: PHP 8.3 application-first acceptance
+
+Owner direction, 2026-10-27: [G83-PARSER](php83-application-acceptance.md) is the
+next delivery gate: all seven original parser methods, complete Block/Frame and
+the original loading edges. Then actual bootstrap/hooks, DB, HTTP and a bounded
+single-site workflow. Fix demonstrated PHP semantics before unrelated helpers,
+generic COW expansion, benchmarks or new PHP targets; retain existing 8.4 CI.
+
+WordPress54106f6 / PHP8.3.36 digest and original bytes remain fixed. Full unchanged
+parser admission on GoHP9a7a9ce is **blocked**: `PHP002 line 98: unsupported token '>'`,
+exit1, no generated source/report. Other inspected blockers: list/switch,
+class-typed/nested property locations, stack mutation, preg property inputs,
+JSON and require_once loading. No generated full-parser result is claimed.
+The new native full-parse fixture/corpus is separate from old token/regex results.
+At committed test inputs ed596cb94ae38631bd78744a92bb9adc260f4bc4, **12 cases / 24
+original parse calls recorded** once (test1.05s/package1.289s), native8.3.36
+Linux/aarch64/PCRE10.42, exit0/stderr0; fresh/reused output/state/error codes and
+caller preservation agree. Malformed JSON gives error4/null attrs. `go vet`
+PASS. This is native-reference-recorded, not generated-Go or application PASS.
+See [baseline evidence](evidence/parser-full-baseline-2026-10-27.md) for execution
+status; earlier successful configurations are not rerun or silently repinned.
+
+Later DB/theme/server/platform configurations are not yet frozen or implemented.
+Next implementation: P1 comparison/destructuring/control syntax at actual parser
+callsites, with bounded PHP-native contracts and whole-file re-probes after
+changes. UI/WebMCP/MCP excluded for the local fixture; no route/auth/deployment.
+Issue1 tracks the gates; external devboard unidentified/not synchronized. Gossip
+connector writes returned403; the existing authorized GitHub CLI path is usable
+without changing credentials or permissions.
+
+## Previous: generated regex consumer of GoHP #114
 
 [Consumer contract](parser-preg83-generated.md), [evidence](evidence/parser-preg83-generated-2026-10-27.md).
 Clean Gossip code99cb3f86f6c5ad5e55836b7ca7511d2d539a12ab: actual GoHP generation,

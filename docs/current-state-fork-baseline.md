@@ -2,7 +2,21 @@
 
 Last updated: 2026-10-27 (JST).
 
-## Latest: PHP 8.3 application-first acceptance
+## Latest: P1 relational admission progressed; list assignment still blocks
+
+GoHP [PR119](https://github.com/katsuakikureyama/GoHP/pull/119) clean source
+1d7cd3e9bab88b16a7c9a26fdce40457b92c2421 adds bounded int64/null `<` and `>`.
+The same complete original parser now rejects `list(...) = ...` at line94
+instead of the lexer rejecting `>` at98. [Probe evidence](evidence/parser-relational-probe-2026-10-27.md)
+records the exact source, command and exit1. This is progress in admission only:
+no generated full-parser execution or application acceptance. Next is P1 list,
+then switch; P2–P5 remain open. Original bytes, all fixtures and pins are unchanged.
+Documentation-only changes require no repeat of native references or successful
+consumer tests. GoHP CI tracks its generic PHP8.3/8.4 contract separately.
+Gossip CI remains unconfigured. Issue1 tracks progress; devboard unidentified.
+Existing developer-local capability/WebMCP exclusion; no route/auth/deployment.
+
+## Previous: PHP 8.3 application-first acceptance
 
 Owner direction, 2026-10-27: [G83-PARSER](php83-application-acceptance.md) is the
 next delivery gate: all seven original parser methods, complete Block/Frame and

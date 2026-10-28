@@ -35,7 +35,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: GoHP PR119 source removes the `>` lexer blocker; full-source compilation now rejects list assignment at line94. 12 native reference cases / 24 original calls remain reference-only, not generated-Go acceptance |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: GoHP PR120 removes the list assignment blocker; full-source compilation now rejects switch at line100. 12 native reference cases / 24 original calls remain reference-only, not generated-Go acceptance |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -63,14 +63,14 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 
 | Slice | Actual original requirement | Evidence / exit condition |
 |---|---|---|
-| P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | [Relational probe](evidence/parser-relational-probe-2026-10-27.md): bounded int/null comparisons added in GoHP PR119; next **measured first rejection** is list assignment at94. Switch remains an inspected dependency. Complete destructuring/dispatch and re-probe the full file |
+| P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119) and positional list assignment (GoHP120) added; [latest full-file probe](evidence/parser-list-probe-2026-10-29.md) reaches switch at100, the **measured first rejection**. Complete dispatch and re-probe; no full-method semantic/runtime claim |
 | P2 — object locations and stack | Named class parameter at 349; `array_push($this->stack, …)` at 165, `array_pop` at 205/372; chained property append and `.=` at 207–208/351–361/380–381; object-to-array snapshots | Preserve object identity and PHP value copies, argument order and writes to the actual property. Generic array/untyped-parameter COW migration is not a prerequisite by itself |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | Existing owned-driver 23/23 evidence is reusable only at its recorded pin/profile; it is **not original next_token translation**. Retain numeric/named captures, raw byte offsets, optional groups, false/error state |
 | P4 — attributes | `json_decode(..., true)` at 283 | Preserve associative keys/types/nesting and malformed-input null/error semantics; do not substitute a JSON string or hard-coded attrs |
 | P5 — source closure and full unit | Original `require_once __DIR__ ...` at 403/410 plus both complete dependency files | Design bounded source discovery/loading preserving once-only identity and initialization; concatenation/extracted methods alone do not prove original file loading |
 
-P1 list/destructuring is next because it is the measured admission
-failure after relational syntax. The other rows define dependencies of the same gate, not five new
+P1 switch dispatch is next because it is the measured admission
+failure after list syntax. The other rows define dependencies of the same gate, not five new
 standalone product goals; source-loading design can proceed alongside syntax.
 This parser does not use inheritance, closure captures or PHP reference-assignment
 syntax. Those features can wait for a later demonstrated bootstrap/hook blocker.

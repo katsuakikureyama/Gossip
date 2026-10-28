@@ -7,6 +7,7 @@ support or compatibility promise.
 | Document | Purpose |
 | --- | --- |
 | [PHP 8.3 application acceptance](php83-application-acceptance.md) | Current owner priority: fixed Gossip first; complete parser → bootstrap/hooks → DB → HTTP → bounded site workflow; statuses, blockers and exclusions |
+| [Switch admission probe](evidence/parser-switch-probe-2026-10-29.md) | GoHP PR121 advances full original source to chained-property write207; full semantic/runtime validation still pending |
 | [List admission probe](evidence/parser-list-probe-2026-10-29.md) | GoHP PR120 advances the full unchanged parser to switch at100; list admission is not full-parser execution |
 | [Relational admission probe](evidence/parser-relational-probe-2026-10-27.md) | GoHP PR119 removes comparison lexer blocker; full unchanged parser now rejects list assignment at94; not generated-parser acceptance |
 | [Full-parser baseline evidence](evidence/parser-full-baseline-2026-10-27.md) | Unchanged full-file admission blocked at line 98; new native parse corpus is separate from generated acceptance |

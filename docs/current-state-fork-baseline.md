@@ -2,7 +2,32 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: nested-property admission progressed; regex property input blocks
+## Latest: regex property inputs progressed; named class parameter blocks
+
+GoHP [PR123](https://github.com/katsuakikureyama/GoHP/pull/123) admits named
+property subject/offset values in the existing PHP8.3-only experimental regex
+profile. Source-ordered once-only snapshots precede actual string/int guards;
+direct-null local output, straight-line scope and legacy storage remain.
+The unchanged full parser passes252/255 and now stops at named class parameter349.
+[Probe](evidence/parser-preg-property-probe-2026-10-29.md) records the clean
+compiler/source identity, exit1 and next dependencies. Complete semantic
+validation, generated full-parser execution and application acceptance remain
+blocked; P2 stack/object contracts and P3–P5 are not complete.
+
+At clean code8403235, focused compiler/CLI/generated guards, catalog and vet
+PASS once. Enabled DarwinARM64 PCRE2/static-library comparison against pinned
+PHP8.3.36 PASS:15 ordered typed observations, including named property inputs,
+mutation, byte offsets, capture copies and shared error-state reset. This is
+structural typed equality, not serialized JSON byte equality. Initial Go
+launcher/checksum setup failure occurred before execution and is retained.
+Final headda57151 only adds evidence/docs; executable results are reused.
+Default Linux CGO0 CI separately checks regressions, not enabled PCRE or PHP8.4
+regex. Original files, consumer pins and old native reference results remain
+unchanged. Gossip Actions remain unconfigured. No route/auth/deployment change;
+local inspect/WebMCP exclusion stays. Issue1 tracks progress; devboard remains
+unidentified/not synchronized.
+
+## Previous: nested-property admission progressed; regex property input blocks
 
 GoHP [PR122](https://github.com/katsuakikureyama/GoHP/pull/122), merged into
 maina30709e51ecfe0231451afa121f19ab1ed247e97, adds guarded

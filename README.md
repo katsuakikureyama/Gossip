@@ -126,8 +126,8 @@ configuration.
 ## Direction
 
 Gossip uses the active [PHP 8.3 application gate](docs/php83-application-acceptance.md)
-to prioritize GoHP work. [Nested-property updates now pass source admission](docs/evidence/parser-nested-property-probe-2026-10-29.md);
-the complete original parser next stops at property input to `preg_match` at252.
+to prioritize GoHP work. [Regex property inputs now pass source admission](docs/evidence/parser-preg-property-probe-2026-10-29.md);
+the complete original parser next stops at the named class parameter at349.
 Stack mutation, remaining object contracts, tokenizer/JSON integration and
 original dependency loading are still required.
 The optional regex experiment alone does not complete that unit. Backend risks

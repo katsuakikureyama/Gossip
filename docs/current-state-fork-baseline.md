@@ -4,7 +4,8 @@ Last updated: 2026-10-29 (JST).
 
 ## Latest: nested-property admission progressed; regex property input blocks
 
-GoHP [PR122](https://github.com/katsuakikureyama/GoHP/pull/122) adds guarded
+GoHP [PR122](https://github.com/katsuakikureyama/GoHP/pull/122), merged into
+maina30709e51ecfe0231451afa121f19ab1ed247e97, adds guarded
 named nested-property assignment, string concat and array append. The final
 owner is resolved after RHS evaluation, retaining object identity and value
 copies. Complete original source passes207–208 and stops at `preg_match`'s
@@ -16,8 +17,11 @@ unknown single-property writes/class parameters and P3–P5 remain open.
 Focused local compiler/runtime/generated guards, existing public-property
 checks, catalog and vet PASS once. Native PHP comparison is recorded in PR122;
 an initial comparison mismatch fixed the codegen order to RHS-first for all
-three operations. Only changed checks reran locally; native comparison is
-tracked at final headf01730b. Old native references and
+three operations. Only changed checks reran locally. Final headf01730b push
+40731756226 / PR40731765069 CI both PASS: native8.3.36/8.4.27 independently
+match385bytes of stdout, exit0 and quiet stderr. Seven new checks PASS;
+765 total:8.3 747PASS+18 inapplicable /8.4 763PASS+2 inapplicable.
+This is a generic language contract, not full-parser acceptance. Old native references and
 consumer pins are retained without reruns. Gossip CI is unconfigured; no
 route/auth/deployment or local inspect/WebMCP-exclusion change. Issue1 tracks
 progress; devboard is unidentified/not synchronized.

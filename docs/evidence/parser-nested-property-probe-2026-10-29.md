@@ -92,8 +92,34 @@ retained without another invocation.
 The owned differential fixture hash is
 `7457885d9199ca47ae288f740683356cc8b5a8d8a3adb33bf6a643b1531cc04e`.
 Independent PHP8.3/8.4 native comparison is tracked by PR122 CI; it is not a
-Gossip full-parser result. This record's local checks alone do not establish
-PHP behavior for RHS effects; that requires the native comparison result.
+Gossip full-parser result.
+
+## Final native comparison
+
+At the final clean head/tree above, [push40731756226](https://github.com/katsuakikureyama/GoHP/actions/runs/40731756226)
+and PR40731765069 completed successfully, attempt1. Saved push artifacts were
+read back once: Go1.23.12 Linux/amd64, CGO0; independent native PHP8.3.36 and
+8.4.27 with the fixed target image digests. The owned nested-property fixture
+passed parse, codegen, Go build, execution and differential comparison for both
+targets. PHP and Go stdout are each385bytes, SHA-256
+`1b8e50c3376d33af55cc375a673bef03289f1deb0ee12b6966c037b20f3b6747`,
+both exit0 and quiet-success stderr0. General stderr/error/exception and
+external side-effect equivalence remain unclaimed.
+
+All seven new catalog checks passed. Across765 catalog checks, PHP8.3 has
+747PASS +18 target-inapplicable; PHP8.4 has763PASS +2 target-inapplicable.
+Artifact8.3 ID12835760958, ZIP digest
+`sha256:b275bab76d721beab48b12dae7b5918a02b17d4b39b4ffbfed30a6c40f10e0e8`;
+artifact8.4 ID12834967541, ZIP digest
+`sha256:e00ffa87668f0e16fee49cf152c5d5c41d9f599160c450f26d8d20e273727657`.
+Both expire2026-11-27. The initial failed comparison is retained above rather
+than overwritten. These generic language fixtures do not establish execution
+of the unchanged full WordPress parser.
+
+PR122 merged into maina30709e51ecfe0231451afa121f19ab1ed247e97 after the
+expected head and clean mergeability check. Main tree is checked against the
+validated feature tree during integration; no additional manual suite is needed
+for an identical tree.
 
 Original files, existing manifests and consumer pins are unchanged. This Gossip
 change adds documentation only; old native references/consumer PASS are reused.

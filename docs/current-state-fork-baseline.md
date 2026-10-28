@@ -2,7 +2,27 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: switch admission progressed; chained-property write blocks
+## Latest: nested-property admission progressed; regex property input blocks
+
+GoHP [PR122](https://github.com/katsuakikureyama/GoHP/pull/122) adds guarded
+named nested-property assignment, string concat and array append. The final
+owner is resolved after RHS evaluation, retaining object identity and value
+copies. Complete original source passes207–208 and stops at `preg_match`'s
+property input at252. [Probe](evidence/parser-nested-property-probe-2026-10-29.md)
+records clean commit2421daf, the exact source hash and exit1. Full source
+semantic validation/generation/execution remains pending. P2 stack mutation,
+unknown single-property writes/class parameters and P3–P5 remain open.
+
+Focused local compiler/runtime/generated guards, existing public-property
+checks, catalog and vet PASS once. Native PHP comparison is recorded in PR122;
+an initial comparison mismatch fixed the codegen order to RHS-first for all
+three operations. Only changed checks reran locally; native comparison is
+tracked at final headf01730b. Old native references and
+consumer pins are retained without reruns. Gossip CI is unconfigured; no
+route/auth/deployment or local inspect/WebMCP-exclusion change. Issue1 tracks
+progress; devboard is unidentified/not synchronized.
+
+## Previous: switch admission progressed; chained-property write blocks
 
 GoHP [PR121](https://github.com/katsuakikureyama/GoHP/pull/121) adds nonnumeric
 string switches with fallthrough, first duplicate dispatch, default and nearest

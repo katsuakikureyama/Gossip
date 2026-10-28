@@ -6,6 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Nested-property admission probe](evidence/parser-nested-property-probe-2026-10-29.md) | GoHP122 passes nested updates207–208 and reaches preg_match property input252; P2 stack and full parser remain pending |
 | [PHP 8.3 application acceptance](php83-application-acceptance.md) | Current owner priority: fixed Gossip first; complete parser → bootstrap/hooks → DB → HTTP → bounded site workflow; statuses, blockers and exclusions |
 | [Switch admission probe](evidence/parser-switch-probe-2026-10-29.md) | GoHP PR121 advances full original source to chained-property write207; full semantic/runtime validation still pending |
 | [List admission probe](evidence/parser-list-probe-2026-10-29.md) | GoHP PR120 advances the full unchanged parser to switch at100; list admission is not full-parser execution |

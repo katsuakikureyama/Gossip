@@ -2,7 +2,19 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: P1 list admission progressed; switch still blocks
+## Latest: switch admission progressed; chained-property write blocks
+
+GoHP [PR121](https://github.com/katsuakikureyama/GoHP/pull/121) adds nonnumeric
+string switches with fallthrough, first duplicate dispatch, default and nearest
+break. The complete unchanged parser advances past switch100 to the chained
+property write at207. [Exact probe](evidence/parser-switch-probe-2026-10-29.md)
+records exit1, before complete semantic validation or generated execution.
+Next P2 nested property/stack mutation; P3–P5 remain open. Original source,
+references and fixture pins are unchanged. Documentation-only checks here;
+GoHP CI separately measures its generic 8.3/8.4 contract. Gossip CI is unconfigured.
+Local inspect/WebMCP exclusion remains; no route/auth/deployment change.
+
+## Previous: P1 list admission progressed; switch still blocks
 
 GoHP [PR120](https://github.com/katsuakikureyama/GoHP/pull/120) adds bounded
 positional list assignment to bare locals. The complete unchanged parser now

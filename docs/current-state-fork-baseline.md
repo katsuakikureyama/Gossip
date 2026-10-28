@@ -1,8 +1,21 @@
 # Current state — WordPress fork baseline
 
-Last updated: 2026-10-27 (JST).
+Last updated: 2026-10-29 (JST).
 
-## Latest: P1 relational admission progressed; list assignment still blocks
+## Latest: P1 list admission progressed; switch still blocks
+
+GoHP [PR120](https://github.com/katsuakikureyama/GoHP/pull/120) adds bounded
+positional list assignment to bare locals. The complete unchanged parser now
+reaches switch at line100 instead of stopping at list assignment at94.
+[Probe evidence](evidence/parser-list-probe-2026-10-29.md) binds the source,
+compiler and exit1; it does not claim generated full-parser execution.
+Next P1 switch, then P2–P5. Existing references, fixtures and pins remain unchanged.
+Documentation checks only here; successful native comparisons were not rerun.
+GoHP CI separately tracks the generic PHP8.3/8.4 language contract. Gossip CI
+remains unconfigured. Issue tracking updated; devboard unidentified. No change
+to existing local inspect capability/WebMCP exclusion or route/auth/deployment.
+
+## Previous: P1 relational admission progressed; list assignment still blocks
 
 GoHP [PR119](https://github.com/katsuakikureyama/GoHP/pull/119) clean source
 1d7cd3e9bab88b16a7c9a26fdce40457b92c2421 adds bounded int64/null `<` and `>`.

@@ -4,7 +4,8 @@ Last updated: 2026-10-29 (JST).
 
 ## Latest: regex property inputs progressed; named class parameter blocks
 
-GoHP [PR123](https://github.com/katsuakikureyama/GoHP/pull/123) admits named
+GoHP [PR123](https://github.com/katsuakikureyama/GoHP/pull/123), merged into
+main2045ab298b61e928c1f1b15e82f94d97e6929ba4, admits named
 property subject/offset values in the existing PHP8.3-only experimental regex
 profile. Source-ordered once-only snapshots precede actual string/int guards;
 direct-null local output, straight-line scope and legacy storage remain.
@@ -21,8 +22,10 @@ mutation, byte offsets, capture copies and shared error-state reset. This is
 structural typed equality, not serialized JSON byte equality. Initial Go
 launcher/checksum setup failure occurred before execution and is retained.
 Final headda57151 only adds evidence/docs; executable results are reused.
-Default Linux CGO0 CI separately checks regressions, not enabled PCRE or PHP8.4
-regex. Original files, consumer pins and old native reference results remain
+Push40737023620 / PR40737076985 default Linux CGO0 CI both PASS at exact clean
+head/tree. Four new tooling checks PASS;769 total:8.3 751PASS+18 target-inapplicable,
+8.4 767PASS+2 target-inapplicable. This separately checks regressions, not enabled
+PCRE or PHP8.4 regex. Original files, consumer pins and old native reference results remain
 unchanged. Gossip Actions remain unconfigured. No route/auth/deployment change;
 local inspect/WebMCP exclusion stays. Issue1 tracks progress; devboard remains
 unidentified/not synchronized.

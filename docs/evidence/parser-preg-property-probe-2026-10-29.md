@@ -52,6 +52,17 @@ Final headda5715159016b79d4c4dac727c5d7efe5dfff230/tree
 successes and the source probe are reused, not repeated. Default Linux CGO0 CI
 is a separate regression gate, not enabled PCRE or PHP8.4 regex evidence.
 
+Final push40737023620 / PR40737076985 both completed successfully, attempt1.
+Saved push reports match the exact clean final head/tree, Go1.23.12 Linux/amd64,
+CGO0 and independent native target metadata8.3.36/8.4.27. All four new tooling
+checks pass;769 total checks:8.3 751PASS+18 inapplicable /8.4 767PASS+2 inapplicable.
+Artifacts12838360589 /12836489336 expire2026-11-27. These compiler/negative
+results do not promote the default regex builtin or establish enabled Linux
+PCRE. The enabled native evidence above has a separate configuration and scope.
+PR123 merged into main2045ab298b61e928c1f1b15e82f94d97e6929ba4 after checking
+the expected head/base and successful CI; integration checks tree identity
+without rerunning successful manual suites.
+
 Original WordPress files, old manifests, fixture/consumer pins and native
 reference results are unchanged. This Gossip increment is documentation-only;
 old successful native/consumer tests were not rerun. Gossip CI is unconfigured.

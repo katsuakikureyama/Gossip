@@ -6,8 +6,9 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
-| [File-aware location prerequisites (GoHP)](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md) | GoHP129 retains original file/line in internal IR diagnostics/v0.2 maps; legacy single-file behavior stays. No executable closure, bundle mode or native loading claim |
-| [Static loading contract (GoHP)](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md) | L0-a graph inspection (GoHP128) and L0-b file identities/diagnostics/maps (GoHP129); closure lowering/bundle reports/publication still pending, L0 partial, L1/L2 not reached. Original source/pins unchanged |
+| [Static declaration closure contract (GoHP)](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md) | GoHP130 main connects manifest-checked closure, file-aware IR/maps and bundle v0.2 reports. Owned real-file fixture passes independent PHP8.3/8.4 comparison; general runtime loading and full parser remain unsupported |
+| [Static-closure parser admission probe](evidence/parser-static-closure-probe-2026-10-29.md) | Complete original parser + Block + Frame selected by the new manifest pass `require_once`403/410 and stop at semantic PHP004 line209 after `array_pop`; no artifacts, no full-parser acceptance |
+| [File-aware location prerequisites (GoHP)](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md) | GoHP129 retains original file/line in internal IR diagnostics/v0.2 maps; legacy single-file behavior stays. It is a prerequisite, not standalone executable-loading or native-loading proof |
 | [Property-isset admission probe](evidence/parser-property-isset-probe-2026-10-29.md) | GoHP126 passes original property isset384 and reaches require_once403; full semantic/build/runtime acceptance remains blocked |
 | [Class-parameter admission probe](evidence/parser-class-parameter-probe-2026-10-29.md) | GoHP124 passes original class parameter349 and reaches property isset384; source admission is not full-parser acceptance |
 | [Regex property-input probe](evidence/parser-preg-property-probe-2026-10-29.md) | GoHP123 passes original preg_match inputs252/255 and reaches class parameter349; enabled PHP8.3 typed comparison is separate from full-parser acceptance |

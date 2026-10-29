@@ -2,7 +2,39 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: L0-b file identities/diagnostics/maps; executable loading still pending
+## Latest: checked static declaration closure reaches the original semantic gate
+
+[GoHP PR130](https://github.com/katsuakikureyama/GoHP/pull/130) connects the prior graph/location work
+into an opt-in static-declaration closure. Its `-manifest`, `-source-root`, and
+`-entry` inputs verify and retain the complete original
+`WP_Block_Parser`, `WP_Block_Parser_Block`, and `WP_Block_Parser_Frame` files;
+the new `parser-source-closure.json` is separate from the retained native
+reference manifest. Original-form `require_once` at lines403/410 is now
+admitted in that checked closure, with file-aware IR/maps and a v0.2 bundle
+report. It is not a general runtime `include`/autoload mechanism, source
+concatenation, or a WordPress-specific exception.
+
+The final-manifest L2 admission probe uses those three unchanged files and reaches the
+first semantic rejection at entry line209: `PHP004: property assignment requires
+a known generated class variable` for `$stack_top->prev_offset` after
+`array_pop`. It exits nonzero and publishes no Go source, map, or report. See
+[the static-closure probe](evidence/parser-static-closure-probe-2026-10-29.md).
+Thus L0 connected mode is implemented; L1's owned real-file fixture passes
+independent pinned PHP8.3/8.4 comparisons; L2 is a
+recorded admission probe, not full-parser acceptance. G83-PARSER remains
+blocked by P2 unknown-receiver/stack mutation and snapshots, then tokenizer and
+JSON integration. GoHP is merged at main7ee6ec39eed56d2926f308566eb5c2cf3b4ed064,
+with the tested tree83b834cef44d60ad15ff307b2752640ee2830e50. Push40821198551 and
+PR40821236205 attempt1 both SUCCESS. Saved push evidence matches clean feature
+headf731a688; all9 new checks PASS on each target. Native and Go stdout64bytes
+match, exit0/quiet stderr0. Total804 checks:8.3 786PASS+18outside /8.4 802PASS+2outside.
+This is bounded owned-fixture evidence, not original-parser acceptance or a
+consumer repin, deployment, route/auth or WebMCP exposure change.
+Existing GoHP129 and older source/pin/native evidence remains historical and
+unchanged; Gossip CI is still unconfigured and the external devboard is
+unidentified/not synchronized.
+
+## Previous: L0-b file identities/diagnostics/maps; executable loading still pending
 
 [GoHP PR129](https://github.com/katsuakikureyama/GoHP/pull/129) adds the separate
 [file-aware location prerequisite](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md).

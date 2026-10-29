@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: L0-a source graph inspection; executable loading still pending
+## Latest: L0-b file identities/diagnostics/maps; executable loading still pending
+
+[GoHP PR129](https://github.com/katsuakikureyama/GoHP/pull/129) adds the separate
+[file-aware location prerequisite](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md).
+It is integrated at mainb1ba0440e2df7f6b4c2860b5b8158a1c66cc763d; readback tree
+601f10035a9e2d4ce2693dee2b2191d9d9e8fbf5 equals the tested feature tree.
+The filesystem-free ParseSource adapter hashes original source bytes and retains
+file IDs on internal IR declaration/body scopes. Semantic/codegen errors keep
+the original file and line; v0.2 statement maps distinguish identical line
+numbers in different files. Numeric markers never embed file names. The
+line-only PHPLine helper refuses v0.2 rather than lose file identity, while
+legacy Parse/CLI reports/v0.1 maps retain their behavior. Invalid/ambiguous
+metadata fails before artifacts; manual IR metadata is not checked-buffer proof.
+
+This is L0-b infrastructure, not graph-to-executable lowering, bundle CLI/report
+publication, native loading comparison or executable require_once. PR128's graph
+inspector remains metadata-only; L0 is partial and L1/L2/G83-PARSER remain pending.
+No new original parser probe was run: loading admission is unchanged and the
+last real rejection remains require_once403. Remaining stack/object/snapshot/
+tokenizer/JSON dependencies are still open. Focused compiler/frontend/catalog/CLI
+checks pass once at code64403be; five new checks are tooling, not native loading.
+Push40811971952 and exact-main40812191454 regression CI both SUCCESS on pinned
+PHP8.3.36/PHP8.4.27. Five new tooling checks PASS; saved push reports match clean
+featuref076029/tree601f1003. The separate PR40811981125 remains FAILURE solely
+because PHP8.4 artifact creation timed out after validation; it is not relabeled
+PASS or rerun. Successful push artifacts were read once instead, preserving the
+failure history. This is tooling/regression, not native loading evidence. Original files,
+manifests, pins, old successful native evidence and auth/routes/deployment remain
+unchanged. Gossip CI is unconfigured; existing local inspect/WebMCP exclusion
+stays. Devboard unidentified/not synchronized.
+
+## Previous: L0-a source graph inspection; executable loading still pending
 
 [GoHP PR128](https://github.com/katsuakikureyama/GoHP/pull/128) implements the
 first internal inspection slice of the

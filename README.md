@@ -131,11 +131,17 @@ checked static-declaration closure: it verifies the complete original parser,
 Block, and Frame files through an explicit manifest/root/entry and admits their
 original `require_once` directives at403/410 without source flattening. Its
 [three-file admission probe](docs/evidence/parser-static-closure-probe-2026-10-29.md)
-now reaches a semantic rejection at parser line209 (`$stack_top->prev_offset`
-after `array_pop`), with no generated parser artifacts. A separate owned
-multi-file fixture passes native PHP8.3/8.4 comparisons; it does not establish
-general runtime include/autoload support or full-parser acceptance. Stack mutation/unknown receivers, snapshots,
-tokenizer, and JSON integration remain required.
+records the earlier line209 unknown-receiver boundary; its owned multi-file
+fixture passes native PHP8.3/8.4 comparisons. Merged [GoHP PR131](https://github.com/katsuakikureyama/GoHP/pull/131)
+then admits direct named property assignment/append on defined
+inferred-unknown locals through explicit nonnil runtime property objects and
+declared-slot checks. It passes original line209 and the unchanged three-file
+closure now stops at line354: `empty requires an array` for `$html` from
+`substr`. [That probe](docs/evidence/parser-unknown-receiver-probe-2026-10-29.md)
+has no original-parser artifacts. A separate owned-property fixture passes
+native PHP8.3/8.4 comparisons. Neither change establishes general runtime include/autoload, dynamic properties,
+direct concat, full-parser acceptance, or a host-provenance claim. Stack
+mutation/snapshots, tokenizer, and JSON integration remain required.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
 retain per-file diagnostic/map identity; the new closure mode builds on that
 infrastructure rather than treating it as executable-loading proof by itself.

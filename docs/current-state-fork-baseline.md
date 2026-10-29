@@ -2,7 +2,41 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: checked static declaration closure reaches the original semantic gate
+## Latest: inferred-unknown property admission reaches the `empty` semantic gate
+
+[GoHP PR131](https://github.com/katsuakikureyama/GoHP/pull/131) extends the fixed static closure only at
+the demonstrated property boundary: a defined inferred-unknown local can receive
+a direct named property assignment or append through an explicit nonnil
+`PropertyObject`, with declared-slot runtime checks after one RHS evaluation.
+Known wrong types and undeclared slots on known generated classes still reject
+statically. Dynamic properties, direct concat, generic runtime loading, and any
+host-provenance claim remain excluded; existing class/array/object identity and
+copy timing are retained.
+
+One probe at clean code `0f448b6609f15b90d6853be6dc2db4565edb7940`, tree
+`8e9403adea224a88e18e42c60b709673bfdd50e9`, uses the same complete unchanged
+Parser/Block/Frame closure selected by manifest SHA256
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa`. It passes
+the prior PHP004 at209 and exits1 at the next semantic rejection, `PHP004 line354:
+empty requires an array`, for original `if (!empty($html))` where `substr`
+produces a string. Stdout is0 bytes; stderr is94 bytes with SHA256
+`f55bef7a8cb235bbac2fa946289eaaacfd440bb3b520db67ec66ddee3e488fd8`; no Go,
+report, or staging artifacts exist. See [the unknown-receiver probe](evidence/parser-unknown-receiver-probe-2026-10-29.md).
+
+GoHP is merged at main5776a7b3a87725379f0445e2f737f7a560822927, with identical
+tested tree162d608c1663b6a4bc335c5d9ae60c7c2936b01b. Push40831935709 and
+PR40831993242 attempt1 all target jobs SUCCESS. Saved push reports match clean
+headb8825cb/Go1.23.12Linuxamd64/CGO0/PHP8.3.36 and8.4.27. All8 new checks PASS;
+owned-property native and Go stdout259bytes match, exit0/quiet stderr0.
+812 total checks:8.3 794PASS+18outside /8.4 810PASS+2outside. This is separate
+owned-fixture evidence, not native execution of the original parser.
+G83-PARSER remains blocked: next is `empty` on scalar `$html`, followed by the
+remaining stack/snapshot, tokenizer, and JSON contracts; no original build or
+12-case differential comparison occurred. Source, parser-source-closure
+manifest, pins, auth/routes, and deployment remain unchanged. Gossip CI is
+unconfigured and the external devboard is unidentified/not synchronized.
+
+## Previous: checked static declaration closure reaches the original semantic gate
 
 [GoHP PR130](https://github.com/katsuakikureyama/GoHP/pull/130) connects the prior graph/location work
 into an opt-in static-declaration closure. Its `-manifest`, `-source-root`, and

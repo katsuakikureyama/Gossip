@@ -2,7 +2,30 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: regex property inputs progressed; named class parameter blocks
+## Latest: class parameter progressed; property isset blocks
+
+GoHP [PR124](https://github.com/katsuakikureyama/GoHP/pull/124), merged into
+maine5d32e2087b63c13ecfe5f9ef785a60d65ed5b9c, adds exact nonnil
+declared generated-class parameter guards for functions, public methods and
+constructors, retaining object identity and local reassignment. Case-insensitive
+forward declarations, mixed existing parameters, arity and Execution are covered
+by owned fixtures and generated external ABI tests; primitive ordinary-method
+annotations remain excluded.
+
+The [one unchanged full-source probe](evidence/parser-class-parameter-probe-2026-10-29.md)
+at code35bfcaac passes original signature349 and stops at property `isset`384,
+exit1. Complete semantic validation, generation/build/execution and application
+acceptance remain blocked. P2 remaining object/stack dependencies and P3–P5 are
+still open. GoHP push40797216017/PR40797252113 both SUCCESS: five new checks PASS,
+owned native fixture146 stdout bytes match generated Go independently on
+PHP8.3.36/8.4.27, exit0/quiet stderr0.774 total checks:8.3 756PASS+18 outside /
+8.4 772PASS+2 outside. Saved artifacts match exact clean head148198c/tree1ce495e;
+target-specific evidence is recorded separately in the probe evidence.
+No old native/consumer test rerun, original-byte change, consumer repin or
+deployment. Gossip CI remains unconfigured; local inspect/WebMCP exclusion stays.
+Issue1 tracks the work; external devboard is unidentified/not synchronized.
+
+## Previous: regex property inputs progressed; named class parameter blocks
 
 GoHP [PR123](https://github.com/katsuakikureyama/GoHP/pull/123), merged into
 main2045ab298b61e928c1f1b15e82f94d97e6929ba4, admits named

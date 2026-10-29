@@ -2,7 +2,28 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: bounded static-loading plan; implementation still pending
+## Latest: L0-a source graph inspection; executable loading still pending
+
+[GoHP PR128](https://github.com/katsuakikureyama/GoHP/pull/128) implements the
+first internal inspection slice of the
+[loading contract](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md).
+It verifies selected source/notice/provenance bytes and rejects selected aliases,
+then parses declaration-only modules and original-form trailing require_once
+edges. The graph retains containing-file resolution, original IDs/lines/hashes,
+deterministic DFS, repeated/diamond edges and explicit unreached sources. Cycles,
+unlisted targets, hidden local loading and declaration collisions reject.
+
+This is metadata only: graph-checked / compatibility unverified, no executable
+IR, bundle CLI, generated map/build report or native loading result. Nine
+tooling checks and local focused packages pass at code7866633; those results
+are not a native PHP comparison. L0 is partial, L1/L2 and G83-PARSER remain
+pending. The last actual source-only parser rejection remains require_once403;
+remaining stack/object/snapshot/tokenizer/JSON contracts stay open.
+Original files, source manifests, consumer pins, old native/consumer evidence
+and routes/auth/deployment are unchanged. No successful old suite/probe is
+rerun; WebMCP exclusion stays. This Gossip change updates documentation only.
+
+## Previous: bounded static-loading plan; implementation still pending
 
 [GoHP PR127](https://github.com/katsuakikureyama/GoHP/pull/127) defines the
 [single loading plan](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md)

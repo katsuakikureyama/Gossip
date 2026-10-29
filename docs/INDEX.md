@@ -6,6 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Property-isset admission probe](evidence/parser-property-isset-probe-2026-10-29.md) | GoHP126 passes original property isset384 and reaches require_once403; full semantic/build/runtime acceptance remains blocked |
 | [Class-parameter admission probe](evidence/parser-class-parameter-probe-2026-10-29.md) | GoHP124 passes original class parameter349 and reaches property isset384; source admission is not full-parser acceptance |
 | [Regex property-input probe](evidence/parser-preg-property-probe-2026-10-29.md) | GoHP123 passes original preg_match inputs252/255 and reaches class parameter349; enabled PHP8.3 typed comparison is separate from full-parser acceptance |
 | [Nested-property admission probe](evidence/parser-nested-property-probe-2026-10-29.md) | GoHP122 passes nested updates207–208 and reaches preg_match property input252; P2 stack and full parser remain pending |

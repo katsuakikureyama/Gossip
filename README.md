@@ -156,6 +156,19 @@ reaches codegen line165 `array_push($this->stack, ...)`, where it stops. Its
 owned fixture passes PHP8.3/8.4 CI, but it has no original-parser execution
 result. General structural host conversion and unforgeable host provenance are
 not claimed. Stack behavior, tokenizer, and JSON integration remain required.
+
+Merged [GoHP PR136](https://github.com/katsuakikureyama/GoHP/pull/136) next
+admits the demonstrated `array_push` locations: a standalone call or a
+bare-local RHS result, with an existing bare-local or direct named-property
+target such as `$this->stack`. It captures the property owner before payloads,
+snapshots payloads left-to-right, then guards and appends to the current array
+before assigning the integer count. Generic embedded calls, references,
+indexed/nested/dynamic targets, and `array_pop` remain excluded. Its unchanged
+three-file [array-push probe](docs/evidence/parser-array-push-probe-2026-10-29.md)
+passes the former line165 rejection and stops at codegen line205
+`array_pop($this->stack)`. Its owned fixture and nine new checks pass the
+PHP8.3.36/8.4.27 push/PR and exact-main CI; the probe has no original-parser artifact, build,
+execution, differential comparison, or G83-PARSER acceptance.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
 retain per-file diagnostic/map identity; the new closure mode builds on that
 infrastructure rather than treating it as executable-loading proof by itself.

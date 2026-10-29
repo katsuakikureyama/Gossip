@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Array-push parser admission probe](evidence/parser-array-push-probe-2026-10-29.md) | GoHP136 passes original165 `array_push` through the unchanged closure and stops at codegen PHP004 line205 `array_pop`; its owned fixture/9 checks pass PHP8.3.36/8.4.27 push/PR/exact-main CI, but no original parser artifact or acceptance |
+| [Bounded `array_push` locations (GoHP)](https://github.com/katsuakikureyama/GoHP/pull/136) | Main e61870a admits standalone/bare-result `array_push` only for defined local or direct named-property array locations; owner/payload/current-array/count ordering is explicit, while generic calls, references and `array_pop` remain unsupported |
 | [Guarded object-array parser admission probe](evidence/parser-guarded-object-array-probe-2026-10-29.md) | GoHP135 passes original394 unknown-object cast and stops at codegen PHP004 line165 `array_push`; owned fixture/6 checks pass PHP8.3/8.4 CI, but no original parser artifact or acceptance |
 | [Guarded inferred-unknown object-to-array cast (GoHP)](https://github.com/katsuakikureyama/GoHP/pull/135) | Main10086b9 retains `object_array_cast`/`ObjectToArray`, permitting only actual nonnil `PublicPropertyObject`; static known-type rejection and runtime invalid-value guards remain. Push/PR/exact-main CI PASS on both targets; duplicate134 closed without evidence mixing |
 | [String-empty parser admission probe](evidence/parser-string-empty-probe-2026-10-29.md) | GoHP133 passes original354 through the unchanged three-file closure and stops at PHP004 line394 unknown-class array cast; no original parser artifacts or acceptance |

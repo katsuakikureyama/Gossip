@@ -1,8 +1,58 @@
 # Current state — WordPress fork baseline
 
-Last updated: 2026-10-29 (JST).
+Last updated: 2026-10-30 (JST).
 
-## Latest: guarded unknown-object array cast reaches the stack builtin gate
+## Latest: bounded array_push reaches the stack pop gate
+
+Merged [GoHP PR136](https://github.com/katsuakikureyama/GoHP/pull/136) admits
+the bounded `array_push` forms needed by the original parser: a standalone call
+or the complete RHS of a bare-local assignment, targeting an existing bare
+local or direct named property of a defined bare local. The additive IR keeps
+the address separate from payloads. For a property target, generated code
+resolves the owner before payload evaluation, snapshots payloads once
+left-to-right, reads and guards the current actual array, publishes each append
+in order, then binds the int count result. This preserves the observed
+same-property reset/repair and old-payload behavior without adding a general
+reference model, new storage/report lane, or generic mutable-call evaluation.
+
+Known non-array/undefined targets reject statically; an inferred target that is
+actually non-array rejects at runtime. Embedded calls, general references,
+index/nested/dynamic/effectful targets, property/index result destinations,
+builtin redeclaration and `array_pop` remain unsupported.
+
+One unchanged complete Parser/Block/Frame closure probe at clean code
+`2d01aa04b09d926d48299baa4a2210065af435e8`, tree
+`eff55f7dcdaba035382c04adb7a909f7335e2280`, fixed WordPress
+`54106f6c545fc8b881f6b39b7963002bece6c28c`, and unchanged manifest SHA256
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa` passes
+the former `array_push` line165 rejection. It exits1 at the next codegen
+boundary, `PHP004 line205: unsupported function array_pop`, for original
+`array_pop($this->stack)`. Stdout is0 bytes; stderr is101 bytes, SHA256
+`246e5052200024fe11f7578fb32e1d9d2bd9215f7449d6c06bb020a0c0be9b00`; no Go,
+report, or staging artifacts exist. See [the array-push probe](evidence/parser-array-push-probe-2026-10-29.md).
+
+Tested candidate `b1344c8360a2f829ae4f7f2f9fff227b010cf514`, tree
+`8a7fcb8aed19f680c8a50f164c48eb39bc0642ab`, is merged at main
+`e61870a9d7fb8da8d9d03933a8a29b9351d8da28` with the same tree. Push40896987607
+and PR40897000188 attempt1 all4 jobs SUCCESS with Go1.23.12 Linux amd64/CGO0
+and PHP8.3.36/8.4.27. All9 new checks PASS; owned native/Go stdout272 bytes is
+equal (SHA256 `c0985590c4de999b83832f8421b22902f7a63138646dd96b552fe69732104800`),
+exit0 and quiet stderr0. 835total:8.3 817PASS+18not-measured /8.4
+833PASS+2not-measured. Fixture SHA256
+`5f6bd7cd6e5613a5aaf164b2c4191067ea5efa1e34a1a50d8d4cdd8df7ebc663` belongs
+only to this change. [Exact-main CI40897806328](https://github.com/katsuakikureyama/GoHP/actions/runs/40897806328)
+attempt1 also succeeds at `e61870a9d7fb8da8d9d03933a8a29b9351d8da28`:
+PHP8.3 job123531572125 and PHP8.4 job123531571699. Successful artifacts were
+not downloaded again. General stderr/exception/side-effect equivalence remains
+unmeasured.
+
+G83-PARSER remains blocked. This is source admission, not original generation,
+build, execution, the 12-case/24-call comparison, or application acceptance.
+Original source/manifest/pins/auth/routes/deployment and the CLI/WebMCP
+exclusion remain unchanged; Gossip CI is unconfigured and the external devboard
+is unidentified/not synchronized.
+
+## Previous: guarded unknown-object array cast reaches the stack builtin gate
 
 Merged [GoHP PR135](https://github.com/katsuakikureyama/GoHP/pull/135) keeps
 the existing `object_array_cast` lowering and `ObjectToArray` runtime API, but

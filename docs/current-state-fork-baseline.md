@@ -2,7 +2,63 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: defined-local string `empty` admission reaches the unknown-class cast gate
+## Latest: guarded unknown-object array cast reaches the stack builtin gate
+
+Merged [GoHP PR135](https://github.com/katsuakikureyama/GoHP/pull/135) keeps
+the existing `object_array_cast` lowering and `ObjectToArray` runtime API, but
+admits an inferred-unknown source expression only when its actual value is a
+non-nil `PublicPropertyObject`. Known non-object operands and undefined reads
+remain static errors; unknown null, scalars, arrays, closures, partial/invalid
+markers, and typed-nil generated objects reject at runtime. The cast evaluates once and
+retains declared property order, null/falsy values, nested-array copy behavior,
+and nested-object identity. It does not create new IR/runtime APIs, extend
+general structural host conversion, or make host provenance unforgeable.
+Complete structural hosts explicitly opt into the existing snapshot ABI.
+
+One unchanged complete Parser/Block/Frame probe at clean code
+`dbbcdc225247b0b826267ce0546814d9d7cf6e0a`, tree
+`cc78cd70c8de172658a6be97937561c207127b3a`, with the same manifest SHA256
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa`, passes
+the former line394 semantic cast rejection. It exits1 at the next codegen
+boundary, `PHP004 line165: unsupported function array_push`, for original
+`array_push($this->stack, ...)`. Stdout is0 bytes; stderr is102 bytes, SHA256
+`9db57cfa3d6c3e0411ef3e4725b12b1d18e38b5d6258c605bc15abb53d689c3e`; no Go,
+report, or staging artifacts exist. The changed source-line order reflects a
+new compiler stage, not original-parser generation or runtime proof. See [the
+guarded-cast probe](evidence/parser-guarded-object-array-probe-2026-10-29.md).
+
+Focused local codegen/compat/runtime checks passed once at that probe revision;
+after test-only fixture and external-module setup repairs, the previously failing focused fixture/host-entry
+tests passed once at clean code `af2cf093f71a311ad83a87c1a41ae5c687f87e21`,
+tree `7bcf1453ede92d9ae515a6f2dd69d55e9142adb8`. Tested candidate head
+`7457217dcc4594e26ad11449ef846417be38eba2`, tree
+`1adeba9e3f998ba5a77a29e2f4ca71dcd1abd908`, is merged at
+main `10086b9528e78ce19cf4cf3c1c128248b981c80f` with the same tree. Push
+40887941868 and PR40887952996 attempt1 all4 target jobs SUCCESS; saved own
+artifacts match the clean head/tree, Go1.23.12Linuxamd64/CGO0 and PHP8.3.36/
+8.4.27. Six new checks PASS on both targets. The owned native/Go fixture
+stdout is280bytes equal (SHA256
+`6ec53193fc676aa19075315f22625c6c3aa72a080926e8e79fa6f0736d311d85`), exit0
+and quiet stderr0; general stderr/exception/side-effect equivalence is
+not-checked. 826total:8.3 808PASS+18not-measured /8.4 824PASS+2not-measured.
+Fixture SHA256
+`b15f5915e3ebc3ea410758305e894ccce1e3b10edf04b2daeb202e47e6ab37ec` belongs
+only to this canonical change. Duplicate134 is closed; its branch, commits,
+seven-check/151-byte fixture and independent evidence remain preserved, not
+combined here. Exact-main automatic CI40888584852 attempt1 is COMPLETED/SUCCESS
+on both targets, jobs123498867749/123498868073. See the
+[integration result](https://github.com/katsuakikureyama/GoHP/pull/135#issuecomment-6498996066).
+Same-tree archives were not downloaded again and successful checks were not
+manually repeated.
+
+G83-PARSER remains blocked: original stack `array_push`, remaining stack and
+snapshot behavior, tokenizer, and JSON contracts still need implementation.
+No original generation/build/run or 12-case acceptance has occurred. Original
+sources, manifest, pins, auth/routes, deployment, CLI/WebMCP exclusion, and
+the unconfigured Gossip CI remain unchanged; the external devboard is
+unidentified/not synchronized.
+
+## Previous: defined-local string `empty` admission reaches the unknown-class cast gate
 
 Merged [GoHP PR133](https://github.com/katsuakikureyama/GoHP/pull/133) extends source `empty($definedBareLocal)`
 only over actual strings and arrays. Strings are empty exactly when they are

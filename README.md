@@ -126,13 +126,19 @@ configuration.
 ## Direction
 
 Gossip uses the active [PHP 8.3 application gate](docs/php83-application-acceptance.md)
-to prioritize GoHP work. [Property isset now passes source admission](docs/evidence/parser-property-isset-probe-2026-10-29.md);
-the complete original parser next stops at its `require_once` dependency at403.
-Stack mutation, remaining object contracts, tokenizer/JSON integration and
-original dependency loading are still required.
+to prioritize GoHP work. [GoHP PR130](https://github.com/katsuakikureyama/GoHP/pull/130), now merged to main, adds an opt-in,
+checked static-declaration closure: it verifies the complete original parser,
+Block, and Frame files through an explicit manifest/root/entry and admits their
+original `require_once` directives at403/410 without source flattening. Its
+[three-file admission probe](docs/evidence/parser-static-closure-probe-2026-10-29.md)
+now reaches a semantic rejection at parser line209 (`$stack_top->prev_offset`
+after `array_pop`), with no generated parser artifacts. A separate owned
+multi-file fixture passes native PHP8.3/8.4 comparisons; it does not establish
+general runtime include/autoload support or full-parser acceptance. Stack mutation/unknown receivers, snapshots,
+tokenizer, and JSON integration remain required.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
-now retain file identities in internal diagnostics and generated statement maps;
-this is infrastructure, not executable `require_once` or full-parser acceptance.
+retain per-file diagnostic/map identity; the new closure mode builds on that
+infrastructure rather than treating it as executable-loading proof by itself.
 The optional regex experiment alone does not complete that unit. Backend risks
 remain documented in [the parser backend assessment](docs/parser-backend-assessment.md).
 

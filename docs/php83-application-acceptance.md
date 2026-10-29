@@ -27,6 +27,8 @@ Existing GoHP 8.4 regression CI stays enabled; new minor-version work is deferre
 The separate `parser-source-closure.json` selects the same complete parser,
 Block, and Frame files for the opt-in static-declaration closure; it does
 not replace or repin the native-reference corpus.
+Its fixed SHA256 is
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa`.
 
 ## Milestones and status
 
@@ -38,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: merged GoHP130 admits original `require_once`403/410 through a checked complete three-file closure, then rejects semantically at parser209: `PHP004: property assignment requires a known generated class variable` (`$stack_top->prev_offset` after `array_pop`). L0 connected mode and L1 owned native fixture pass; L2 records original admission only. No generated-parser execution or application acceptance has occurred; 12 native reference cases / 24 original calls remain reference-only |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: GoHP130 remains the L0/L1 closure milestone. Merged GoHP131 passes original property assignment209, then rejects at354: `PHP004: empty requires an array` for string `$html` from `substr`. Its owned-property fixture passes native PHP8.3/8.4 comparison, but the three-file probe is admission only: no original parser generation/execution or acceptance. The 12 native reference cases / 24 original calls remain reference-only |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -67,20 +69,23 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | Slice | Actual original requirement | Evidence / exit condition |
 |---|---|---|
 | P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119), positional list assignment (GoHP120), string switches (GoHP121) added; [switch probe](evidence/parser-switch-probe-2026-10-29.md) passes switch and stops at207. Full source semantic/runtime acceptance is still pending |
-| P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. The [static-closure probe](evidence/parser-static-closure-probe-2026-10-29.md) now passes the original loading edges and stops at line209 on the unknown receiver `$stack_top->prev_offset` after `array_pop`. Full-unit stack mutation, single unknown-receiver writes and snapshot admission remain open; P2 is not complete |
+| P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. The [unknown-receiver probe](evidence/parser-unknown-receiver-probe-2026-10-29.md) passes original line209 after `array_pop` through PR131's bounded direct named-property admission, then reaches the independent `empty($html)` string boundary at354. Full-unit stack mutation and snapshots remain open; P2 is not complete |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | GoHP123 adds named property inputs and the [full-source probe](evidence/parser-preg-property-probe-2026-10-29.md) now reaches349. Enabled owned fixture comparison records15 typed observations at its own pin; existing driver23/23 remains at its old pin. Neither is **original next_token translation**. Capture/raw-byte/error/full-method integration remains pending |
 | P4 — attributes | `json_decode(..., true)` at 283 | Preserve associative keys/types/nesting and malformed-input null/error semantics; do not substitute a JSON string or hard-coded attrs |
-| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 connects L0's checked graph and file-aware locations into explicit manifest/root/entry assembly and v0.2 reports. The complete unchanged parser, Block, and Frame pass both original loading directives; [L2 records the next semantic rejection](evidence/parser-static-closure-probe-2026-10-29.md) at209. L1's owned real-file fixture passes native PHP8.3/8.4 comparisons. General include/require/autoload, dynamic/conditional loads, cycles and dependency initialization remain excluded; this is not original-parser generation or acceptance |
+| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 connects L0's checked graph and file-aware locations into explicit manifest/root/entry assembly and v0.2 reports. The complete unchanged parser, Block, and Frame pass both original loading directives; its [L2 probe records the prior semantic rejection](evidence/parser-static-closure-probe-2026-10-29.md) at209. L1's owned real-file fixture passes native PHP8.3/8.4 comparisons. General include/require/autoload, dynamic/conditional loads, cycles and dependency initialization remain excluded; this is not original-parser generation or acceptance |
 
-The measured next semantic blocker is now P2's unknown property receiver at
-line209 after `array_pop`; P2's remaining object/stack dependencies also need
-implementation before full-unit acceptance. These rows define dependencies of
-the same gate, not five new standalone product goals. The closure mode is an
-opt-in compiler mode, not a consumer pin: it excludes executable dependency
-initialization, dynamic/conditional loads, cycles and autoload, and retains
-per-file locations plus the exact original directives. Source flattening alone
-is not evidence. A later loaded closure still has to pass every other parser
-dependency.
+The measured next semantic blocker is now `empty($html)` at line354, where
+`$html` is a string from `substr`; P2's remaining stack/snapshot dependencies
+also need implementation before full-unit acceptance. These rows define
+dependencies of the same gate, not five new standalone product goals. PR131's
+direct property admission is deliberately narrow: defined inferred-unknown
+locals only, direct named assignment/append only, one RHS evaluation, explicit
+nonnil property objects and declared-slot runtime checks. Known wrong types and
+undeclared slots on known generated classes continue to reject statically; no
+dynamic properties or direct concat are admitted. The closure mode remains an
+opt-in compiler mode, not a consumer pin, and excludes executable dependency
+initialization, dynamic/conditional loads, cycles and autoload. Source
+flattening alone is not evidence.
 This parser does not use inheritance, closure captures or PHP reference-assignment
 syntax. Those features can wait for a later demonstrated bootstrap/hook blocker.
 Property mutation and builtin output arguments still need their real semantics;
@@ -110,13 +115,15 @@ Use the cached admitted image and existing [oracle isolation](php-oracle-policy.
 Missing runner means SKIP, not success. Never merge this new corpus with the
 old 24-case **next_token** corpus or the 23-case owned regex driver denominator.
 
-For candidate admission, the earlier single-file probe stays historical. The
-new [static-closure probe](evidence/parser-static-closure-probe-2026-10-29.md)
-uses explicit `-manifest`, `-source-root`, and `-entry` inputs over the
-**unchanged complete three-file closure**, not an excerpt or a concatenation.
-It records the source/compiler identity, line209 semantic rejection, and absent
-artifacts. It cannot be promoted to parse execution even if its first rejection
-later disappears.
+For candidate admission, the earlier single-file and PR130 closure probes stay
+historical. The new [unknown-receiver probe](evidence/parser-unknown-receiver-probe-2026-10-29.md)
+uses the same explicit manifest/root/entry selection over the **unchanged
+complete three-file closure**, not an excerpt or concatenation. At clean code
+`0f448b6609f15b90d6853be6dc2db4565edb7940` / tree
+`8e9403adea224a88e18e42c60b709673bfdd50e9`, it records exit1, stdout0,
+stderr94 bytes (SHA256 `f55bef7a8cb235bbac2fa946289eaaacfd440bb3b520db67ec66ddee3e488fd8`),
+the line354 semantic rejection, and absent artifacts. It cannot be promoted to
+parse execution even if its first rejection later disappears.
 
 Record stages separately: source verified → generation → native binary build →
 execution → differential comparison → application acceptance. A blocked compiler

@@ -67,12 +67,17 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. [Current full-source probe](evidence/parser-property-isset-probe-2026-10-29.md) passes384 and stops at require_once403. Full-unit stack mutation, single unknown-receiver writes and snapshot admission remain open; P2 is not complete |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | GoHP123 adds named property inputs and the [full-source probe](evidence/parser-preg-property-probe-2026-10-29.md) now reaches349. Enabled owned fixture comparison records15 typed observations at its own pin; existing driver23/23 remains at its old pin. Neither is **original next_token translation**. Capture/raw-byte/error/full-method integration remains pending |
 | P4 — attributes | `json_decode(..., true)` at 283 | Preserve associative keys/types/nesting and malformed-input null/error semantics; do not substitute a JSON string or hard-coded attrs |
-| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | Next measured frontend blocker is403 after GoHP126. Design bounded source discovery/loading preserving once-only identity and initialization; concatenation/extracted methods alone do not prove original file loading |
+| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | Next measured frontend blocker is403 after GoHP126. [GoHP127 loading design](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md) defines checked declaration-only modules, once identity and file-aware provenance, then owned native comparison and one unchanged three-file probe. L0–L2 are all pending; concatenation/extracted methods are not loading acceptance |
 
 The measured next frontend blocker is P5's original `require_once` at403. P2's
 remaining object/stack dependencies also need implementation before full-unit
 acceptance. These rows define dependencies of the same gate, not five new
 standalone product goals; source-loading design can proceed alongside syntax.
+The loading plan is design only, not a new compiler mode or consumer pin. Its
+first profile excludes executable dependency initialization, dynamic/conditional
+loads, cycles and autoload. It must retain per-file locations and the exact
+original directives before closure admission; source flattening alone is not
+evidence. A later loaded closure still has to pass every other parser dependency.
 This parser does not use inheritance, closure captures or PHP reference-assignment
 syntax. Those features can wait for a later demonstrated bootstrap/hook blocker.
 Property mutation and builtin output arguments still need their real semantics;

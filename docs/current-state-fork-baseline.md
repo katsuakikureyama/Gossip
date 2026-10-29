@@ -2,7 +2,27 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: property isset progressed; original source loading blocks
+## Latest: bounded static-loading plan; implementation still pending
+
+[GoHP PR127](https://github.com/katsuakikureyama/GoHP/pull/127) defines the
+[single loading plan](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md)
+after the measured require_once403 blocker. The first profile is a generic,
+explicit declaration-only closure, not WordPress-specific compiler behavior.
+It preserves the complete parser/Block/Frame sources and both original loading
+edges at403/410, checked whole-file identities, once-only module resolution and
+file-aware diagnostics/report/map. No source concatenation or extracted-method
+substitute is accepted as loading evidence.
+
+L0 graph/provenance, L1 owned multi-file native comparison and L2 unchanged
+three-file admission are all pending. General include/require/autoload,
+side-effecting dependency initialization and cycles stay outside the first
+profile. G83-PARSER remains blocked, including remaining stack/object/snapshot,
+tokenizer and JSON integration. This is documentation only: no compiler mode,
+generated result, new native run or consumer repin. Existing PR126/Gossip58
+evidence is reused; successful suites/probes are not rerun. Original files,
+manifests, pins, routes/auth/deployment and existing WebMCP exclusion are unchanged.
+
+## Previous: property isset progressed; original source loading blocks
 
 GoHP [PR126](https://github.com/katsuakikureyama/GoHP/pull/126), merged into
 main9eec4d502ae396e389f94bf40d986b8d933caac0, adds named-property

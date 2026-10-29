@@ -146,8 +146,16 @@ requires a known generated class`. It has no original-parser artifacts. A separa
 owned fixture passes native PHP8.3/8.4 comparison. The narrow addition keeps
 legacy array-only IR/API unchanged and does not establish general runtime
 include/autoload, dynamic properties, direct concat, full-parser acceptance, or
-a host-provenance claim. Unknown-class snapshots, stack behavior, tokenizer,
-and JSON integration remain required.
+a host-provenance claim. Merged [GoHP PR135](https://github.com/katsuakikureyama/GoHP/pull/135)
+then admits that demonstrated cast without a new IR/runtime API only when the
+actual inferred-unknown value is a nonnil `PublicPropertyObject`; null, scalar,
+array, closure, partial/invalid-marker, and typed-nil generated objects still reject, and
+known non-object/undefined values remain static errors. Its [one unchanged
+three-file probe](docs/evidence/parser-guarded-object-array-probe-2026-10-29.md)
+reaches codegen line165 `array_push($this->stack, ...)`, where it stops. Its
+owned fixture passes PHP8.3/8.4 CI, but it has no original-parser execution
+result. General structural host conversion and unforgeable host provenance are
+not claimed. Stack behavior, tokenizer, and JSON integration remain required.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
 retain per-file diagnostic/map identity; the new closure mode builds on that
 infrastructure rather than treating it as executable-loading proof by itself.

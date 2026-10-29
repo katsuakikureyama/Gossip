@@ -2,7 +2,43 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: inferred-unknown property admission reaches the `empty` semantic gate
+## Latest: defined-local string `empty` admission reaches the unknown-class cast gate
+
+Merged [GoHP PR133](https://github.com/katsuakikureyama/GoHP/pull/133) extends source `empty($definedBareLocal)`
+only over actual strings and arrays. Strings are empty exactly when they are
+`''` or ASCII `'0'`; generic calls, undefined/address suppression, and all
+other scalar/object domains remain invalid. The neutral `empty_var` /
+`VariableEmpty` representation is additive to IR0.1; legacy `empty_array` /
+`ArrayEmpty` remains strictly array-only. Local affected checks pass once with
+no failures. This does not change property, class/array/object identity, or
+copy-timing contracts.
+
+One admission probe at clean code `62cc41fdc45bf2126acd7c54d70c28034d4557ec`, tree
+`17e6ab69577bd640904405d85759596b9865961a`, uses the same complete unchanged
+Parser/Block/Frame closure and manifest SHA256
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa`. It passes
+the prior PHP004 at354 and exits1 at `PHP004 line394: array cast requires a
+known generated class`, from original `(array) $stack_top->block` in
+`add_block_from_stack`. Stdout is0 bytes; stderr is114 bytes with SHA256
+`0aa3c061c7896e4450a840ff8a41e16ac9c042c6b8e496d72eae9ac57bb41dba`; no Go,
+report, or staging artifacts exist. See [the string-empty probe](evidence/parser-string-empty-probe-2026-10-29.md).
+
+The PR133 candidate head is `97f5ff8a8de73e18845e0b6d5bac73f1670ac408`, tree
+`f60026f9e266c84d92f76e7f2e941d8dce1f15e7`. It is merged into
+mainefcdbc47ffeb506d2bec1f9e6d84f0c67c37332c with identical tested tree.
+Push40847242945 and PR40847383843 attempt1 all4 target jobs SUCCESS; saved own
+push evidence matches clean head/tree, Go1.23.12Linuxamd64/CGO0/PHP8.3.36 and8.4.27.
+All8 new checks PASS; native/Go stdout112bytes equal, exit0/quiet stderr0.
+820total:8.3 802PASS+18outside /8.4 818PASS+2outside. Duplicate132 was closed,
+its different IR/helper/fixture evidence is not combined with canonical133.
+G83-PARSER remains
+blocked by the unknown-class snapshot cast, followed by stack/tokenizer/JSON
+contracts; no original generation/build/run or 12-case acceptance occurred.
+Original sources, manifest, pins, auth/routes, and deployment remain unchanged;
+Gossip CI is unconfigured and the external devboard is unidentified/not
+synchronized.
+
+## Previous: inferred-unknown property admission reaches the `empty` semantic gate
 
 [GoHP PR131](https://github.com/katsuakikureyama/GoHP/pull/131) extends the fixed static closure only at
 the demonstrated property boundary: a defined inferred-unknown local can receive

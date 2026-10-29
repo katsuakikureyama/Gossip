@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [String-empty parser admission probe](evidence/parser-string-empty-probe-2026-10-29.md) | GoHP133 passes original354 through the unchanged three-file closure and stops at PHP004 line394 unknown-class array cast; no original parser artifacts or acceptance |
+| [Defined-local string/array `empty()` admission (GoHP)](https://github.com/katsuakikureyama/GoHP/pull/133) | Main efcdbc4 admits array/string bare-local empty, legacy array-only IR/API preserved. All8 new checks/native owned fixture PASS on PHP8.3/8.4. No undefined/address suppression or other scalar/object domains |
 | [Unknown-receiver parser admission probe](evidence/parser-unknown-receiver-probe-2026-10-29.md) | GoHP131 passes original209 through the checked three-file closure and stops at PHP004 line354 (`empty requires an array` for string `$html`); no original-parser artifacts or acceptance |
 | [Direct inferred-unknown property admission (GoHP)](https://github.com/katsuakikureyama/GoHP/pull/131) | Merged main5776a7b admits guarded defined-unknown named writes/append; owned fixture passes PHP8.3/8.4 native comparison and all8 new checks PASS. No dynamic properties/direct concat |
 | [Static declaration closure contract (GoHP)](https://github.com/katsuakikureyama/GoHP/blob/main/docs/static-source-loading.md) | GoHP130 main connects manifest-checked closure, file-aware IR/maps and bundle v0.2 reports. Owned real-file fixture passes independent PHP8.3/8.4 comparison; general runtime loading and full parser remain unsupported |

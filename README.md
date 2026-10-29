@@ -136,12 +136,18 @@ fixture passes native PHP8.3/8.4 comparisons. Merged [GoHP PR131](https://github
 then admits direct named property assignment/append on defined
 inferred-unknown locals through explicit nonnil runtime property objects and
 declared-slot checks. It passes original line209 and the unchanged three-file
-closure now stops at line354: `empty requires an array` for `$html` from
-`substr`. [That probe](docs/evidence/parser-unknown-receiver-probe-2026-10-29.md)
-has no original-parser artifacts. A separate owned-property fixture passes
-native PHP8.3/8.4 comparisons. Neither change establishes general runtime include/autoload, dynamic properties,
-direct concat, full-parser acceptance, or a host-provenance claim. Stack
-mutation/snapshots, tokenizer, and JSON integration remain required.
+closure reaches the historical line354 `empty($html)` boundary. Merged
+[GoHP PR133](https://github.com/katsuakikureyama/GoHP/pull/133) admits source `empty()` only for defined bare locals whose
+actual values are strings or arrays: strings are empty only when exactly `''`
+or ASCII `'0'`; generic calls and undefined/address suppression remain invalid.
+Its new [three-file probe](docs/evidence/parser-string-empty-probe-2026-10-29.md)
+passes354 and stops at line394 on `(array) $stack_top->block`: `array cast
+requires a known generated class`. It has no original-parser artifacts. A separate
+owned fixture passes native PHP8.3/8.4 comparison. The narrow addition keeps
+legacy array-only IR/API unchanged and does not establish general runtime
+include/autoload, dynamic properties, direct concat, full-parser acceptance, or
+a host-provenance claim. Unknown-class snapshots, stack behavior, tokenizer,
+and JSON integration remain required.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
 retain per-file diagnostic/map identity; the new closure mode builds on that
 infrastructure rather than treating it as executable-loading proof by itself.

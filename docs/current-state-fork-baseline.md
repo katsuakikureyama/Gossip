@@ -2,7 +2,31 @@
 
 Last updated: 2026-10-29 (JST).
 
-## Latest: class parameter progressed; property isset blocks
+## Latest: property isset progressed; original source loading blocks
+
+GoHP [PR126](https://github.com/katsuakikureyama/GoHP/pull/126), merged into
+main9eec4d502ae396e389f94bf40d986b8d933caac0, adds named-property
+isset using a nonthrowing generated-property lookup, not ordinary Get. Missing/null
+or supported nonobject roots/intermediates are false; final nonnull falsy values
+are set. Each reached slot is inspected once; mixed multi-address and logical
+short circuit are preserved. No dynamic/effectful/mixed indexed paths, magic,
+typed/inherited properties, general undefined variables or PHP exception claim.
+
+The [single unchanged full-source probe](evidence/parser-property-isset-probe-2026-10-29.md)
+at clean code53546a6 passes property isset384 and stops at `require_once`403,
+exit1. Full-unit semantic validation, dependency closure, generation/build/
+execution and application acceptance remain blocked. Stack mutation, other object
+contracts, tokenizer/JSON integration and original loading remain pending.
+Generic owned-fixture comparison independently passes PHP8.3.36/8.4.27:
+102 stdout bytes equal Go, exit0/quiet stderr0. Push40805015360/PR40805022142
+both SUCCESS at clean head2c6c2c8/tree0c6cc7b; all7 new checks pass.781 total:
+8.3 763PASS+18outside /8.4 779PASS+2outside. Evidence is separate from the parser
+gate and recorded in the probe. Main readback equals the validated feature tree.
+Original bytes, consumer pins and old native references are unchanged; successful
+old suites are not rerun. Gossip CI is unconfigured. Existing local inspect/WebMCP
+exclusion stays, no route/auth/deployment changes. Devboard unidentified/not synced.
+
+## Previous: class parameter progressed; property isset blocks
 
 GoHP [PR124](https://github.com/katsuakikureyama/GoHP/pull/124), merged into
 maine5d32e2087b63c13ecfe5f9ef785a60d65ed5b9c, adds exact nonnil

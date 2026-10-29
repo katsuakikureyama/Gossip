@@ -126,8 +126,8 @@ configuration.
 ## Direction
 
 Gossip uses the active [PHP 8.3 application gate](docs/php83-application-acceptance.md)
-to prioritize GoHP work. [Declared class parameters now pass source admission](docs/evidence/parser-class-parameter-probe-2026-10-29.md);
-the complete original parser next stops at property-expression `isset` at384.
+to prioritize GoHP work. [Property isset now passes source admission](docs/evidence/parser-property-isset-probe-2026-10-29.md);
+the complete original parser next stops at its `require_once` dependency at403.
 Stack mutation, remaining object contracts, tokenizer/JSON integration and
 original dependency loading are still required.
 The optional regex experiment alone does not complete that unit. Backend risks

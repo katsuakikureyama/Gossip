@@ -40,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: GoHP PR136 admits the demonstrated line165 `array_push($this->stack, …)` location only, then its unchanged three-file probe stops at codegen line205: `PHP004: unsupported function array_pop`. Its owned fixture and nine checks pass PHP8.3.36/8.4.27 push/PR/exact-main CI, but it has no original generation/execution or acceptance result; the12 native reference cases /24 original calls remain reference-only |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: [GoHP PR137](https://github.com/katsuakikureyama/GoHP/pull/137), merged at main `af3e9ada36728cb317096b35af6ca0f22e3492c4`, passes original line205 `array_pop($this->stack)` through the unchanged three-file closure and stops at codegen line283: `PHP004: unsupported function json_decode`. Its PHP8.3.36/8.4.27 push/PR/exact-main CI and owned fixture comparison pass. There is no original generation/execution or acceptance result. The12 native reference cases /24 original calls remain reference-only |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -69,15 +69,15 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | Slice | Actual original requirement | Evidence / exit condition |
 |---|---|---|
 | P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119), positional list assignment (GoHP120), string switches (GoHP121) added; [switch probe](evidence/parser-switch-probe-2026-10-29.md) passes switch and stops at207. Full source semantic/runtime acceptance is still pending |
-| P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. PR131's bounded direct named-property admission passes original line209; PR133 reaches the unknown-class snapshot cast at394; PR135 admits that cast for an actual nonnil `PublicPropertyObject`. PR136's [array-push probe](evidence/parser-array-push-probe-2026-10-29.md) admits the original line165 push and stops at line205 `array_pop`. Full-unit stack mutation and snapshots remain open; P2 is not complete |
+| P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. PR131's bounded direct named-property admission passes original line209; PR133 reaches the unknown-class snapshot cast at394; PR135 admits that cast for an actual nonnil `PublicPropertyObject`; PR136 admits line165 push. Merged PR137's [array-pop probe](evidence/parser-array-pop-probe-2026-10-30.md) passes line205 and stops at line283 `json_decode`; its push/PR/exact-main CI and owned fixture comparison pass. Full-unit stack mutation and snapshots remain open, so P2 is not complete |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | GoHP123 adds named property inputs and the [full-source probe](evidence/parser-preg-property-probe-2026-10-29.md) now reaches349. Enabled owned fixture comparison records15 typed observations at its own pin; existing driver23/23 remains at its old pin. Neither is **original next_token translation**. Capture/raw-byte/error/full-method integration remains pending |
 | P4 — attributes | `json_decode(..., true)` at 283 | Preserve associative keys/types/nesting and malformed-input null/error semantics; do not substitute a JSON string or hard-coded attrs |
 | P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 connects L0's checked graph and file-aware locations into explicit manifest/root/entry assembly and v0.2 reports. The complete unchanged parser, Block, and Frame pass both original loading directives; its [L2 probe records the prior semantic rejection](evidence/parser-static-closure-probe-2026-10-29.md) at209. L1's owned real-file fixture passes native PHP8.3/8.4 comparisons. General include/require/autoload, dynamic/conditional loads, cycles and dependency initialization remain excluded; this is not original-parser generation or acceptance |
 
-The measured next compiler blocker is original `array_pop($this->stack)` at
-line205. The array-push change advances the former line165 stack gate but does
-not establish any original runtime behavior; the apparent source-line reversal
-is compiler traversal after that gate changes. P2's
+The measured next compiler blocker is original `json_decode($matches['attrs'][0], true)`
+at line283. The bounded array-pop candidate advances the former line205 stack
+gate but does not establish any original runtime behavior; the apparent
+source-line reversal is compiler traversal after that gate changes. P2's
 remaining stack/snapshot dependencies still need implementation before
 full-unit acceptance. These rows define dependencies of the same gate, not five
 new standalone product goals.
@@ -151,6 +151,17 @@ former line165 `array_push` rejection passed, and the next codegen rejection at
 line205 `array_pop`; Go/report/staging artifacts are absent. The resulting
 main tree is `8a7fcb8aed19f680c8a50f164c48eb39bc0642ab`; push/PR/exact-main CI covers its
 owned fixture, not original parser execution or a native PHP comparison.
+
+The [array-pop probe](evidence/parser-array-pop-probe-2026-10-30.md) uses the
+same unchanged closure at clean code
+`1adc11ad053a19e22b98fcecefd898851830dd12` / tree
+`00adfc030a89eea4fcf57f3fbd2eb2933925c4e8`. It records exit1, stdout0,
+stderr103 bytes (SHA256
+`97d870019d0d48ac7e09006c80a7b07877b61bad3e74c4b9491b984b95ee8f4c`), passes
+the former line205 `array_pop` rejection, and reaches the codegen line283
+`json_decode` rejection; Go/report/staging artifacts are absent. [PR137](https://github.com/katsuakikureyama/GoHP/pull/137)'s push/PR CI and owned native
+fixture comparison pass; it is merged at main `af3e9ada36728cb317096b35af6ca0f22e3492c4`, and exact-main CI also passes. This original-source probe remains
+neither original execution nor a native PHP comparison.
 
 Record stages separately: source verified → generation → native binary build →
 execution → differential comparison → application acceptance. A blocked compiler

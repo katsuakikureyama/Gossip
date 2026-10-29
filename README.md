@@ -130,6 +130,9 @@ to prioritize GoHP work. [Property isset now passes source admission](docs/evide
 the complete original parser next stops at its `require_once` dependency at403.
 Stack mutation, remaining object contracts, tokenizer/JSON integration and
 original dependency loading are still required.
+[The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
+now retain file identities in internal diagnostics and generated statement maps;
+this is infrastructure, not executable `require_once` or full-parser acceptance.
 The optional regex experiment alone does not complete that unit. Backend risks
 remain documented in [the parser backend assessment](docs/parser-backend-assessment.md).
 

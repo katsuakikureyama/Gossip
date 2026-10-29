@@ -2,7 +2,80 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: bounded array_push reaches the stack pop gate
+## Latest: bounded array_pop reaches the JSON gate
+
+Merged GoHP137 admits a deliberately closed `array_pop` statement:
+an existing bare local or direct named public property of a defined bare local,
+used standalone or as the complete RHS of a bare-local assignment. It resolves
+a property owner before reading the actual array, removes and returns the last
+insertion entry (or `null` for an empty array), and binds a result local only
+after the mutation/result are known. Empty arrays publish no mutation; remaining
+keys are not renumbered. Popped nested arrays are copied eagerly while child
+object identity is retained. Known non-array/undefined locations reject
+statically; actual non-array inferred locations reject at runtime. Embedded
+calls, references, indexed/nested/dynamic/effectful locations, non-bare result
+locations, and builtin redeclaration remain unsupported. The shared index
+rewinds only when the removed integer key is the immediate predecessor of the
+current next key. Negative keys retain that rule; minimum-int rewind restores
+the sentinel and automatic0. Full MAX occupancy cannot
+overwrite an existing MAX key after a MAX-1 pop. This adds no storage/report
+lane, version, or general reference-value model.
+
+One unchanged complete Parser/Block/Frame closure probe at clean code
+`1adc11ad053a19e22b98fcecefd898851830dd12`, tree
+`00adfc030a89eea4fcf57f3fbd2eb2933925c4e8`, fixed WordPress
+`54106f6c545fc8b881f6b39b7963002bece6c28c`, and unchanged manifest SHA256
+`89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa` passes
+the former `array_pop` line205 rejection. It exits1 at the next codegen
+boundary, `PHP004 line283: unsupported function json_decode`, for original
+`json_decode($matches['attrs'][0], true)`. Stdout is0 bytes; stderr is103 bytes, SHA256
+`97d870019d0d48ac7e09006c80a7b07877b61bad3e74c4b9491b984b95ee8f4c`; no Go,
+report, or staging artifacts exist and the empty temporary output directory was
+removed. This proves only the former line205 pop boundary, not successful
+generation of the later original pop at line372. See [the array-pop
+probe](evidence/parser-array-pop-probe-2026-10-30.md).
+
+Final [GoHP PR137](https://github.com/katsuakikureyama/GoHP/pull/137) candidate
+`5fd2a5c52a72f2e1654553bbab3c21d1d5cfc218`, tree
+`072ff4fde72bbc2a51622f5ecc447ce89910eb30`, is merged at main
+`af3e9ada36728cb317096b35af6ca0f22e3492c4` with that same tested tree. It has
+the bounded contract recorded in GoHP's `docs/evidence/array-pop-2026-10-30.md`.
+Push40928765568 and
+PR40928781175 attempt1 all four jobs SUCCESS with Go1.23.12 Linux amd64/CGO0
+and PHP8.3.36/8.4.27. Its generated fixture/host `TestArrayPop` passes once
+in1.413s;
+its fixture SHA256 is
+`b5199cc408c31aa5d1aa89690e77c2689fe8f9d9e1bc7cc1a755dec96409b037`.
+All10 new checks PASS on both targets. Its owned native/Go stdout is equal at
+902bytes (SHA256
+`304031532fa6741bf1a9d0a921e72240971d105e571c81f61fcc736bd8ed9bc9`), with
+exit0 and quiet stderr0. Parse/codegen/build/execute/differential pass for that
+owned fixture. 845total:8.3 827PASS+18not-measured /8.4
+843PASS+2not-measured. This does not cover general stderr, exception, or
+side-effect equivalence, which remain not-checked. Push artifacts12922101035
+(published SHA256 `5a3296c59ce9795adb81dcead70f023c37bf5cce242db24878cdf27a7514a41d`) and
+12921498050 (published SHA256
+`9ec27b7aef5a4e6b1c7d361b937047fbb8ca1d1069874c38b20284ff360baaf4`) were
+each read once. [The canonical native result](https://github.com/katsuakikureyama/GoHP/pull/137#issuecomment-6504793559)
+is recorded on the merged PR. [Exact-main CI40929318757](https://github.com/katsuakikureyama/GoHP/actions/runs/40929318757)
+attempt1 also succeeds at that merged main: PHP8.3 job123643210418 and PHP8.4
+job123643210914. No same-tree artifact was downloaded again. A local first command across arraykey/runtime/
+storage/frontend/codegen/compat passed except for a source-map test fragment
+whose same-named test locals collided; test-only clean code
+`2325ea323b5a092f4ce11bf8313519a061e87c8c`, tree
+`efecf327277de4f41382ae4a6c5eab5e9d14df74`, renames those locals. The one
+affected `TestArrayPopLoweringAndSourceMap` rerun passes in0.208s; preceding
+successful checks are reused. The candidate documentation has 166 checked local
+links; no GoHP compatibility/runtime version, storage lane, or report schema was
+added.
+
+G83-PARSER remains blocked. This is source admission, not original generation,
+build, execution, the 12-case/24-call comparison, or application acceptance.
+Original source/manifest/pins/auth/routes/deployment and the CLI/WebMCP
+exclusion remain unchanged; Gossip CI is unconfigured and the external devboard
+is unidentified/not synchronized.
+
+## Previous: bounded array_push reaches the stack pop gate
 
 Merged [GoHP PR136](https://github.com/katsuakikureyama/GoHP/pull/136) admits
 the bounded `array_push` forms needed by the original parser: a standalone call

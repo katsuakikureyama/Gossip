@@ -169,6 +169,25 @@ passes the former line165 rejection and stops at codegen line205
 `array_pop($this->stack)`. Its owned fixture and nine new checks pass the
 PHP8.3.36/8.4.27 push/PR and exact-main CI; the probe has no original-parser artifact, build,
 execution, differential comparison, or G83-PARSER acceptance.
+
+[GoHP PR137](https://github.com/katsuakikureyama/GoHP/pull/137), now merged at
+main `af3e9ada36728cb317096b35af6ca0f22e3492c4` with the tested tree, admits
+`array_pop` only for the same
+existing bare-local and direct named-property locations, either as a standalone
+statement or as the complete RHS of a bare-local assignment. It reads the
+current array after resolving the property owner, removes the last insertion
+entry without renumbering remaining keys, then binds the popped value (or
+`null`) last. Empty arrays do not publish a mutation; nested arrays are copied
+eagerly while child-object identity is retained. The unchanged three-file
+[array-pop probe](docs/evidence/parser-array-pop-probe-2026-10-30.md) passes
+the former line205 rejection and now stops at line283 `json_decode`. This is
+only source admission: original generation, build, execution, differential
+comparison, and G83-PARSER acceptance remain blocked. Its push and PR CI
+attempt1 both pass on PHP8.3.36/8.4.27; all ten new checks pass on both targets.
+Its owned fixture has equal 902-byte native/Go stdout, exit0 and quiet stderr.
+That fixture comparison is separate from the unchanged original parser probe.
+[Exact-main CI40929318757](https://github.com/katsuakikureyama/GoHP/actions/runs/40929318757)
+attempt1 also succeeds on both targets at the same tested tree.
 [The loading prerequisites](https://github.com/katsuakikureyama/GoHP/blob/main/docs/file-aware-locations.md)
 retain per-file diagnostic/map identity; the new closure mode builds on that
 infrastructure rather than treating it as executable-loading proof by itself.

@@ -23,7 +23,12 @@ No new original parser probe was run: loading admission is unchanged and the
 last real rejection remains require_once403. Remaining stack/object/snapshot/
 tokenizer/JSON dependencies are still open. Focused compiler/frontend/catalog/CLI
 checks pass once at code64403be; five new checks are tooling, not native loading.
-Independent PHP8.3/PHP8.4 regression CI is tracked on PR129. Original files,
+Push40811971952 and exact-main40812191454 regression CI both SUCCESS on pinned
+PHP8.3.36/PHP8.4.27. Five new tooling checks PASS; saved push reports match clean
+featuref076029/tree601f1003. The separate PR40811981125 remains FAILURE solely
+because PHP8.4 artifact creation timed out after validation; it is not relabeled
+PASS or rerun. Successful push artifacts were read once instead, preserving the
+failure history. This is tooling/regression, not native loading evidence. Original files,
 manifests, pins, old successful native evidence and auth/routes/deployment remain
 unchanged. Gossip CI is unconfigured; existing local inspect/WebMCP exclusion
 stays. Devboard unidentified/not synchronized.

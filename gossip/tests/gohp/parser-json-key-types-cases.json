@@ -1,0 +1,14 @@
+[
+  {"name":"duplicate_top_level","document_base64":"PCEtLSB3cDp0ZXN0IHsiZmlyc3QiOjEsIm1pZGRsZSI6MiwiZmlyc3QiOjMsImxhc3QiOjR9IC8tLT4="},
+  {"name":"escaped_duplicate","document_base64":"PCEtLSB3cDp0ZXN0IHsiYSI6MSwiYiI6MiwiXHUwMDYxIjozLCJjIjo0fSAvLS0+"},
+  {"name":"canonical_numeric_keys","document_base64":"PCEtLSB3cDp0ZXN0IHsiMCI6Inplcm8iLCIxIjoib25lIiwiLTEiOiJtaW51cyIsIjIiOiJ0d28ifSAvLS0+"},
+  {"name":"noncanonical_numeric_keys","document_base64":"PCEtLSB3cDp0ZXN0IHsiMDEiOiJsZWFkaW5nIiwiLTAiOiJuZWdhdGl2ZSB6ZXJvIiwiKzEiOiJwbHVzIiwiMS4wIjoiZGVjaW1hbCIsIjFlMCI6ImV4cG9uZW50IiwiIDEiOiJzcGFjZSJ9IC8tLT4="},
+  {"name":"int64_key_bounds","document_base64":"PCEtLSB3cDp0ZXN0IHsiOTIyMzM3MjAzNjg1NDc3NTgwNyI6MSwiLTkyMjMzNzIwMzY4NTQ3NzU4MDgiOjIsIjkyMjMzNzIwMzY4NTQ3NzU4MDgiOjMsIi05MjIzMzcyMDM2ODU0Nzc1ODA5Ijo0fSAvLS0+"},
+  {"name":"duplicate_numeric_keys","document_base64":"PCEtLSB3cDp0ZXN0IHsiMSI6ImZpcnN0IiwiMDEiOiJwYWRkZWQiLCIyIjoic2Vjb25kIiwiXHUwMDMxIjoicmVwbGFjZW1lbnQiLCJ0YWlsIjp0cnVlfSAvLS0+"},
+  {"name":"int64_value_extrema","document_base64":"PCEtLSB3cDp0ZXN0IHsibWluIjotOTIyMzM3MjAzNjg1NDc3NTgwOCwiemVybyI6MCwibmVnYXRpdmVaZXJvIjotMCwibWF4Ijo5MjIzMzcyMDM2ODU0Nzc1ODA3fSAvLS0+"},
+  {"name":"empty_structures","document_base64":"PCEtLSB3cDp0ZXN0IHsib2JqZWN0Ijp7fSwibGlzdCI6W10sIm5lc3RlZCI6eyJvYmplY3QiOnt9LCJsaXN0IjpbXX19IC8tLT4="},
+  {"name":"nested_duplicates","document_base64":"PCEtLSB3cDp0ZXN0IHsib3V0ZXIiOnsiYSI6MSwiYiI6MiwiYSI6M30sIml0ZW1zIjpbeyJ4Ijp0cnVlLCJ5IjpudWxsLCJ4IjpmYWxzZX0se31dfSAvLS0+"},
+  {"name":"list_mixed_types","document_base64":"PCEtLSB3cDp0ZXN0IHsiaXRlbXMiOltudWxsLHRydWUsZmFsc2UsMCwtMSw5MjIzMzcyMDM2ODU0Nzc1ODA3LC05MjIzMzcyMDM2ODU0Nzc1ODA4LCIiLCIwIix7ImsiOiJ2In0sW10se31dfSAvLS0+"},
+  {"name":"decoded_string_bytes","document_base64":"PCEtLSB3cDp0ZXN0IHsiYnl0ZV9rZXlzIjp7IiI6ImVtcHR5IiwiXHUwMDAwIjoibnVsa2V5IiwiXHUwMGU5IjoiZWFjdXRlLWtleSJ9LCJlc2NhcGVzIjoiXHUwMDAwXGJcZlxuXHJcdFwiXFxcLyIsInVuaWNvZGUiOiJcdTAwNjFcdTAwZTlcdWQ4M2RcdWRlMDAifSAvLS0+"},
+  {"name":"adjacent_attribute_isolation","document_base64":"PCEtLSB3cDp0ZXN0IHsibGVmdCI6eyJzYW1lIjoxLCJzYW1lIjoyfSwiZmxhZyI6dHJ1ZX0gLy0tPjwhLS0gd3A6dGVzdCB7InJpZ2h0IjpbXSwiZmxhZyI6ZmFsc2UsIm4iOm51bGx9IC8tLT4="}
+]

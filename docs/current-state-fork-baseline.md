@@ -2,7 +2,38 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: original-parser JSON error boundaries match fixed PHP
+## Latest: bounded resource stress matches; separate native error reference recorded
+
+The [resource-boundary record](evidence/parser-resource-boundaries-2026-10-30.md)
+adds twelve stress documents/twenty-four complete-original calls per backend,
+ten at4096bytes, unchanged fixed limits and exact old full observers. Clean
+951b637c3178403f7c90c1b3aaa093f9e021b320, one configuration PASS2.61s/
+package2.866s, mismatch0, exits0/runtime stderr0. All PCRE0; typed values/raw
+bytes/ordered keys/full parser fields/caller/reuse match actual PHP8.3.36.
+No default-profile original regex failure was found in this finite sample;
+this is not a proof that failures are unreachable.
+
+A separately named PHP-only match1 setting records original resource error2
+and whole-document freeform handling for eight cases/sixteen calls, plus eight
+zero-error calls. Clean b3030350294dae0c4c720a1ffdbe695e6da95dda,
+native run_count1, PASS0.30s/package0.504s, exit0/runtime stderr0. An initial
+strict-manifest preflight failed before native execution and was corrected in
+the owned harness only. The current generated entry fixes match100000 and has
+no match1 selector, so candidate/comparison is explicitly not-run-unsupported-
+budget. This is not a Go PASS or a changed default profile.
+
+Both machine records retain full observations and exact source/command/run
+provenance. Current GoHPb2d1482, original source, old manifests/corpora/observers/
+pins/evidence/auth/routes/deployment and old successful configurations stay
+unchanged. Existing cached engine/image/toolchain/sharedcache only; no setup,
+startup/pull/install or new CI resources. The candidate binary was test-cleaned.
+The new two local inspection capabilities record schemas/phases/results and
+WebMCP exclusions. The resource gate is partially observed and still open for
+generated original error paths, over-bound subject/timeout/other resource
+behavior. G83/application stays open; bootstrap/data/HTTP/site not-run. Issue1
+tracks scope6521976972; devboard unidentified/unsynchronized.
+
+## Previous: original-parser JSON error boundaries match fixed PHP
 
 The separate [JSON-error series](evidence/parser-json-errors-2026-10-30.md)
 passes twelve new documents/twenty-four actual complete-original parse calls

@@ -134,10 +134,12 @@ the [complete generated-parser retained-reference execution](docs/evidence/parse
 actually calls the original generated `MContext_parse` for 12 declared cases
 with fresh and reused parser instances (24 calls) and matches the retained
 PHP8.3.36 typed reference. The Go run uses enabled static PCRE and exits0 with
-quiet stderr. This is not a fresh native-PHP comparison or whole-process
-stdout-byte equality, and it is not full Gossip acceptance: Docker was
-unavailable for the fresh PHP capture, corpus-boundary review remains, and
-G83-PARSER stays open. General JSON floats/flags/object mode and full WordPress
+quiet stderr. The [separate fresh-PHP comparison](docs/evidence/parser-full-fresh-2026-10-30.md)
+now also passes once on the same12 cases using the exact existing oracle.
+This is typed-case comparison, not whole-process stdout-byte equality or full
+Gossip acceptance. The [boundary review](docs/parser-full-acceptance-boundaries.md)
+records missing JSON/type/resource/carry-in-state cases; G83-PARSER stays open.
+General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the
 tested tree. Those are distinct feature results.

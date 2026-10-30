@@ -2,7 +2,41 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: complete generated parser matches the retained PHP reference
+## Latest: fresh comparison adopted and acceptance boundaries reviewed
+
+The [new fresh-mode record](evidence/parser-full-fresh-2026-10-30.md) passes
+12cases/24 actual original parse calls per side against a new execution of the
+fixed PHP8.3.36 oracle. Clean Gossip1f7a3b2/unchanged GoHPb2d1482, run_count1,
+test2.61/package2.843s, mismatch0. A later owner handed this measurement to the
+earlier boundary-review scope; it was adopted without repeating the run/build.
+Both runtimes exit0/stderr0 and typed cases match. PHP stdout60065bytes and Go
+59260bytes have different metadata envelopes, not whole-output equality.
+
+The [complete-parser boundary review](parser-full-acceptance-boundaries.md)
+now separates the12case/24call retained PASS from unmeasured JSON encoding/depth/
+key/type, PCRE error/resource and carry-in global-state cases. All recorded PCRE
+codes are0; the only recorded JSON error is4. Valid UTF-8/NUL outside attributes
+does not cover invalid UTF-8 JSON. Each call's JSON success baseline does not
+prove that the original parser resets global errors itself.
+
+The [separate planned probes](../gossip/tests/gohp/parser-full-boundary-plan.json)
+are non-executable metadata, not new cases added to the current harness or native
+expectations. Any extension needs its own immutable corpus/observer/evidence
+series. Floats are outside both current typed observers as well as GoHP's JSON
+profile; an observer failure is not a native-parser rejection. Attribute capture
+is brace-bound, so scalar-root JSON is not a new requirement for this callsite.
+
+No test/probe/build/parse run or artifact download was repeated, and no compiler
+defect or harness change was demonstrated. GoHP138 and the retained/generated
+proofs, original source, old manifests/corpus/observers/pins stay unchanged.
+The existing native runner became available to the measurement owner; neither
+owner started/installed a daemon/image/service or new CI resources. Fresh-v1 is
+now passed case-limited. G83-PARSER remains open for the recorded boundary
+measurements; later gates remain not-run. Old retained records stay unchanged.
+This change publishes documentation, a review plan and the adopted evidence, keeping the existing
+local comparison/WebMCP exclusion and auth/routes/deployment unchanged.
+
+## Previous: complete generated parser matches the retained PHP reference
 
 The complete generated original `MContext_parse` has now been invoked, rather
 than merely generated and built. At clean Gossip
@@ -26,9 +60,9 @@ are in [the generated-parser execution record](evidence/parser-full-generated-20
 and its [paired machine record](evidence/parser-full-generated-2026-10-30.json).
 
 This is a bounded retained-reference result, not G83-PARSER acceptance or a
-claim that Gossip works completely. Docker was unavailable, so native PHP was
-not rerun and `fresh` mode remains unverified. The required fresh comparison
-and corpus-boundary review (including negative API/input cases) remain open;
+claim that Gossip works completely. Docker was unavailable for that earlier run,
+so native PHP was not rerun in the retained configuration. The separate fresh
+comparison now passes as recorded above; unmeasured boundary cases remain open;
 bootstrap, data, HTTP, and site gates have not run. The 12 cases exercise only
 the P2/P3/P4/P5 branches they reach, not all branches. The test-only harness
 adds no production source change, extraction/rewrite/fallback, route/auth/deploy

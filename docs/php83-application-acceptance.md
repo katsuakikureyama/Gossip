@@ -40,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Retained-reference execution passes; acceptance remains open**: [the complete generated-parser record](evidence/parser-full-generated-2026-10-30.md) has one enabled-PCRE Go run at clean Gossip29b9bd2/treee35090: 12 declared cases, fresh and reused-parser passes, 24 calls sharing one Execution, and canonical typed cases equal to the retained PHP8.3.36 record. The native container was not rerun because Docker was unavailable; fresh mode and boundary review are unverified, so this is neither a fresh differential nor application acceptance |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Fresh fixed-case comparison passes; acceptance boundary gates remain open**: [retained-only record](evidence/parser-full-generated-2026-10-30.md) unchanged; [one fresh-mode run](evidence/parser-full-fresh-2026-10-30.md) at clean1f7a3b2 matches new PHP8.3.36 typed cases for12cases/24calls per side, adopted without rerun. [Boundary review](parser-full-acceptance-boundaries.md) still has unmeasured JSON/type/resource/carry-in-state cases. No broader application acceptance |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -52,6 +52,14 @@ at different revisions does not satisfy that statement. Parser corpus v1 is the
 first bounded input set, not every possible document, branch or resource limit.
 Before admitting G83-PARSER, review the corpus for required error-limit/JSON/type
 boundaries and explicitly retain any unsupported cases rather than removing them.
+
+The [completed review and open probe plan](parser-full-acceptance-boundaries.md)
+now record that all24 PCRE codes are0, JSON failure covers syntax4 only, raw
+UTF-8/NUL is outside attributes, and JSON state is initialized before each call.
+Original JSON capture is brace-bound; arbitrary scalar-root JSON is not a new
+parser-callsite requirement. Do not equate observer failure or standalone builtin
+success with original-parser behavior. The plan adds no executable cases and
+does not modify the fixed12-case denominator, native records or evidence hashes.
 
 Multisite, third-party plugins/themes, arbitrary Composer packages, external mail,
 payments, automatic updates, public deployment and production readiness are not
@@ -71,15 +79,15 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119), positional list assignment (GoHP120), string switches (GoHP121) added; [switch probe](evidence/parser-switch-probe-2026-10-29.md) passes switch and stops at207. Full source semantic/runtime acceptance is still pending |
 | P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | Prior bounded admissions remain as documented. The new complete-parser run observes the stack/object behavior reached by its 12 cases in both fresh/reused passes and matches the retained typed record. It does **not** cover every P2 branch or make P2 complete; stack/snapshot boundaries outside the corpus remain open |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | The complete-parser run observes tokenizer behavior reached by its fixed 12 cases, including typed/raw-byte/state comparison against the retained record. This is not exhaustive `next_token` coverage: capture/error/resource and branches outside those cases remain unverified |
-| P4 — attributes | `json_decode(..., true)` at 283 | GoHP138's bounded literal-true/default-depth/int64-only JSON admits original283. The complete-parser run matches retained results for the corpus, including its malformed JSON-attributes case and JSON error state; floats/flags/object mode, arbitrary inputs, and fresh native-PHP confirmation remain excluded or unverified |
-| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 closure plus GoHP138 generation/build now reaches the complete generated entry. The retained-reference run invokes it successfully for 12 cases/24 calls. General include/require/autoload, dynamic/conditional loads, cycles, dependency initialization, fresh native comparison, and all unexercised branches remain excluded or unverified |
+| P4 — attributes | `json_decode(..., true)` at 283 | GoHP138's bounded literal-true/default-depth/int64-only JSON admits original283. Retained and fresh complete-parser comparisons match the fixed corpus, including malformed JSON attributes and JSON error state. Floats/flags/object mode and arbitrary inputs remain excluded or unverified; JSON boundary cases remain unmeasured |
+| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 closure plus GoHP138 generation/build reaches the complete generated entry. Retained and fresh comparisons pass for 12 cases/24 calls per side. General include/require/autoload, dynamic/conditional loads, cycles, dependency initialization and all unexercised branches remain excluded or unverified |
 
 The former compiler blocker was original `json_decode($matches['attrs'][0], true)`
 at line283. The latest complete closure now generates, builds, and has one
-enabled-native-PCRE retained-reference execution. It supplies bounded runtime
-observations for P2/P3/P4/P5 only where the fixed 12 cases reach them; it does
-not establish every branch, a fresh PHP differential, or a completed product
-goal. These rows remain dependencies of one application gate.
+enabled-native-PCRE retained-reference execution plus a separate fresh-PHP
+comparison. These supply bounded runtime observations for P2/P3/P4/P5 only
+where the fixed 12 cases reach them. They do not establish every branch or a
+completed product goal. These rows remain dependencies of one application gate.
 PR133's `empty` admission is deliberately narrow: defined bare locals whose
 actual values are strings or arrays only, with strings empty exactly for `''`
 or ASCII `'0'`. It does not make generic calls valid, suppress undefined/address

@@ -163,8 +163,13 @@ The [resource-boundary record](docs/evidence/parser-resource-boundaries-2026-10-
 adds12 bounded stress documents/24calls per side, including ten4096-byte inputs,
 with matching typed results at the unchanged limits and all PCRE0. A separate
 PHP-only match1 reference observes original error2/freeform handling in8cases/
-16calls. Go's generated profile cannot select that budget, so no generated
-comparison is claimed for it. The resource gate remains open.
+16calls. Its native-only record remains unchanged. The separate
+[GoHP140 match1 profile comparison](docs/evidence/parser-match1-generated-2026-10-30.md)
+now matches that retained PHP record for12cases/24actual original Go calls,
+including16error2 and8error0 outcomes, typed results and all state. It uses a
+new explicit compile-time profile; default match100000 and all older pins stay
+unchanged. PHP was not rerun. Host guards/timeouts/other resource behavior and
+the overall resource/application gates remain open.
 General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the

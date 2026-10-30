@@ -22,8 +22,10 @@ UTF-8, raw controls, unpaired UTF-16 escapes and default-depth null/error paths.
 The [resource series](evidence/parser-resource-boundaries-2026-10-30.md) adds
 twelve fixed-limit stress documents/twenty-four calls per backend that agree
 with all PCRE0. A separately named PHP-only match1 reference observes original
-error2 handling; the generated entry has no matching budget selector and is
-not compared under that setting. Resource gates are partially observed and
+error2 handling. The separate explicit
+[GoHP140 generated match1 comparison](evidence/parser-match1-generated-2026-10-30.md)
+now matches its12cases/24calls, including16error2 and8error0, with unchanged
+default entry and no native rerun. Resource gates are partially observed and
 still open, as is G83-PARSER. These extensions do not alter the fixed12-case
 result described below.
 
@@ -47,7 +49,7 @@ unexecuted probes**. It is not an executable extension of either harness.
 | Invalid JSON attributes | Fixed-v1 syntax4 plus separate JSON-error12/24: invalid attribute UTF-8/controls/unpaired surrogates/default-depth produce null attrs and codes5/3/10/1 with matching messages | Case-limited errors, not arbitrary malformed input, successful deep output or exact failure-threshold/resource equivalence |
 | Raw string bytes | Fixed-v1 valid UTF-8/NUL freeform; separate JSON-error corpus observes invalid UTF-8 and raw NUL/LF/TAB inside attributes | The separate denominators remain distinct; fixed-v1 freeform alone did not establish attribute errors |
 | Parser state and reuse | fixed-v1 has same typed result and every parser field, unchanged caller, fresh/reused objects | Fixed-v1 resets JSON before every call. The separate carry-in series now measures JSON0/4 and incoming PCRE0/2; arbitrary globals remain unmeasured |
-| Regex errors/resources | Fixed-profile stress12/24 has PCRE0, including ten4096-byte inputs; separate native-only match1 observes16original error2/freeform calls | No generated match1 support/comparison, default-profile original nonzero error witness, over-bound subject, heap/process-memory failure or timeout-equivalence measurement |
+| Regex errors/resources | Fixed-profile stress12/24 stays PCRE0; separate explicit generated match1 now matches retained native12/24 with16original error2/freeform outcomes | Case-limited named budgets; no over-bound subject, heap/process-memory failure, timeout equivalence or proof of unreachable default errors |
 | Entry API | `parse(document)` is always passed a string decoded from the fixed corpus | No null/bool/int/array/object coercion or PHP warning/exception equivalence; the other six public methods are not directly API-tested |
 
 Case IDs and contents are fixed in
@@ -66,8 +68,10 @@ scalar-root json_decode call in this parser**. Generic JSON scalar-root support
 must not be made a new G83 requirement just because the builtin supports it.
 The same original method has an explicit preg_match-false path returning
 `no-more-tokens`; fixed-profile zero-error cases do not exercise that path.
-The separate native-only match1 reference now observes it under its declared
-different budget; it is not a matching generated-profile execution.
+The separate match1 reference observes it under its declared different budget;
+the new explicit generated match1 profile now matches those retained cases.
+This does not reinterpret the old default-profile execution or native-only
+capture as a different measurement.
 
 ## Value and resource profile limits
 
@@ -122,12 +126,13 @@ failure, parser errors and observation-transport failure are distinct states.
    The new finite stress series compares twelve documents/twenty-four original
    calls at unchanged limits, all PCRE0. A separate named match1 PHP reference
    records eight cases/sixteen original error2/freeform calls, with full fields
-   and raw bytes. Generated execution under match1 is explicitly unsupported/
-   not-run, not a cross-runtime PASS or a defect in the fixed profile. No PHP
-   source change or direct-regex seed substitutes for the original path.
-   A future generated failure observation needs either an actual current-profile
-   witness or a separately reviewed explicit profile contract that preserves
-   the default. Host guards/timeouts still need separate failure observations,
+   and raw bytes. GoHP140 now adds a separately selected compile-time match1
+   profile, preserving the old default. Its new complete-original generation/
+   build/24calls match the retained native cases, including16error2 outcomes;
+   no PHP source change/direct-regex seed/native rerun substitutes for the
+   original path. This is a case-limited retained comparison, not a current-
+   default-profile defect or arbitrary resource equivalence.
+   Host guards/timeouts still need separate failure observations,
    not disappearance from the denominator or matching nonzero process exits.
    Finite zero-error samples do not prove all errors unreachable; PHP process
    memory, PCRE heap and nominal counters remain distinct.

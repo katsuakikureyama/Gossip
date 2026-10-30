@@ -3,8 +3,10 @@
 ## Decision
 
 The fixed12-case/24-call result from [Gossip69](https://github.com/katsuakikureyama/Gossip/pull/69)
-remains a **retained-reference comparison PASS**, not an arbitrary-input or
-application acceptance result. The boundary review is now recorded; its open
+remains a retained-reference PASS. A separately measured
+[fresh-PHP comparison](evidence/parser-full-fresh-2026-10-30.md) is now adopted
+as a **case-limited fresh comparison PASS**, not arbitrary-input or application
+acceptance. The boundary review is now recorded; its open
 items are not converted into exclusions that silently make G83-PARSER pass.
 No compiler defect requiring a GoHP change was demonstrated by this review.
 
@@ -13,8 +15,8 @@ Reuse [the immutable generated execution](evidence/parser-full-generated-2026-10
 and [native capture](evidence/parser-full-baseline-2026-10-27.md). The existing
 corpus, observers, pins and machine records are unchanged. The separate
 [machine-readable boundary plan](../gossip/tests/gohp/parser-full-boundary-plan.json)
-contains **planned, unexecuted probes**, not additional passed cases or an
-executable extension of the current harness.
+separates the passed fresh-v1 prerequisite from **planned, unexecuted boundary
+probes**, not additional passed cases or an executable extension of the harness.
 
 ## What the current result establishes
 
@@ -65,7 +67,7 @@ not the same complete-parser/source/engine/observer configuration.
 
 | Runtime side | Actual measured profile | Non-equivalence to retain |
 |---|---|---|
-| Saved native | PHP8.3.36, Linux/aarch64, PCRE10.42, C LC_CTYPE, JIT off, backtrack100000/recursion10000, process memory128M | A PHP process memory limit is not a PCRE-only heap limit |
+| Saved native and byte-identical fresh capture | PHP8.3.36, Linux/aarch64, PCRE10.42, C LC_CTYPE, JIT off, backtrack100000/recursion10000, process memory128M | A PHP process memory limit is not a PCRE-only heap limit |
 | Generated candidate | Darwin/arm64, Go1.23.0, static PCRE10.47_1, JIT/UTF-UCP off, match100000/depth10000/heap131072KiB/subject4096bytes | Equal nominal counters do not prove equal failure points across engine versions or total-process memory behavior |
 
 The saved native and generated stdout envelopes have different metadata and
@@ -75,11 +77,11 @@ failure, parser errors and observation-transport failure are distinct states.
 
 ## Remaining gates and next probes
 
-1. **Fresh fixed-PHP comparison — unverified.** Use the existing `fresh` mode,
-   exact cached PHP image and unchanged original corpus/observer. The native
-   runner must already be available; this review neither starts Docker nor
-   installs an image/engine or creates remote CI resources. Retained mode PASS
-   must not be relabeled as fresh. SKIP or unavailable environment is not PASS.
+1. **Fresh fixed-PHP comparison — passed, case-limited.** The existing `fresh`
+   mode ran once at clean1f7a3b2 with the exact already-cached image and unchanged
+   corpus/observer; this review adopted its handoff without rerunning. No daemon,
+   image/engine or remote resources were installed. The old retained result is
+   unchanged; a separate machine record binds the new actual PHP execution.
 2. **Supported-profile JSON/type boundaries — unmeasured on the full parser.**
    A separate series must cover ordered duplicate/numeric keys, integer bounds,
    encoding/control/surrogate/depth errors at the actual brace-bound callsite.
@@ -108,7 +110,8 @@ gates remain not-run.
 
 ## Capability and work performed
 
-This change adds only the boundary plan and project documentation. The plan is
+This change adds the boundary plan, project documentation and adopted fresh
+evidence. The plan is
 not an input consumed by `TestOriginalWordPressFullParserGenerated`; the current
 harness still executes exactly its immutable12 cases. Existing local operation
 `gossip.tests.original-parser-compare` remains experimental and WebMCP-excluded,
@@ -116,7 +119,9 @@ with unchanged retained/fresh schemas, explicit opt-in and fresh evidence output
 No new executable capability, public API, auth route or deployment is added.
 
 No retained/fresh test, generation, build, native/Go execution or artifact
-download was performed for this review. Prior unavailable Docker state is reused,
-not repeatedly probed. Only changed JSON/Markdown validity, link targets, source
-preservation and document diffs are checked. Root current-state/INDEX and Issue1
+download was repeated by this review. A separate owner's one successful fresh
+configuration was adopted with source/run provenance after its existing runner
+became available; it was not silently treated as the old retained measurement.
+Only changed JSON/Markdown validity, link targets, source preservation and document
+diffs are checked locally. Root current-state/INDEX and Issue1
 record the review separately from measurements; devboard remains unidentified.

@@ -1,12 +1,14 @@
 {
   "schema": "gossip.parser-full-boundary-plan/v1",
-  "status": "reviewed-with-open-gates",
+  "status": "fresh-passed-boundary-gates-open",
   "application_acceptance": "not-established",
   "executable_input": false,
   "measurements_executed_for_review": 0,
+  "fresh_measurement_runs_adopted": 1,
   "reviewed_gossip_commit": "1f7a3b262a709203a799e07b12f636c58d44f7b5",
   "gohp_commit": "b2d1482268a7710c515c07bf919af3d40b09d17c",
   "fixed_result": {
+    "mode": "retained",
     "status": "retained-comparison-pass",
     "case_count": 12,
     "parse_call_count": 24,
@@ -20,8 +22,20 @@
     "pcre_error_codes_observed": [0],
     "json_error_codes_observed": [0, 4]
   },
-  "remaining_gates": [
-    {"id":"g83.fresh-native-v1","status":"unverified","series":"existing-fixed-v1","requires_new_series":false,"requirement":"Existing fresh mode, exact available cached PHP oracle, same12 typed cases and actual generated original calls; no setup or rerun authorized by this plan"},
+  "fresh_result": {
+    "status": "fresh-comparison-pass",
+    "case_count": 12,
+    "parse_call_count_per_side": 24,
+    "code_commit": "1f7a3b262a709203a799e07b12f636c58d44f7b5",
+    "evidence": "../../../docs/evidence/parser-full-fresh-2026-10-30.json",
+    "raw_evidence_sha256": "3d83a0abc23d0441aade911fdcd900635761ecad5184ce012a7f7e925b9b31cf",
+    "source_measurement_scope": "6519178991",
+    "run_count": 1,
+    "adopted_without_rerun": true,
+    "canonical_typed_cases_sha256": "3780c6a5ebd4eefda51bc548b2e95f585687c39f274eb6d3c8a622792607ca28"
+  },
+  "reviewed_gates": [
+    {"id":"g83.fresh-native-v1","status":"passed-case-limited","series":"existing-fixed-v1","requires_new_series":false,"requirement":"Existing fresh mode completed once on the exact cached oracle; same12 typed cases/24 actual original calls per side. No setup or rerun authorized by this plan"},
     {"id":"g83.json-key-type-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["duplicate/numeric-string keys and order","int64 extrema in object attributes"],"requirement":"New immutable native/generated original observations; no reuse of standalone builtin results as parser evidence"},
     {"id":"g83.json-error-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["invalid UTF8 inside JSON attrs","raw control and lone UTF16 surrogate","default JSON depth error"],"requirement":"Distinguish native JSON null/error, runtime failure and typed-observer depth failure"},
     {"id":"g83.pcre-error-resource-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["original parser path with nonzero PCRE error","subject bound rejection","timeout and resource failure"],"requirement":"Record output/state/errors or explicit process failure; PHP process memory and PCRE heap are distinct budgets"},

@@ -78,6 +78,12 @@ new driver explicitly changes only the owned reference's budget; existing
 observers and the fixed generated profile stay unchanged. This is not yet
 measured and cannot be counted as a PHP-versus-Go comparison.
 
+Initial clean ec5bffd72's test failed at strict source-manifest decoding
+(`json: unknown field "schema"`, package0.239s), before any native process or
+evidence output. The owned harness struct now declares the complete unchanged
+manifest schema and validates its version/target. Only this preflight fix is
+rechecked; the successful fixed-profile stress comparison is not rerun.
+
 | Field | Separate native-reference contract |
 |---|---|
 | Stable ID | `gossip.tests.parser-resource-match1-reference` |

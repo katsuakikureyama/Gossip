@@ -36,12 +36,16 @@ func TestOriginalWordPressParserMatch1Reference(t *testing.T) {
 		t.Fatal("low-budget reference identities drifted")
 	}
 	var nativePin struct {
+		Schema    string            `json:"schema"`
 		PHPImage  string            `json:"php_image"`
 		WordPress string            `json:"wordpress_commit"`
+		PHPTarget string            `json:"php_target"`
+		Cases     string            `json:"cases_sha256"`
+		Observer  string            `json:"observer_sha256"`
 		Sources   map[string]string `json:"sources"`
 	}
 	numericBundleDecode(t, manifest, &nativePin)
-	if os.Getenv("GOSSIP_PHP_RUNNER_IMAGE") != nativePin.PHPImage || nativePin.WordPress != "54106f6c545fc8b881f6b39b7963002bece6c28c" || len(nativePin.Sources) != 5 {
+	if nativePin.Schema != "gossip.parser-full-reference/v1" || nativePin.PHPTarget != "8.3" || os.Getenv("GOSSIP_PHP_RUNNER_IMAGE") != nativePin.PHPImage || nativePin.WordPress != "54106f6c545fc8b881f6b39b7963002bece6c28c" || len(nativePin.Sources) != 5 {
 		t.Fatal("requires fixed original source and exact cached image")
 	}
 	input := t.TempDir()

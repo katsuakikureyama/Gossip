@@ -40,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Blocked**: [GoHP PR137](https://github.com/katsuakikureyama/GoHP/pull/137), merged at main `af3e9ada36728cb317096b35af6ca0f22e3492c4`, passes original line205 `array_pop($this->stack)` through the unchanged three-file closure and stops at codegen line283: `PHP004: unsupported function json_decode`. Its PHP8.3.36/8.4.27 push/PR/exact-main CI and owned fixture comparison pass. There is no original generation/execution or acceptance result. The12 native reference cases /24 original calls remain reference-only |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Generated/built; execution unverified**: [GoHP138](https://github.com/katsuakikureyama/GoHP/pull/138) passes json_decode283. One unchanged complete three-file closure at35524a6 publishes Go/v0.2 report, then Go1.23.0Darwinarm64/CGO0 build succeeds. No original parse invocation, enabled-PCRE execution or12case/24call comparison; application acceptance remains blocked. Native reference and owned JSON evidence stay separate |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -71,16 +71,16 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119), positional list assignment (GoHP120), string switches (GoHP121) added; [switch probe](evidence/parser-switch-probe-2026-10-29.md) passes switch and stops at207. Full source semantic/runtime acceptance is still pending |
 | P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | GoHP122 adds nested updates,124 declared-class guards,126 quiet property presence. PR131's bounded direct named-property admission passes original line209; PR133 reaches the unknown-class snapshot cast at394; PR135 admits that cast for an actual nonnil `PublicPropertyObject`; PR136 admits line165 push. Merged PR137's [array-pop probe](evidence/parser-array-pop-probe-2026-10-30.md) passes line205 and stops at line283 `json_decode`; its push/PR/exact-main CI and owned fixture comparison pass. Full-unit stack mutation and snapshots remain open, so P2 is not complete |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | GoHP123 adds named property inputs and the [full-source probe](evidence/parser-preg-property-probe-2026-10-29.md) now reaches349. Enabled owned fixture comparison records15 typed observations at its own pin; existing driver23/23 remains at its old pin. Neither is **original next_token translation**. Capture/raw-byte/error/full-method integration remains pending |
-| P4 — attributes | `json_decode(..., true)` at 283 | Preserve associative keys/types/nesting and malformed-input null/error semantics; do not substitute a JSON string or hard-coded attrs |
-| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 connects L0's checked graph and file-aware locations into explicit manifest/root/entry assembly and v0.2 reports. The complete unchanged parser, Block, and Frame pass both original loading directives; its [L2 probe records the prior semantic rejection](evidence/parser-static-closure-probe-2026-10-29.md) at209. L1's owned real-file fixture passes native PHP8.3/8.4 comparisons. General include/require/autoload, dynamic/conditional loads, cycles and dependency initialization remain excluded; this is not original-parser generation or acceptance |
+| P4 — attributes | `json_decode(..., true)` at 283 | GoHP138's bounded literal-true/default-depth/int64-only JSON admits original283; ordered keys/types/nesting and malformed null/error code/message have separate owned checks. Floats/flags/object mode remain excluded. Original full typed runtime comparison still required, no hard-coded attrs or JSON-string substitution |
+| P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 connects checked static closure and v0.2 reports. GoHP138's [latest complete original probe](evidence/parser-json-generation-2026-10-30.md) generates all three unchanged classes and builds them CGO0 Darwinarm64. Original invocation/typed comparison still unverified. General include/require/autoload, dynamic/conditional loads, cycles and dependency initialization remain excluded |
 
-The measured next compiler blocker is original `json_decode($matches['attrs'][0], true)`
-at line283. The bounded array-pop candidate advances the former line205 stack
-gate but does not establish any original runtime behavior; the apparent
-source-line reversal is compiler traversal after that gate changes. P2's
-remaining stack/snapshot dependencies still need implementation before
-full-unit acceptance. These rows define dependencies of the same gate, not five
-new standalone product goals.
+The former compiler blocker was original `json_decode($matches['attrs'][0], true)`
+at line283. The latest complete closure now generates and builds. No new
+compiler rejection was observed; the next integration is an actual generated
+parse entry/observer with enabled native PCRE and the fixed12-case/24-call
+typed comparison. P2/P3/P4 runtime semantics remain unverified on the complete
+original even though their compiler gates pass. These rows are dependencies
+of one application gate, not separate completed product goals.
 PR133's `empty` admission is deliberately narrow: defined bare locals whose
 actual values are strings or arrays only, with strings empty exactly for `''`
 or ASCII `'0'`. It does not make generic calls valid, suppress undefined/address
@@ -169,6 +169,13 @@ has no generated source/report/binary to certify. Native capture, expected
 rejection, infrastructure failure, SKIP and unmeasured remain distinct states.
 No feature-count or compatibility percentage is introduced here.
 
+Latest [JSON-generation evidence](evidence/parser-json-generation-2026-10-30.md)
+records clean35524a6's one complete unchanged generation plus one CGO0 build,
+both exits0. Go/report exist and retain all three source hashes; no original
+method was called. This supersedes the prior compiler stop, not the native
+reference corpus or its acceptance criteria. Original execution, engine/driver
+configuration and typed differential comparison remain unverified.
+
 ## Capability / progress management
 
 The fixture is a developer-local read/inspect operation: stable ID
@@ -176,6 +183,9 @@ The fixture is a developer-local read/inspect operation: stable ID
 runner, resource the pinned original parser corpus, stage `inspect`, status
 experimental. Result states are native-reference-recorded, skipped or failed;
 compiler/differential/application acceptance remain not-run/blocked as applicable.
+Separate GoHP-local generation/build evidence uses its existing excluded local
+compiler capability and is now observed; it does not change this native-reference
+operation into a hosted execution or an application-acceptance operation.
 Its structured log is local evidence, not a persistent audit service. UI, AI
 Assist and WebMCP are **excluded**: there is no hosted operation, browser
 callsite, server authorization contract or public execution API. It performs no

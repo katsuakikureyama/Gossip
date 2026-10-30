@@ -19,8 +19,13 @@ duplicate/numeric keys/order, signed64 bounds, nested types and decoded bytes.
 A separate [JSON-error series](evidence/parser-json-errors-2026-10-30.md) now
 passes twelve documents/twenty-four original calls per backend: invalid attribute
 UTF-8, raw controls, unpaired UTF-16 escapes and default-depth null/error paths.
-Original regex/resource gates remain open, as does G83-PARSER. These extensions
-do not alter the fixed12-case result described below.
+The [resource series](evidence/parser-resource-boundaries-2026-10-30.md) adds
+twelve fixed-limit stress documents/twenty-four calls per backend that agree
+with all PCRE0. A separately named PHP-only match1 reference observes original
+error2 handling; the generated entry has no matching budget selector and is
+not compared under that setting. Resource gates are partially observed and
+still open, as is G83-PARSER. These extensions do not alter the fixed12-case
+result described below.
 
 The original PR70 boundary review itself is a source/evidence review, not a new
 execution or second verifier. The later carry-in series has its own measured
@@ -42,7 +47,7 @@ unexecuted probes**. It is not an executable extension of either harness.
 | Invalid JSON attributes | Fixed-v1 syntax4 plus separate JSON-error12/24: invalid attribute UTF-8/controls/unpaired surrogates/default-depth produce null attrs and codes5/3/10/1 with matching messages | Case-limited errors, not arbitrary malformed input, successful deep output or exact failure-threshold/resource equivalence |
 | Raw string bytes | Fixed-v1 valid UTF-8/NUL freeform; separate JSON-error corpus observes invalid UTF-8 and raw NUL/LF/TAB inside attributes | The separate denominators remain distinct; fixed-v1 freeform alone did not establish attribute errors |
 | Parser state and reuse | fixed-v1 has same typed result and every parser field, unchanged caller, fresh/reused objects | Fixed-v1 resets JSON before every call. The separate carry-in series now measures JSON0/4 and incoming PCRE0/2; arbitrary globals remain unmeasured |
-| Regex errors/resources | all24 recorded PCRE error codes0 | No original limit-error path, over-bound subject, heap/process-memory exhaustion, or timeout-equivalence measurement |
+| Regex errors/resources | Fixed-profile stress12/24 has PCRE0, including ten4096-byte inputs; separate native-only match1 observes16original error2/freeform calls | No generated match1 support/comparison, default-profile original nonzero error witness, over-bound subject, heap/process-memory failure or timeout-equivalence measurement |
 | Entry API | `parse(document)` is always passed a string decoded from the fixed corpus | No null/bool/int/array/object coercion or PHP warning/exception equivalence; the other six public methods are not directly API-tested |
 
 Case IDs and contents are fixed in
@@ -60,7 +65,9 @@ instead of an attribute object is a tokenizer/input-recovery question, **not a
 scalar-root json_decode call in this parser**. Generic JSON scalar-root support
 must not be made a new G83 requirement just because the builtin supports it.
 The same original method has an explicit preg_match-false path returning
-`no-more-tokens`; zero-error cases do not exercise that error path.
+`no-more-tokens`; fixed-profile zero-error cases do not exercise that path.
+The separate native-only match1 reference now observes it under its declared
+different budget; it is not a matching generated-profile execution.
 
 ## Value and resource profile limits
 
@@ -111,11 +118,19 @@ failure, parser errors and observation-transport failure are distinct states.
    controls/surrogate pairs and invalid forms remain separate case families;
    successful deep output, arbitrary malformed inputs and resource equivalence
    are not established.
-4. **Original regex-error/resource path — unmeasured.** Select a reproducible
-   in-profile input/error budget and observe the actual original parser's output,
-   fields and PCRE status. Do not substitute direct preg_match or different
-   engine experiments. Host guards/timeouts need a separate failure observation,
-   not disappearance from the denominator or a matching nonzero process exit.
+4. **Original regex-error/resource path — partially observed, still open.**
+   The new finite stress series compares twelve documents/twenty-four original
+   calls at unchanged limits, all PCRE0. A separate named match1 PHP reference
+   records eight cases/sixteen original error2/freeform calls, with full fields
+   and raw bytes. Generated execution under match1 is explicitly unsupported/
+   not-run, not a cross-runtime PASS or a defect in the fixed profile. No PHP
+   source change or direct-regex seed substitutes for the original path.
+   A future generated failure observation needs either an actual current-profile
+   witness or a separately reviewed explicit profile contract that preserves
+   the default. Host guards/timeouts still need separate failure observations,
+   not disappearance from the denominator or matching nonzero process exits.
+   Finite zero-error samples do not prove all errors unreachable; PHP process
+   memory, PCRE heap and nominal counters remain distinct.
 5. **Carry-in state — passed, case-limited separate series.** The new
    [four-sequence measurement](evidence/parser-carry-state-2026-10-30.md) seeds
    actual JSON0/4 and PCRE0/2, then records before/after twenty original parse

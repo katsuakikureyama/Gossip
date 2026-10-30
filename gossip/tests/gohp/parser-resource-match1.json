@@ -1,0 +1,7 @@
+{
+  "schema": "gossip.parser-resource-match1/v1",
+  "profile": "php83-original-parser-match1-v1",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "cases_sha256": "30400b0d12bc0fded6973ac456d53a2539f8fefadf2b990a432192824e3821e1",
+  "php_observer_sha256": "797971b4061396e8e74f3fb7f7a752810c59bf93b2966785e8dc42feb992b325"
+}

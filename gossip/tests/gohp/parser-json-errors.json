@@ -1,0 +1,8 @@
+{
+  "schema": "gossip.parser-json-errors/v1",
+  "generated_pin_sha256": "78003a7b9291fa363b9f8221a4f1dec2e7c16669f86c9c2c010ebf241d6898ad",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "cases_sha256": "5ab1573c821adf04e120808f51708cc63b25e982988fd448539289e41c0713cb",
+  "go_observer_sha256": "5da30cc715689e79bf2354e29981a7f8d52f12dd3d0fa03527300a4324bee774",
+  "php_observer_sha256": "bd3291ec00d9bcf8b04838579d3c528784a51038a2501164cedb67055d361cae"
+}

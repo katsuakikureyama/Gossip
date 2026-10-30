@@ -40,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Fixed-v1, carry-in and JSON key/type comparisons pass case-limited; acceptance remains open.** [Fresh fixed-v1 12/24](evidence/parser-full-fresh-2026-10-30.md) and [carry-in4/20](evidence/parser-carry-state-2026-10-30.md) unchanged. Separate [JSON key/type12/24](evidence/parser-json-key-types-2026-10-30.md) at clean2729405b8 matches actual PHP8.3.36 key order/types, signed64 extrema, bytes and all state/errors. [Boundary review](parser-full-acceptance-boundaries.md) still has unmeasured invalid-JSON/depth and original regex/resource paths. No whole-application acceptance |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Fixed-v1, carry-in, JSON key/type and JSON-error comparisons pass case-limited; acceptance remains open.** [Fresh fixed-v1 12/24](evidence/parser-full-fresh-2026-10-30.md), [carry-in4/20](evidence/parser-carry-state-2026-10-30.md) and [JSON key/type12/24](evidence/parser-json-key-types-2026-10-30.md) unchanged. Separate [JSON-error12/24](evidence/parser-json-errors-2026-10-30.md) at clean62d9ea5 matches actual PHP8.3.36 attribute UTF-8/control/surrogate/depth errors, null attrs and all typed state. [Boundary review](parser-full-acceptance-boundaries.md) retains unmeasured original regex/resource paths. No whole-application acceptance |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -79,7 +79,7 @@ lines 403 and 410. These line anchors refer to the fixed source above.
 | P1 — control/data syntax | `>` at 98, `<` at 128; `list` at 94/268; `switch` at 100 | Bounded relations (GoHP119), positional list assignment (GoHP120), string switches (GoHP121) added; [switch probe](evidence/parser-switch-probe-2026-10-29.md) passes switch and stops at207. Full source semantic/runtime acceptance is still pending |
 | P2 — object locations and stack | Named class parameter at349; property `isset` at384; `array_push($this->stack, …)` at165, `array_pop` at205/372; chained property append and `.=` at207–208/351–361/380–381; object-to-array snapshots | Prior bounded admissions remain as documented. The new complete-parser run observes the stack/object behavior reached by its 12 cases in both fresh/reused passes and matches the retained typed record. It does **not** cover every P2 branch or make P2 complete; stack/snapshot boundaries outside the corpus remain open |
 | P3 — tokenizer integration | Original `preg_match` at 250–256 reads document/offset properties, writes local nested capture array, then destructures/indexes it | The complete-parser run observes tokenizer behavior reached by its fixed 12 cases, including typed/raw-byte/state comparison against the retained record. This is not exhaustive `next_token` coverage: capture/error/resource and branches outside those cases remain unverified |
-| P4 — attributes | `json_decode(..., true)` at 283 | GoHP138's bounded literal-true/default-depth/int64-only JSON admits original283. Fixed-v1 and separate key/type12/24 compare actual decoded attrs, ordered normalized keys, signed64 limits and raw bytes; carry-in remains its own4/20 record. Floats/flags/object mode and arbitrary inputs remain excluded or unverified; invalid-encoding/control/surrogate/depth error proof is not established by this key/type series |
+| P4 — attributes | `json_decode(..., true)` at 283 | GoHP138's bounded literal-true/default-depth/int64-only JSON admits original283. Fixed-v1 and separate key/type12/24 compare decoded attrs/order/signed64 limits/raw bytes; JSON-error12/24 separately compares invalid-encoding/control/surrogate/depth null/errors. Carry-in remains its own4/20 record. Floats/flags/object mode, arbitrary inputs and successful deep output remain excluded or unverified |
 | P5 — source closure and full unit | Original `require_once __DIR__ ...` at403/410 plus both complete dependency files | GoHP130 closure plus GoHP138 generation/build reaches the complete generated entry. Retained and fresh comparisons pass for 12 cases/24 calls per side. General include/require/autoload, dynamic/conditional loads, cycles, dependency initialization and all unexercised branches remain excluded or unverified |
 
 The former compiler blocker was original `json_decode($matches['attrs'][0], true)`
@@ -176,12 +176,14 @@ has no generated source/report/binary to certify. Native capture, expected
 rejection, infrastructure failure, SKIP and unmeasured remain distinct states.
 No feature-count or compatibility percentage is introduced here.
 
-Latest [JSON-generation evidence](evidence/parser-json-generation-2026-10-30.md)
+Historical [JSON-generation evidence](evidence/parser-json-generation-2026-10-30.md)
 records clean35524a6's one complete unchanged generation plus one CGO0 build,
 both exits0. Go/report exist and retain all three source hashes; no original
 method was called. This supersedes the prior compiler stop, not the native
-reference corpus or its acceptance criteria. Original execution, engine/driver
-configuration and typed differential comparison remain unverified.
+reference corpus or its acceptance criteria. The later fixed-v1, carry-in,
+key/type and JSON-error records in the current gate table establish their
+bounded original executions and typed comparisons. Original regex/resource
+paths and application acceptance remain open.
 
 ## Capability / progress management
 

@@ -2,7 +2,34 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: original-parser JSON key/type boundaries match fixed PHP
+## Latest: original-parser JSON error boundaries match fixed PHP
+
+The separate [JSON-error series](evidence/parser-json-errors-2026-10-30.md)
+passes twelve new documents/twenty-four actual complete-original parse calls
+per backend. Clean measured commit `62d9ea5573a88eb286b85b2904ca0fdf03020a4f`,
+tree `ce553245b4a9ac67e13cdcad2139047681397250`, unchanged GoHPb2d1482.
+One configuration/attempt, PASS2.47s/package2.678s, mismatch0, exits0/runtime
+stderr0. Invalid UTF-8 attribute keys/values, raw NUL/LF/TAB, unpaired UTF-16
+escapes and default JSON depth failures match PHP8.3.36 codes5/3/10/1 and
+messages. Every original token has PCRE0 and each block has null attrs;
+typed results/order/raw bytes/full parser fields/caller/reuse agree.
+Canonical typedcases SHA
+`cdfa76d9c353c43a390ef44120d8f07e225e86979b2ec240b12ab652ef82933e`.
+Whole stdout envelopes differ; the machine record retains both observations.
+
+Existing full PHP/Go observers, checked generation/report/runtime pins and old
+corpora/evidence remain unchanged. Per-call JSON success baselines isolate
+errors; carry-in is the earlier separate series. These depth failures observe
+null/error, not successful deep values or equivalent resource thresholds.
+The new local capability `gossip.tests.parser-json-errors` records its inputs,
+phases, result and WebMCP exclusion. No compiler/runtime/auth/route/deployment
+change, old successful test/build/generation/artifact rerun, setup or new CI
+resources. The candidate binary was test-cleaned. G83-PARSER remains open for
+the original regex/resource gate and application acceptance; bootstrap/data/
+HTTP/site not-run. Key/types and carry-in statuses from PR72/71 are preserved.
+Issue1 tracks scope6521354926; devboard unidentified/unsynchronized.
+
+## Previous: original-parser JSON key/type boundaries match fixed PHP
 
 The separate [key/type series](evidence/parser-json-key-types-2026-10-30.md)
 passes twelve new documents/twenty-four actual complete-original parse calls

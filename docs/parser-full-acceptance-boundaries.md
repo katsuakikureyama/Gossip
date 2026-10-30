@@ -16,8 +16,11 @@ PCRE0/2 match before/after original calls without per-call success resets.
 Its separate [JSON key/type series](evidence/parser-json-key-types-2026-10-30.md)
 now also passes twelve new documents/twenty-four original calls per backend:
 duplicate/numeric keys/order, signed64 bounds, nested types and decoded bytes.
-JSON-invalid/depth and original regex/resource gates remain open, as does
-G83-PARSER. Neither extension alters the fixed12-case result described below.
+A separate [JSON-error series](evidence/parser-json-errors-2026-10-30.md) now
+passes twelve documents/twenty-four original calls per backend: invalid attribute
+UTF-8, raw controls, unpaired UTF-16 escapes and default-depth null/error paths.
+Original regex/resource gates remain open, as does G83-PARSER. These extensions
+do not alter the fixed12-case result described below.
 
 The original PR70 boundary review itself is a source/evidence review, not a new
 execution or second verifier. The later carry-in series has its own measured
@@ -26,7 +29,7 @@ Reuse [the immutable generated execution](evidence/parser-full-generated-2026-10
 and [native capture](evidence/parser-full-baseline-2026-10-27.md). The existing
 corpus, observers, pins and machine records are unchanged. The separate
 [machine-readable boundary plan](../gossip/tests/gohp/parser-full-boundary-plan.json)
-separates passed fresh-v1, carry-in and key/type identities from **remaining planned,
+separates passed fresh-v1, carry-in, key/type and JSON-error identities from **remaining planned,
 unexecuted probes**. It is not an executable extension of either harness.
 
 ## What the current result establishes
@@ -36,8 +39,8 @@ unexecuted probes**. It is not an executable extension of either harness.
 | Basic document structure | empty/freeform, single void/paired, nested/adjacent, leading/trailing freeform | A few complete paths, not every parser branch or arbitrary document |
 | Block-comment recovery | `unclosed_opener`, `stray_closer` | Not JSON parse errors; all PCRE/JSON codes0 in these cases |
 | Valid JSON attributes | Fixed-v1 `nested_attributes`, plus separate key/type12/24 with signed64 extrema, duplicate/escaped/numeric-string keys, ordered nested values and decoded bytes | Case-limited supported profile, not arbitrary nesting, float/overflow values or scalar-root JSON; scalar roots cannot reach this callsite |
-| Invalid JSON attributes | `malformed_json_attributes`: `{"broken":}` produces null attrs and JSON4/message on both calls | Syntax error only; no complete-parser UTF-8/control/surrogate/depth error measurements |
-| Raw string bytes | `raw_utf8_and_nul`: valid UTF-8 and NUL in freeform content | **Not invalid UTF-8 inside JSON attributes** |
+| Invalid JSON attributes | Fixed-v1 syntax4 plus separate JSON-error12/24: invalid attribute UTF-8/controls/unpaired surrogates/default-depth produce null attrs and codes5/3/10/1 with matching messages | Case-limited errors, not arbitrary malformed input, successful deep output or exact failure-threshold/resource equivalence |
+| Raw string bytes | Fixed-v1 valid UTF-8/NUL freeform; separate JSON-error corpus observes invalid UTF-8 and raw NUL/LF/TAB inside attributes | The separate denominators remain distinct; fixed-v1 freeform alone did not establish attribute errors |
 | Parser state and reuse | fixed-v1 has same typed result and every parser field, unchanged caller, fresh/reused objects | Fixed-v1 resets JSON before every call. The separate carry-in series now measures JSON0/4 and incoming PCRE0/2; arbitrary globals remain unmeasured |
 | Regex errors/resources | all24 recorded PCRE error codes0 | No original limit-error path, over-bound subject, heap/process-memory exhaustion, or timeout-equivalence measurement |
 | Entry API | `parse(document)` is always passed a string decoded from the fixed corpus | No null/bool/int/array/object coercion or PHP warning/exception equivalence; the other six public methods are not directly API-tested |
@@ -99,22 +102,28 @@ failure, parser errors and observation-transport failure are distinct states.
    arrays/objects and scalar/string bytes at the actual brace-bound callsite.
    Unchanged full observers and a new pinned named-block/attrs-type contract
    distinguish decoding from input recovery; all typed values/state/errors match
-   actual fixed PHP. Invalid encoding/raw control/lone-surrogate/default-depth
-   errors remain unmeasured in the separate JSON-error gate. Valid escaped
-   controls and surrogate pairs do not establish those error cases.
-3. **Original regex-error/resource path — unmeasured.** Select a reproducible
+   actual fixed PHP.
+3. **JSON-error boundaries — passed, case-limited separate series.** A separate
+   [JSON-error12/24 measurement](evidence/parser-json-errors-2026-10-30.md)
+   now covers invalid encoding/raw control/lone-surrogate/default-depth errors
+   at original283, with null attrs and matching codes/messages5/3/10/1.
+   It reuses the exact observers and their JSON success baseline. Valid escaped
+   controls/surrogate pairs and invalid forms remain separate case families;
+   successful deep output, arbitrary malformed inputs and resource equivalence
+   are not established.
+4. **Original regex-error/resource path — unmeasured.** Select a reproducible
    in-profile input/error budget and observe the actual original parser's output,
    fields and PCRE status. Do not substitute direct preg_match or different
    engine experiments. Host guards/timeouts need a separate failure observation,
    not disappearance from the denominator or a matching nonzero process exit.
-4. **Carry-in state — passed, case-limited separate series.** The new
+5. **Carry-in state — passed, case-limited separate series.** The new
    [four-sequence measurement](evidence/parser-carry-state-2026-10-30.md) seeds
    actual JSON0/4 and PCRE0/2, then records before/after twenty original parse
    calls per backend without per-call resets. JSON persists until a decode
    replaces it; original regex execution clears PCRE independently. All typed
    values/state/caller/reuse match. Other globals/error codes remain unmeasured;
    a direct PCRE caller seed is not the original regex resource-error path.
-5. **Outside-profile API/value cases — explicit, not supported.** Nonstring
+6. **Outside-profile API/value cases — explicit, not supported.** Nonstring
    input, float/overflow values, arbitrary public-method calls, references,
    visibility/dynamic properties and unbounded resource use remain excluded from
    the current result. Proposed negative records must preserve those rows; they

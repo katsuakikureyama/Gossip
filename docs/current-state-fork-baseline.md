@@ -2,7 +2,40 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: bounded resource stress matches; separate native error reference recorded
+## Latest: native original hook baseline recorded; generated hooks remain blocked
+
+The [hook baseline](evidence/hooks-original-baseline-2026-10-30.md) records eight
+actual native workflows over complete unchanged `plugin.php`, `WP_Hook` and
+`WP_Filter_Sentinel`. Native PHP8.3.36 exits0/stderr0 with typed callback events,
+global/private iteration state, priorities/args, identity/removal, reentry,
+mid-iteration add/remove and sentinel identity. The separate whole-source GoHP
+probe exits1 with PHP002 at original `plugin.php:25` (`require` unsupported),
+stdout0 and no generated artifacts. No generated hook build/execution/comparison
+or G83-BOOT acceptance. Full WordPress startup and external plugin-management
+dependencies remain unmeasured.
+
+Clean measured Gossip4e5e87879232607a13fe8633467aad4d878fb609/
+treecd1d274e944797a52d81aca4c8546acbd259b6a7, pinned GoHPb2d1482, one
+configuration/attempt, PASS1.38s/package1.620s for the declared capture/rejection
+contract. Native typed-workflow SHA
+`548fdccd65e84bca83ef231effc0ec5e416e5dfae05a71e5ab5d7199cf0595d6`.
+The [machine record](evidence/hooks-original-baseline-2026-10-30.json) preserves
+the same actual observation with source/command/run_count1 provenance. No old
+successful parser/resource/JSON/carry-in suite or generation rerun. Source
+measurement commit is retained in master ancestry when integrating resource74;
+the measured inputs/observer/harness are unchanged, no new tag/release needed.
+
+Review also found PHP8 attributes silently treated as hash comments. The narrow
+[GoHP139 repair](https://github.com/katsuakikureyama/GoHP/pull/139) explicitly
+rejects attribute syntax while preserving real comments/quoted markers;
+it merged to mainc8d21776 after push/PR CI passed both targets and all three
+new boundary checks. Attributes remain unsupported. It does not admit original loading/globals/
+interfaces/visibility/references/callables or claim native hook equivalence.
+Existing G83-PARSER partial-resource statuses and all older evidence are
+preserved. Original source/auth/routes/UI/deploy are unchanged, local test
+capability is experimental/WebMCP-excluded, and devboard remains unidentified.
+
+## Previous: bounded resource stress matches; separate native error reference recorded
 
 The [resource-boundary record](evidence/parser-resource-boundaries-2026-10-30.md)
 adds twelve stress documents/twenty-four complete-original calls per backend,

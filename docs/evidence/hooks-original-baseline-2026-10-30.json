@@ -1,4 +1,22 @@
 {
+  "attribute_review_fix": {
+    "pull_request": "https://github.com/katsuakikureyama/GoHP/pull/139",
+    "tested_commit": "68046058d7ec4dd0db03ca1d61a158356f26abe3",
+    "tested_tree": "5011b850a64925f0d883932deb0b36cae1b09e8c",
+    "main_commit": "c8d21776d0ca46ed9b42fb66363d10765d9721d2",
+    "merged_at": "2026-10-30T12:11:38Z",
+    "status": "merged-after-local-and-push-pr-ci-pass",
+    "local": "GOHP_PHP_TARGET=8.3 CGO_ENABLED=0 offlineGo1.23.0 go test -count=1 ./internal/frontend ./internal/compat: PASS0.224s/0.477s, one invocation",
+    "push_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/41053103426",
+    "pr_ci": "https://github.com/katsuakikureyama/GoHP/actions/runs/41053153893",
+    "checks": ["negative.attributes.source", "negative.attributes.module", "unit.hash_comments.attribute_literals"],
+    "catalog_case_count": 858,
+    "php83": {"version":"8.3.36","pass":840,"not_measured":18},
+    "php84_regression": {"version":"8.4.27","pass":856,"not_measured":2},
+    "scope": "Explicit located rejection of unsupported PHP attributes; ordinary hash comments and marker text in strings/comments preserved. No attribute semantics or hook generation.",
+    "baseline_remeasured": false,
+    "baseline_compiler_pin": "b2d1482268a7710c515c07bf919af3d40b09d17c"
+  },
   "admission_exit": 1,
   "admission_stderr_sanitized": "wp-includes/plugin.php: PHP002 line 25: unsupported statement (at \"require\")\nexit status 1\n",
   "admission_stderr_sha256": "494fbd4bcc58af242a352383f2226f6a15148c3f38097824aa3c404bfcf9e5f2",

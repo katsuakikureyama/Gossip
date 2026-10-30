@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Original hook API baseline](evidence/hooks-original-baseline-2026-10-30.md) | Native-only8workflow reference for actual plugin.php/WP_Hook/Sentinel; current GoHP rejects original require25/PHP002, no generated hooks/bootstrap acceptance. Next semantics and fail-closed attribute repair identified |
+| [Hook baseline machine record](evidence/hooks-original-baseline-2026-10-30.json) | Actual native typed events/global/private state plus separate file-bound source-rejection/no-artifact outcome; clean-source/command/run_count1, not a differential PASS |
 | [Original-parser resource boundaries](evidence/parser-resource-boundaries-2026-10-30.md) | Fixed-profile12stress documents/24calls per side PASS/all PCRE0; separate PHP-only match1 original error2 reference, generated budget unsupported; gate partially observed/open |
 | [Fixed-profile stress machine record](evidence/parser-resource-boundaries-2026-10-30.json) | Both complete typed observations, unchanged settings/inputs, clean951b637c3 and one-run command provenance; no proof of unreachable errors |
 | [Match1 native machine record](evidence/parser-resource-match1-2026-10-30.json) | Separate named PHP setting:12documents/24calls,16error2calls, complete original freeform/state observations; no generated comparison, initial preflight failure retained |
@@ -68,7 +70,7 @@ support or compatibility promise.
 | [Source-built input evidence](evidence/elements-source-input-2026-10-26.md) |24 actual typed/factory-input/supports/caller-state comparisons and vet PASS; GoHP #71 pin |
 | [Serialization utility → class decision](elements-serialization-path.md) | Three unchanged originals, explicit input-object boundary,16 direct +8 owned composition cases |
 | [Serialization decision evidence](evidence/elements-serialization-path-2026-10-26.md) |24 typed/caller-state comparisons and vet PASS; initial extraction failure retained; old334 configuration unchanged |
-| [Current state](current-state-fork-baseline.md) | Current documentation/ownership map plus original add_freeform16-case evidence; prior configurations remain separately pinned |
+| [Current state](current-state-fork-baseline.md) | Current ownership/evidence map and native original-hook baseline; generated hooks remain blocked, earlier parser/resource configurations stay separately pinned |
 | [Real element-class decision](elements-class-path.md) | wp_should_add_elements_class_name + _wp_array_get without resolver stubs;40 caller cases +294 retained |
 | [Element-class decision evidence](evidence/elements-class-path-2026-10-26.md) | All334 actual typed/caller-state comparisons and vet PASS; GoHP #67 exact pin and limits |
 | [Twenty-five-original integration](settings-helper-bundle-unit.md) | 262 retained edge cases +24 lookup cases +8 new settings compositions, new GoHP #64 configuration |

@@ -96,6 +96,23 @@ bounded behavior for future implementation. General references/callable forms,
 all-hook observers, same-priority mutation variants, exceptions, arbitrary
 plugin management, full bootstrap and application acceptance remain unmeasured.
 
+Review found a separate fail-closed defect: the frontend treated all `#` lines
+as comments, including PHP8 attribute openers. [GoHP139](https://github.com/katsuakikureyama/GoHP/pull/139)
+adds located PHP002 rejection instead of silently erasing attributes before
+otherwise supported declarations. Three catalog checks cover rejection, source
+module diagnostics and real comment/literal preservation. This implements no
+attribute semantics. The hook reference/admission record stays pinned to
+GoHPb2d1482 and is not relabeled or rerun as evidence for the later fix.
+
+The repair merged to main `c8d21776d0ca46ed9b42fb66363d10765d9721d2`, identical
+to tested68046058/tree5011b850. One local frontend/compat run passed0.224/0.477s;
+existing [push CI](https://github.com/katsuakikureyama/GoHP/actions/runs/41053103426)
+and [PR CI](https://github.com/katsuakikureyama/GoHP/actions/runs/41053153893)
+pass both targets and all three new catalog checks.858total cases: PHP8.3
+840pass/18not-measured; existing PHP8.4 regression856pass/2not-measured. Push
+artifacts were fetched once and bound to exact clean commit/tree/catalog.
+These compiler-boundary checks do not implement attributes or validate hooks.
+
 ## Execution and capability
 
 Run from `gossip/` with explicit opt-in and fixed paths/image:

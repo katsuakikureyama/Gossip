@@ -1,0 +1,321 @@
+package main
+
+import (
+	"bytes"
+	"crypto/sha256"
+	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+	"strings"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+const (
+	hostBoundaryCaseCount = 4
+	hostBoundaryMaxBytes  = 4097
+)
+
+type hostBoundaryInput struct {
+	Name     *string `json:"name"`
+	Document *string `json:"document_base64"`
+	Expected *string `json:"expected"`
+}
+
+type hostBoundaryCase struct {
+	Name     string
+	Document string
+	Expected string
+}
+
+type hostBoundarySnapshot struct {
+	DocumentBase64 string `json:"document_base64"`
+	Offset         int64  `json:"offset"`
+	OutputCount    int    `json:"output_count"`
+	StackCount     int    `json:"stack_count"`
+}
+
+type hostBoundaryCaseObservation struct {
+	Name                 string               `json:"name"`
+	Expected             string               `json:"expected"`
+	InputBytes           int                  `json:"input_bytes"`
+	InputSHA256          string               `json:"input_sha256"`
+	CallerUnchanged      bool                 `json:"caller_unchanged"`
+	SeedPCREErrorCode    int64                `json:"seed_pcre_error_code"`
+	SeedJSONErrorCode    int64                `json:"seed_json_error_code"`
+	Before               map[string]any       `json:"before"`
+	PanicType            string               `json:"panic_type"`
+	PanicMessage         string               `json:"panic_message"`
+	Returned             bool                 `json:"returned"`
+	FreeformInnerHTMLB64 string               `json:"freeform_inner_html_base64"`
+	After                hostBoundarySnapshot `json:"after"`
+	AfterPCREErrorCode   int64                `json:"after_pcre_error_code"`
+	AfterJSONErrorCode   int64                `json:"after_json_error_code"`
+	EmptyReset           hostBoundarySnapshot `json:"empty_reset"`
+	ResetPCREErrorCode   int64                `json:"reset_pcre_error_code"`
+	ResetJSONErrorCode   int64                `json:"reset_json_error_code"`
+}
+
+func hostBoundaryDigest(value []byte) string {
+	digest := sha256.Sum256(value)
+	return hex.EncodeToString(digest[:])
+}
+
+func hostBoundaryReadCases(path string) []hostBoundaryCase {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	var inputs []hostBoundaryInput
+	if err := decoder.Decode(&inputs); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		if err == nil {
+			panic("host boundary cases contain a trailing JSON value")
+		}
+		panic(err)
+	}
+	if len(inputs) != hostBoundaryCaseCount {
+		panic("host boundary cases require exactly four inputs")
+	}
+	expectedNames := []string{"bounded_binary_4096", "oversized_ascii_4097", "oversized_utf8_4097", "oversized_binary_4097"}
+	expectedResults := []string{"completed", "unsupported-subject", "unsupported-subject", "unsupported-subject"}
+	cases := make([]hostBoundaryCase, 0, len(inputs))
+	seen := map[string]bool{}
+	for index, input := range inputs {
+		if input.Name == nil || input.Document == nil || input.Expected == nil || *input.Name != expectedNames[index] || *input.Expected != expectedResults[index] || seen[*input.Name] {
+			panic("host boundary case identity changed")
+		}
+		document, err := base64.StdEncoding.Strict().DecodeString(*input.Document)
+		if err != nil || base64.StdEncoding.EncodeToString(document) != *input.Document || len(document) > hostBoundaryMaxBytes {
+			panic("host boundary input is not canonical or exceeds 4097 bytes")
+		}
+		if (index == 0 && len(document) != 4096) || (index > 0 && len(document) != 4097) {
+			panic("host boundary byte length changed")
+		}
+		seen[*input.Name] = true
+		cases = append(cases, hostBoundaryCase{Name: *input.Name, Document: string(document), Expected: *input.Expected})
+	}
+	return cases
+}
+
+func hostBoundaryNew(execution *rt.Execution) *C_wp_block_parser {
+	parser, ok := NewContext_wp_block_parser(execution).(*C_wp_block_parser)
+	if !ok || parser == nil {
+		panic("generated WP_Block_Parser constructor returned unexpected value")
+	}
+	return parser
+}
+
+func hostBoundaryArrayCount(value any, field string) int {
+	array, ok := value.(rt.Array)
+	if !ok {
+		panic("generated parser " + field + " is not an array")
+	}
+	return len(array.Entries)
+}
+
+func hostBoundarySnapshotOf(parser *C_wp_block_parser) hostBoundarySnapshot {
+	document, ok := parser.P_document.(string)
+	if !ok {
+		panic("generated parser document is not a string")
+	}
+	offset, ok := parser.P_offset.(int64)
+	if !ok {
+		panic("generated parser offset is not an int")
+	}
+	return hostBoundarySnapshot{
+		DocumentBase64: base64.StdEncoding.EncodeToString([]byte(document)),
+		Offset:         offset,
+		OutputCount:    hostBoundaryArrayCount(parser.P_output, "output"),
+		StackCount:     hostBoundaryArrayCount(parser.P_stack, "stack"),
+	}
+}
+
+func hostBoundaryObjectField(value rt.Array, field string) any {
+	for _, entry := range value.Entries {
+		if key, ok := entry.Key.(string); ok && key == field {
+			return entry.Value
+		}
+	}
+	panic("generated freeform result is missing " + field)
+}
+
+func hostBoundaryInnerHTML(result any) string {
+	output, ok := result.(rt.Array)
+	if !ok || len(output.Entries) != 1 {
+		panic("bounded parse did not return exactly one freeform block")
+	}
+	block, ok := output.Entries[0].Value.(rt.Array)
+	if !ok {
+		panic("bounded freeform block is not an array")
+	}
+	innerHTML, ok := hostBoundaryObjectField(block, "innerHTML").(string)
+	if !ok {
+		panic("bounded freeform innerHTML is not a string")
+	}
+	return innerHTML
+}
+
+func hostBoundarySeed(execution *rt.Execution) {
+	_ = execution.PregMatch83LocalMatch1(`/^(a+)+$/s`, "aaaab", int64(0))
+	if execution.PregLastError83() != 2 {
+		panic("could not establish match1 PCRE error baseline")
+	}
+	if execution.JSONDecodeAssociative("{") != nil || execution.JSONLastError() != 4 {
+		panic("could not establish JSON syntax-error baseline")
+	}
+}
+
+func hostBoundaryOriginalParse(execution *rt.Execution, parser *C_wp_block_parser, document string) (result any, panicType, panicMessage string) {
+	defer func() {
+		if problem := recover(); problem != nil {
+			panicType, panicMessage = fmt.Sprintf("%T", problem), fmt.Sprint(problem)
+		}
+	}()
+	result = parser.MContext_parse(execution, document)
+	return result, "", ""
+}
+
+func hostBoundaryCheckEmptyReset(execution *rt.Execution, parser *C_wp_block_parser) hostBoundarySnapshot {
+	result, panicType, panicMessage := hostBoundaryOriginalParse(execution, parser, "")
+	if panicType != "" || panicMessage != "" {
+		panic("empty original parser reset panicked: " + panicMessage)
+	}
+	output, ok := result.(rt.Array)
+	if !ok || len(output.Entries) != 0 {
+		panic("empty original parser reset result changed")
+	}
+	snapshot := hostBoundarySnapshotOf(parser)
+	if snapshot.DocumentBase64 != "" || snapshot.Offset != 0 || snapshot.OutputCount != 0 || snapshot.StackCount != 0 || execution.PregLastError83() != 0 || execution.JSONLastError() != 4 {
+		panic("empty original parser reset state changed")
+	}
+	return snapshot
+}
+
+func hostBoundaryObserve(c hostBoundaryCase) hostBoundaryCaseObservation {
+	execution := &rt.Execution{}
+	parser := hostBoundaryNew(execution)
+	hostBoundarySeed(execution)
+	before := map[string]any{"document": parser.P_document, "offset": parser.P_offset, "output": parser.P_output, "stack": parser.P_stack}
+	for _, value := range before {
+		if value != nil {
+			panic("new parser properties must be null before the first parse")
+		}
+	}
+	documentBefore := c.Document
+	result, panicType, panicMessage := hostBoundaryOriginalParse(execution, parser, c.Document)
+	after := hostBoundarySnapshotOf(parser)
+	observation := hostBoundaryCaseObservation{
+		Name:               c.Name,
+		Expected:           c.Expected,
+		InputBytes:         len(c.Document),
+		InputSHA256:        hostBoundaryDigest([]byte(c.Document)),
+		CallerUnchanged:    c.Document == documentBefore,
+		SeedPCREErrorCode:  2,
+		SeedJSONErrorCode:  4,
+		Before:             before,
+		PanicType:          panicType,
+		PanicMessage:       panicMessage,
+		Returned:           panicType == "",
+		After:              after,
+		AfterPCREErrorCode: execution.PregLastError83(),
+		AfterJSONErrorCode: execution.JSONLastError(),
+	}
+	if !observation.CallerUnchanged {
+		panic("original parser mutated the caller input: " + c.Name)
+	}
+	if c.Expected == "unsupported-subject" {
+		if panicType == "" || !strings.Contains(panicMessage, "subject size or byte offset outside bounds") || result != nil || after.DocumentBase64 != base64.StdEncoding.EncodeToString([]byte(c.Document)) || after.Offset != 0 || after.OutputCount != 0 || after.StackCount != 0 || observation.AfterPCREErrorCode != 2 || observation.AfterJSONErrorCode != 4 {
+			panic("oversized original parser boundary changed: " + c.Name)
+		}
+	} else {
+		if panicType != "" || result == nil || after.DocumentBase64 != base64.StdEncoding.EncodeToString([]byte(c.Document)) || after.Offset != 0 || after.OutputCount != 1 || after.StackCount != 0 || (observation.AfterPCREErrorCode != 0 && observation.AfterPCREErrorCode != 2) || observation.AfterJSONErrorCode != 4 {
+			panic("bounded original parser boundary changed")
+		}
+		innerHTML := hostBoundaryInnerHTML(result)
+		if innerHTML != c.Document {
+			panic("bounded original parser freeform bytes changed")
+		}
+		observation.FreeformInnerHTMLB64 = base64.StdEncoding.EncodeToString([]byte(innerHTML))
+	}
+	observation.EmptyReset = hostBoundaryCheckEmptyReset(execution, parser)
+	observation.ResetPCREErrorCode, observation.ResetJSONErrorCode = execution.PregLastError83(), execution.JSONLastError()
+	return observation
+}
+
+func hostBoundaryGuard(cases []hostBoundaryCase) {
+	observations := make([]hostBoundaryCaseObservation, 0, len(cases))
+	for _, c := range cases {
+		observations = append(observations, hostBoundaryObserve(c))
+	}
+	output, err := json.Marshal(struct {
+		Schema            string                        `json:"schema"`
+		AdapterSeedCount  int                           `json:"adapter_seed_count"`
+		OriginalCallCount int                           `json:"original_parse_call_count"`
+		Cases             []hostBoundaryCaseObservation `json:"cases"`
+	}{
+		Schema:            "gossip.parser-host-boundaries-observation/v1",
+		AdapterSeedCount:  hostBoundaryCaseCount,
+		OriginalCallCount: hostBoundaryCaseCount * 2,
+		Cases:             observations,
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(string(output), "\n")
+}
+
+func hostBoundaryDeadline(cases []hostBoundaryCase) {
+	c := cases[0]
+	if c.Expected != "completed" || len(c.Document) != 4096 {
+		panic("deadline workload requires the bounded first case")
+	}
+	execution := &rt.Execution{}
+	parser := hostBoundaryNew(execution)
+	result, panicType, panicMessage := hostBoundaryOriginalParse(execution, parser, c.Document)
+	if panicType != "" || hostBoundaryInnerHTML(result) != c.Document {
+		panic("deadline readiness parse failed: " + panicMessage)
+	}
+	ready, err := json.Marshal(map[string]any{
+		"schema":                "gossip.parser-host-deadline-ready/v1",
+		"first_parse_completed": true,
+		"input_bytes":           len(c.Document),
+		"input_sha256":          hostBoundaryDigest([]byte(c.Document)),
+		"pcre_error_code":       execution.PregLastError83(),
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(string(ready), "\n")
+	for {
+		parser = hostBoundaryNew(execution)
+		result, panicType, panicMessage = hostBoundaryOriginalParse(execution, parser, c.Document)
+		if panicType != "" || hostBoundaryInnerHTML(result) != c.Document {
+			panic("deadline workload parser changed: " + panicMessage)
+		}
+	}
+}
+
+func init() {
+	if len(os.Args) != 3 {
+		panic("requires host-boundary mode and cases JSON path")
+	}
+	cases := hostBoundaryReadCases(os.Args[2])
+	switch os.Args[1] {
+	case "subject-guard":
+		hostBoundaryGuard(cases)
+	case "deadline-workload":
+		hostBoundaryDeadline(cases)
+	default:
+		panic("unsupported host-boundary mode")
+	}
+	os.Exit(0)
+}

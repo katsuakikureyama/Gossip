@@ -168,8 +168,14 @@ PHP-only match1 reference observes original error2/freeform handling in8cases/
 now matches that retained PHP record for12cases/24actual original Go calls,
 including16error2 and8error0 outcomes, typed results and all state. It uses a
 new explicit compile-time profile; default match100000 and all older pins stay
-unchanged. PHP was not rerun. Host guards/timeouts/other resource behavior and
-the overall resource/application gates remain open.
+unchanged. PHP was not rerun. The separate
+[host-boundary record](docs/evidence/parser-host-boundaries-2026-10-30.md)
+now observes4096-byte completion,4097-byte ASCII/UTF8/binary rejection and
+following reuse, plus cancellation/reaping of a repeated original-parser
+workload after a100ms host deadline. It reuses the saved generation without
+rerunning PHP. Unsupported input and killed processes stay separate from PHP
+results; a single stalled regex interruption and other resource/application
+gates remain open.
 General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the

@@ -2,7 +2,40 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: explicit generated match1 profile matches original PHP resource errors
+## Latest: subject guard and host workload deadline observed
+
+The new [host-boundary record](evidence/parser-host-boundaries-2026-10-30.md)
+reuses the exact retained match1 generation/report and pinned GoHP e6a without
+another generation, native PHP or previous12-case comparison run. One new
+configuration at clean Gossip `ea45b88c8d3e2a2f2420dc98b7b6f16301c4fcab`,
+tree `f60a0f9bddfc8901a22615645e4fcb76c7980932`, PASS2.65/package2.900s.
+Four new inputs/eight original guard calls cover4096-byte raw-binary completion
+and4097-byte ASCII/UTF8/binary rejection, with following empty calls on the
+same parser. Unsupported rejection preserves caller-seeded PCRE2/JSON4 but
+the original parser has already written document/offset/arrays. Following
+empty calls complete and restore PCRE0; JSON4 remains. No PHP parity claim.
+
+A separate child first completes an original call, then runs repeated original
+calls. The100ms host deadline cancels and reaps it with SIGKILL, elapsed
+101410333ns, runtime stderr0, no complete result or fabricated PHP error.
+The repeat count/state at kill and interruption of one stalled PCRE2 call
+remain unverified. The new [machine record](evidence/parser-host-boundaries-2026-10-30.json)
+preserves complete observations, source/command/run_count1;
+SHA256 `a26c81e17833e67b5af416d1d0fd999d7cf44af7f963d228ecf50fc7d3f85710`.
+
+The separate new observer/pin/harness and local capability
+`gossip.tests.parser-host-boundaries` keep completed, unsupported-subject,
+host-timeout and infrastructure failure distinct; WebMCP excluded. Original
+WordPress, previous manifests/corpora/observers/pins/evidence and GoHP code
+remain unchanged. Existing cached toolchain/engine only; binary test-cleaned,
+retained source/report intact. No auth/UI/route/deploy or new CI resources.
+Resource status is still partially-observed: single-call interruption,
+other engine/resource failures and memory/heap equivalence remain open,
+as do G83-PARSER, BOOT/HTTP and full application acceptance.
+Issue1 scope6523160067; scalar-request changes are separately owned;
+devboard unidentified/unsynchronized.
+
+## Previous: explicit generated match1 profile matches original PHP resource errors
 
 [GoHP140](https://github.com/katsuakikureyama/GoHP/pull/140) adds the separate
 compile-time `pcre2-php83-match1-v1` profile, retaining the fixed default entry

@@ -1,0 +1,14 @@
+{
+  "schema": "gossip.parser-host-boundaries/v1",
+  "gohp_commit": "e6a71a5f267658e8c575ffab5db6712246e543b2",
+  "regex_profile": "pcre2-php83-match1-v1",
+  "generated_sha256": "4c8648ef4b63f7862444b52c0c0f97c0898fc40bbe4f16698014ae7447f89842",
+  "report_sha256": "ec3714aa49e36ecce45bacd9a0458c951833090d900f47b0a4f8932f4c54f3f6",
+  "retained_evidence_sha256": "fc5a4cc7467b5b6b1e5dbca119f9f9ba6850075573f5507d5586ee8133fdf794",
+  "previous_pin_sha256": "9a55d83aa24396e66be04fce9d2d73491220864817edcbb8336446e78fc3f863",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "closure_manifest_sha256": "89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa",
+  "cases_sha256": "887351384f3d4871362deb2d1f98f585f90960b445e72bf08bdba7f97926634b",
+  "observer_sha256": "8efe96ebbb3aad68ececf1df39f87516db8b933613328f6473857623781a1fe3",
+  "deadline_milliseconds": 100
+}

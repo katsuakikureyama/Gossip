@@ -126,6 +126,12 @@ configuration.
 
 ## Direction
 
+The next bootstrap prerequisite now has an [original hook API baseline](docs/evidence/hooks-original-baseline-2026-10-30.md):
+eight actual PHP workflows record priorities, arguments, reentry/mutation and
+identity. GoHP still rejects original `plugin.php:25` (`require`), so generated
+hooks/bootstrap remain unimplemented. Review also led to [GoHP139](https://github.com/katsuakikureyama/GoHP/pull/139),
+which rejects unsupported PHP attributes explicitly instead of discarding them as comments.
+
 Merged [GoHP138](https://github.com/katsuakikureyama/GoHP/pull/138) adds bounded associative JSON and
 execution-local error readers. Its [one complete unchanged-source probe](docs/evidence/parser-json-generation-2026-10-30.md)
 passes the former json_decode283 rejection, publishes all three classes as Go

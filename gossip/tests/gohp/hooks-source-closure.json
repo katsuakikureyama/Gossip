@@ -1,0 +1,49 @@
+{
+  "schema": "gohp.corpus.manifest/v0.1",
+  "id": "gossip-original-hook-api-static-require-closure",
+  "upstream": {
+    "repository": "WordPress/WordPress",
+    "revision": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+    "version": "7.2-beta1-64693"
+  },
+  "selection": {
+    "unit": "whole-file",
+    "exclusions": "Only complete original plugin API and its two explicit require dependencies plus notice/provenance; no WordPress bootstrap, extracted declarations or application acceptance claim",
+    "dependencies": "unresolved"
+  },
+  "php_targets": [
+    "8.3"
+  ],
+  "files": [
+    {
+      "path": "wp-includes/plugin.php",
+      "role": "source",
+      "bytes": 37910,
+      "sha256": "c0996a9afb93220e6bf0cd99fee58f9d32c80698a087ee06da5d76c6ef5c096c"
+    },
+    {
+      "path": "wp-includes/class-wp-hook.php",
+      "role": "source",
+      "bytes": 18189,
+      "sha256": "ecb2c756ee39d9d375599e33a3e7780f78a468f6e83d0e7f268a1f3689a71a5d"
+    },
+    {
+      "path": "wp-includes/class-wp-filter-sentinel.php",
+      "role": "source",
+      "bytes": 760,
+      "sha256": "68c9c675d3805a343835728d98a0efedf0df9833cb904bebf909c7e0fda5c61c"
+    },
+    {
+      "path": "license.txt",
+      "role": "notice",
+      "bytes": 19903,
+      "sha256": "49e97f629ce763abb2f8f1f13da74cb5a8a9a72a0e72a7477d1540c98cef5141"
+    },
+    {
+      "path": "wp-includes/version.php",
+      "role": "provenance",
+      "bytes": 1113,
+      "sha256": "6fbc8cf7e4667ba118b92186eea0c9ec35154476790c218d55ead45eb2a1f1d1"
+    }
+  ]
+}

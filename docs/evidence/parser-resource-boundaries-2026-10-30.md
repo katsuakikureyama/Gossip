@@ -15,6 +15,8 @@ reflect freeform versus malformed attributes. The
 [machine record](parser-resource-boundaries-2026-10-30.json) retains both
 complete observations and source/command/run_count1 provenance, from raw SHA
 `2fa4edf06566fa8fbfe595ce151e47c13743c758cf15cc13477c74331b78f8ca`.
+Published SHA256
+`455d220b47be54b0091b57a601e568ef924223c0432c201599cd36475d8936b8`.
 Both canonical typedcases hash to
 `51fad737f3e1457e6273cd2a7cdc03567e131ab506387c72af207cc351b64d52`.
 Go stdout393640bytes and PHP394445bytes have different metadata envelopes.
@@ -67,7 +69,7 @@ Scope6521976972. G83-PARSER/application acceptance stays open; original error
 paths, over-bound guards and timeout/resource equivalence must not be marked
 passed merely because a finite current-profile stress sample agrees.
 
-## Separate match1 native reference: pending
+## Separate match1 native reference: recorded, no generated comparison
 
 The separate [match1 pin](../../gossip/tests/gohp/parser-resource-match1.json),
 [PHP driver](../../gossip/tests/gohp/parser-resource-match1-observer.php) and
@@ -75,8 +77,31 @@ The separate [match1 pin](../../gossip/tests/gohp/parser-resource-match1.json),
 profile `php83-original-parser-match1-v1`: backtrack1, recursion10000, JIT0,
 process memory128M, same twelve documents and complete original source. The
 new driver explicitly changes only the owned reference's budget; existing
-observers and the fixed generated profile stay unchanged. This is not yet
-measured and cannot be counted as a PHP-versus-Go comparison.
+observers and the fixed generated profile stay unchanged. This is a native
+reference and cannot be counted as a PHP-versus-Go comparison.
+
+At clean Gossip `b3030350294dae0c4c720a1ffdbe695e6da95dda`, tree
+`142ac0d000ae98fb83ca9a001e1de41efe109d7b`, one actual native execution records
+twelve documents/twenty-four original calls, test0.30s/package0.504s,
+exit0/runtime stderr0. Eight cases/sixteen calls have PCREerror2; the other
+eight calls have0. The error2 calls return one freeform block (`blockName=null`)
+whose `innerHTML` preserves every input byte. Original false/no-more-tokens
+handling is observed here; no direct-regex seed or source substitution is used.
+The named budget is deliberately different from the current generated profile.
+
+Witness cases are the three alternating-brace sizes, dense braces, near
+delimiters, embedded comments, paired adversarial attrs and brace runs.
+Plain/whitespace/unclosed/repeated-openers do not produce error2 in this sample.
+Both fresh/reused parser observations, all fields and caller preservation are
+retained in the [native machine record](parser-resource-match1-2026-10-30.json).
+Raw SHA256 `2d537b028cdb8a8935a2799cee433dfd356bfb205b6e061d0c47250fdf6df5d2`;
+published SHA256 `59d3e4cfe3553677f743b93d571966ffd538be9cbe1a0610c0788cc8488df60c`.
+Native stdout688992bytes/SHA256
+`714c946908d64f4d79a57002c7f232b92b0828c676916a04534a19f28daf9d39`;
+typedcases SHA256 `4f4d9fcd79d53704981a9ae8e1c51f1387971818d21fe0223e1092a89884a728`.
+No Go stdout, candidate build or cross-runtime comparison exists for match1:
+the unchanged generated entry has no matching budget selector. It is recorded
+as `not-run-unsupported-budget`, not a generated PHP-false result or Go PASS.
 
 Initial clean ec5bffd72's test failed at strict source-manifest decoding
 (`json: unknown field "schema"`, package0.239s), before any native process or
@@ -91,7 +116,7 @@ rechecked; the successful fixed-profile stress comparison is not rerun.
 | Input schema | Opt-in `GOSSIP_PHP_PARSER_MATCH1_REFERENCE=1`, exact cached PHP image, fresh absolute `GOSSIP_PHP_PARSER_MATCH1_EVIDENCE_OUT`; pinned corpus/source/observer |
 | Inspect / prepare | Verify source/pin/corpus/new observer; reuse cached image, no compiler/candidate build |
 | Save / commit | One exclusive local native evidence file; no application or external save/publish operation |
-| Status / common result | Experimental/unverified; native-reference-recorded, failed and skip distinct; generated comparison explicitly not-run-unsupported-budget |
+| Status / common result | Experimental/native-resource-reference-recorded; failed and skip distinct; generated comparison explicitly not-run-unsupported-budget |
 | WebMCP | `excluded`: local native container test, no browser/server/UI operation or authentication/route/deployment change |
 
 Run only this new setting from `gossip/`:
@@ -99,3 +124,14 @@ Run only this new setting from `gossip/`:
 ```sh
 go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressParserMatch1Reference$'
 ```
+
+These are the same12 documents under two different settings, not24 distinct
+documents or one merged comparison denominator. Each effective native setting
+ran once; the initial preflight failure ran no PHP. No successful configuration
+was repeated, no GoHP code/PR/CI change was needed, and no new profile was added
+to generated code. The resource gate is **partially observed and still open**:
+generated original error-path behavior, over-bound subject rejection, timeout
+and other resource failures remain unmeasured. A future profile-contract
+decision must preserve the current default and explicitly separate PHP limits,
+PCRE heap and process/host guards. Finite zero-error stress is not a proof that
+all default-profile failures are unreachable. Bootstrap/data/HTTP/site not-run.

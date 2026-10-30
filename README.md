@@ -153,6 +153,12 @@ with the same JSON errors. It reuses those exact observers and their per-call
 JSON baseline; it does not establish successful deep values or resource-limit
 equivalence. The old12-case corpus is unchanged; G83-PARSER stays open for
 original regex/resource errors and application acceptance.
+The [resource-boundary record](docs/evidence/parser-resource-boundaries-2026-10-30.md)
+adds12 bounded stress documents/24calls per side, including ten4096-byte inputs,
+with matching typed results at the unchanged limits and all PCRE0. A separate
+PHP-only match1 reference observes original error2/freeform handling in8cases/
+16calls. Go's generated profile cannot select that budget, so no generated
+comparison is claimed for it. The resource gate remains open.
 General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the

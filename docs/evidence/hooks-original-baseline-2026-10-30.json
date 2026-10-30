@@ -1,0 +1,5069 @@
+{
+  "admission_exit": 1,
+  "admission_stderr_sanitized": "wp-includes/plugin.php: PHP002 line 25: unsupported statement (at \"require\")\nexit status 1\n",
+  "admission_stderr_sha256": "494fbd4bcc58af242a352383f2226f6a15148c3f38097824aa3c404bfcf9e5f2",
+  "admission_stdout_bytes": 0,
+  "admission_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "application_acceptance": "not-established",
+  "cases_sha256": "6469dd559b242ccb93bcf843c263b51382ab812adfc90f5466019ee3316e0ff2",
+  "closure_manifest_sha256": "f097e415b3c81b00a36aeba10a0b29a9d9342b1d4c168933056e99b9842bfba4",
+  "diagnostic_code": "PHP002",
+  "diagnostic_source": "wp-includes/plugin.php",
+  "entry": "wp-includes/plugin.php",
+  "generated_artifact_count": 0,
+  "go_equivalence": "not-run",
+  "go_tool_sha256": "b4bb16d085322f4de5c81bbcb4a334e049b048b9a9b06261dcc5bd49dc96b245",
+  "go_version": "go1.23.0",
+  "goarch": "arm64",
+  "gohp_archive_sha256": "d20e5572b8aa5f5f57751623fe1a4f5631fbca8c8960ba18c8caa4be5b990653",
+  "gohp_commit": "b2d1482268a7710c515c07bf919af3d40b09d17c",
+  "goos": "darwin",
+  "harness_sha256": "5dbaabbe1006e0ccf08b64bef11773659bae18c051f9703286b04b2709e8c181",
+  "native_exit": 0,
+  "native_observation": {
+    "native_environment": {
+      "int_size": 8,
+      "lc_ctype": "C",
+      "pcre_version": "10.42 2022-12-12",
+      "php_arch": "aarch64",
+      "php_os": "Linux",
+      "php_version": "8.3.36",
+      "php_version_id": 80336,
+      "profile": {
+        "memory_limit": "128M",
+        "pcre.backtrack_limit": "100000",
+        "pcre.jit": "0",
+        "pcre.recursion_limit": "10000"
+      }
+    },
+    "schema": "gossip.hooks-original-native-observation/v1",
+    "workflow_count": 8,
+    "workflows": [
+      {
+        "events": {
+          "entries": [],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "no_callbacks",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "c2VlZA==",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "YWN0aW9uX3JldHVybg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "null",
+                "value": null
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2ZpbHRlcl9lbXB0eQ==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2FjdGlvbl9lbXB0eQ==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            },
+            {
+              "key": {
+                "base64": "Y3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfZmlsdGVyX2VtcHR5",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfYWN0aW9uX2VtcHR5",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfZmlsdGVyX2FueQ==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfYWN0aW9uX2FueQ==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "ZW1wdHlfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "ZW1wdHk=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cHJpb3JpdHktMTAtZmlyc3Q=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c2VlZA==",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "b3JkZXI=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cHJpb3JpdHktMTAtc2Vjb25k",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c2VlZHxmaXJzdA==",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "b3JkZXI=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cHJpb3JpdHktMjA=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c2VlZHxmaXJzdHxzZWNvbmQ=",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "b3JkZXI=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 20
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "priority_order",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 2
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "c2VlZHxmaXJzdHxzZWNvbmR8dHdlbnR5",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2ZpbHRlcg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            },
+            {
+              "key": {
+                "base64": "Y3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfYWN0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "b3JkZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 2
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 20
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 1
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 20
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "b3JkZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YWNjZXB0ZWQtMA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 0
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 5
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YWNjZXB0ZWQtMQ==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "emVybw==",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 1
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YWNjZXB0ZWQtMg==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "emVyb3xvbmU=",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "base64": "ZXh0cmE=",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 2
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 2
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 15
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "accepted_arguments",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 2
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "emVyb3xvbmV8ZXh0cmE=",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2ZpbHRlcg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 5
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 15
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 5
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 1
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 2
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 15
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "b3RoZXI=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c3RhcnQ=",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "aWRlbnRpdHk=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2FtZQ==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c3RhcnR8b3RoZXI=",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "aWRlbnRpdHk=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 20
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "callback_identity_removal",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 2
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 3
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "cmVtb3ZlZA==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": true
+              }
+            },
+            {
+              "key": {
+                "base64": "cmVtb3ZlZF9hZ2Fpbg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "aGFzX2FmdGVyX3JlbW92ZQ==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 20
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "c3RhcnR8b3RoZXJ8c2FtZQ==",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "cmVtb3ZlX2FsbA==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": true
+              }
+            },
+            {
+              "key": {
+                "base64": "aGFzX2FmdGVyX2FsbA==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "aWRlbnRpdHk=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YWN0aW9u",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "eA==",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "base64": "eQ==",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 2
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 2
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 3
+                          },
+                          "value": {
+                            "base64": "ZXZlbnQ=",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "ZXZlbnQ=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "actions",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": true
+              }
+            },
+            {
+              "key": {
+                "base64": "YWN0aW9uX3JldHVybg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "null",
+                "value": null
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2FjdGlvbg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            },
+            {
+              "key": {
+                "base64": "Y3VycmVudF9hY3Rpb24=",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfYWN0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "ZXZlbnQ=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "ZXZlbnQ=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVlbnRyYW50LWhlYWQ=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "b3V0ZXI=",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 0
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVlbnRyYW50LWhlYWQ=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "aW5uZXI=",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 1
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 2
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVlbnRyYW50LXRhaWw=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "aW5uZXJ8aGVhZA==",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 1
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 2
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVlbnRyYW50LXRhaWw=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "b3V0ZXJ8aGVhZA==",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "int",
+                            "value": 0
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 20
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 2
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "reentrant_filter",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "b3V0ZXJ8aGVhZHx0YWls",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmVzdGVkX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "aW5uZXJ8aGVhZHx0YWls",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2ZpbHRlcg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 2
+              }
+            },
+            {
+              "key": {
+                "base64": "Y3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            },
+            {
+              "key": {
+                "base64": "ZG9pbmdfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": false
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 20
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 1
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 20
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "cmVjdXJzaXZl",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 2
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "bXV0YXRvci0xMA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c3RhcnQ=",
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 1
+                          },
+                          "value": {
+                            "type": "bool",
+                            "value": false
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "bXV0YXRpb24=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "YWRkZWQtMTU=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c3RhcnR8bXV0YXRvcg==",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "bXV0YXRpb24=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 15
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "dGFpbC0zMA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "type": "int",
+                            "value": 0
+                          },
+                          "value": {
+                            "base64": "c3RhcnR8bXV0YXRvcnxhZGRlZA==",
+                            "type": "string"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "bXV0YXRpb24=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 30
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "mutation_during_iteration",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "cmVnaXN0cmF0aW9u",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 0
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 1
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "type": "int",
+                      "value": 2
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmlsdGVyX3Jlc3VsdA==",
+                "type": "string"
+              },
+              "value": {
+                "base64": "c3RhcnR8bXV0YXRvcnxhZGRlZHx0YWls",
+                "type": "string"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZGlkX2ZpbHRlcg==",
+                "type": "string"
+              },
+              "value": {
+                "type": "int",
+                "value": 1
+              }
+            },
+            {
+              "key": {
+                "base64": "bXV0YXRlZA==",
+                "type": "string"
+              },
+              "value": {
+                "type": "bool",
+                "value": true
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bXV0YXRpb24=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 15
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              },
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 30
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 1
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 15
+                                      }
+                                    },
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 2
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 30
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bXV0YXRpb24=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      },
+      {
+        "events": {
+          "entries": [
+            {
+              "key": {
+                "type": "int",
+                "value": 0
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtcGFzcy10aHJvdWdo",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtcGFzcw==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 1
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtbmV3",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtbmV3",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 2
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtbnVsbA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtbnVsbA==",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "type": "int",
+                "value": 3
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "bGFiZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtZmFsc2U=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "YXJncw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9maWx0ZXI=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "base64": "c2VudGluZWwtZmFsc2U=",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfZmlsdGVy",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZG9pbmdfYWN0aW9u",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2ZpbHRlcg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "ZGlkX2FjdGlvbg==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 0
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "initial": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "name": "sentinel_identity",
+        "result": {
+          "entries": [
+            {
+              "key": {
+                "base64": "bm9fY2FsbGJhY2s=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2FtZV9hc19pbnB1dA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfc2VudGluZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "cGFzc190aHJvdWdo",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2FtZV9hc19pbnB1dA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfc2VudGluZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bmV3X3NlbnRpbmVs",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2FtZV9hc19pbnB1dA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfc2VudGluZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "bnVsbF9jYWxsYmFjaw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2FtZV9hc19pbnB1dA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfc2VudGluZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "ZmFsc2VfY2FsbGJhY2s=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2FtZV9hc19pbnB1dA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": true
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "aXNfc2VudGluZWw=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "bool",
+                      "value": false
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        },
+        "state_after": {
+          "entries": [
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVy",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtcGFzcw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtbmV3",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "entries": [
+                        {
+                          "key": {
+                            "base64": "Y2FsbGJhY2tfY291bnRz",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "type": "int",
+                                  "value": 10
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 1
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "key": {
+                            "base64": "cHJpdmF0ZQ==",
+                            "type": "string"
+                          },
+                          "value": {
+                            "entries": [
+                              {
+                                "key": {
+                                  "base64": "cHJpb3JpdGllcw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [
+                                    {
+                                      "key": {
+                                        "type": "int",
+                                        "value": 0
+                                      },
+                                      "value": {
+                                        "type": "int",
+                                        "value": 10
+                                      }
+                                    }
+                                  ],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "aXRlcmF0aW9ucw==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "Y3VycmVudF9wcmlvcml0eQ==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "entries": [],
+                                  "type": "array"
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "bmVzdGluZ19sZXZlbA==",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "int",
+                                  "value": 0
+                                }
+                              },
+                              {
+                                "key": {
+                                  "base64": "ZG9pbmdfYWN0aW9u",
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "bool",
+                                  "value": false
+                                }
+                              }
+                            ],
+                            "type": "array"
+                          }
+                        }
+                      ],
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfYWN0aW9ucw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfZmlsdGVycw==",
+                "type": "string"
+              },
+              "value": {
+                "entries": [
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtbm9uZQ==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtcGFzcw==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtbmV3",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtbnVsbA==",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key": {
+                      "base64": "c2VudGluZWwtZmFsc2U=",
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "int",
+                      "value": 1
+                    }
+                  }
+                ],
+                "type": "array"
+              }
+            },
+            {
+              "key": {
+                "base64": "d3BfY3VycmVudF9maWx0ZXI=",
+                "type": "string"
+              },
+              "value": {
+                "entries": [],
+                "type": "array"
+              }
+            }
+          ],
+          "type": "array"
+        }
+      }
+    ]
+  },
+  "native_stderr_bytes": 0,
+  "native_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "native_stdout_bytes": 43242,
+  "native_stdout_sha256": "888257c7973e14db138d3a366e998dc4f6fb9ad5d5791f645abb377ad7599190",
+  "native_typed_workflows_sha256": "548fdccd65e84bca83ef231effc0ec5e416e5dfae05a71e5ab5d7199cf0595d6",
+  "observer_sha256": "31c19ef5344e53df9dc762d3777b5d4598b2a5928620c5781e71e4d8add89bb1",
+  "phases": {
+    "differential_comparison": "not-run",
+    "generated_build": "not-run",
+    "generated_execute": "not-run",
+    "native_reference": "recorded",
+    "whole_source_admission": "rejected"
+  },
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "pin_sha256": "02144f0a3c98186b959ac8903d995da8a9e31f95a9ee5ef8b07e79907c98e15e",
+  "schema": "gossip.hooks-original-baseline-evidence/v1",
+  "scope": "Native-only eight-workflow original plugin API baseline and one complete unchanged-source admission rejection. No generated hook implementation/build/execution/equivalence, full bootstrap, G83-BOOT or application acceptance.",
+  "source_admission": "rejected",
+  "status": "native-reference-recorded-source-rejected",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "wordpress_sources": {
+    "license.txt": "49e97f629ce763abb2f8f1f13da74cb5a8a9a72a0e72a7477d1540c98cef5141",
+    "wp-includes/class-wp-filter-sentinel.php": "68c9c675d3805a343835728d98a0efedf0df9833cb904bebf909c7e0fda5c61c",
+    "wp-includes/class-wp-hook.php": "ecb2c756ee39d9d375599e33a3e7780f78a468f6e83d0e7f268a1f3689a71a5d",
+    "wp-includes/plugin.php": "c0996a9afb93220e6bf0cd99fee58f9d32c80698a087ee06da5d76c6ef5c096c",
+    "wp-includes/version.php": "6fbc8cf7e4667ba118b92186eea0c9ec35154476790c218d55ead45eb2a1f1d1"
+  },
+  "workflow_count": 8,
+  "measurement": {
+    "date": "2026-10-30",
+    "source_commit": "4e5e87879232607a13fe8633467aad4d878fb609",
+    "source_tree": "cd1d274e944797a52d81aca4c8546acbd259b6a7",
+    "working_tree": "clean",
+    "scope": "https://github.com/katsuakikureyama/GoHP/issues/1#issuecomment-6522006068",
+    "attempt_count": 1,
+    "run_count": 1,
+    "test_seconds": 1.38,
+    "package_seconds": 1.62,
+    "raw_evidence_sha256": "0be81441d7243aaa84a4742a5ff9ef12e7f9768c874daecc4fbb2d0ad0623385",
+    "previous_successful_configurations_repeated": 0
+  },
+  "commands": {
+    "directory": "gossip",
+    "test": "go test -count=1 -v ./tests/gohp -run '^TestOriginalWordPressHooksBaseline$'",
+    "environment": {
+      "PATH": "<CACHED_GO1.23.0_BIN>:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin",
+      "GOCACHE": "<EXISTING_GOCACHE>",
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOWORK": "off",
+      "CGO_ENABLED": "0",
+      "GOSSIP_GOHP_HOOKS_BASELINE": "1",
+      "GOSSIP_GOHP_HOOKS_SOURCE": "<LOCAL_GOHP_REPOSITORY>",
+      "GOSSIP_PHP_RUNNER_IMAGE": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+      "GOSSIP_GOHP_HOOKS_EVIDENCE_OUT": "<FRESH_ABSOLUTE_EVIDENCE_PATH>"
+    },
+    "admission": "go run ./cmd/gohp -manifest <INPUT>/closure.json -source-root <INPUT> -entry wp-includes/plugin.php -php-version 8.3 -out <CANDIDATE>/hooks.go -report <CANDIDATE>/report.json",
+    "native": "owned observer requires unchanged original plugin API once through runPHPOracle; exact cached fixed image, --pull=never --network=none --read-only --cap-drop=ALL --security-opt=no-new-privileges --user <LOCAL_UID:GID> --memory=768m --pids-limit=256 --cpus=2"
+  },
+  "publication": {
+    "status": "native-reference-and-rejection-recorded",
+    "go_hook_equivalence": "not-run",
+    "g83_boot_acceptance": "not-established",
+    "sources": "complete original three-file plugin API static require closure plus unchanged notice/version, no extraction or rewriting",
+    "caller_preconditions": "empty wp_filter before single load; four hook globals reset only between workflows",
+    "observed_global_state": "priority/callback counts without unstable callback IDs, private iteration/nesting/action state and global counters/current-filter stack",
+    "resource_scope": "separately owned6521976972, no results adopted here",
+    "original_and_old_inputs": "unchanged",
+    "dependencies_or_resources_installed": false,
+    "docker": "existing running25.0.3 and cached exact image; no startup or pull",
+    "temporary_artifacts": "testing.T cleanup; rejected admission publishes no generated source/report",
+    "metadata_paths": "publication placeholders replace local user paths; raw observation fields unchanged"
+  }
+}

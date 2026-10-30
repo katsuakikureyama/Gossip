@@ -1,7 +1,26 @@
 # Original hook API baseline — 2026-10-30
 
-Measurement pending. This series is a **native PHP reference and whole-source
-admission probe**, not generated hook compatibility or G83-BOOT acceptance.
+**Native reference recorded; generated source rejected.** This series is a
+native PHP reference and whole-source admission probe, not generated hook
+compatibility or G83-BOOT acceptance. The [machine record](hooks-original-baseline-2026-10-30.json)
+retains the actual native output and compiler diagnostic separately.
+
+One clean configuration at Gossip `4e5e87879232607a13fe8633467aad4d878fb609`,
+tree `cd1d274e944797a52d81aca4c8546acbd259b6a7`, pinned GoHP
+`b2d1482268a7710c515c07bf919af3d40b09d17c`: test1.38s/package1.620s PASS.
+All eight original-PHP workflows execute with exit0/stderr0. The single GoHP
+probe exits1/stdout0, with **PHP002 at `plugin.php:25`, unsupported `require`**.
+No Go source/report or other candidate artifacts are published. This expected
+rejection is not a successful translation.
+
+Native stdout43242bytes/SHA
+`888257c7973e14db138d3a366e998dc4f6fb9ad5d5791f645abb377ad7599190`;
+canonical typed workflows SHA
+`548fdccd65e84bca83ef231effc0ec5e416e5dfae05a71e5ab5d7199cf0595d6`.
+Raw attempt SHA
+`0be81441d7243aaa84a4742a5ff9ef12e7f9768c874daecc4fbb2d0ad0623385`.
+The public record preserves those observations and adds clean-source/command/
+run_count1 metadata; it is not another execution.
 
 ## Source and observation contract
 
@@ -42,6 +61,16 @@ reflection of private iteration/priorities/nesting/action fields. Callback IDs
 are intentionally not raw process-specific values; identity outcomes are booleans.
 None of these observations are invented generated-Go expectations.
 
+Actual callback order is10-first →10-second →20; accepted-arg counts are0/1/2.
+Removing the pending20 callback and inserting15 during execution produces
+10-mutator →15-added →30-tail. Reentry returns `inner|head|tail` and
+`outer|head|tail`, with two filter invocations and cleaned iteration/global
+stacks afterwards. The public `current_priority()` observation during the inner
+tail reports10 while the outer invocation is at10; the record preserves this
+original behavior rather than inferring the callback's registered20 priority.
+Sentinel pass-through preserves identity, a new sentinel replaces it, and
+null/false replacements remain distinguishable.
+
 ## Admission and next implementation work
 
 The probe passes the complete original closure to pinned GoHP, without changing
@@ -58,7 +87,7 @@ first diagnostic will be called an observed compiler stopping point:
 |---|---|
 | `plugin.php:25-57` | Original bare loading and execution-wide globals/initialization; declaration-only loading is insufficient |
 | `plugin.php:175,499`; `WP_Hook:367-371` | Variadics, dynamic callable dispatch, argument lists and callback identity |
-| `WP_Hook:26-76`; sentinel class | Attributes/final/interfaces/visibility/default arrays/strict-types contracts |
+| `class-wp-hook.php:26-76`; sentinel class | Attributes/final/interfaces/visibility/default arrays/strict-types contracts |
 | `WP_Hook:130-191,339-381,408` | References, ordered mutable callback tables, internal array pointers, reentrancy and iteration mutation |
 
 These rows are an implementation plan, not supported features or proof that

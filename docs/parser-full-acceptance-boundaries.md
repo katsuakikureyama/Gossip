@@ -13,8 +13,11 @@ No compiler defect requiring a GoHP change was demonstrated by this review.
 A later, separate [carry-in-state measurement](evidence/parser-carry-state-2026-10-30.md)
 now passes four sequences/twenty original calls per backend. JSON0/4 and incoming
 PCRE0/2 match before/after original calls without per-call success resets.
-JSON/type/error/resource gates and G83-PARSER remain open. This does not alter
-the fixed12-case result described below.
+Its separate [JSON key/type series](evidence/parser-json-key-types-2026-10-30.md)
+now also passes twelve new documents/twenty-four original calls per backend:
+duplicate/numeric keys/order, signed64 bounds, nested types and decoded bytes.
+JSON-invalid/depth and original regex/resource gates remain open, as does
+G83-PARSER. Neither extension alters the fixed12-case result described below.
 
 The original PR70 boundary review itself is a source/evidence review, not a new
 execution or second verifier. The later carry-in series has its own measured
@@ -23,7 +26,7 @@ Reuse [the immutable generated execution](evidence/parser-full-generated-2026-10
 and [native capture](evidence/parser-full-baseline-2026-10-27.md). The existing
 corpus, observers, pins and machine records are unchanged. The separate
 [machine-readable boundary plan](../gossip/tests/gohp/parser-full-boundary-plan.json)
-separates passed fresh-v1 and carry-in identities from **remaining planned,
+separates passed fresh-v1, carry-in and key/type identities from **remaining planned,
 unexecuted probes**. It is not an executable extension of either harness.
 
 ## What the current result establishes
@@ -32,7 +35,7 @@ unexecuted probes**. It is not an executable extension of either harness.
 |---|---|---|
 | Basic document structure | empty/freeform, single void/paired, nested/adjacent, leading/trailing freeform | A few complete paths, not every parser branch or arbitrary document |
 | Block-comment recovery | `unclosed_opener`, `stray_closer` | Not JSON parse errors; all PCRE/JSON codes0 in these cases |
-| Valid JSON attributes | `nested_attributes`: object/list, UTF-8 string, integer1, true/false/null | No integer extrema, duplicate/numeric-string keys or arbitrary nesting comparison in the complete parser; scalar roots cannot reach this JSON callsite |
+| Valid JSON attributes | Fixed-v1 `nested_attributes`, plus separate key/type12/24 with signed64 extrema, duplicate/escaped/numeric-string keys, ordered nested values and decoded bytes | Case-limited supported profile, not arbitrary nesting, float/overflow values or scalar-root JSON; scalar roots cannot reach this callsite |
 | Invalid JSON attributes | `malformed_json_attributes`: `{"broken":}` produces null attrs and JSON4/message on both calls | Syntax error only; no complete-parser UTF-8/control/surrogate/depth error measurements |
 | Raw string bytes | `raw_utf8_and_nul`: valid UTF-8 and NUL in freeform content | **Not invalid UTF-8 inside JSON attributes** |
 | Parser state and reuse | fixed-v1 has same typed result and every parser field, unchanged caller, fresh/reused objects | Fixed-v1 resets JSON before every call. The separate carry-in series now measures JSON0/4 and incoming PCRE0/2; arbitrary globals remain unmeasured |
@@ -58,7 +61,7 @@ The same original method has an explicit preg_match-false path returning
 
 ## Value and resource profile limits
 
-The source/harness admits only the exact12 named, base64-bound strings, each
+The fixed-v1 source/harness admits only its exact12 named, base64-bound strings, each
 no more than4096bytes. Both typed observers reject unsupported value types
 and observation nesting over64. A float attribute is not a successful PHP
 rejection case: the native observation transport itself cannot encode floats.
@@ -90,11 +93,15 @@ failure, parser errors and observation-transport failure are distinct states.
    corpus/observer; this review adopted its handoff without rerunning. No daemon,
    image/engine or remote resources were installed. The old retained result is
    unchanged; a separate machine record binds the new actual PHP execution.
-2. **Supported-profile JSON/type boundaries — unmeasured on the full parser.**
-   A separate series must cover ordered duplicate/numeric keys, integer bounds,
-   encoding/control/surrogate/depth errors at the actual brace-bound callsite.
-   Each proposed case needs a complete original PHP observation, generated
-   observation, exact profiles, all before/after fields and typed comparison.
+2. **Supported-profile JSON/key/type — passed, case-limited separate series.**
+   The [key/type12/24 measurement](evidence/parser-json-key-types-2026-10-30.md)
+   covers duplicate/escaped/numeric keys/order, signed64 min/max, empty/nested
+   arrays/objects and scalar/string bytes at the actual brace-bound callsite.
+   Unchanged full observers and a new pinned named-block/attrs-type contract
+   distinguish decoding from input recovery; all typed values/state/errors match
+   actual fixed PHP. Invalid encoding/raw control/lone-surrogate/default-depth
+   errors remain unmeasured in the separate JSON-error gate. Valid escaped
+   controls and surrogate pairs do not establish those error cases.
 3. **Original regex-error/resource path — unmeasured.** Select a reproducible
    in-profile input/error budget and observe the actual original parser's output,
    fields and PCRE status. Do not substitute direct preg_match or different

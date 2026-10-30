@@ -6,6 +6,8 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Original-parser host boundaries](evidence/parser-host-boundaries-2026-10-30.md) | Retained generation, new4inputs/8original guard calls:4096-byte completion/4097-byte rejection and reuse; separate100ms workload kill+Wait, not PHP equivalence or single-PCRE interruption |
+| [Host-boundary machine record](evidence/parser-host-boundaries-2026-10-30.json) | Complete actual guard/timeout observations, immutable inputs/toolchain, clean measured source and one-run command provenance; generation/native not rerun |
 | [Generated original parser at match1](evidence/parser-match1-generated-2026-10-30.md) | Separate explicit GoHP140 profile, fresh complete generation/build/24calls match retained PHP12cases including16resource error2 outcomes; no PHP rerun or application acceptance |
 | [Generated match1 machine record](evidence/parser-match1-generated-2026-10-30.json) | Actual generated observations plus retained native cases, source/profile/command/run_count1 and exact hashes; default/old inputs unchanged |
 | [Original hook API baseline](evidence/hooks-original-baseline-2026-10-30.md) | Native-only8workflow reference for actual plugin.php/WP_Hook/Sentinel; current GoHP rejects original require25/PHP002, no generated hooks/bootstrap acceptance. Next semantics and fail-closed attribute repair identified |
@@ -19,8 +21,8 @@ support or compatibility promise.
 | [JSON key/type machine record](evidence/parser-json-key-types-2026-10-30.json) | Full native/generated typed observations with signed64 precision, immutable bindings/clean source/command and one-attempt provenance |
 | [Original-parser carry-in state](evidence/parser-carry-state-2026-10-30.md) | Separate4sequences/20calls per side PASS against actual PHP8.3.36, before/after JSON and PCRE errors, typed values/state/caller/reuse. Existing12/24 not rerun; G83 remains open |
 | [Carry-in machine record](evidence/parser-carry-state-2026-10-30.json) | Both full observations, fixed hashes/profile/clean source/command and one-attempt provenance; incoming PCRE2 is a caller seed, not original-pattern resource-error proof |
-| [Complete-parser acceptance boundaries](parser-full-acceptance-boundaries.md) | Reviewed passed case-limited series and partial resource observations; generated original error paths/host guards still unmeasured, G83 open |
-| [Boundary probe status](../gossip/tests/gohp/parser-full-boundary-plan.json) | Non-executable status preserves earlier passed identities and separates fixed stress PASS/native-only match1 from unmeasured generated/resource/host paths |
+| [Complete-parser acceptance boundaries](parser-full-acceptance-boundaries.md) | Case-limited generated match1 error comparison and separate host guard/workload timeout observations; single-call interruption/other resource and G83 gates remain open |
+| [Boundary probe status](../gossip/tests/gohp/parser-full-boundary-plan.json) | Preserves fixed stress/native-only captures/generated comparison identities and records host-only boundaries separately; resource status stays partial |
 | [Fresh complete-parser comparison](evidence/parser-full-fresh-2026-10-30.md) | One clean1f7a3b2 existing fresh-mode run passes actual fixedPHP8.3.36 versus generated original12cases/24calls per side. Adopted without rerun; G83 boundary gates still open |
 | [Fresh comparison machine record](evidence/parser-full-fresh-2026-10-30.json) | Actual observations plus raw-handoff/committed-source/command/run_count1 provenance, distinct from the unchanged retained-only record |
 | [Complete generated parser retained-reference execution](evidence/parser-full-generated-2026-10-30.md) | Historical retained-only mode PASS, unchanged. The newer separate fresh-PHP record also passes the12 fixed cases; reviewed unmeasured boundary cases keep G83-PARSER open |

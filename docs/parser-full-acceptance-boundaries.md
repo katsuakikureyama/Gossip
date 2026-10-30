@@ -132,8 +132,15 @@ failure, parser errors and observation-transport failure are distinct states.
    no PHP source change/direct-regex seed/native rerun substitutes for the
    original path. This is a case-limited retained comparison, not a current-
    default-profile defect or arbitrary resource equivalence.
-   Host guards/timeouts still need separate failure observations,
-   not disappearance from the denominator or matching nonzero process exits.
+   The separate [host-boundary observation](evidence/parser-host-boundaries-2026-10-30.md)
+   now covers4096-byte raw completion and4097-byte ASCII/UTF8/binary explicit
+   rejection plus reuse. It also kills/reaps a repeated original-parser
+   workload100ms after a completed-call readiness signal. These are host-only
+   outcomes, not PHP errors or compatible killed exits; retained generation
+   is reused without native or old-case reruns. A single stalled PCRE2 call's
+   interruption, other engine failures and memory/heap equivalence remain
+   unmeasured. Rejection preserves Execution errors but writes partial parser
+   fields before throwing; parser-state rollback is not claimed.
    Finite zero-error samples do not prove all errors unreachable; PHP process
    memory, PCRE heap and nominal counters remain distinct.
 5. **Carry-in state — passed, case-limited separate series.** The new

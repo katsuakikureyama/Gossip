@@ -6,12 +6,14 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Original-parser JSON error boundaries](evidence/parser-json-errors-2026-10-30.md) | Separate12documents/24calls per side PASS: invalid attribute UTF-8, raw controls, lone surrogates and JSON depth errors; unchanged observers, G83/resource gate open |
+| [JSON error machine record](evidence/parser-json-errors-2026-10-30.json) | Both complete typed observations, immutable input/profile/clean source/command/run_count1; decode-null/error distinguished from observer/process failure |
 | [Original-parser JSON key/type boundaries](evidence/parser-json-key-types-2026-10-30.md) | Separate12new documents/24original calls per side PASS, duplicate/numeric keys/order, signed64 extrema, nested typed values and decoded bytes; exact old observers reused, G83 open |
 | [JSON key/type machine record](evidence/parser-json-key-types-2026-10-30.json) | Full native/generated typed observations with signed64 precision, immutable bindings/clean source/command and one-attempt provenance |
 | [Original-parser carry-in state](evidence/parser-carry-state-2026-10-30.md) | Separate4sequences/20calls per side PASS against actual PHP8.3.36, before/after JSON and PCRE errors, typed values/state/caller/reuse. Existing12/24 not rerun; G83 remains open |
 | [Carry-in machine record](evidence/parser-carry-state-2026-10-30.json) | Both full observations, fixed hashes/profile/clean source/command and one-attempt provenance; incoming PCRE2 is a caller seed, not original-pattern resource-error proof |
-| [Complete-parser acceptance boundaries](parser-full-acceptance-boundaries.md) | Reviewed fixed-v1 scope, passed fresh-PHP/carry-in/key-types case-limited series; JSON-invalid/depth and original regex/resource boundaries unmeasured, G83 open |
-| [Boundary probe status](../gossip/tests/gohp/parser-full-boundary-plan.json) | Non-executable status: fresh-v1, carry-in and JSON-key/type identities passed case-limited; error/resource families remain unmeasured; existing harnesses unchanged |
+| [Complete-parser acceptance boundaries](parser-full-acceptance-boundaries.md) | Reviewed fixed-v1 scope, passed fresh-PHP/carry-in/key-types/JSON-error case-limited series; original regex/resource boundaries unmeasured, G83 open |
+| [Boundary probe status](../gossip/tests/gohp/parser-full-boundary-plan.json) | Non-executable status: fresh-v1, carry-in, JSON-key/type and JSON-error identities passed case-limited; original regex/resource families unmeasured; existing harnesses unchanged |
 | [Fresh complete-parser comparison](evidence/parser-full-fresh-2026-10-30.md) | One clean1f7a3b2 existing fresh-mode run passes actual fixedPHP8.3.36 versus generated original12cases/24calls per side. Adopted without rerun; G83 boundary gates still open |
 | [Fresh comparison machine record](evidence/parser-full-fresh-2026-10-30.json) | Actual observations plus raw-handoff/committed-source/command/run_count1 provenance, distinct from the unchanged retained-only record |
 | [Complete generated parser retained-reference execution](evidence/parser-full-generated-2026-10-30.md) | Historical retained-only mode PASS, unchanged. The newer separate fresh-PHP record also passes the12 fixed cases; reviewed unmeasured boundary cases keep G83-PARSER open |

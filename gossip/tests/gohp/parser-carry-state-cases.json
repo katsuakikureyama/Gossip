@@ -1,0 +1,6 @@
+[
+  {"name":"syntax_carries_without_decode","json_seed":"syntax","pcre_seed":"clean","documents":["empty_document","freeform_html","single_void"]},
+  {"name":"successful_decode_clears_carry","json_seed":"syntax","pcre_seed":"clean","documents":["nested_attributes","empty_document"]},
+  {"name":"syntax_is_preserved_then_replaced","json_seed":"null","pcre_seed":"clean","documents":["malformed_json_attributes","freeform_html","nested_attributes"]},
+  {"name":"regex_error_resets_independently","json_seed":"syntax","pcre_seed":"limit","documents":["empty_document","nested_attributes"]}
+]

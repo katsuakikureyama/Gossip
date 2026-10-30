@@ -1,0 +1,363 @@
+package main
+
+import (
+	"bytes"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+const (
+	carryStateDocumentCount = 12
+	carryStateScenarioCount = 4
+	carryStateStepCount     = 10
+	carryStateMaxBytes      = 4096
+	carryStateMaxDepth      = 64
+)
+
+type carryStateDocumentInput struct {
+	Name     *string `json:"name"`
+	Document *string `json:"document_base64"`
+}
+
+type carryStateDocument struct {
+	Name     string
+	Document string
+}
+
+type carryStateSequenceInput struct {
+	Name      *string   `json:"name"`
+	JSONSeed  *string   `json:"json_seed"`
+	PCRESeed  *string   `json:"pcre_seed"`
+	Documents *[]string `json:"documents"`
+}
+
+type carryStateSequence struct {
+	Name      string
+	JSONSeed  string
+	PCRESeed  string
+	Documents []string
+}
+
+type carryStateErrors struct {
+	JSONErrorCode    int64  `json:"json_error_code"`
+	JSONErrorMessage string `json:"json_error_message"`
+	PCREErrorCode    int64  `json:"pcre_error_code"`
+}
+
+type carryStateSeedObservation struct {
+	JSONResult any              `json:"json_result"`
+	PCREResult any              `json:"pcre_result"`
+	ErrorState carryStateErrors `json:"error_state"`
+}
+
+type carryStateStepObservation struct {
+	DocumentName    string            `json:"document_name"`
+	Input           map[string]string `json:"input"`
+	Before          carryStateErrors  `json:"before"`
+	Result          any               `json:"result"`
+	After           carryStateErrors  `json:"after"`
+	ParserAfter     any               `json:"parser_after"`
+	CallerUnchanged bool              `json:"caller_unchanged"`
+}
+
+type carryStatePassObservation struct {
+	Instance string                      `json:"instance"`
+	Seed     carryStateSeedObservation   `json:"seed"`
+	Steps    []carryStateStepObservation `json:"steps"`
+}
+
+type carryStateScenarioObservation struct {
+	Name       string                    `json:"name"`
+	JSONSeed   string                    `json:"json_seed"`
+	PCRESeed   string                    `json:"pcre_seed"`
+	First      carryStatePassObservation `json:"first"`
+	Reuse      carryStatePassObservation `json:"reuse"`
+	ReuseReset bool                      `json:"reuse_reset"`
+}
+
+// carryStateTyped is deliberately a byte-preserving observer transport. It
+// does not evaluate PHP values; it only exposes the generated result in the
+// same ordered form used by the original-PHP observer.
+func carryStateTyped(value any, depth int) any {
+	if depth > carryStateMaxDepth {
+		panic("carry-state observation nesting exceeds fixture bound")
+	}
+	switch value := value.(type) {
+	case nil:
+		return map[string]any{"type": "null", "value": nil}
+	case bool:
+		return map[string]any{"type": "bool", "value": value}
+	case int64:
+		return map[string]any{"type": "int", "value": value}
+	case string:
+		return map[string]any{"type": "string", "base64": base64.StdEncoding.EncodeToString([]byte(value))}
+	case rt.Array:
+		entries := make([]any, 0, len(value.Entries))
+		for _, entry := range value.Entries {
+			entries = append(entries, map[string]any{
+				"key":   carryStateTyped(entry.Key, depth+1),
+				"value": carryStateTyped(entry.Value, depth+1),
+			})
+		}
+		return map[string]any{"type": "array", "entries": entries}
+	case *C_wp_block_parser:
+		return carryStateTypedObject("WP_Block_Parser", value.PHPProperties(), depth)
+	case *C_wp_block_parser_block:
+		return carryStateTypedObject("WP_Block_Parser_Block", value.PHPProperties(), depth)
+	case *C_wp_block_parser_frame:
+		return carryStateTypedObject("WP_Block_Parser_Frame", value.PHPProperties(), depth)
+	default:
+		panic(fmt.Sprintf("value outside carry-state observation domain: %T", value))
+	}
+}
+
+func carryStateTypedObject(class string, properties rt.Array, depth int) any {
+	items := make([]any, 0, len(properties.Entries))
+	for _, property := range properties.Entries {
+		items = append(items, map[string]any{
+			"key":   carryStateTyped(property.Key, depth+1),
+			"value": carryStateTyped(property.Value, depth+1),
+		})
+	}
+	return map[string]any{"type": "object", "class": class, "properties": items}
+}
+
+func carryStateDecode(path string, destination any) {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	if err := decoder.Decode(destination); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		if err == nil {
+			panic("carry-state input contains trailing JSON value")
+		}
+		panic(err)
+	}
+}
+
+func carryStateReadDocuments(path string) map[string]carryStateDocument {
+	var inputs []carryStateDocumentInput
+	carryStateDecode(path, &inputs)
+	if len(inputs) != carryStateDocumentCount {
+		panic("requires exactly 12 fixed full-parser documents")
+	}
+	documents := make(map[string]carryStateDocument, len(inputs))
+	for _, input := range inputs {
+		if input.Name == nil || input.Document == nil || *input.Name == "" {
+			panic("invalid full-parser document")
+		}
+		document, err := base64.StdEncoding.Strict().DecodeString(*input.Document)
+		if err != nil || base64.StdEncoding.EncodeToString(document) != *input.Document || len(document) > carryStateMaxBytes {
+			panic("document outside fixed full-parser domain: " + *input.Name)
+		}
+		if _, exists := documents[*input.Name]; exists {
+			panic("duplicate full-parser document: " + *input.Name)
+		}
+		documents[*input.Name] = carryStateDocument{Name: *input.Name, Document: string(document)}
+	}
+	return documents
+}
+
+func carryStateReadSequences(path string, documents map[string]carryStateDocument) []carryStateSequence {
+	var inputs []carryStateSequenceInput
+	carryStateDecode(path, &inputs)
+	if len(inputs) != carryStateScenarioCount {
+		panic("requires exactly four carry-state scenarios")
+	}
+	sequences := make([]carryStateSequence, 0, len(inputs))
+	seen := make(map[string]bool, len(inputs))
+	steps := 0
+	for _, input := range inputs {
+		if input.Name == nil || input.JSONSeed == nil || input.PCRESeed == nil || input.Documents == nil || *input.Name == "" || seen[*input.Name] {
+			panic("invalid carry-state scenario")
+		}
+		if *input.JSONSeed != "syntax" && *input.JSONSeed != "null" {
+			panic("invalid carry-state JSON seed: " + *input.Name)
+		}
+		if *input.PCRESeed != "clean" && *input.PCRESeed != "limit" {
+			panic("invalid carry-state PCRE seed: " + *input.Name)
+		}
+		if len(*input.Documents) < 1 || len(*input.Documents) > 3 {
+			panic("carry-state scenario outside one-to-three document bound: " + *input.Name)
+		}
+		for _, name := range *input.Documents {
+			if _, exists := documents[name]; !exists {
+				panic("carry-state scenario names unknown document: " + name)
+			}
+		}
+		seen[*input.Name] = true
+		steps += len(*input.Documents)
+		sequences = append(sequences, carryStateSequence{
+			Name: *input.Name, JSONSeed: *input.JSONSeed, PCRESeed: *input.PCRESeed,
+			Documents: append([]string(nil), (*input.Documents)...),
+		})
+	}
+	if steps != carryStateStepCount {
+		panic("carry-state scenarios must contain exactly ten parse steps")
+	}
+	return sequences
+}
+
+func carryStateErrorsFor(execution *rt.Execution) carryStateErrors {
+	return carryStateErrors{
+		JSONErrorCode: execution.JSONLastError(), JSONErrorMessage: execution.JSONLastErrorMessage(), PCREErrorCode: execution.PregLastError83(),
+	}
+}
+
+func carryStateSeed(execution *rt.Execution, jsonSeed, pcreSeed string) carryStateSeedObservation {
+	var jsonResult any
+	switch jsonSeed {
+	case "syntax":
+		jsonResult = execution.JSONDecodeAssociative("{")
+		if jsonResult != nil || execution.JSONLastError() != 4 || execution.JSONLastErrorMessage() != "Syntax error" {
+			panic("could not establish JSON syntax-error seed")
+		}
+	case "null":
+		jsonResult = execution.JSONDecodeAssociative("null")
+		if jsonResult != nil || execution.JSONLastError() != 0 || execution.JSONLastErrorMessage() != "No error" {
+			panic("could not establish JSON null seed")
+		}
+	default:
+		panic("unknown JSON seed")
+	}
+
+	var pcreResult rt.Preg83Result
+	switch pcreSeed {
+	case "clean":
+		pcreResult = execution.PregMatch83Local("/a/s", "", int64(0))
+		if value, ok := pcreResult.Return.(int64); !ok || value != 0 || execution.PregLastError83() != 0 {
+			panic("could not establish clean PCRE seed")
+		}
+	case "limit":
+		pcreResult = execution.PregMatch83Local("/^(a+)+$/s", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!", int64(0))
+		if value, ok := pcreResult.Return.(bool); !ok || value || execution.PregLastError83() != 2 {
+			panic("could not establish PCRE match-limit seed")
+		}
+	default:
+		panic("unknown PCRE seed")
+	}
+	return carryStateSeedObservation{
+		JSONResult: carryStateTyped(jsonResult, 0), PCREResult: carryStateTyped(pcreResult.Return, 0), ErrorState: carryStateErrorsFor(execution),
+	}
+}
+
+func carryStateNewParser(execution *rt.Execution) *C_wp_block_parser {
+	parser, ok := NewContext_wp_block_parser(execution).(*C_wp_block_parser)
+	if !ok || parser == nil {
+		panic("generated WP_Block_Parser constructor returned unexpected value")
+	}
+	return parser
+}
+
+func carryStateProperties(parser *C_wp_block_parser) rt.Array {
+	properties := parser.PHPProperties()
+	expected := []string{"document", "offset", "output", "stack"}
+	if len(properties.Entries) != len(expected) {
+		panic("generated parser property layout changed")
+	}
+	for index, name := range expected {
+		if key, ok := properties.Entries[index].Key.(string); !ok || key != name {
+			panic("generated parser property order changed")
+		}
+	}
+	return properties
+}
+
+func carryStateProperty(properties rt.Array, name string) any {
+	for _, property := range properties.Entries {
+		if key, ok := property.Key.(string); ok && key == name {
+			return property.Value
+		}
+	}
+	panic("generated parser property missing: " + name)
+}
+
+func carryStateObservePass(execution *rt.Execution, parser *C_wp_block_parser, sequence carryStateSequence, documents map[string]carryStateDocument, instance string) carryStatePassObservation {
+	seed := carryStateSeed(execution, sequence.JSONSeed, sequence.PCRESeed)
+	steps := make([]carryStateStepObservation, 0, len(sequence.Documents))
+	for _, name := range sequence.Documents {
+		document := documents[name]
+		callerBefore := document.Document
+		before := carryStateErrorsFor(execution)
+		result := parser.MContext_parse(execution, document.Document)
+		after := carryStateErrorsFor(execution)
+		properties := carryStateProperties(parser)
+		documentAfter, documentOK := carryStateProperty(properties, "document").(string)
+		stack, stackOK := carryStateProperty(properties, "stack").(rt.Array)
+		resultTyped := carryStateTyped(result, 0)
+		if !documentOK || documentAfter != document.Document || !stackOK || len(stack.Entries) != 0 || !reflect.DeepEqual(carryStateTyped(carryStateProperty(properties, "output"), 0), resultTyped) {
+			panic(fmt.Sprintf("%s/%s parser postcondition failed", sequence.Name, name))
+		}
+		callerUnchanged := document.Document == callerBefore
+		if !callerUnchanged {
+			panic(fmt.Sprintf("%s/%s caller document mutated", sequence.Name, name))
+		}
+		steps = append(steps, carryStateStepObservation{
+			DocumentName: name,
+			Input:        map[string]string{"document_base64": base64.StdEncoding.EncodeToString([]byte(document.Document))},
+			Before:       before, Result: resultTyped, After: after,
+			ParserAfter: carryStateTyped(properties, 0), CallerUnchanged: callerUnchanged,
+		})
+	}
+	return carryStatePassObservation{Instance: instance, Seed: seed, Steps: steps}
+}
+
+func carryStateComparablePass(pass carryStatePassObservation) any {
+	return struct {
+		Seed  carryStateSeedObservation
+		Steps []carryStateStepObservation
+	}{Seed: pass.Seed, Steps: pass.Steps}
+}
+
+func init() {
+	if len(os.Args) != 3 {
+		panic("requires full-parser documents JSON and carry-state scenarios JSON paths")
+	}
+	// Decode all JSON before either global state seed is applied.
+	documents := carryStateReadDocuments(os.Args[1])
+	sequences := carryStateReadSequences(os.Args[2], documents)
+
+	// PHP's JSON and PCRE error state are process-global. The generated runtime
+	// represents that with this one execution; only parser allocation differs.
+	execution := &rt.Execution{}
+	reusedParser := carryStateNewParser(execution)
+	observations := make([]carryStateScenarioObservation, 0, len(sequences))
+	parseCalls := 0
+	for _, sequence := range sequences {
+		first := carryStateObservePass(execution, carryStateNewParser(execution), sequence, documents, "fresh-sequence")
+		reuse := carryStateObservePass(execution, reusedParser, sequence, documents, "reused-across-sequences")
+		reuseReset := reflect.DeepEqual(carryStateComparablePass(first), carryStateComparablePass(reuse))
+		if !reuseReset {
+			panic("fresh and reused sequence observations differ: " + sequence.Name)
+		}
+		parseCalls += len(first.Steps) + len(reuse.Steps)
+		observations = append(observations, carryStateScenarioObservation{
+			Name: sequence.Name, JSONSeed: sequence.JSONSeed, PCRESeed: sequence.PCRESeed,
+			First: first, Reuse: reuse, ReuseReset: reuseReset,
+		})
+	}
+	if parseCalls != carryStateStepCount*2 {
+		panic("carry-state parse-call count changed")
+	}
+	output, err := json.Marshal(struct {
+		Schema         string                          `json:"schema"`
+		ParseCallCount int                             `json:"parse_call_count"`
+		Scenarios      []carryStateScenarioObservation `json:"scenarios"`
+	}{Schema: "gossip.parser-carry-state-observation/v1", ParseCallCount: parseCalls, Scenarios: observations})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(string(output), "\n")
+}

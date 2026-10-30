@@ -1,0 +1,9 @@
+{
+  "schema": "gossip.parser-carry-state/v1",
+  "generated_pin_sha256": "78003a7b9291fa363b9f8221a4f1dec2e7c16669f86c9c2c010ebf241d6898ad",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "documents_sha256": "a12d58533d020023a04656fec753552045d279ecc55e7b01e5a40d672d4adeeb",
+  "sequences_sha256": "be23d8dd9c3ab2889910ef5766d71359814cd1b6032beeb67e95387533e0a691",
+  "go_observer_sha256": "af278317c558683b37af65dec9eae799357e63c11e13204fe27359077653ab01",
+  "php_observer_sha256": "3a6e7a1cd839c3c9591afdb6238cd8b1fd5ed712866c59da051a652b2a289b3a"
+}

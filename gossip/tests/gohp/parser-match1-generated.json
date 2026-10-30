@@ -1,0 +1,11 @@
+{
+  "schema": "gossip.parser-match1-generated/v1",
+  "gohp_commit": "e6a71a5f267658e8c575ffab5db6712246e543b2",
+  "regex_profile": "pcre2-php83-match1-v1",
+  "native_reference_sha256": "59d3e4cfe3553677f743b93d571966ffd538be9cbe1a0610c0788cc8488df60c",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "cases_sha256": "30400b0d12bc0fded6973ac456d53a2539f8fefadf2b990a432192824e3821e1",
+  "go_observer_sha256": "5da30cc715689e79bf2354e29981a7f8d52f12dd3d0fa03527300a4324bee774",
+  "php_observer_sha256": "797971b4061396e8e74f3fb7f7a752810c59bf93b2966785e8dc42feb992b325",
+  "closure_manifest_sha256": "89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa"
+}

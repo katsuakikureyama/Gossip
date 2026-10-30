@@ -1,0 +1,249 @@
+package main
+
+import (
+	"bytes"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"io"
+	"os"
+	"reflect"
+
+	rt "github.com/katsuakikureyama/GoHP/runtime"
+)
+
+const (
+	fullParserCaseCount = 12
+	fullParserMaxBytes  = 4096
+	fullParserMaxDepth  = 64
+)
+
+type fullParserInput struct {
+	Name     *string `json:"name"`
+	Document *string `json:"document_base64"`
+}
+
+type fullParserCase struct {
+	Name     string
+	Document string
+}
+
+type fullParserParseObservation struct {
+	Instance         string `json:"instance"`
+	Result           any    `json:"result"`
+	PCREErrorCode    int64  `json:"pcre_error_code"`
+	JSONErrorCode    int64  `json:"json_error_code"`
+	JSONErrorMessage string `json:"json_error_message"`
+	ParserAfter      any    `json:"parser_after"`
+}
+
+type fullParserCaseObservation struct {
+	Name            string                     `json:"name"`
+	Input           map[string]string          `json:"input"`
+	FirstParse      fullParserParseObservation `json:"first_parse"`
+	ReuseParse      fullParserParseObservation `json:"reuse_parse"`
+	CallerUnchanged bool                       `json:"caller_unchanged"`
+	ReuseReset      bool                       `json:"reuse_reset"`
+}
+
+// fullParserTyped is the same ordered, byte-preserving transport used by the
+// native PHP observer. It is deliberately an observer, not a PHP evaluator.
+func fullParserTyped(value any, depth int) any {
+	if depth > fullParserMaxDepth {
+		panic("full parser observation nesting exceeds fixture bound")
+	}
+	switch value := value.(type) {
+	case nil:
+		return map[string]any{"type": "null", "value": nil}
+	case bool:
+		return map[string]any{"type": "bool", "value": value}
+	case int64:
+		return map[string]any{"type": "int", "value": value}
+	case string:
+		return map[string]any{"type": "string", "base64": base64.StdEncoding.EncodeToString([]byte(value))}
+	case rt.Array:
+		entries := make([]any, 0, len(value.Entries))
+		for _, entry := range value.Entries {
+			entries = append(entries, map[string]any{
+				"key":   fullParserTyped(entry.Key, depth+1),
+				"value": fullParserTyped(entry.Value, depth+1),
+			})
+		}
+		return map[string]any{"type": "array", "entries": entries}
+	case *C_wp_block_parser:
+		return fullParserTypedObject("WP_Block_Parser", value.PHPProperties(), depth)
+	case *C_wp_block_parser_block:
+		return fullParserTypedObject("WP_Block_Parser_Block", value.PHPProperties(), depth)
+	case *C_wp_block_parser_frame:
+		return fullParserTypedObject("WP_Block_Parser_Frame", value.PHPProperties(), depth)
+	default:
+		panic(fmt.Sprintf("value outside full parser observation domain: %T", value))
+	}
+}
+
+func fullParserTypedObject(class string, properties rt.Array, depth int) any {
+	items := make([]any, 0, len(properties.Entries))
+	for _, property := range properties.Entries {
+		items = append(items, map[string]any{
+			"key":   fullParserTyped(property.Key, depth+1),
+			"value": fullParserTyped(property.Value, depth+1),
+		})
+	}
+	return map[string]any{"type": "object", "class": class, "properties": items}
+}
+
+func fullParserReadCases(path string) []fullParserCase {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		panic(err)
+	}
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	var inputs []fullParserInput
+	if err := decoder.Decode(&inputs); err != nil {
+		panic(err)
+	}
+	var trailing any
+	if err := decoder.Decode(&trailing); err != io.EOF {
+		if err == nil {
+			panic("full parser cases contain trailing JSON value")
+		}
+		panic(err)
+	}
+	if len(inputs) != fullParserCaseCount {
+		panic("requires exactly 12 fixed full-parser cases")
+	}
+
+	cases := make([]fullParserCase, 0, len(inputs))
+	seen := make(map[string]bool, len(inputs))
+	for _, input := range inputs {
+		if input.Name == nil || input.Document == nil || *input.Name == "" || seen[*input.Name] {
+			panic("invalid full-parser case")
+		}
+		document, err := base64.StdEncoding.Strict().DecodeString(*input.Document)
+		if err != nil || base64.StdEncoding.EncodeToString(document) != *input.Document || len(document) > fullParserMaxBytes {
+			panic("case outside fixed full-parser domain: " + *input.Name)
+		}
+		seen[*input.Name] = true
+		cases = append(cases, fullParserCase{Name: *input.Name, Document: string(document)})
+	}
+	return cases
+}
+
+func fullParserNew(execution *rt.Execution) *C_wp_block_parser {
+	parser, ok := NewContext_wp_block_parser(execution).(*C_wp_block_parser)
+	if !ok || parser == nil {
+		panic("generated WP_Block_Parser constructor returned unexpected value")
+	}
+	return parser
+}
+
+func fullParserResetJSON(execution *rt.Execution) {
+	if value := execution.JSONDecodeAssociative("null"); value != nil {
+		panic("JSON null baseline returned a non-null value")
+	}
+	if execution.JSONLastError() != 0 || execution.JSONLastErrorMessage() != "No error" {
+		panic("could not establish JSON-error baseline")
+	}
+}
+
+func fullParserState(parser *C_wp_block_parser) (rt.Array, any) {
+	properties := parser.PHPProperties()
+	expected := []string{"document", "offset", "output", "stack"}
+	if len(properties.Entries) != len(expected) {
+		panic("generated parser property layout changed")
+	}
+	for index, name := range expected {
+		if key, ok := properties.Entries[index].Key.(string); !ok || key != name {
+			panic("generated parser property order changed")
+		}
+	}
+	return properties, fullParserTyped(properties, 0)
+}
+
+func fullParserProperty(properties rt.Array, name string) any {
+	for _, property := range properties.Entries {
+		if key, ok := property.Key.(string); ok && key == name {
+			return property.Value
+		}
+	}
+	panic("generated parser property missing: " + name)
+}
+
+func fullParserObserveParse(execution *rt.Execution, parser *C_wp_block_parser, document, instance, caseName string) (fullParserParseObservation, rt.Array) {
+	defer func() {
+		if problem := recover(); problem != nil {
+			panic(fmt.Sprintf("%s/%s: %v", caseName, instance, problem))
+		}
+	}()
+	// This resets only execution-owned JSON state. In particular it does not
+	// clear parser state before a reused parse, matching the PHP observer.
+	fullParserResetJSON(execution)
+	result := parser.MContext_parse(execution, document)
+	properties, state := fullParserState(parser)
+	return fullParserParseObservation{
+		Instance:         instance,
+		Result:           fullParserTyped(result, 0),
+		PCREErrorCode:    execution.PregLastError83(),
+		JSONErrorCode:    execution.JSONLastError(),
+		JSONErrorMessage: execution.JSONLastErrorMessage(),
+		ParserAfter:      state,
+	}, properties
+}
+
+func fullParserReuseReset(first, reuse fullParserParseObservation, reuseProperties rt.Array, document string) bool {
+	documentAfter, documentOK := fullParserProperty(reuseProperties, "document").(string)
+	stack, stackOK := fullParserProperty(reuseProperties, "stack").(rt.Array)
+	output := fullParserTyped(fullParserProperty(reuseProperties, "output"), 0)
+	return reflect.DeepEqual(first.Result, reuse.Result) &&
+		reflect.DeepEqual(first.ParserAfter, reuse.ParserAfter) &&
+		first.PCREErrorCode == reuse.PCREErrorCode &&
+		first.JSONErrorCode == reuse.JSONErrorCode &&
+		documentOK && documentAfter == document &&
+		reflect.DeepEqual(output, reuse.Result) &&
+		stackOK && len(stack.Entries) == 0
+}
+
+func init() {
+	if len(os.Args) != 2 {
+		panic("requires one full-parser cases JSON path")
+	}
+	cases := fullParserReadCases(os.Args[1])
+
+	// PHP's preg/json state is process-global. The generated equivalent is one
+	// shared execution, while only the fresh parser instance changes per case.
+	execution := &rt.Execution{}
+	reusedParser := fullParserNew(execution)
+	observations := make([]fullParserCaseObservation, 0, len(cases))
+	for _, c := range cases {
+		documentBefore := c.Document
+		freshParser := fullParserNew(execution)
+		first, _ := fullParserObserveParse(execution, freshParser, c.Document, "fresh", c.Name)
+		reuse, reuseProperties := fullParserObserveParse(execution, reusedParser, c.Document, "reused-across-cases", c.Name)
+		callerUnchanged := c.Document == documentBefore
+		reuseReset := fullParserReuseReset(first, reuse, reuseProperties, c.Document)
+		if !callerUnchanged || !reuseReset {
+			panic("caller mutation or parser reuse/reset mismatch: " + c.Name)
+		}
+		observations = append(observations, fullParserCaseObservation{
+			Name:            c.Name,
+			Input:           map[string]string{"document_base64": base64.StdEncoding.EncodeToString([]byte(c.Document))},
+			FirstParse:      first,
+			ReuseParse:      reuse,
+			CallerUnchanged: callerUnchanged,
+			ReuseReset:      reuseReset,
+		})
+	}
+
+	output, err := json.Marshal(struct {
+		Schema string                      `json:"schema"`
+		Cases  []fullParserCaseObservation `json:"cases"`
+	}{
+		Schema: "gossip.parser-full-generated-observation/v1",
+		Cases:  observations,
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(string(output), "\n")
+}

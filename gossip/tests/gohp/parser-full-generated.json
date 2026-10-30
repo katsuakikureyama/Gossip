@@ -1,0 +1,11 @@
+{
+  "schema": "gossip.parser-full-generated/v1",
+  "gohp_commit": "b2d1482268a7710c515c07bf919af3d40b09d17c",
+  "reusable_generation_commit": "35524a636073f4abbc8bb69b9e36263e71ac62d8",
+  "generated_sha256": "55c66c931ed9da4be7a0a263129242b169a68127e83bb526fbc1f6d247f402dd",
+  "reusable_report_sha256": "bbf61c482f333b6509cff72b8e27cd2c7833238bf81a4148dda3e4f08104a1df",
+  "reference_sha256": "1b34c7af6d7baeda2997e033c93727147bad4d36e6bfed676e183e6166ea43a7",
+  "reference_manifest_sha256": "b3a80436c9498355305d654fe6ed127591c6d83f5ea76b70a6c595e405b6f5e5",
+  "closure_manifest_sha256": "89f897c64146705559eae41bb50d49aff57abad0a11ee02d16d27fe78d64adaa",
+  "observer_sha256": "5da30cc715689e79bf2354e29981a7f8d52f12dd3d0fa03527300a4324bee774"
+}

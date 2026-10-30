@@ -2,7 +2,47 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: complete original Go generation/build, original runtime still unverified
+## Latest: complete generated parser matches the retained PHP reference
+
+The complete generated original `MContext_parse` has now been invoked, rather
+than merely generated and built. At clean Gossip
+`29b9bd2a06d7100e00d5395beef6cd7bffb3501a` / tree
+`e35090afbee70a0748bb7dc1b9d519d62b1c4b49`, one opt-in retained-mode run of
+`TestOriginalWordPressFullParserGenerated` passes in4.88s (package5.122s).
+It makes 24 calls over the declared 12 cases: a fresh parser per case and one
+parser reused across all cases. Every call shares one `Execution`, whose JSON
+state is reset from associative `null` before the call.
+
+The generated Go's typed output/state, ordered keys, raw string bytes, errors,
+caller-visible state and parser-reset behavior match the retained fixed PHP8.3.36
+reference. Both canonical typed-case records hash to
+`3780c6a5ebd4eefda51bc548b2e95f585687c39f274eb6d3c8a622792607ca28`.
+The actual Go observer exits0 with empty stderr and writes59,260 bytes
+(SHA-256 `e0e5a47f2e36b7cbbcf293e16b3ced0417cd3eb72b8a63eba20ea85ca51deebb`).
+Its raw process stdout is intentionally not compared to the 60,065-byte native
+record because their metadata differs; the typed cases are the comparison
+contract. The detailed identities, enabled CGO/static-PCRE profile, and limits
+are in [the generated-parser execution record](evidence/parser-full-generated-2026-10-30.md)
+and its [paired machine record](evidence/parser-full-generated-2026-10-30.json).
+
+This is a bounded retained-reference result, not G83-PARSER acceptance or a
+claim that Gossip works completely. Docker was unavailable, so native PHP was
+not rerun and `fresh` mode remains unverified. The required fresh comparison
+and corpus-boundary review (including negative API/input cases) remain open;
+bootstrap, data, HTTP, and site gates have not run. The 12 cases exercise only
+the P2/P3/P4/P5 branches they reach, not all branches. The test-only harness
+adds no production source change, extraction/rewrite/fallback, route/auth/deploy
+behavior, local CLI behavior, or WebMCP behavior.
+
+The current GoHP pin is main
+`b2d1482268a7710c515c07bf919af3d40b09d17c` (archive SHA-256
+`d20e5572b8aa5f5f57751623fe1a4f5631fbca8c8960ba18c8caa4be5b990653`). It
+reuses the checked generation at `35524a636073f4abbc8bb69b9e36263e71ac62d8`;
+the production paths `cmd`, `internal`, `runtime`, `go.mod`, and `go.sum` have
+no diff across those pins. No GoHP source change, new GoHP CI run, or GoHP PR
+is attributed to this Gossip-only test record.
+
+## Previous: complete original Go generation/build, original runtime still unverified
 
 [GoHP138](https://github.com/katsuakikureyama/GoHP/pull/138) adds associative JSON with execution-local last-error
 code/message readers, needed by the existing reference observer. It admits only

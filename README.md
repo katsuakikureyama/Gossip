@@ -136,7 +136,8 @@ with fresh and reused parser instances (24 calls) and matches the retained
 PHP8.3.36 typed reference. The Go run uses enabled static PCRE and exits0 with
 quiet stderr. This is not a fresh native-PHP comparison or whole-process
 stdout-byte equality, and it is not full Gossip acceptance: Docker was
-unavailable for the fresh PHP capture, corpus-boundary review remains, and
+unavailable for the fresh PHP capture. The [boundary review](docs/parser-full-acceptance-boundaries.md)
+now records measured versus missing JSON/type/resource/state cases, and
 G83-PARSER stays open. General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the

@@ -40,7 +40,7 @@ frozen runnable environment.
 
 | Gate | Completion criterion | Current state |
 |---|---|---|
-| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Retained-reference execution passes; acceptance remains open**: [the complete generated-parser record](evidence/parser-full-generated-2026-10-30.md) has one enabled-PCRE Go run at clean Gossip29b9bd2/treee35090: 12 declared cases, fresh and reused-parser passes, 24 calls sharing one Execution, and canonical typed cases equal to the retained PHP8.3.36 record. The native container was not rerun because Docker was unavailable; fresh mode and boundary review are unverified, so this is neither a fresh differential nor application acceptance |
+| **G83-PARSER** (active) | Translate/build all three unchanged classes and their loading closure; run the declared full `parse()` cases and compare typed ordered output, raw bytes, caller/state effects and diagnostics with pinned PHP | **Retained-reference execution passes; acceptance remains open**: [the complete generated-parser record](evidence/parser-full-generated-2026-10-30.md) has one enabled-PCRE Go run at clean Gossip29b9bd2/treee35090:12 cases/24 calls. [Boundary review](parser-full-acceptance-boundaries.md) is now recorded with open JSON/type/resource/carry-in-state findings; it is not a new measurement. Fresh PHP comparison remains unverified because the existing runner was unavailable. No fresh differential or application acceptance |
 | G83-BOOT | Original bootstrap and actual `plugin.php` / `WP_Hook`, including callbacks, globals and reentrant mutation; no mock hooks | Not run; source/dependency/config manifest still required |
 | G83-DATA | A pinned relational DB adapter executes original data access and preserves schema, reads/writes, errors, transactions and post/options persistence across restart | Not run; DB product/version/config and adapter not selected; prototype JSON store is not a substitute |
 | G83-HTTP | Original request flow: public pages, login/logout and protected admin, with correct status/body/headers/cookies, authorization and failure behavior | Not run; host/session/route contracts still required |
@@ -52,6 +52,14 @@ at different revisions does not satisfy that statement. Parser corpus v1 is the
 first bounded input set, not every possible document, branch or resource limit.
 Before admitting G83-PARSER, review the corpus for required error-limit/JSON/type
 boundaries and explicitly retain any unsupported cases rather than removing them.
+
+The [completed review and open probe plan](parser-full-acceptance-boundaries.md)
+now record that all24 PCRE codes are0, JSON failure covers syntax4 only, raw
+UTF-8/NUL is outside attributes, and JSON state is initialized before each call.
+Original JSON capture is brace-bound; arbitrary scalar-root JSON is not a new
+parser-callsite requirement. Do not equate observer failure or standalone builtin
+success with original-parser behavior. The plan adds no executable cases and
+does not modify the fixed12-case denominator, native records or evidence hashes.
 
 Multisite, third-party plugins/themes, arbitrary Composer packages, external mail,
 payments, automatic updates, public deployment and production readiness are not

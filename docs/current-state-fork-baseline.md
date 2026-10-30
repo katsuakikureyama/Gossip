@@ -2,7 +2,32 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: complete generated parser matches the retained PHP reference
+## Latest: acceptance boundary review recorded; no new execution
+
+The [complete-parser boundary review](parser-full-acceptance-boundaries.md)
+now separates the12case/24call retained PASS from unmeasured JSON encoding/depth/
+key/type, PCRE error/resource and carry-in global-state cases. All recorded PCRE
+codes are0; the only recorded JSON error is4. Valid UTF-8/NUL outside attributes
+does not cover invalid UTF-8 JSON. Each call's JSON success baseline does not
+prove that the original parser resets global errors itself.
+
+The [separate planned probes](../gossip/tests/gohp/parser-full-boundary-plan.json)
+are non-executable metadata, not new cases added to the current harness or native
+expectations. Any extension needs its own immutable corpus/observer/evidence
+series. Floats are outside both current typed observers as well as GoHP's JSON
+profile; an observer failure is not a native-parser rejection. Attribute capture
+is brace-bound, so scalar-root JSON is not a new requirement for this callsite.
+
+No test/probe/build/parse run or artifact download was repeated, and no compiler
+defect or harness change was demonstrated. GoHP138 and the retained/generated
+proofs, original source, old manifests/corpus/observers/pins stay unchanged.
+Fresh PHP remains unverified using the previously recorded unavailable Docker
+state, with no daemon/image/service setup or new CI resources. G83-PARSER stays
+open pending fresh and boundary measurements; later gates remain not-run.
+This change is documentation plus a review plan only, keeping the existing
+local comparison/WebMCP exclusion and auth/routes/deployment unchanged.
+
+## Previous: complete generated parser matches the retained PHP reference
 
 The complete generated original `MContext_parse` has now been invoked, rather
 than merely generated and built. At clean Gossip

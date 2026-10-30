@@ -6,6 +6,7 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Complete original generation/build](evidence/parser-json-generation-2026-10-30.md) | GoHP138's bounded JSON passes283; one unchanged complete Parser/Block/Frame closure generates v0.2 Go/report and builds CGO0 Darwinarm64. Original execution/native-PCRE/12case comparison/G83-PARSER still unverified |
 | [Array-pop parser admission probe](evidence/parser-array-pop-probe-2026-10-30.md) | GoHP137/main af3e9ada passes original205 `array_pop` through the unchanged closure and stops at codegen PHP004 line283 `json_decode`; all10 new checks and its owned 902-byte native/Go fixture pass PHP8.3.36/8.4.27 push/PR/exact-main CI, but no original parser artifact or acceptance |
 | [Bounded `array_pop` locations (GoHP)](https://github.com/katsuakikureyama/GoHP/pull/137) | Main af3e9ada admits standalone/bare-result pop for defined local or direct named-property array locations; removes the final insertion entry without renumbering and preserves explicit null/guard/copy boundaries. Push40928765568 / PR40928781175 / exact-main40929318757 attempt1 PASS |
 | [Array-push parser admission probe](evidence/parser-array-push-probe-2026-10-29.md) | GoHP136 passes original165 `array_push` through the unchanged closure and stops at codegen PHP004 line205 `array_pop`; its owned fixture/9 checks pass PHP8.3.36/8.4.27 push/PR/exact-main CI, but no original parser artifact or acceptance |

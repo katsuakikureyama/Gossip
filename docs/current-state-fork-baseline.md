@@ -2,7 +2,39 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: bounded array_pop reaches the JSON gate
+## Latest: complete original Go generation/build, original runtime still unverified
+
+[GoHP138](https://github.com/katsuakikureyama/GoHP/pull/138) adds associative JSON with execution-local last-error
+code/message readers, needed by the existing reference observer. It admits only
+actual-string/literal-true two-argument mode, ordered nested Array/string/bool/
+null/int64 values and default depth512. Valid fraction/exponent/out-of-int64
+numeric tokens reject explicitly. No flags/custom depth/object mode, silent
+float coercion, new storage lane/dependency/IR version or source rewriting.
+
+One [unchanged complete original probe](evidence/parser-json-generation-2026-10-30.md)
+at clean35524a6/tree2bec82d9 with existing manifestSHA89f897c6 exits0 and publishes
+all three complete classes as Go/v0.2 report; a single Go1.23.0Darwinarm64/CGO0
+build also exits0. Generation stdout/stderr0, generated GoSHA55c66c93,
+reportSHAbbf61c48. Generated artifacts retained outside source worktrees;
+only the temporary build binary removed. Original source/manifest/pins unchanged.
+
+**No original parse calls or full comparison were run.** Empty generated main
+was not used as an execution success. Enabled-PCRE original invocation and the
+fixed12-case/24-call typed comparison remain next; G83-PARSER stays open. Owned
+JSON fixture/native CI is distinct feature evidence, not original acceptance.
+Initial surrogate uint16 build FAIL corrected by widening at35524a6; only
+affected runtime/host checks rerun PASS, earlier successful ranges reused.
+GoHP138 finalheade90460e/tree25914fb8 merged mainb2d1482268a7710c515c07bf919af3d40b09d17c.
+Push41021437634/PR41021444154 attempt1 all4 jobs SUCCESS. Saved push reports
+match exact clean head/tree/Go1.23.12linuxamd64/CGO0/PHP8.3.36 and8.4.27.
+All10 new checks PASS independently;855total:8.3 837PASS+18unmeasured /
+8.4 853PASS+2unmeasured. Separate owned native/Go stdout812bytes equal,
+exit0/quietstderr0; general diagnostic/exception/sideeffect equivalence unmeasured.
+No successful suite/probe/build or same-tree archive re-run/download.
+Auth/routes/deployment unchanged, Gossip CI unconfigured, CLI/WebMCP excluded,
+devboard unidentified/not synchronized. No production target configured.
+
+## Previous: bounded array_pop reaches the JSON gate
 
 Merged GoHP137 admits a deliberately closed `array_pop` statement:
 an existing bare local or direct named public property of a defined bare local,

@@ -41,8 +41,9 @@ in [source provenance](docs/provenance.md).
 
 Current priority: **make one fixed Gossip source work on PHP 8.3**, starting with
 the complete original block parser. The [application gates and blocker list](docs/php83-application-acceptance.md)
-define the scope and subsequent bootstrap/DB/HTTP/site workflows. **Full parser
-translation is blocked**; native-reference capture is not generated-Go success.
+define the scope and subsequent bootstrap/DB/HTTP/site workflows. **Complete
+parser Go generation/build is observed; original execution is unverified**.
+Native-reference capture is not generated-Go execution or acceptance.
 The [new native full-parser reference](docs/evidence/parser-full-baseline-2026-10-27.md)
 records 12 cases / 24 original calls; it is not added to the Go comparison counts.
 General storage optimization and new PHP-target expansion are deferred.
@@ -125,6 +126,18 @@ configuration.
 
 ## Direction
 
+Merged [GoHP138](https://github.com/katsuakikureyama/GoHP/pull/138) adds bounded associative JSON and
+execution-local error readers. Its [one complete unchanged-source probe](docs/evidence/parser-json-generation-2026-10-30.md)
+passes the former json_decode283 rejection, publishes all three classes as Go
+with a v0.2 report, and builds once on Go1.23.0Darwinarm64/CGO0. This is not
+original parse invocation or enabled-PCRE execution. Next is the actual generated
+entry/observer and fixed12-case/24-call PHP comparison; G83-PARSER remains open.
+General JSON floats/flags/object mode and full WordPress support are not claimed.
+Its separate owned JSON fixture and10 new checks pass pinned PHP8.3/8.4 CI;
+mainb2d1482 retains the tested tree. Those are not original runtime results.
+
+Earlier pin-specific admission history follows:
+
 Gossip uses the active [PHP 8.3 application gate](docs/php83-application-acceptance.md)
 to prioritize GoHP work. [GoHP PR130](https://github.com/katsuakikureyama/GoHP/pull/130), now merged to main, adds an opt-in,
 checked static-declaration closure: it verifies the complete original parser,
@@ -180,9 +193,9 @@ entry without renumbering remaining keys, then binds the popped value (or
 `null`) last. Empty arrays do not publish a mutation; nested arrays are copied
 eagerly while child-object identity is retained. The unchanged three-file
 [array-pop probe](docs/evidence/parser-array-pop-probe-2026-10-30.md) passes
-the former line205 rejection and now stops at line283 `json_decode`. This is
-only source admission: original generation, build, execution, differential
-comparison, and G83-PARSER acceptance remain blocked. Its push and PR CI
+the former line205 rejection and stopped at line283 `json_decode` at that earlier
+candidate. It did not establish original generation/build/execution/differential
+comparison or G83-PARSER acceptance. Its push and PR CI
 attempt1 both pass on PHP8.3.36/8.4.27; all ten new checks pass on both targets.
 Its owned fixture has equal 902-byte native/Go stdout, exit0 and quiet stderr.
 That fixture comparison is separate from the unchanged original parser probe.

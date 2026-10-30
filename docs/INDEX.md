@@ -6,9 +6,11 @@ support or compatibility promise.
 
 | Document | Purpose |
 | --- | --- |
+| [Generated original parser at match1](evidence/parser-match1-generated-2026-10-30.md) | Separate explicit GoHP140 profile, fresh complete generation/build/24calls match retained PHP12cases including16resource error2 outcomes; no PHP rerun or application acceptance |
+| [Generated match1 machine record](evidence/parser-match1-generated-2026-10-30.json) | Actual generated observations plus retained native cases, source/profile/command/run_count1 and exact hashes; default/old inputs unchanged |
 | [Original hook API baseline](evidence/hooks-original-baseline-2026-10-30.md) | Native-only8workflow reference for actual plugin.php/WP_Hook/Sentinel; current GoHP rejects original require25/PHP002, no generated hooks/bootstrap acceptance. Next semantics and fail-closed attribute repair identified |
 | [Hook baseline machine record](evidence/hooks-original-baseline-2026-10-30.json) | Actual native typed events/global/private state plus separate file-bound source-rejection/no-artifact outcome; clean-source/command/run_count1, not a differential PASS |
-| [Original-parser resource boundaries](evidence/parser-resource-boundaries-2026-10-30.md) | Fixed-profile12stress documents/24calls per side PASS/all PCRE0; separate PHP-only match1 original error2 reference, generated budget unsupported; gate partially observed/open |
+| [Original-parser resource boundaries](evidence/parser-resource-boundaries-2026-10-30.md) | Historical fixed-profile stress/all PCRE0 and native-only match1 capture; the later separate generated-match1 record adds Go error-path comparison, host/resource gates remain open |
 | [Fixed-profile stress machine record](evidence/parser-resource-boundaries-2026-10-30.json) | Both complete typed observations, unchanged settings/inputs, clean951b637c3 and one-run command provenance; no proof of unreachable errors |
 | [Match1 native machine record](evidence/parser-resource-match1-2026-10-30.json) | Separate named PHP setting:12documents/24calls,16error2calls, complete original freeform/state observations; no generated comparison, initial preflight failure retained |
 | [Original-parser JSON error boundaries](evidence/parser-json-errors-2026-10-30.md) | Separate12documents/24calls per side PASS: invalid attribute UTF-8, raw controls, lone surrogates and JSON depth errors; unchanged observers, G83/resource gate open |

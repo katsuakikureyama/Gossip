@@ -2,7 +2,42 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: native original hook baseline recorded; generated hooks remain blocked
+## Latest: explicit generated match1 profile matches original PHP resource errors
+
+[GoHP140](https://github.com/katsuakikureyama/GoHP/pull/140) adds the separate
+compile-time `pcre2-php83-match1-v1` profile, retaining the fixed default entry
+and all old consumer pins. Its new
+[complete-original comparison](evidence/parser-match1-generated-2026-10-30.md)
+at clean Gossip79e61bab8a00f23f779c1ece2808ae3df3e27129/GoHPmain
+e6a71a5f267658e8c575ffab5db6712246e543b2 fresh-generates, builds and executes
+all three unchanged parser classes. One new configuration PASS2.90s/package
+3.137s,12cases/24actual parse calls, mismatch0, exit0/runtime stderr0.
+Sixteen error2/freeform and eight error0 calls match retained PHP8.3.36, along
+with ordered typed values/raw bytes/full fields/JSON state/caller/reuse.
+Canonical typedcases SHA
+`4f4d9fcd79d53704981a9ae8e1c51f1387971818d21fe0223e1092a89884a728`.
+
+Native PHP was not rerun; its earlier match1 record remains immutable.
+The new generated Go/report are retained as data outside source worktrees,
+the temporary binary is test-cleaned, and the exact existing Go observer and
+all original PHP source/manifests/corpora/old evidence/pins stay unchanged.
+Default match100000 is not silently lowered. The new profile is explicit in
+CLI/IR/closure/report/runtime dispatch, requires PHP8.3 and separate opt-in,
+and rejects unknown/missing-option/8.4 selections. No mutable budget or
+backend/storage/error-mapping expansion. GoHP push/PR/main CI succeeds;
+866checks include8new tooling checks, separate from this enabled comparison.
+
+The resource gate now has a matching-profile generated match-limit-error
+observation, case-limited. Host bounds/timeouts/other resource failures and
+G83/application acceptance remain open. BOOT75's native hook/source-rejection
+baseline and GoHP139's attribute guard are preserved; no generated hooks or
+data/HTTP/site acceptance. Existing engine/toolchain/cache only, no install/
+startup/pull or new resources. Local capability
+`gossip.tests.parser-match1-generated` records inputs/phases/results and WebMCP
+exclusion; no auth/routes/UI/deploy change. Issue1 scope6522495611,
+devboard unidentified/unsynchronized.
+
+## Previous: native original hook baseline recorded; generated hooks remain blocked
 
 The [hook baseline](evidence/hooks-original-baseline-2026-10-30.md) records eight
 actual native workflows over complete unchanged `plugin.php`, `WP_Hook` and

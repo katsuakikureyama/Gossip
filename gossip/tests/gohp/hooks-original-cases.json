@@ -1,0 +1,10 @@
+[
+  "no_callbacks",
+  "priority_order",
+  "accepted_arguments",
+  "callback_identity_removal",
+  "actions",
+  "reentrant_filter",
+  "mutation_during_iteration",
+  "sentinel_identity"
+]

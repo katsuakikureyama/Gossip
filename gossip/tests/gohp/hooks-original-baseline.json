@@ -1,0 +1,12 @@
+{
+  "schema": "gossip.hooks-original-baseline/v1",
+  "gohp_commit": "b2d1482268a7710c515c07bf919af3d40b09d17c",
+  "wordpress_commit": "54106f6c545fc8b881f6b39b7963002bece6c28c",
+  "php_image": "php@sha256:98d555ff97b3865140ad31032508c3ca089fa97a8944b14ca9dc03ea05d788cd",
+  "php_target": "8.3",
+  "entry": "wp-includes/plugin.php",
+  "closure_manifest_sha256": "f097e415b3c81b00a36aeba10a0b29a9d9342b1d4c168933056e99b9842bfba4",
+  "cases_sha256": "6469dd559b242ccb93bcf843c263b51382ab812adfc90f5466019ee3316e0ff2",
+  "observer_sha256": "31c19ef5344e53df9dc762d3777b5d4598b2a5928620c5781e71e4d8add89bb1",
+  "expected_source_admission": "rejected"
+}

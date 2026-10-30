@@ -138,11 +138,15 @@ quiet stderr. The [separate fresh-PHP comparison](docs/evidence/parser-full-fres
 now also passes once on the same12 cases using the exact existing oracle.
 This is typed-case comparison, not whole-process stdout-byte equality or full
 Gossip acceptance. The [boundary review](docs/parser-full-acceptance-boundaries.md)
-records the remaining JSON/type/resource cases. A separate
+records the remaining JSON-error/resource cases. A separate
 [carry-in-state series](docs/evidence/parser-carry-state-2026-10-30.md) now matches
 PHP for four sequences/20 original calls per side: JSON errors persist until a
 decode replaces them, while regex execution clears an incoming PCRE error
-independently. The old12-case corpus is unchanged; G83-PARSER stays open.
+independently. The new [JSON key/type series](docs/evidence/parser-json-key-types-2026-10-30.md)
+also matches PHP for12new documents/24calls: duplicate/numeric keys, exact
+signed64 bounds, nested types and decoded string bytes. It reuses the unchanged
+observers with its own pinned corpus. The old12-case corpus is unchanged;
+G83-PARSER stays open for invalid JSON/depth and original regex/resource errors.
 General JSON floats/flags/object mode and full WordPress
 support are not claimed; the local test adds no browser/WebMCP operation. Its separate owned JSON
 fixture and10 new checks pass pinned PHP8.3/8.4 CI; mainb2d1482 retains the

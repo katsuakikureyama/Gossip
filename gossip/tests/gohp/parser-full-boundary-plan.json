@@ -36,7 +36,7 @@
   },
   "reviewed_gates": [
     {"id":"g83.fresh-native-v1","status":"passed-case-limited","series":"existing-fixed-v1","requires_new_series":false,"requirement":"Existing fresh mode completed once on the exact cached oracle; same12 typed cases/24 actual original calls per side. No setup or rerun authorized by this plan"},
-    {"id":"g83.json-key-type-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["duplicate/numeric-string keys and order","int64 extrema in object attributes"],"requirement":"New immutable native/generated original observations; no reuse of standalone builtin results as parser evidence"},
+    {"id":"g83.json-key-type-boundaries","status":"passed-case-limited","series":"json-key-types-v1","requires_new_series":true,"families":["duplicate/escaped/numeric-string keys and order","int64 extrema in object attributes","empty/nested arrays/objects and scalar/string bytes"],"evidence":"../../../docs/evidence/parser-json-key-types-2026-10-30.json","case_count":12,"parse_calls_per_backend":24,"scope":"New immutable corpus/pin/runner and actual native/generated complete-original observations; exact existing full observers reused. Invalid JSON/depth, float/overflow values and arbitrary inputs not established"},
     {"id":"g83.json-error-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["invalid UTF8 inside JSON attrs","raw control and lone UTF16 surrogate","default JSON depth error"],"requirement":"Distinguish native JSON null/error, runtime failure and typed-observer depth failure"},
     {"id":"g83.pcre-error-resource-boundaries","status":"not-measured","series":"planned-extension","requires_new_series":true,"families":["original parser path with nonzero PCRE error","subject bound rejection","timeout and resource failure"],"requirement":"Record output/state/errors or explicit process failure; PHP process memory and PCRE heap are distinct budgets"},
     {"id":"g83.carry-in-state","status":"passed-case-limited","series":"gossip.parser-carry-state/v1","requires_new_series":true,"families":["nonzero JSON error before parse without success reset","nonzero PCRE error before parse"],"evidence":"../../../docs/evidence/parser-carry-state-2026-10-30.json","scenario_count":4,"parse_calls_per_backend":20,"scope":"JSON0/4, incoming PCRE0/2; before/after actual original calls. Direct regex caller seed does not establish original-pattern resource-error path; old fixed-v1 unchanged"}
@@ -50,7 +50,7 @@
     {"id":"g83.arbitrary-runtime","status":"unsupported","boundary":"No arbitrary WordPress/plugin/theme/bootstrap/data/HTTP/site or unbounded resource acceptance"}
   ],
   "preservation": {
-    "scope": "Existing fixed-v1 series; the separate carry-in extension adds new observers/corpus/pin/harness without changing the old ones",
+    "scope": "Existing fixed-v1 series; carry-in adds separate observers/corpus/pin/harness, key/types adds new corpus/pin/runner reusing exact existing full observers; no old inputs/records changed",
     "original_source_changed": false,
     "old_manifest_corpus_observer_pins_changed": false,
     "retained_native_or_generated_evidence_changed": false,

@@ -2,7 +2,39 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: original-parser carry-in state matches fixed PHP
+## Latest: original-parser JSON key/type boundaries match fixed PHP
+
+The separate [key/type series](evidence/parser-json-key-types-2026-10-30.md)
+passes twelve new documents/twenty-four actual complete-original parse calls
+per backend, fresh/reused parsers and one shared Execution. Clean measured
+commit `2729405b83646390fc7171ce90860e99b551deb5`, tree
+`be4da5e95b7dfa6eea47be2cdb9c8edd34eef227`, unchanged GoHPb2d1482.
+One configuration/attempt, PASS2.57s/package2.788s, mismatch0, exits0/runtime
+stderr0. Duplicate/escaped/numeric keys/order, exact signed64 limits,
+empty/nested objects/lists, scalar types and decoded raw-byte strings agree
+with actual PHP8.3.36. Canonical typedcases SHA
+`3a49f9f142a45bc7e2d8167efd186edf0a8f7c8fd87be89c68ae76ed73efeac3`.
+Whole stdout envelopes differ. The new pin verifies actual named blocks/attrs
+array outcomes so skipping attribute decoding cannot pass.
+
+Existing full PHP/Go observers, checked generated parser/report, runtime pin,
+source closure and old evidence remain unchanged. Only a new corpus/pin/shared
+JSON-boundary runner and proof/docs are added; fixed-v1/carry-in successful
+configurations are not rerun. The [machine record](evidence/parser-json-key-types-2026-10-30.json)
+keeps both observations and exact signed64 integers plus source/command/profile
+and one-attempt provenance. Existing offline toolchain/static engine/cache and
+already-running Docker25.0.3/fixed image only; no install/startup/pull, persistent
+binary or deployment. Test cleanup removes the temporary executable.
+
+Key/types is passed-case-limited. JSON-invalid/depth and original-pattern
+PCRE/resource failures remain unmeasured; G83-PARSER and application acceptance
+stay open, bootstrap/data/HTTP/site not-run. The distinct JSON-error owner
+scope6521354926 is independent and not counted as measured here. New local test
+capability `gossip.tests.parser-json-key-types` is experimental/WebMCP-excluded
+with explicit input/phases/result; no auth/route/UI operation changes. Issue1
+tracks canonical scope6521347316; devboard remains unidentified/unsynchronized.
+
+## Previous: original-parser carry-in state matches fixed PHP
 
 The separate [carry-in series](evidence/parser-carry-state-2026-10-30.md) passes
 four sequences / twenty actual original parse calls per backend, fresh and

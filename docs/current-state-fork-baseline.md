@@ -2,7 +2,39 @@
 
 Last updated: 2026-10-30 (JST).
 
-## Latest: fresh comparison adopted and acceptance boundaries reviewed
+## Latest: original-parser carry-in state matches fixed PHP
+
+The separate [carry-in series](evidence/parser-carry-state-2026-10-30.md) passes
+four sequences / twenty actual original parse calls per backend, fresh and
+reused parsers, single shared generated Execution. Clean measured commit
+`ed13d612505ad2241031dcba05c2b07e6c024434`, tree
+`7d197731427c6d1f3f0ec3da59bf65b5271db834`; GoHPb2d1482 unchanged.
+One configuration/attempt, PASS2.60s/package2.806s, mismatch0, both exit0/stderr0.
+JSON4 persists without decoding, successful attribute decoding clears it and
+incoming PCRE2 resets independently during original regex execution. Typed
+result/order/raw bytes/all parser properties/caller/reuse and error messages
+match actual PHP8.3.36. Canonical scenarios SHA
+`c84456389053f42239b32b81949346b128761b328bd1e5b74a9117b92c967c0f`.
+Whole stdout envelopes differ; the machine record retains both observations.
+
+The new observers/pin/corpus/harness are isolated from the existing12/24 series.
+Existing generated Go/report and source/runtime pins are checked and reused;
+no old successful test/generation is repeated. Existing cached image/engine,
+offline Go1.23.0, CGO1 child/staticPCRE10.47_1, clang/SDK15.5 only; no installs,
+daemon startup or persistent binary. Linker warning is separate from runtime
+stderr. Test cleanup removes the temporary executable.
+
+The [boundary plan](../gossip/tests/gohp/parser-full-boundary-plan.json) now marks
+only carry-in as a separate case-limited PASS. A direct regex seeds PCRE2;
+the original WordPress regex resource-error path is still unmeasured. JSON
+key/type/encoding/control/surrogate/depth and G83-PARSER remain open, later
+bootstrap/data/HTTP/site gates not-run. Original sources and all old
+pins/observers/corpus/evidence are unchanged. Local capability
+`gossip.tests.parser-carry-state` is experimental/WebMCP-excluded; no route,
+authentication or deployment change. Issue1 tracks the work; devboard remains
+unidentified and unsynchronized.
+
+## Previous: fresh comparison adopted and acceptance boundaries reviewed
 
 The [new fresh-mode record](evidence/parser-full-fresh-2026-10-30.md) passes
 12cases/24 actual original parse calls per side against a new execution of the

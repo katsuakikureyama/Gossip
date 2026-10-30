@@ -10,13 +10,21 @@ acceptance. The boundary review is now recorded; its open
 items are not converted into exclusions that silently make G83-PARSER pass.
 No compiler defect requiring a GoHP change was demonstrated by this review.
 
-This is a source/evidence review, not a new execution or second verifier.
+A later, separate [carry-in-state measurement](evidence/parser-carry-state-2026-10-30.md)
+now passes four sequences/twenty original calls per backend. JSON0/4 and incoming
+PCRE0/2 match before/after original calls without per-call success resets.
+JSON/type/error/resource gates and G83-PARSER remain open. This does not alter
+the fixed12-case result described below.
+
+The original PR70 boundary review itself is a source/evidence review, not a new
+execution or second verifier. The later carry-in series has its own measured
+source, observers, command and evidence.
 Reuse [the immutable generated execution](evidence/parser-full-generated-2026-10-30.md)
 and [native capture](evidence/parser-full-baseline-2026-10-27.md). The existing
 corpus, observers, pins and machine records are unchanged. The separate
 [machine-readable boundary plan](../gossip/tests/gohp/parser-full-boundary-plan.json)
-separates the passed fresh-v1 prerequisite from **planned, unexecuted boundary
-probes**, not additional passed cases or an executable extension of the harness.
+separates passed fresh-v1 and carry-in identities from **remaining planned,
+unexecuted probes**. It is not an executable extension of either harness.
 
 ## What the current result establishes
 
@@ -27,7 +35,7 @@ probes**, not additional passed cases or an executable extension of the harness.
 | Valid JSON attributes | `nested_attributes`: object/list, UTF-8 string, integer1, true/false/null | No integer extrema, duplicate/numeric-string keys or arbitrary nesting comparison in the complete parser; scalar roots cannot reach this JSON callsite |
 | Invalid JSON attributes | `malformed_json_attributes`: `{"broken":}` produces null attrs and JSON4/message on both calls | Syntax error only; no complete-parser UTF-8/control/surrogate/depth error measurements |
 | Raw string bytes | `raw_utf8_and_nul`: valid UTF-8 and NUL in freeform content | **Not invalid UTF-8 inside JSON attributes** |
-| Parser state and reuse | same typed result and every parser field, unchanged caller, fresh/reused objects | JSON error is deliberately reset to0 before every call; arbitrary carry-in JSON/PCRE errors are not measured |
+| Parser state and reuse | fixed-v1 has same typed result and every parser field, unchanged caller, fresh/reused objects | Fixed-v1 resets JSON before every call. The separate carry-in series now measures JSON0/4 and incoming PCRE0/2; arbitrary globals remain unmeasured |
 | Regex errors/resources | all24 recorded PCRE error codes0 | No original limit-error path, over-bound subject, heap/process-memory exhaustion, or timeout-equivalence measurement |
 | Entry API | `parse(document)` is always passed a string decoded from the fixed corpus | No null/bool/int/array/object coercion or PHP warning/exception equivalence; the other six public methods are not directly API-tested |
 
@@ -92,23 +100,27 @@ failure, parser errors and observation-transport failure are distinct states.
    fields and PCRE status. Do not substitute direct preg_match or different
    engine experiments. Host guards/timeouts need a separate failure observation,
    not disappearance from the denominator or a matching nonzero process exit.
-4. **Carry-in state — unmeasured.** In a new observer series, deliberately seed
-   JSON and PCRE errors, then record both sides before/after original parse calls
-   without the current JSON success baseline. Do not assume parse resets globals.
+4. **Carry-in state — passed, case-limited separate series.** The new
+   [four-sequence measurement](evidence/parser-carry-state-2026-10-30.md) seeds
+   actual JSON0/4 and PCRE0/2, then records before/after twenty original parse
+   calls per backend without per-call resets. JSON persists until a decode
+   replaces it; original regex execution clears PCRE independently. All typed
+   values/state/caller/reuse match. Other globals/error codes remain unmeasured;
+   a direct PCRE caller seed is not the original regex resource-error path.
 5. **Outside-profile API/value cases — explicit, not supported.** Nonstring
    input, float/overflow values, arbitrary public-method calls, references,
    visibility/dynamic properties and unbounded resource use remain excluded from
    the current result. Proposed negative records must preserve those rows; they
    must not replace the fixed12 original cases or imply PHP exception parity.
 
-The plan's case families are review findings, **not newly captured native
-expectations**. Keep the original12/24 result and its hashes unchanged. Each
+The plan's remaining unmeasured families are review findings, **not captured
+native expectations**. Keep the original12/24 result and its hashes unchanged. Each
 extension gets a new manifest/corpus/observer/evidence identity, separate
 denominator and supported/unsupported/unmeasured status. No expected values are
 invented from generated output. G83-PARSER remains open; bootstrap/DB/HTTP/site
 gates remain not-run.
 
-## Capability and work performed
+## Original PR70 review capability and work performed
 
 This change adds the boundary plan, project documentation and adopted fresh
 evidence. The plan is
